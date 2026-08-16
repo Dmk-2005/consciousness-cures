@@ -1,0 +1,540 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Programs — Consciousness Cures | Dr. Suchitra Mylapilli</title>
+<link rel="stylesheet" href="style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+body { background:#FDFCF7; }
+
+/* ── PAGE HERO ── */
+.pg-hero {
+  background:
+    radial-gradient(ellipse at 80% 30%, rgba(245,210,80,0.1) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 70%, rgba(11,61,53,0.15) 0%, transparent 50%),
+    linear-gradient(150deg, #0F2D3A 0%, #0A2230 100%);
+  padding: 88px 0 72px;
+  position: relative; overflow: hidden;
+}
+.pg-hero::before {
+  content:''; position:absolute; top:-80px; left:50%; transform:translateX(-50%);
+  width:700px; height:280px;
+  background:radial-gradient(ellipse, rgba(245,210,80,0.08) 0%, transparent 65%);
+  pointer-events:none;
+}
+.pg-hero-inner { display:flex; gap:72px; align-items:center; position:relative; z-index:1; }
+.pg-hero-text { flex:1; display:flex; flex-direction:column; gap:20px; }
+
+/* ── FILTER BAR ── */
+.pg-filter {
+  background:#fff;
+  border-bottom:1px solid #E8E2D0;
+  padding:16px 0;
+  position:sticky; top:116px; z-index:800;
+  box-shadow:0 2px 12px rgba(0,0,0,0.04);
+}
+.pg-filter-inner { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.pg-filter-label { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.14em; color:var(--muted); margin-right:4px; flex-shrink:0; }
+.pg-filter-btn {
+  padding:7px 18px; border-radius:20px; font-size:0.78rem;
+  font-family:'DM Sans',sans-serif; cursor:pointer;
+  transition:all 0.2s ease; border:1px solid #E8E2D0;
+  background:transparent; color:var(--muted);
+}
+.pg-filter-btn:hover { border-color:#0B3D35; color:#0B3D35; }
+.pg-filter-btn.active {
+  background:#0B3D35; color:#F5EDD0;
+  border-color:#0B3D35;
+}
+
+/* ── PROGRAM CARDS ── */
+.pg-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.pg-card {
+  background:#fff;
+  border:1px solid #E8E2D0;
+  border-radius:18px;
+  overflow:hidden;
+  display:flex; flex-direction:column;
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+  opacity:0; transform:translateY(22px);
+}
+.pg-card.pg-in { animation:pgIn 0.5s cubic-bezier(0.22,1,0.36,1) forwards; }
+@keyframes pgIn { to { opacity:1; transform:translateY(0); } }
+.pg-card:hover { transform:translateY(-6px); box-shadow:0 16px 48px rgba(0,0,0,0.1); }
+
+/* card image */
+.pg-card-img {
+  height:220px; overflow:hidden; position:relative;
+  background:#F0EAD8;
+}
+.pg-card-img img {
+  width:100%; height:100%; object-fit:cover; display:block;
+  transition:transform 0.5s ease;
+}
+.pg-card:hover .pg-card-img img { transform:scale(1.05); }
+.pg-card-img-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.45) 100%);
+}
+.pg-card-img-badge {
+  position:absolute; top:14px; left:14px;
+  font-size:0.62rem; text-transform:uppercase; letter-spacing:0.12em;
+  padding:4px 12px; border-radius:20px; backdrop-filter:blur(8px);
+}
+
+/* card body */
+.pg-card-body {
+  padding:24px; flex:1;
+  display:flex; flex-direction:column; gap:12px;
+}
+.pg-card-meta {
+  display:flex; justify-content:space-between; align-items:center;
+}
+.pg-card-mode {
+  font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em;
+  color:var(--muted);
+}
+.pg-card-title {
+  font-family:'Playfair Display',serif;
+  font-size:1.25rem; font-weight:400; color:#2E2A22;
+  line-height:1.25;
+}
+.pg-card-desc { font-size:0.84rem; color:#6A6058; line-height:1.72; flex:1; }
+.pg-card-details {
+  display:flex; flex-direction:column; gap:5px;
+  font-size:0.78rem; color:var(--ink);
+  padding:12px 0; border-top:1px solid #F0EAD8; border-bottom:1px solid #F0EAD8;
+}
+.pg-card-cta {
+  display:block; text-align:center;
+  padding:11px; border-radius:10px;
+  background:#0B3D35; color:#F5EDD0;
+  font-size:0.84rem; font-weight:500;
+  transition:background 0.2s, transform 0.2s;
+  margin-top:4px;
+}
+.pg-card-cta:hover { background:#145A48; transform:translateY(-1px); }
+
+/* hidden when filtered */
+.pg-card.pg-hidden { display:none; }
+
+/* card buttons — two per card */
+.pg-card-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+.pg-btn-learn {
+  flex: 1;
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: 9px;
+  border: 1.5px solid #D4C8A8;
+  color: #5A5245;
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.pg-btn-learn:hover {
+  border-color: #0B3D35;
+  color: #0B3D35;
+  background: rgba(11,61,53,0.04);
+}
+.pg-btn-enquire {
+  flex: 1;
+  text-align: center;
+  padding: 10px 14px;
+  border-radius: 9px;
+  background: #0B3D35;
+  color: #F5EDD0;
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: background 0.2s, transform 0.2s;
+}
+.pg-btn-enquire:hover {
+  background: #145A48;
+  transform: translateY(-1px);
+}
+  display:flex; align-items:center; gap:16px;
+  margin-bottom:32px; margin-top:16px;
+}
+.pg-cat-line { flex:1; height:1px; background:#E8E2D0; }
+.pg-cat-label {
+  font-size:0.72rem; text-transform:uppercase; letter-spacing:0.2em;
+  color:var(--muted); flex-shrink:0;
+}
+</style>
+</head>
+<body>
+
+<!-- TOP HEADER -->
+<div class="top-header">
+  <div class="top-header-inner">
+    <div class="top-brand">
+      <div class="top-guru-photo" style="width:72px;height:72px;flex-shrink:0;">
+        <img src="images/hahnemann.jpg" alt="Dr. Samuel Hahnemann" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/>
+      </div>
+      <div class="top-brand-text">
+        <span class="top-center-name">Dr. Samuel Hahnemann</span>
+        <span class="top-center-tagline">Father of Homeopathy</span>
+      </div>
+    </div>
+    <div class="top-divider"><div class="top-center-heading"><img src="images/logo.png" alt="Consciousness Cures" class="top-logo-center"/></div></div>
+    <div class="top-guru">
+      <div class="top-guru-label">
+        <span class="top-guru-name">Sri Sri Ravi Shankar</span>
+        <span class="top-guru-role">Founder, Art of Living</span>
+      </div>
+      <div class="top-guru-photo">
+        <img src="images/srisri.jpg" alt="Sri Sri Ravi Shankar" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-wrap">
+    <div class="nav-logo">
+      <img src="images/logo.png" alt="Consciousness Cures" style="height:100px;width:100px;object-fit:contain;border-radius:10px;flex-shrink:0;"/>
+      <div class="nav-logo-text"><span class="logo-main">Consciousness Cures</span><span class="logo-sub">Homeopathy · Art of Living</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a><a href="about.html">About</a>
+      <a href="homeopathy.html">Homeopathy</a><a href="art-of-living.html">Art of Living</a>
+      <a href="programs.html" class="on">Programs</a><a href="conditions.html">Conditions</a>
+      <a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn nav-cta">Book via WhatsApp</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="pg-hero">
+  <div class="wrap pg-hero-inner">
+    <div class="pg-hero-text">
+      <span class="eyebrow" style="color:#6DBF8A;">Signature Offerings</span>
+      <h1 style="font-family:'Playfair Display',serif;color:#F5F0E8;font-weight:400;font-size:clamp(2.4rem,3.5vw,3.8rem);line-height:1.1;">Healing &amp; Wellness<br/><em style="color:#F5D250;">Programs</em></h1>
+      <p style="color:#8ABAAA;font-size:1rem;max-width:460px;line-height:1.8;">Homeopathy consultations and Art of Living programs — online and in-clinic — personalised to your unique constitution and life stage.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="contact.html" class="btn-wa"><span class="wa-dot">WA</span> Enquire via WhatsApp</a>
+        <a href="#all-programs" style="display:inline-block;padding:12px 26px;border-radius:8px;border:1.5px solid rgba(245,240,232,0.3);color:#F5F0E8;font-size:0.88rem;transition:all 0.25s;">Browse Programs ↓</a>
+      </div>
+    </div>
+    <!-- stats -->
+    <div style="flex:0 0 340px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;text-align:center;">
+        <div style="font-family:'Playfair Display',serif;font-size:2rem;color:#F5D250;line-height:1;">6+</div>
+        <div style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-top:6px;">Programs Available</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;text-align:center;">
+        <div style="font-family:'Playfair Display',serif;font-size:2rem;color:#6DBF8A;line-height:1;">All</div>
+        <div style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-top:6px;">Ages Welcome</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;text-align:center;">
+        <div style="font-family:'Playfair Display',serif;font-size:2rem;color:#F5D250;line-height:1;">💻</div>
+        <div style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-top:6px;">Online Available</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px;text-align:center;">
+        <div style="font-family:'Playfair Display',serif;font-size:2rem;color:#6DBF8A;line-height:1;">🏥</div>
+        <div style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-top:6px;">In-Clinic Too</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FILTER BAR ══ -->
+<div class="pg-filter">
+  <div class="wrap pg-filter-inner">
+    <span class="pg-filter-label">Filter:</span>
+    <button class="pg-filter-btn active" onclick="filterPrograms('all', this)">All Programs</button>
+    <button class="pg-filter-btn" onclick="filterPrograms('homeopathy', this)">Homeopathy</button>
+    <button class="pg-filter-btn" onclick="filterPrograms('aol', this)">Art of Living</button>
+    <button class="pg-filter-btn" onclick="filterPrograms('children', this)">Children</button>
+    <button class="pg-filter-btn" onclick="filterPrograms('youth', this)">Youth</button>
+    <button class="pg-filter-btn" onclick="filterPrograms('wellness', this)">Wellness</button>
+    <button class="pg-filter-btn" onclick="filterPrograms('advanced', this)">Advanced</button>
+  </div>
+</div>
+
+<!-- ══ ALL PROGRAMS ══ -->
+<section class="sec" id="all-programs" style="background:#FDFCF7;">
+  <div class="wrap">
+
+    <!-- ── Homeopathy & Wellness ── -->
+    <div class="pg-cat-heading">
+      <div class="pg-cat-line"></div>
+      <span class="pg-cat-label">Homeopathy &amp; Wellness</span>
+      <div class="pg-cat-line"></div>
+    </div>
+    <div class="pg-grid" style="margin-bottom:60px;">
+
+      <!-- 1. Consciousness Cures -->
+      <div class="pg-card" data-cat="homeopathy">
+        <div class="pg-card-img">
+          <img src="images/01_consciousness_cures_homeopathy.png" alt="Consciousness Cures Homeopathy"/>
+          <div class="pg-card-img-overlay"></div>
+          <span class="pg-card-img-badge" style="background:rgba(11,61,53,0.85);color:#F5EDD0;border:1px solid rgba(200,150,30,0.3);">Homeopathy</span>
+        </div>
+        <div class="pg-card-body">
+          <div class="pg-card-meta">
+            <span class="tag">Signature Program</span>
+            <span class="pg-card-mode">Online + In-Person</span>
+          </div>
+          <h3 class="pg-card-title">Consciousness Cures</h3>
+          <p class="pg-card-desc">A deeply individualized homeopathic consultation that bridges inner awareness and natural healing. Dr. Suchitra spends 60–90 minutes understanding your complete history — physical, mental, and emotional — before prescribing a constitutional remedy.</p>
+          <div class="pg-card-details">
+            <span>⏱ 60–90 min consultation</span>
+            <span>👥 Individual · All ages</span>
+            <span>📍 Ravindra Nagar + Online</span>
+          </div>
+          <div class="pg-card-btns">
+            <a href="program-consciousness-cures.html" class="pg-btn-learn">Learn More</a>
+            <a href="contact.html" class="pg-btn-enquire">Enquire Now →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Rakheno -->
+      <div class="pg-card" data-cat="wellness homeopathy">
+        <div class="pg-card-img">
+          <img src="images/03_rakkheno.png" alt="Rakheno Preventive Care"/>
+          <div class="pg-card-img-overlay"></div>
+          <span class="pg-card-img-badge" style="background:rgba(200,150,30,0.9);color:#1A0E00;border:none;">Wellness</span>
+        </div>
+        <div class="pg-card-body">
+          <div class="pg-card-meta">
+            <span class="tag">Preventive Care</span>
+            <span class="pg-card-mode">In-Person</span>
+          </div>
+          <h3 class="pg-card-title">Rakheno</h3>
+          <p class="pg-card-desc">A preventive wellness program designed to maintain health before illness begins. Rakheno works with the body's natural rhythms — helping you stay energised, balanced, and resilient through seasonal changes and daily life.</p>
+          <div class="pg-card-details">
+            <span>⏱ Program duration varies</span>
+            <span>👥 Individual + Group</span>
+            <span>📍 In-Clinic</span>
+          </div>
+          <div class="pg-card-btns">
+            <a href="program-rakheno.html" class="pg-btn-learn">Learn More</a>
+            <a href="contact.html" class="pg-btn-enquire">Enquire Now →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── Art of Living · Children · Youth ── -->
+    <div class="pg-cat-heading">
+      <div class="pg-cat-line"></div>
+      <span class="pg-cat-label">Art of Living · Children &amp; Youth</span>
+      <div class="pg-cat-line"></div>
+    </div>
+    <div class="pg-grid" style="margin-bottom:60px;">
+
+      <!-- 3. Sudarshan Kriya -->
+      <div class="pg-card" data-cat="aol">
+        <div class="pg-card-img">
+          <img src="images/02_sudarshan_kriya.png" alt="Sudarshan Kriya"/>
+          <div class="pg-card-img-overlay"></div>
+          <span class="pg-card-img-badge" style="background:rgba(46,122,64,0.85);color:#fff;border:none;">Art of Living</span>
+        </div>
+        <div class="pg-card-body">
+          <div class="pg-card-meta">
+            <span class="tag tag-sage">Core Practice</span>
+            <span class="pg-card-mode">Online + In-Person</span>
+          </div>
+          <h3 class="pg-card-title">Sudarshan Kriya</h3>
+          <p class="pg-card-desc">The signature rhythmic breathing technique of the Art of Living Foundation. It synchronises the body's natural cycles, eliminates accumulated stress, and leaves you feeling deeply refreshed, energised, and calm.</p>
+          <div class="pg-card-details">
+            <span>⏱ Multi-day workshop</span>
+            <span>👥 Group · All adults</span>
+            <span>📍 Online + In-Person</span>
+          </div>
+          <div class="pg-card-btns">
+            <a href="program-sudarshan-kriya.html" class="pg-btn-learn">Learn More</a>
+            <a href="contact.html" class="pg-btn-enquire">Enquire Now →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Sanskar Kendra -->
+      <div class="pg-card" data-cat="children aol">
+        <div class="pg-card-img">
+          <img src="images/04_sanskar_kendra.png" alt="Sanskar Kendra"/>
+          <div class="pg-card-img-overlay"></div>
+          <span class="pg-card-img-badge" style="background:rgba(46,122,64,0.85);color:#fff;border:none;">Children</span>
+        </div>
+        <div class="pg-card-body">
+          <div class="pg-card-meta">
+            <span class="tag" style="background:rgba(46,122,64,0.1);border-color:rgba(46,122,64,0.25);color:#256035;">Children</span>
+            <span class="pg-card-mode">In-Person</span>
+          </div>
+          <h3 class="pg-card-title">Sanskar Kendra</h3>
+          <p class="pg-card-desc">A holistic child development program that nurtures values, character, and inner awareness through stories, gentle breathing, mindful activities, and creative expression. A safe and joyful space for young minds to grow.</p>
+          <div class="pg-card-details">
+            <span>⏱ Weekend batches</span>
+            <span>👥 Children · Age group on enquiry</span>
+            <span>📍 In-Person</span>
+          </div>
+          <div class="pg-card-btns">
+            <a href="program-sanskar-kendra.html" class="pg-btn-learn">Learn More</a>
+            <a href="contact.html" class="pg-btn-enquire">Enquire Now →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Utkarsh & Medha Yoga -->
+      <div class="pg-card" data-cat="children youth aol">
+        <div class="pg-card-img">
+          <img src="images/05_utkarsh_medha_yoga.png" alt="Utkarsh and Medha Yoga"/>
+          <div class="pg-card-img-overlay"></div>
+          <span class="pg-card-img-badge" style="background:rgba(123,80,200,0.85);color:#fff;border:none;">Youth</span>
+        </div>
+        <div class="pg-card-body">
+          <div class="pg-card-meta">
+            <span class="tag" style="background:rgba(123,80,200,0.1);border-color:rgba(123,80,200,0.25);color:#5A3A90;">Ages 8–18</span>
+            <span class="pg-card-mode">Online + In-Person</span>
+          </div>
+          <h3 class="pg-card-title">Utkarsh &amp; Medha Yoga</h3>
+          <p class="pg-card-desc">Excellence programs for students — Utkarsh Yoga for ages 8–13 and Medha Yoga for ages 13–18. Sharpens memory, improves concentration, reduces exam anxiety, and builds lasting confidence.</p>
+          <div class="pg-card-details">
+            <span>⏱ Multi-day program</span>
+            <span>👥 Ages 8–18</span>
+            <span>📍 Online + In-Person</span>
+          </div>
+          <div class="pg-card-btns">
+            <a href="program-utkarsh-medha.html" class="pg-btn-learn">Learn More</a>
+            <a href="contact.html" class="pg-btn-enquire">Enquire Now →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── Advanced ── -->
+    <div class="pg-cat-heading">
+      <div class="pg-cat-line"></div>
+      <span class="pg-cat-label">Advanced</span>
+      <div class="pg-cat-line"></div>
+    </div>
+    <div style="max-width:680px;">
+
+      <!-- 6. Intuition Program -->
+      <div class="pg-card" data-cat="advanced aol children youth" style="flex-direction:row;align-items:stretch;display:flex;">
+        <div class="pg-card-img" style="flex:0 0 280px;height:auto;">
+          <img src="images/06_intuition_program.png" alt="Intuition Program" style="height:100%;"/>
+          <div class="pg-card-img-overlay"></div>
+          <span class="pg-card-img-badge" style="background:rgba(46,42,34,0.9);color:#F5EDD0;border:1px solid rgba(200,150,30,0.3);">Advanced</span>
+        </div>
+        <div class="pg-card-body" style="flex:1;">
+          <div class="pg-card-meta">
+            <span class="tag tag-dark">Advanced</span>
+            <span class="pg-card-mode">In-Person</span>
+          </div>
+          <h3 class="pg-card-title">Intuition Program</h3>
+          <p class="pg-card-desc">An advanced Art of Living workshop that awakens inner intelligence and sharpens intuitive perception. Conducted for both children (ages 5–18) and adults — in separate age-appropriate batches.</p>
+          <div class="pg-card-details">
+            <span>⏱ Multi-day residential</span>
+            <span>👥 Children 5–18 &amp; Adults</span>
+            <span>📍 In-Person · Limited batches</span>
+          </div>
+          <div class="pg-card-btns">
+            <a href="program-intuition.html" class="pg-btn-learn">Learn More</a>
+            <a href="contact.html" class="pg-btn-enquire">Enquire Now →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ NOT SURE BAND ══ -->
+<section style="background:linear-gradient(135deg,#0B3D35 0%,#082E28 100%);padding:72px 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(245,210,80,0.08) 0%,transparent 65%);pointer-events:none;"></div>
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap;position:relative;z-index:1;">
+    <div>
+      <span class="eyebrow" style="color:#6DBF8A;">Not Sure Which Program?</span>
+      <h2 style="color:#F5F0E8;margin-top:8px;max-width:480px;">Let's find your<br/>perfect path together.</h2>
+      <p style="color:#8ABAAA;margin-top:12px;max-width:420px;">Message Dr. Suchitra on WhatsApp — she'll guide you to the right program for your age, needs, and schedule.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;align-items:flex-end;">
+      <a href="contact.html" class="btn-wa"><span class="wa-dot">WA</span> Chat via WhatsApp</a>
+      <p style="font-size:0.74rem;color:rgba(255,255,255,0.35);text-align:right;">Mon–Sat · 10am–7pm<br/>Online &amp; In-Person Available</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="footer-logo-name">Consciousness Cures</div>
+      <p class="footer-tagline">Homeopathy · Art of Living · Natural Wellness</p>
+      <div class="footer-socials"><span>FB</span><span>IG</span><span>YT</span><span>WA</span></div>
+    </div>
+    <div class="footer-col"><h6>Programs</h6><ul>
+      <li>Consciousness Cures</li><li>Sudarshan Kriya</li>
+      <li>Rakheno</li><li>Sanskar Kendra</li>
+      <li>Utkarsh &amp; Medha Yoga</li><li>Intuition Program</li>
+    </ul></div>
+    <div class="footer-col"><h6>Explore</h6><ul>
+      <li><a href="about.html">About Doctor</a></li>
+      <li><a href="homeopathy.html">Homeopathy</a></li>
+      <li><a href="art-of-living.html">Art of Living</a></li>
+      <li><a href="conditions.html">Conditions</a></li>
+    </ul></div>
+    <div class="footer-col"><h6>Connect</h6><ul>
+      <li>📱 [WhatsApp Number]</li><li>📧 [Email Address]</li>
+      <li>📍 Ravindra Nagar Last Bus Stop</li><li>🕐 Mon–Sat · 10am–7pm</li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Dr. Suchitra Mylapilli. All rights reserved.</span><span>Privacy Policy · Terms</span></div>
+</footer>
+
+<script>
+  // Filter logic
+  function filterPrograms(cat, btn) {
+    // update active button
+    document.querySelectorAll('.pg-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // show/hide cards
+    document.querySelectorAll('.pg-card').forEach(card => {
+      const cats = card.dataset.cat || '';
+      if (cat === 'all' || cats.includes(cat)) {
+        card.classList.remove('pg-hidden');
+      } else {
+        card.classList.add('pg-hidden');
+      }
+    });
+
+    // show/hide category headings based on visible cards
+    document.querySelectorAll('.pg-cat-heading').forEach(heading => {
+      const grid = heading.nextElementSibling;
+      if (!grid) return;
+      const visibleCards = grid.querySelectorAll('.pg-card:not(.pg-hidden)');
+      heading.style.display = visibleCards.length === 0 ? 'none' : 'flex';
+      grid.style.display = visibleCards.length === 0 ? 'none' : 'grid';
+    });
+  }
+
+  // Scroll-reveal
+  const pgObs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('pg-in'), i * 60);
+        pgObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.pg-card').forEach(el => pgObs.observe(el));
+</script>
+</body>
+</html>

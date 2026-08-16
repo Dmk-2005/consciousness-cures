@@ -1,0 +1,656 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>About Dr. Suchitra Mylapilli — Consciousness Cures</title>
+<link rel="stylesheet" href="style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+body { background:#FDFCF7; }
+
+/* ── HERO ── */
+.ab-hero {
+  background: linear-gradient(160deg, #FFFDF7 0%, #F8F3E8 100%);
+  padding: 96px 0 80px;
+  position: relative; overflow: hidden;
+}
+.ab-hero::before {
+  content:''; position:absolute; top:-120px; right:-120px;
+  width:520px; height:520px;
+  background:radial-gradient(circle, rgba(200,150,30,0.1) 0%, transparent 65%);
+  pointer-events:none;
+}
+.ab-hero::after {
+  content:''; position:absolute; bottom:-80px; left:-60px;
+  width:380px; height:380px;
+  background:radial-gradient(circle, rgba(92,122,82,0.1) 0%, transparent 65%);
+  pointer-events:none;
+}
+.ab-hero-inner { display:flex; align-items:center; gap:80px; position:relative; z-index:1; }
+.ab-hero-text { flex:1; display:flex; flex-direction:column; gap:24px; }
+.ab-overline {
+  font-size:0.68rem; text-transform:uppercase; letter-spacing:0.28em;
+  color:#8A6A10; display:block;
+}
+.ab-hero-h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.6rem,3.8vw,4.2rem);
+  color:#2E2A22; line-height:1.1; font-weight:400;
+}
+.ab-hero-h1 em { color:#5C7A52; font-style:italic; }
+.ab-hero-role {
+  font-size:0.82rem; text-transform:uppercase; letter-spacing:0.18em;
+  color:#8C8070; border-left:2px solid rgba(200,150,30,0.4);
+  padding-left:14px;
+}
+.ab-hero-intro { font-size:1rem; color:#5A5245; line-height:1.8; max-width:460px; }
+.ab-hero-btns { display:flex; gap:14px; flex-wrap:wrap; margin-top:4px; }
+
+/* hero image */
+.ab-hero-img { flex:0 0 400px; position:relative; }
+.ab-img-frame {
+  position:relative;
+  padding:8px;
+  background:rgba(255,255,255,0.6);
+  border:1px solid rgba(200,160,40,0.2);
+  border-radius:24px;
+  backdrop-filter:blur(4px);
+}
+.ab-img-frame img {
+  width:100%; height:520px; object-fit:cover;
+  object-position:center top; display:block;
+  border-radius:18px;
+}
+/* decorative botanical ring behind photo */
+.ab-img-ring {
+  position:absolute; inset:-20px;
+  border-radius:32px;
+  border:1px dashed rgba(200,150,30,0.2);
+  pointer-events:none;
+}
+/* name badge floating bottom-left */
+.ab-img-badge {
+  position:absolute; bottom:20px; left:-20px;
+  background:linear-gradient(135deg,#2E2A22,#4A4438);
+  border-radius:14px; padding:14px 20px;
+  display:flex; flex-direction:column; gap:3px;
+  box-shadow:0 8px 28px rgba(0,0,0,0.2);
+  border:1px solid rgba(255,255,255,0.08);
+}
+.ab-img-badge-name {
+  font-family:'Playfair Display',serif; font-style:italic;
+  font-size:1rem; color:#F5EDD0;
+}
+.ab-img-badge-title {
+  font-size:0.62rem; text-transform:uppercase;
+  letter-spacing:0.14em; color:rgba(200,150,30,0.8);
+}
+
+/* ── IDENTITY STRIP ── */
+.ab-strip {
+  background:#2E2A22;
+  padding:28px 0;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.ab-strip-inner {
+  display:flex; align-items:center; justify-content:center;
+  gap:0; flex-wrap:wrap;
+}
+.ab-strip-item {
+  display:flex; flex-direction:column; gap:4px;
+  padding:0 40px; text-align:center;
+  border-right:1px solid rgba(255,255,255,0.1);
+}
+.ab-strip-item:last-child { border-right:none; }
+.ab-strip-label { font-size:0.62rem; text-transform:uppercase; letter-spacing:0.16em; color:rgba(255,255,255,0.35); }
+.ab-strip-value { font-family:'Playfair Display',serif; font-size:1rem; color:#F5EDD0; font-style:italic; }
+.ab-strip-sub { font-size:0.7rem; color:rgba(200,150,30,0.7); }
+
+/* ── reveal animation ── */
+.ab-reveal { opacity:0; transform:translateY(24px); }
+.ab-reveal.ab-in { animation:abIn 0.6s cubic-bezier(0.22,1,0.36,1) forwards; }
+@keyframes abIn { to { opacity:1; transform:translateY(0); } }
+</style>
+</head>
+<body>
+
+<!-- TOP HEADER -->
+<div class="top-header">
+  <div class="top-header-inner">
+    <div class="top-brand">
+      <div class="top-guru-photo" style="width:72px;height:72px;flex-shrink:0;">
+        <img src="images/hahnemann.jpg" alt="Dr. Samuel Hahnemann" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/>
+      </div>
+      <div class="top-brand-text">
+        <span class="top-center-name">Dr. Samuel Hahnemann</span>
+        <span class="top-center-tagline">Father of Homeopathy</span>
+      </div>
+    </div>
+    <div class="top-divider"><div class="top-center-heading"><img src="images/logo.png" alt="Consciousness Cures" class="top-logo-center"/></div></div>
+    <div class="top-guru">
+      <div class="top-guru-label">
+        <span class="top-guru-name">Sri Sri Ravi Shankar</span>
+        <span class="top-guru-role">Founder, Art of Living</span>
+      </div>
+      <div class="top-guru-photo">
+        <img src="images/srisri.jpg" alt="Sri Sri Ravi Shankar" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-wrap">
+    <div class="nav-logo">
+      <img src="images/logo.png" alt="Consciousness Cures" style="height:100px;width:100px;object-fit:contain;border-radius:10px;flex-shrink:0;"/>
+      <div class="nav-logo-text"><span class="logo-main">Consciousness Cures</span><span class="logo-sub">Homeopathy · Art of Living</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a><a href="about.html" class="on">About</a>
+      <a href="homeopathy.html">Homeopathy</a><a href="art-of-living.html">Art of Living</a>
+      <a href="programs.html">Programs</a><a href="conditions.html">Conditions</a>
+      <a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn nav-cta">Book via WhatsApp</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ S1: HERO ══ -->
+<section class="ab-hero">
+  <div class="wrap ab-hero-inner">
+    <div class="ab-hero-text">
+      <span class="ab-overline">Meet Dr. Suchitra Mylapilli</span>
+      <h1 class="ab-hero-h1">Where healing<br/>meets <em>awareness.</em></h1>
+      <p class="ab-hero-role">Homeopathy Physician · Art of Living Faculty</p>
+      <p class="ab-hero-intro">Dr. Suchitra Mylapilli brings together her journey in Homeopathy and Art of Living — shaped by a lifelong interest in healing, awareness, and holistic well-being that began at the age of twelve.</p>
+      <div class="ab-hero-btns">
+        <a href="#her-story" class="btn btn-dark" style="padding:12px 28px;">Explore Her Journey</a>
+        <a href="contact.html" class="btn btn-outline" style="padding:12px 28px;">Book a Consultation</a>
+      </div>
+    </div>
+    <div class="ab-hero-img">
+      <div class="ab-img-ring"></div>
+      <div class="ab-img-frame">
+        <img src="images/photo 2.png" alt="Dr. Suchitra Mylapilli"/>
+        <div class="ab-img-badge">
+          <span class="ab-img-badge-name">Dr. Suchitra Mylapilli</span>
+          <span class="ab-img-badge-title">B.H.M.S. · Art of Living Faculty</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ S2: IDENTITY STRIP ══ -->
+<div class="ab-strip">
+  <div class="wrap ab-strip-inner">
+    <div class="ab-strip-item">
+      <span class="ab-strip-label">Qualification</span>
+      <span class="ab-strip-value">B.H.M.S.</span>
+      <span class="ab-strip-sub">Homeopathy Physician</span>
+    </div>
+    <div class="ab-strip-item">
+      <span class="ab-strip-label">Art of Living</span>
+      <span class="ab-strip-value">Faculty · AP0735</span>
+      <span class="ab-strip-sub">Since 2022</span>
+    </div>
+    <div class="ab-strip-item">
+      <span class="ab-strip-label">AOL Journey</span>
+      <span class="ab-strip-value">Since 2012</span>
+      <span class="ab-strip-sub">12 years with the Foundation</span>
+    </div>
+    <div class="ab-strip-item">
+      <span class="ab-strip-label">Practice</span>
+      <span class="ab-strip-value">Consciousness Cures</span>
+      <span class="ab-strip-sub">Homeopathy</span>
+    </div>
+    <div class="ab-strip-item">
+      <span class="ab-strip-label">Also Trained In</span>
+      <span class="ab-strip-value">Rakkheno Therapist</span>
+      <span class="ab-strip-sub">Bach Flower Therapy</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══ S3: HER STORY ══ -->
+<section class="sec" id="her-story" style="background:#FDFAF2;">
+  <div class="wrap">
+    <div style="display:flex;gap:80px;align-items:flex-start;">
+
+      <!-- Left: large number + label -->
+      <div style="flex:0 0 260px;display:flex;flex-direction:column;align-items:flex-start;gap:0;padding-top:8px;">
+        <span class="ab-overline" style="color:#8A6A10;margin-bottom:16px;">Her Journey</span>
+        <div style="font-family:'Playfair Display',serif;font-size:8rem;line-height:1;color:rgba(200,150,30,0.15);font-weight:400;letter-spacing:-4px;">12</div>
+        <p style="font-size:0.8rem;color:var(--muted);margin-top:-8px;line-height:1.6;">The age at which<br/>her path began.</p>
+        <!-- path milestones -->
+        <div style="margin-top:40px;display:flex;flex-direction:column;gap:0;">
+          <div class="ab-milestone">
+            <div class="ab-ms-dot" style="background:#C8960A;"></div>
+            <div><span class="ab-ms-year">2005</span><span class="ab-ms-text">Art Excel Course · Age 12</span></div>
+          </div>
+          <div class="ab-milestone-line"></div>
+          <div class="ab-milestone">
+            <div class="ab-ms-dot" style="background:#5C7A52;"></div>
+            <div><span class="ab-ms-year">2012</span><span class="ab-ms-text">Joined Art of Living</span></div>
+          </div>
+          <div class="ab-milestone-line"></div>
+          <div class="ab-milestone">
+            <div class="ab-ms-dot" style="background:#0B3D35;"></div>
+            <div><span class="ab-ms-year">2022</span><span class="ab-ms-text">Became AOL Faculty</span></div>
+          </div>
+          <div class="ab-milestone-line"></div>
+          <div class="ab-milestone">
+            <div class="ab-ms-dot" style="background:#7B50C8;"></div>
+            <div><span class="ab-ms-year">2024</span><span class="ab-ms-text">B.H.M.S. · Practice Begins</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: story text -->
+      <div style="flex:1;display:flex;flex-direction:column;gap:22px;">
+        <h2 style="font-size:clamp(1.9rem,2.8vw,2.9rem);">A journey that began<br/>at twelve.</h2>
+        <p style="color:var(--ink);font-size:0.96rem;line-height:1.85;">Dr. Suchitra Mylapilli's journey began at the age of twelve, when she was in 7th class and attended an <em>Art Excel</em> course — an Art of Living program for children. That experience became her first genuine spark of inner growth. Something shifted in her understanding of herself and the world around her.</p>
+        <p style="color:var(--ink);font-size:0.96rem;line-height:1.85;">As she continued through life, her interest in spirituality grew deeper. When she began her studies in Homeopathy, she found that her inner journey and her medical education spoke to each other in a way that felt natural and complete.</p>
+        <p style="color:var(--ink);font-size:0.96rem;line-height:1.85;">Homeopathy, she discovered, was not merely a system of prescribing remedies. It was a way of understanding the individual — their constitution, their history, their inner state. This resonated deeply with everything she had been exploring through Art of Living.</p>
+        <p style="color:var(--ink);font-size:0.96rem;line-height:1.85;">Today, her life and practice bring these two paths together — Homeopathy and Art of Living — not as separate offerings, but as two expressions of the same perspective on health and well-being.</p>
+
+        <!-- path graphic -->
+        <div style="display:flex;align-items:center;gap:0;margin-top:12px;flex-wrap:wrap;gap:0;">
+          <div class="ab-path-node" style="background:rgba(200,150,30,0.1);border-color:rgba(200,150,30,0.35);color:#8A6A10;">Inner Growth</div>
+          <div class="ab-path-arrow">→</div>
+          <div class="ab-path-node" style="background:rgba(11,61,53,0.08);border-color:rgba(11,61,53,0.2);color:#0B3D35;">Homeopathy</div>
+          <div class="ab-path-arrow">→</div>
+          <div class="ab-path-node" style="background:rgba(92,122,82,0.1);border-color:rgba(92,122,82,0.25);color:#3A5A30;">Art of Living</div>
+          <div class="ab-path-arrow">→</div>
+          <div class="ab-path-node" style="background:rgba(123,80,200,0.08);border-color:rgba(123,80,200,0.2);color:#5A3A90;">Teaching</div>
+          <div class="ab-path-arrow">→</div>
+          <div class="ab-path-node" style="background:rgba(46,42,34,0.06);border-color:rgba(46,42,34,0.15);color:#2E2A22;font-weight:500;">Holistic Well-being</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<style>
+.ab-milestone { display:flex; align-items:flex-start; gap:12px; }
+.ab-ms-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; margin-top:5px; }
+.ab-ms-year { font-size:0.7rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--muted); display:block; }
+.ab-ms-text { font-size:0.85rem; color:var(--ink); }
+.ab-milestone-line { width:1px; height:28px; background:rgba(200,150,30,0.2); margin-left:5px; }
+.ab-path-node { font-size:0.76rem; padding:6px 14px; border-radius:20px; border:1px solid; white-space:nowrap; }
+.ab-path-arrow { font-size:0.8rem; color:rgba(200,150,30,0.4); padding:0 6px; }
+</style>
+
+<!-- ══ S4: TWO JOURNEYS ══ -->
+<section class="sec" style="background:#fff;">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:64px;">
+      <span class="ab-overline" style="color:#5C7A52;">The Foundation</span>
+      <h2 style="margin-top:10px;">Two paths that shaped<br/>who she is today.</h2>
+    </div>
+    <div class="grid-2" style="gap:32px;">
+
+      <!-- Homeopathy -->
+      <div style="background:linear-gradient(160deg,#FDFAF2 0%,#F8F3E8 100%);border:1px solid rgba(200,150,30,0.2);border-radius:22px;overflow:hidden;">
+        <div style="background:linear-gradient(135deg,#0B3D35,#145A48);padding:28px 36px;">
+          <span style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.18em;color:rgba(200,150,30,0.8);display:block;margin-bottom:8px;">Path One</span>
+          <h3 style="font-family:'Playfair Display',serif;font-weight:400;color:#F5EDD0;font-size:1.8rem;">Homeopathy</h3>
+        </div>
+        <div style="padding:32px 36px;display:flex;flex-direction:column;gap:18px;">
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid rgba(200,150,30,0.15);">
+              <span style="font-size:0.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Degree</span>
+              <span style="font-size:0.88rem;font-weight:500;color:var(--ink);text-align:right;">Bachelor of Homeopathy<br/>Medicine &amp; Surgery</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid rgba(200,150,30,0.15);">
+              <span style="font-size:0.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">College</span>
+              <span style="font-size:0.88rem;font-weight:500;color:var(--ink);text-align:right;">ASR Homeopathy<br/>Medical College &amp; Hospital</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid rgba(200,150,30,0.15);">
+              <span style="font-size:0.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Completed</span>
+              <span style="font-size:0.88rem;font-weight:500;color:var(--ink);">4 December 2024</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;">
+              <span style="font-size:0.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Practice</span>
+              <span style="font-size:0.88rem;font-weight:500;color:#0B3D35;">Consciousness Cures Homeopathy</span>
+            </div>
+          </div>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.75;padding-top:4px;border-top:1px solid rgba(200,150,30,0.12);">Her study of Homeopathy deepened her interest in the body's natural processes and the importance of understanding each individual — not just their symptoms, but their whole story.</p>
+        </div>
+      </div>
+
+      <!-- Art of Living -->
+      <div style="background:linear-gradient(160deg,#F5FBF7 0%,#EBF5EF 100%);border:1px solid rgba(80,150,90,0.2);border-radius:22px;overflow:hidden;">
+        <div style="background:linear-gradient(135deg,#0A2818,#145A30);padding:28px 36px;">
+          <span style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.18em;color:rgba(109,191,138,0.8);display:block;margin-bottom:8px;">Path Two</span>
+          <h3 style="font-family:'Playfair Display',serif;font-weight:400;color:#F5EDD0;font-size:1.8rem;">Art of Living</h3>
+        </div>
+        <div style="padding:32px 36px;display:flex;flex-direction:column;gap:18px;">
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid rgba(80,150,90,0.15);">
+              <span style="font-size:0.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Journey Began</span>
+              <span style="font-size:0.88rem;font-weight:500;color:var(--ink);">2012</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid rgba(80,150,90,0.15);">
+              <span style="font-size:0.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Faculty / Teacher</span>
+              <span style="font-size:0.88rem;font-weight:500;color:var(--ink);">Since 2022</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid rgba(80,150,90,0.15);">
+              <span style="font-size:0.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Faculty ID</span>
+              <span style="font-size:0.88rem;font-weight:500;color:var(--ink);">AP0735</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;">
+              <span style="font-size:0.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Experience</span>
+              <span style="font-size:0.88rem;font-weight:500;color:#2E7A40;">~10 years conducting programs</span>
+            </div>
+          </div>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.75;padding-top:4px;border-top:1px solid rgba(80,150,90,0.12);">Her Art of Living journey introduced her to practices and wisdom centered around inner growth, awareness, and well-being — through breath, meditation, and clarity of mind.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ S5: TWO PATHS, ONE PHILOSOPHY ══ -->
+<section class="sec" style="background:#F8F3E8;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(200,150,30,0.06) 0%,transparent 65%);pointer-events:none;"></div>
+  <div class="wrap" style="position:relative;z-index:1;">
+    <div style="text-align:center;margin-bottom:64px;">
+      <span class="ab-overline" style="color:#8A6A10;">Her Perspective</span>
+      <h2 style="margin-top:10px;">Two paths. One perspective<br/>on well-being.</h2>
+    </div>
+
+    <div style="display:flex;align-items:flex-start;justify-content:center;gap:0;max-width:900px;margin:0 auto;">
+
+      <!-- Homeopathy node -->
+      <div style="flex:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;">
+        <div style="width:72px;height:72px;background:#fff;border:2px solid rgba(11,61,53,0.2);border-radius:50%;display:grid;place-items:center;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0B3D35" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4 style="font-size:1rem;color:#2E2A22;">Homeopathy</h4>
+        <p style="font-size:0.82rem;color:var(--muted);line-height:1.7;max-width:200px;">Supporting the body's own healing intelligence. Understanding the individual completely.</p>
+      </div>
+
+      <!-- connector + centre -->
+      <div style="flex:0 0 200px;display:flex;flex-direction:column;align-items:center;gap:0;margin-top:16px;">
+        <div style="display:flex;align-items:center;width:100%;gap:0;">
+          <div style="flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(200,150,30,0.4));"></div>
+          <div style="width:80px;height:80px;background:linear-gradient(135deg,#2E2A22,#4A4438);border-radius:50%;display:grid;place-items:center;flex-shrink:0;">
+            <span style="font-family:'Playfair Display',serif;font-size:0.65rem;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.1em;text-align:center;line-height:1.5;">Holistic<br/>Well-being</span>
+          </div>
+          <div style="flex:1;height:1px;background:linear-gradient(90deg,rgba(200,150,30,0.4),transparent);"></div>
+        </div>
+      </div>
+
+      <!-- Art of Living node -->
+      <div style="flex:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;">
+        <div style="width:72px;height:72px;background:#fff;border:2px solid rgba(46,122,64,0.2);border-radius:50%;display:grid;place-items:center;">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2E7A40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <h4 style="font-size:1rem;color:#2E2A22;">Art of Living</h4>
+        <p style="font-size:0.82rem;color:var(--muted);line-height:1.7;max-width:200px;">Awareness, breath, and inner well-being. Calming the mind and gaining clarity.</p>
+      </div>
+
+    </div>
+
+    <div style="max-width:680px;margin:52px auto 0;text-align:center;">
+      <p style="font-size:0.96rem;color:var(--ink);line-height:1.85;">Dr. Suchitra does not see healing and living as separate ideas. Her journey through Homeopathy and Art of Living has shaped a perspective in which physical health, mental calmness, awareness, and the way we experience life are naturally interconnected.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ S6: SIGNATURE QUOTE ══ -->
+<section style="background:linear-gradient(150deg,#1C1410 0%,#2E2A22 60%,#1A1208 100%);padding:100px 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:600px;height:350px;background:radial-gradient(ellipse,rgba(200,150,30,0.1) 0%,transparent 65%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-60px;right:-60px;width:350px;height:350px;background:radial-gradient(circle,rgba(92,122,82,0.1) 0%,transparent 65%);pointer-events:none;"></div>
+  <div class="wrap" style="max-width:800px;text-align:center;position:relative;z-index:1;">
+    <div style="font-family:'Playfair Display',serif;font-size:7rem;color:rgba(200,150,30,0.2);line-height:0.5;margin-bottom:32px;">"</div>
+    <p style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);color:#F5EDD0;line-height:1.5;font-style:italic;margin-bottom:28px;">I don't separate healing from living.</p>
+    <div style="width:48px;height:1px;background:rgba(200,150,30,0.5);margin:0 auto 28px;"></div>
+    <p style="font-size:0.96rem;color:#9ABFAA;line-height:1.8;max-width:560px;margin:0 auto;">"When we are calm, happy, and free — with a broad vision of life — the body heals, relationships heal, and life flows."</p>
+    <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.18em;color:rgba(200,150,30,0.6);margin-top:24px;">— Dr. Suchitra Mylapilli</p>
+  </div>
+</section>
+
+<!-- ══ S7: GURUDEV'S VISION ══ -->
+<section class="sec" style="background:#FDFAF2;">
+  <div class="wrap">
+    <div style="display:flex;gap:72px;align-items:center;">
+      <div style="flex:0 0 320px;position:relative;">
+        <div style="border-radius:20px;overflow:hidden;border:2px solid rgba(80,150,90,0.2);">
+          <img src="images/srisri.jpg" alt="Pujya Gurudev Sri Sri Ravi Shankar ji" style="width:100%;height:420px;object-fit:cover;object-position:center top;display:block;"/>
+        </div>
+        <div style="position:absolute;bottom:20px;left:-16px;background:#fff;border:1px solid rgba(200,150,30,0.25);border-radius:12px;padding:12px 18px;box-shadow:0 6px 20px rgba(0,0,0,0.08);">
+          <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:0.9rem;color:#2E2A22;display:block;">Pujya Gurudev</span>
+          <span style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.12em;color:#5C7A52;">Sri Sri Ravi Shankar ji</span>
+        </div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:24px;">
+        <span class="ab-overline" style="color:#5C7A52;">An Influence That Shaped Her Path</span>
+        <h2>The vision that inspires her.</h2>
+        <p style="font-size:0.96rem;color:var(--ink);line-height:1.8;">Pujya Gurudev Sri Sri Ravi Shankar ji has been a deeply important influence in Dr. Suchitra's Art of Living journey. His vision — that each person can live a full, peaceful, and purposeful life — continues to shape her perspective on well-being.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px;">
+          <div class="ab-vision-item"><span class="ab-vision-dot" style="background:#C8960A;"></span><span>Stress-free mind</span></div>
+          <div class="ab-vision-item"><span class="ab-vision-dot" style="background:#0B3D35;"></span><span>Disease-free body</span></div>
+          <div class="ab-vision-item"><span class="ab-vision-dot" style="background:#5C7A52;"></span><span>Violence-free society</span></div>
+          <div class="ab-vision-item"><span class="ab-vision-dot" style="background:#7B50C8;"></span><span>Confusion-free breath</span></div>
+          <div class="ab-vision-item"><span class="ab-vision-dot" style="background:#2E8A9A;"></span><span>Inhibition-free intellect</span></div>
+          <div class="ab-vision-item"><span class="ab-vision-dot" style="background:#A05030;"></span><span>Trauma-free memory</span></div>
+          <div class="ab-vision-item" style="grid-column:span 2;"><span class="ab-vision-dot" style="background:#2E2A22;"></span><span>Sorrow-free soul</span></div>
+        </div>
+        <p style="font-size:0.84rem;color:var(--muted);line-height:1.7;font-style:italic;border-left:2px solid rgba(200,150,30,0.3);padding-left:16px;">These phrases represent a philosophy of life — not medical promises. They reflect the aspiration that inspires her daily practice and teaching.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+.ab-vision-item { display:flex; align-items:center; gap:10px; font-size:0.88rem; color:var(--ink); }
+.ab-vision-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+</style>
+
+<!-- ══ S8: CREDENTIALS ══ -->
+<section class="sec" style="background:#fff;">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:56px;">
+      <span class="ab-overline" style="color:#8A6A10;">Credentials &amp; Continuing Learning</span>
+      <h2 style="margin-top:10px;">Learning that continues.</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1000px;margin:0 auto;">
+
+      <!-- Primary -->
+      <div>
+        <h4 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.18em;color:var(--muted);margin-bottom:24px;">Primary Qualification</h4>
+        <div style="background:linear-gradient(160deg,#F8F3E8,#FDFAF2);border:1px solid rgba(200,150,30,0.2);border-radius:16px;padding:28px;">
+          <div style="display:flex;gap:14px;align-items:flex-start;">
+            <div style="width:44px;height:44px;background:rgba(11,61,53,0.08);border:1px solid rgba(11,61,53,0.15);border-radius:12px;display:grid;place-items:center;flex-shrink:0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B3D35" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <div>
+              <h4 style="font-size:1rem;color:#2E2A22;margin-bottom:4px;">B.H.M.S.</h4>
+              <p style="font-size:0.82rem;color:var(--muted);line-height:1.6;">Bachelor of Homeopathy Medicine &amp; Surgery<br/>ASR Homeopathy Medical College &amp; Hospital<br/><span style="color:#0B3D35;">Completed: 4 December 2024</span></p>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:20px;">
+          <h4 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.18em;color:var(--muted);margin-bottom:16px;">Art of Living</h4>
+          <div style="background:#F5FBF7;border:1px solid rgba(80,150,90,0.2);border-radius:16px;padding:24px;">
+            <div style="display:flex;gap:14px;align-items:flex-start;">
+              <div style="width:44px;height:44px;background:rgba(46,122,64,0.08);border:1px solid rgba(46,122,64,0.15);border-radius:12px;display:grid;place-items:center;flex-shrink:0;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2E7A40" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <h4 style="font-size:1rem;color:#2E2A22;margin-bottom:4px;">Art of Living Faculty</h4>
+                <p style="font-size:0.82rem;color:var(--muted);line-height:1.6;">Faculty ID: AP0735<br/>Teacher since 2022<br/><span style="color:#2E7A40;">Association since 2012</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional -->
+      <div>
+        <h4 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.18em;color:var(--muted);margin-bottom:24px;">Continuing Education &amp; Training</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div class="ab-cred-item">
+            <div class="ab-cred-dot"></div>
+            <div><span class="ab-cred-title">Intuition Teacher Training</span><span class="ab-cred-org">Art of Living Foundation</span></div>
+          </div>
+          <div class="ab-cred-item">
+            <div class="ab-cred-dot"></div>
+            <div><span class="ab-cred-title">Rakkheno Therapy</span><span class="ab-cred-org">Certified Rakkheno Therapist</span></div>
+          </div>
+          <div class="ab-cred-item">
+            <div class="ab-cred-dot"></div>
+            <div><span class="ab-cred-title">Bach Flower Therapy</span><span class="ab-cred-org">Holistic Healing</span></div>
+          </div>
+          <div class="ab-cred-item">
+            <div class="ab-cred-dot"></div>
+            <div><span class="ab-cred-title">I.I.H.P. XVII A.P. State Conference</span><span class="ab-cred-org">Indian Institute of Homeopathic Physicians</span></div>
+          </div>
+          <div class="ab-cred-item">
+            <div class="ab-cred-dot"></div>
+            <div><span class="ab-cred-title">I.I.H.P. XVIII A.P. State Conference</span><span class="ab-cred-org">Indian Institute of Homeopathic Physicians</span></div>
+          </div>
+          <div class="ab-cred-item">
+            <div class="ab-cred-dot"></div>
+            <div><span class="ab-cred-title">21st Homeo Jnana Yajnam</span><span class="ab-cred-org">Certificate of Participation</span></div>
+          </div>
+          <div class="ab-cred-item" style="border:1px solid rgba(200,150,30,0.25);border-radius:10px;padding:12px 14px;background:rgba(200,150,30,0.04);">
+            <div class="ab-cred-dot" style="background:#C8960A;"></div>
+            <div><span class="ab-cred-title" style="color:#8A6A10;">Recognised by EK Trust</span><span class="ab-cred-org">Community Recognition</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<style>
+.ab-cred-item { display:flex; align-items:flex-start; gap:12px; padding:12px 0; border-bottom:1px solid #F0EAD8; }
+.ab-cred-item:last-child { border-bottom:none; }
+.ab-cred-dot { width:8px; height:8px; border-radius:50%; background:#5C7A52; flex-shrink:0; margin-top:5px; }
+.ab-cred-title { font-size:0.88rem; font-weight:500; color:#2E2A22; display:block; margin-bottom:2px; }
+.ab-cred-org { font-size:0.74rem; color:var(--muted); }
+</style>
+
+<!-- ══ S9: THE TEACHER ══ -->
+<section class="sec" style="background:linear-gradient(160deg,#EDF5EF 0%,#DCF0E4 100%);">
+  <div class="wrap">
+    <div style="display:flex;gap:72px;align-items:center;">
+      <div style="flex:1;display:flex;flex-direction:column;gap:22px;">
+        <span class="ab-overline" style="color:#3A6A30;">From Student to Teacher</span>
+        <h2>Her journey as a teacher.</h2>
+        <p style="font-size:0.96rem;color:var(--ink);line-height:1.8;">Her relationship with Art of Living began at the age of 12 — long before she became a teacher. By 2022, she had completed her teacher training and became a certified Art of Living Faculty member.</p>
+        <p style="font-size:0.96rem;color:var(--ink);line-height:1.8;">Today she conducts programs for a wide range of participants — from young children to working adults — bringing the same care and attention that shapes her approach to Homeopathy.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px;">
+          <div class="ab-teach-card">
+            <span style="font-size:1.2rem;">🌱</span>
+            <span class="ab-teach-label">Children</span>
+            <span class="ab-teach-age">Ages 5–13</span>
+          </div>
+          <div class="ab-teach-card">
+            <span style="font-size:1.2rem;">🎯</span>
+            <span class="ab-teach-label">Teenagers</span>
+            <span class="ab-teach-age">Ages 13–18</span>
+          </div>
+          <div class="ab-teach-card">
+            <span style="font-size:1.2rem;">⚡</span>
+            <span class="ab-teach-label">Youth</span>
+            <span class="ab-teach-age">18 and above</span>
+          </div>
+          <div class="ab-teach-card">
+            <span style="font-size:1.2rem;">🧘</span>
+            <span class="ab-teach-label">Adults</span>
+            <span class="ab-teach-age">All ages</span>
+          </div>
+        </div>
+        <a href="art-of-living.html" class="btn btn-dark" style="width:fit-content;margin-top:8px;">Explore Art of Living Programs →</a>
+      </div>
+      <div style="flex:0 0 380px;">
+        <div style="background:#fff;border:1px solid rgba(80,150,90,0.2);border-radius:20px;padding:36px;display:flex;flex-direction:column;gap:18px;">
+          <h4 style="font-size:1.1rem;color:#2E2A22;font-family:'Playfair Display',serif;font-weight:400;">Programs She Conducts</h4>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div class="ab-prog-row"><span class="ab-prog-tag" style="background:rgba(46,122,64,0.1);color:#256035;">Children 5–13</span><span>Art Excel / Utkarsh Yoga</span></div>
+            <div class="ab-prog-row"><span class="ab-prog-tag" style="background:rgba(92,80,180,0.08);color:#4A3A90;">Teens 13–18</span><span>Medha Yoga</span></div>
+            <div class="ab-prog-row"><span class="ab-prog-tag" style="background:rgba(11,61,53,0.08);color:#0B3D35;">Youth 18+</span><span>YES!+</span></div>
+            <div class="ab-prog-row"><span class="ab-prog-tag" style="background:rgba(200,150,30,0.1);color:#7A5808;">Adults 18+</span><span>Happiness Program</span></div>
+            <div class="ab-prog-row"><span class="ab-prog-tag" style="background:rgba(192,96,168,0.1);color:#8A3070;">Girls</span><span>Pavitra Program</span></div>
+            <div class="ab-prog-row"><span class="ab-prog-tag" style="background:rgba(46,138,154,0.1);color:#1E7080;">All Ages</span><span>Intuition Program</span></div>
+          </div>
+          <p style="font-size:0.78rem;color:var(--muted);line-height:1.6;border-top:1px solid #E8E2D0;padding-top:14px;">Full program details are available on the dedicated Art of Living and Programs pages.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+.ab-teach-card { background:#fff; border:1px solid rgba(80,150,90,0.18); border-radius:12px; padding:16px; display:flex; flex-direction:column; align-items:center; gap:6px; text-align:center; }
+.ab-teach-label { font-size:0.88rem; font-weight:500; color:#2E2A22; }
+.ab-teach-age { font-size:0.72rem; color:var(--muted); }
+.ab-prog-row { display:flex; align-items:center; gap:12px; font-size:0.85rem; color:var(--ink); }
+.ab-prog-tag { font-size:0.62rem; text-transform:uppercase; letter-spacing:0.1em; padding:3px 10px; border-radius:20px; flex-shrink:0; }
+</style>
+
+<!-- ══ S10: PHILOSOPHY ══ -->
+<section class="sec" style="background:#FDFAF2;">
+  <div class="wrap" style="max-width:860px;">
+    <div style="text-align:center;margin-bottom:52px;">
+      <span class="ab-overline" style="color:#8A6A10;">Her Philosophy of Life</span>
+      <h2 style="margin-top:10px;">Prevention is better than cure.</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:20px;text-align:center;">
+      <p style="font-size:1rem;color:var(--ink);line-height:1.85;">She believes that well-being is far more than the absence of disease. It includes the experience of joy, freedom, love, calmness, and a broad vision of life.</p>
+      <p style="font-size:1rem;color:var(--ink);line-height:1.85;">When a person is calm and happy — when they carry a broad, clear perspective on life — she finds that this state of well-being extends naturally beyond the body. It touches relationships, decisions, and the way life itself is experienced.</p>
+      <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:12px;">
+        <span style="font-size:0.82rem;padding:8px 18px;background:rgba(200,150,30,0.1);border:1px solid rgba(200,150,30,0.25);border-radius:20px;color:#8A6A10;">Joy</span>
+        <span style="font-size:0.82rem;padding:8px 18px;background:rgba(11,61,53,0.08);border:1px solid rgba(11,61,53,0.18);border-radius:20px;color:#0B3D35;">Freedom</span>
+        <span style="font-size:0.82rem;padding:8px 18px;background:rgba(192,96,168,0.08);border:1px solid rgba(192,96,168,0.2);border-radius:20px;color:#8A3070;">Love</span>
+        <span style="font-size:0.82rem;padding:8px 18px;background:rgba(46,122,64,0.08);border:1px solid rgba(46,122,64,0.2);border-radius:20px;color:#256035;">Calmness</span>
+        <span style="font-size:0.82rem;padding:8px 18px;background:rgba(92,80,180,0.07);border:1px solid rgba(92,80,180,0.18);border-radius:20px;color:#4A3A90;">Broad Vision</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ S11: FINAL CTA ══ -->
+<section style="background:var(--charcoal);padding:88px 0;">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap;">
+    <div>
+      <span class="eyebrow" style="color:var(--sage);">Meet Her. Begin Your Journey.</span>
+      <h2 style="color:#F5F3EE;margin-top:8px;max-width:520px;">Whether you are seeking Homeopathic care or exploring a deeper approach to well-being —</h2>
+      <p style="color:#8C8070;margin-top:12px;max-width:460px;font-style:italic;">connect with Dr. Suchitra.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-end;">
+      <a href="contact.html" class="btn-wa"><span class="wa-dot">WA</span> Book via WhatsApp</a>
+      <a href="art-of-living.html" style="font-size:0.82rem;color:rgba(255,255,255,0.5);border-bottom:1px solid rgba(255,255,255,0.2);padding-bottom:2px;">Explore Art of Living →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="footer-logo-name">Consciousness Cures</div>
+      <p class="footer-tagline">Homeopathy · Art of Living · Natural Wellness</p>
+      <div class="footer-socials"><span>FB</span><span>IG</span><span>YT</span><span>WA</span></div>
+    </div>
+    <div class="footer-col"><h6>Explore</h6><ul><li><a href="about.html">About Doctor</a></li><li><a href="homeopathy.html">Homeopathy</a></li><li><a href="art-of-living.html">Art of Living</a></li><li><a href="programs.html">Programs</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+    <div class="footer-col"><h6>Conditions</h6><ul><li>Migraine &amp; Thyroid</li><li>PCOS / PCOD</li><li>Anxiety &amp; Depression</li><li>Skin Disorders</li><li><a href="conditions.html">View All →</a></li></ul></div>
+    <div class="footer-col"><h6>Connect</h6><ul><li>📱 [WhatsApp Number]</li><li>📧 [Email Address]</li><li>📍 Ravindra Nagar Last Bus Stop</li><li>🕐 Mon–Sat · 10am–7pm</li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Dr. Suchitra Mylapilli. All rights reserved.</span><span>Privacy Policy · Terms</span></div>
+</footer>
+
+<script>
+  const abObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('ab-in'); abObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.ab-reveal').forEach(el => abObs.observe(el));
+</script>
+</body>
+</html>

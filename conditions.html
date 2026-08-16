@@ -1,0 +1,452 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Conditions Treated — Consciousness Cures | Dr. Suchitra Mylapilli</title>
+<link rel="stylesheet" href="style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+body { background:#FDFCF7; }
+
+/* ── HERO ── */
+.cond-page-hero {
+  background:
+    radial-gradient(ellipse at 80% 30%, rgba(245,210,80,0.1) 0%, transparent 55%),
+    linear-gradient(150deg, #0B3D35 0%, #082E28 100%);
+  padding: 80px 0 68px;
+  position: relative; overflow: hidden;
+}
+.cond-page-hero::before {
+  content:''; position:absolute; bottom:-80px; right:-80px;
+  width:400px; height:400px;
+  background:radial-gradient(circle, rgba(80,200,130,0.1) 0%, transparent 65%);
+  pointer-events:none;
+}
+
+/* ── FILTER BAR ── */
+.cond-filter {
+  background:#fff; border-bottom:1px solid #E8E2D0;
+  padding:14px 0; position:sticky; top:116px; z-index:800;
+  box-shadow:0 2px 12px rgba(0,0,0,0.04);
+}
+.cond-filter-inner { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.cond-filter-label { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.14em; color:var(--muted); margin-right:4px; flex-shrink:0; }
+.cond-filter-btn {
+  padding:6px 16px; border-radius:20px; font-size:0.77rem;
+  font-family:'DM Sans',sans-serif; cursor:pointer;
+  border:1px solid #E8E2D0; background:transparent; color:var(--muted);
+  transition:all 0.2s;
+}
+.cond-filter-btn:hover { border-color:#0B3D35; color:#0B3D35; }
+.cond-filter-btn.active { background:#0B3D35; color:#F5EDD0; border-color:#0B3D35; }
+
+/* ── CATEGORY HEADING ── */
+.cond-cat-row {
+  display:flex; align-items:center; gap:16px; margin-bottom:28px;
+}
+.cond-cat-line { flex:1; height:1px; background:#E8E2D0; }
+.cond-cat-label {
+  font-size:0.7rem; text-transform:uppercase; letter-spacing:0.2em;
+  color:var(--muted); flex-shrink:0; white-space:nowrap;
+}
+
+/* ── CONDITION CARDS ── */
+.cond-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 52px;
+}
+.cond-card {
+  background:#fff;
+  border:1px solid #E8E2D0;
+  border-radius:14px;
+  padding:22px 18px;
+  display:flex; flex-direction:column; gap:10px;
+  position:relative; overflow:hidden;
+  transition:transform 0.27s ease, box-shadow 0.27s ease, border-color 0.27s ease;
+  text-decoration:none; color:inherit;
+  cursor:default;
+  opacity:0; transform:translateY(18px);
+}
+.cond-card.cond-in { animation:condPageIn 0.45s cubic-bezier(0.22,1,0.36,1) forwards; }
+@keyframes condPageIn { to { opacity:1; transform:translateY(0); } }
+
+.cond-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  border-radius:14px 14px 0 0;
+  background: var(--accent, linear-gradient(90deg,#0B3D35,#2A8A65));
+  transform:scaleX(0); transform-origin:left; transition:transform 0.3s ease;
+}
+.cond-card:hover::before { transform:scaleX(1); }
+.cond-card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 12px 32px rgba(11,61,53,0.1);
+  border-color:rgba(11,61,53,0.25);
+}
+
+/* icon circle */
+.cond-card-icon {
+  font-size:1.6rem; line-height:1;
+  transition:transform 0.25s;
+}
+.cond-card:hover .cond-card-icon { transform:scale(1.15); }
+
+.cond-card-name {
+  font-size:0.96rem; font-weight:500; color:#2E2A22; line-height:1.3;
+}
+.cond-card-note {
+  font-size:0.76rem; color:#8C8070; line-height:1.55;
+}
+.cond-card-tag {
+  display:inline-block; font-size:0.6rem; text-transform:uppercase;
+  letter-spacing:0.1em; padding:2px 9px; border-radius:20px;
+  width:fit-content; margin-top:auto;
+}
+/* tag variants */
+.tag-neuro  { background:rgba(100,80,200,0.08); border:1px solid rgba(100,80,200,0.2); color:#5040A0; }
+.tag-gastro { background:rgba(200,120,30,0.08); border:1px solid rgba(200,120,30,0.2); color:#8A5010; }
+.tag-hormonal{ background:rgba(192,96,168,0.08);border:1px solid rgba(192,96,168,0.2);color:#8A3070; }
+.tag-resp   { background:rgba(46,138,154,0.08); border:1px solid rgba(46,138,154,0.2); color:#1E7080; }
+.tag-musculo{ background:rgba(160,80,48,0.08);  border:1px solid rgba(160,80,48,0.2);  color:#8A3A18; }
+.tag-skin   { background:rgba(200,150,30,0.08); border:1px solid rgba(200,150,30,0.2); color:#8A6208; }
+.tag-mental { background:rgba(80,100,200,0.08); border:1px solid rgba(80,100,200,0.2); color:#3050A0; }
+.tag-child  { background:rgba(46,122,64,0.08);  border:1px solid rgba(46,122,64,0.2);  color:#256035; }
+.tag-urology{ background:rgba(46,138,154,0.08); border:1px solid rgba(46,138,154,0.2); color:#1E7080; }
+
+/* hidden card */
+.cond-card.cond-hidden { display:none; }
+</style>
+</head>
+<body>
+
+<!-- TOP HEADER -->
+<div class="top-header">
+  <div class="top-header-inner">
+    <div class="top-brand"><div class="top-guru-photo" style="width:72px;height:72px;flex-shrink:0;"><img src="images/hahnemann.jpg" alt="Dr. Samuel Hahnemann" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/></div><div class="top-brand-text"><span class="top-center-name">Dr. Samuel Hahnemann</span><span class="top-center-tagline">Father of Homeopathy</span></div></div>
+    <div class="top-divider"><div class="top-center-heading"><img src="images/logo.png" alt="Consciousness Cures" class="top-logo-center"/></div></div>
+    <div class="top-guru"><div class="top-guru-label"><span class="top-guru-name">Sri Sri Ravi Shankar</span><span class="top-guru-role">Founder, Art of Living</span></div><div class="top-guru-photo"><img src="images/srisri.jpg" alt="Sri Sri Ravi Shankar" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/></div></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-wrap">
+    <div class="nav-logo"><img src="images/logo.png" alt="Consciousness Cures" style="height:100px;width:100px;object-fit:contain;border-radius:10px;flex-shrink:0;"/><div class="nav-logo-text"><span class="logo-main">Consciousness Cures</span><span class="logo-sub">Homeopathy · Art of Living</span></div></div>
+    <div class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="homeopathy.html">Homeopathy</a><a href="art-of-living.html">Art of Living</a><a href="programs.html">Programs</a><a href="conditions.html" class="on">Conditions</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a><a href="contact.html" class="btn nav-cta">Book via WhatsApp</a></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="cond-page-hero">
+  <div class="wrap" style="position:relative;z-index:1;">
+    <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.22em;color:#6DBF8A;display:block;margin-bottom:14px;">Natural Healing for Every Condition</span>
+    <h1 style="font-family:'Playfair Display',serif;color:#F5F0E8;font-weight:400;font-size:clamp(2.2rem,3.2vw,3.4rem);line-height:1.1;max-width:600px;">Conditions <em style="color:#F5D250;">Treated</em></h1>
+    <p style="color:#8ABAAA;font-size:1rem;max-width:560px;line-height:1.8;margin-top:16px;">Homeopathy treats the whole person, not just the diagnosis. Below is the full list of conditions addressed through individualised homeopathic care at Consciousness Cures.</p>
+    <!-- stat row -->
+    <div style="display:flex;gap:40px;margin-top:32px;flex-wrap:wrap;">
+      <div><div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#F5D250;line-height:1;">18+</div><div style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-top:4px;">Conditions Listed</div></div>
+      <div><div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#6DBF8A;line-height:1;">All</div><div style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-top:4px;">Ages Welcome</div></div>
+      <div><div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#F5D250;line-height:1;">0</div><div style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-top:4px;">Side Effects</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="cond-filter">
+  <div class="wrap cond-filter-inner">
+    <span class="cond-filter-label">Filter:</span>
+    <button class="cond-filter-btn active" onclick="filterCond('all',this)">All Conditions</button>
+    <button class="cond-filter-btn" onclick="filterCond('neurological',this)">Neurological</button>
+    <button class="cond-filter-btn" onclick="filterCond('gastro',this)">Gastro</button>
+    <button class="cond-filter-btn" onclick="filterCond('hormonal',this)">Hormonal</button>
+    <button class="cond-filter-btn" onclick="filterCond('respiratory',this)">Respiratory</button>
+    <button class="cond-filter-btn" onclick="filterCond('musculo',this)">Musculoskeletal</button>
+    <button class="cond-filter-btn" onclick="filterCond('skin',this)">Skin</button>
+    <button class="cond-filter-btn" onclick="filterCond('mental',this)">Mental Health</button>
+    <button class="cond-filter-btn" onclick="filterCond('children',this)">Children</button>
+  </div>
+</div>
+
+<!-- ALL CONDITIONS -->
+<section class="sec" style="background:#FDFCF7;">
+  <div class="wrap">
+
+    <!-- Neurological & Head -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Neurological &amp; Head</span><div class="cond-cat-line"></div></div>
+    <div class="cond-grid">
+      <div class="cond-card" data-cat="neurological" style="--accent:linear-gradient(90deg,#5040A0,#8060D0);">
+        <div class="cond-card-icon">🧠</div>
+        <div class="cond-card-name">Headache &amp; Migraine</div>
+        <div class="cond-card-note">Frequency &amp; intensity reduced through constitutional treatment and trigger management.</div>
+        <span class="cond-card-tag tag-neuro">Neurological</span>
+      </div>
+      <div class="cond-card" data-cat="neurological respiratory" style="--accent:linear-gradient(90deg,#1E7080,#3AAABB);">
+        <div class="cond-card-icon">🤧</div>
+        <div class="cond-card-name">Sinusitis</div>
+        <div class="cond-card-note">Chronic and acute sinusitis addressed at the root — reducing recurrence naturally.</div>
+        <span class="cond-card-tag tag-resp">Respiratory</span>
+      </div>
+      <div class="cond-card" data-cat="neurological" style="--accent:linear-gradient(90deg,#5040A0,#8060D0);">
+        <div class="cond-card-icon">🌿</div>
+        <div class="cond-card-name">Allergies</div>
+        <div class="cond-card-note">Dust, food, and seasonal allergies managed with safe, individualised homeopathic remedies.</div>
+        <span class="cond-card-tag tag-neuro">Neurological</span>
+      </div>
+    </div>
+
+    <!-- Respiratory -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Respiratory</span><div class="cond-cat-line"></div></div>
+    <div class="cond-grid">
+      <div class="cond-card" data-cat="respiratory" style="--accent:linear-gradient(90deg,#1E7080,#3AAABB);">
+        <div class="cond-card-icon">💨</div>
+        <div class="cond-card-name">Asthma</div>
+        <div class="cond-card-note">Attacks reduced, lung health improved. Constitutional remedies combined with breathing support.</div>
+        <span class="cond-card-tag tag-resp">Respiratory</span>
+      </div>
+    </div>
+
+    <!-- Musculoskeletal -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Musculoskeletal &amp; Spine</span><div class="cond-cat-line"></div></div>
+    <div class="cond-grid">
+      <div class="cond-card" data-cat="musculo" style="--accent:linear-gradient(90deg,#8A3A18,#C06030);">
+        <div class="cond-card-icon">🦴</div>
+        <div class="cond-card-name">Arthritis</div>
+        <div class="cond-card-note">Rheumatoid &amp; osteoarthritis — pain and inflammation relief naturally, without side effects.</div>
+        <span class="cond-card-tag tag-musculo">Musculoskeletal</span>
+      </div>
+      <div class="cond-card" data-cat="musculo" style="--accent:linear-gradient(90deg,#8A3A18,#C06030);">
+        <div class="cond-card-icon">🔩</div>
+        <div class="cond-card-name">Spondylitis</div>
+        <div class="cond-card-note">Cervical and lumbar spondylitis managed with remedies that address stiffness and nerve involvement.</div>
+        <span class="cond-card-tag tag-musculo">Musculoskeletal</span>
+      </div>
+      <div class="cond-card" data-cat="musculo" style="--accent:linear-gradient(90deg,#8A3A18,#C06030);">
+        <div class="cond-card-icon">⚡</div>
+        <div class="cond-card-name">Sciatica</div>
+        <div class="cond-card-note">Radiating nerve pain in the lower back and leg addressed through constitutional homeopathic treatment.</div>
+        <span class="cond-card-tag tag-musculo">Musculoskeletal</span>
+      </div>
+    </div>
+
+    <!-- Gastro & Liver -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Gastro &amp; Digestive</span><div class="cond-cat-line"></div></div>
+    <div class="cond-grid">
+      <div class="cond-card" data-cat="gastro" style="--accent:linear-gradient(90deg,#8A5010,#C08020);">
+        <div class="cond-card-icon">🫃</div>
+        <div class="cond-card-name">Gastric Troubles</div>
+        <div class="cond-card-note">Acidity, bloating, IBS, and chronic gastritis treated holistically — not just suppressed.</div>
+        <span class="cond-card-tag tag-gastro">Digestive</span>
+      </div>
+      <div class="cond-card" data-cat="gastro" style="--accent:linear-gradient(90deg,#8A5010,#C08020);">
+        <div class="cond-card-icon">🫀</div>
+        <div class="cond-card-name">Liver Disorders</div>
+        <div class="cond-card-note">Fatty liver, hepatitis, and liver function support through gentle, non-toxic homeopathic remedies.</div>
+        <span class="cond-card-tag tag-gastro">Digestive</span>
+      </div>
+      <div class="cond-card" data-cat="gastro" style="--accent:linear-gradient(90deg,#8A5010,#C08020);">
+        <div class="cond-card-icon">🩸</div>
+        <div class="cond-card-name">Piles, Fissures &amp; Fistula</div>
+        <div class="cond-card-note">Anorectal conditions treated constitutionally — avoiding surgery in many cases through early intervention.</div>
+        <span class="cond-card-tag tag-gastro">Digestive</span>
+      </div>
+    </div>
+
+    <!-- Urology -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Urology</span><div class="cond-cat-line"></div></div>
+    <div class="cond-grid">
+      <div class="cond-card" data-cat="urology" style="--accent:linear-gradient(90deg,#1E7080,#3AAABB);">
+        <div class="cond-card-icon">💧</div>
+        <div class="cond-card-name">Kidney Stones</div>
+        <div class="cond-card-note">Homeopathic treatment to help dissolve small stones and prevent recurrence through constitutional care.</div>
+        <span class="cond-card-tag tag-urology">Urology</span>
+      </div>
+    </div>
+
+    <!-- Hormonal & Women's Health -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Hormonal &amp; Women's Health</span><div class="cond-cat-line"></div></div>
+    <div class="cond-grid">
+      <div class="cond-card" data-cat="hormonal" style="--accent:linear-gradient(90deg,#8A3070,#C060A0);">
+        <div class="cond-card-icon">🌸</div>
+        <div class="cond-card-name">PCOS / PCOD</div>
+        <div class="cond-card-note">Hormonal rebalancing, cycle regulation, and metabolic support — naturally.</div>
+        <span class="cond-card-tag tag-hormonal">Hormonal</span>
+      </div>
+      <div class="cond-card" data-cat="hormonal" style="--accent:linear-gradient(90deg,#8A3070,#C060A0);">
+        <div class="cond-card-icon">🦋</div>
+        <div class="cond-card-name">Thyroid Disorders</div>
+        <div class="cond-card-note">Hypothyroidism, hyperthyroidism, and Hashimoto's — managed constitutionally over time.</div>
+        <span class="cond-card-tag tag-hormonal">Hormonal</span>
+      </div>
+      <div class="cond-card" data-cat="hormonal" style="--accent:linear-gradient(90deg,#8A3070,#C060A0);">
+        <div class="cond-card-icon">🌙</div>
+        <div class="cond-card-name">Menstrual Troubles</div>
+        <div class="cond-card-note">Irregular periods, painful menstruation, and PMS addressed through deep constitutional treatment.</div>
+        <span class="cond-card-tag tag-hormonal">Hormonal</span>
+      </div>
+      <div class="cond-card" data-cat="hormonal" style="--accent:linear-gradient(90deg,#8A3070,#C060A0);">
+        <div class="cond-card-icon">⚖️</div>
+        <div class="cond-card-name">Hormonal Disorders</div>
+        <div class="cond-card-note">Broader hormonal imbalances affecting mood, weight, energy, and overall well-being.</div>
+        <span class="cond-card-tag tag-hormonal">Hormonal</span>
+      </div>
+    </div>
+
+    <!-- Skin -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Skin Conditions</span><div class="cond-cat-line"></div></div>
+    <div class="cond-grid">
+      <div class="cond-card" data-cat="skin" style="--accent:linear-gradient(90deg,#8A6208,#C8A030);">
+        <div class="cond-card-icon">✨</div>
+        <div class="cond-card-name">Psoriasis</div>
+        <div class="cond-card-note">Chronic skin condition treated from within — reducing flare-ups and addressing the root trigger.</div>
+        <span class="cond-card-tag tag-skin">Skin</span>
+      </div>
+      <div class="cond-card" data-cat="skin" style="--accent:linear-gradient(90deg,#8A6208,#C8A030);">
+        <div class="cond-card-icon">🌿</div>
+        <div class="cond-card-name">Eczema &amp; Skin Disorders</div>
+        <div class="cond-card-note">Eczema, urticaria, and other chronic skin conditions managed with safe, individualised remedies.</div>
+        <span class="cond-card-tag tag-skin">Skin</span>
+      </div>
+    </div>
+
+    <!-- Mental & Emotional Health -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Mental &amp; Emotional Health</span><div class="cond-cat-line"></div></div>
+    <div class="cond-grid">
+      <div class="cond-card" data-cat="mental" style="--accent:linear-gradient(90deg,#3050A0,#6080D0);">
+        <div class="cond-card-icon">🌊</div>
+        <div class="cond-card-name">Anxiety</div>
+        <div class="cond-card-note">Homeopathic remedies combined with Sudarshan Kriya breathwork for a complete mind-body approach.</div>
+        <span class="cond-card-tag tag-mental">Mental Health</span>
+      </div>
+      <div class="cond-card" data-cat="mental" style="--accent:linear-gradient(90deg,#3050A0,#6080D0);">
+        <div class="cond-card-icon">🌤</div>
+        <div class="cond-card-name">Depression</div>
+        <div class="cond-card-note">Homeopathy plus meditation programs — treating the emotional root alongside the physical state.</div>
+        <span class="cond-card-tag tag-mental">Mental Health</span>
+      </div>
+      <div class="cond-card" data-cat="mental children" style="--accent:linear-gradient(90deg,#3050A0,#6080D0);">
+        <div class="cond-card-icon">🧩</div>
+        <div class="cond-card-name">Psychological Therapy</div>
+        <div class="cond-card-note">Psychological support through homeopathic constitutional treatment — for stress, behavioural, and emotional concerns.</div>
+        <span class="cond-card-tag tag-mental">Mental Health</span>
+      </div>
+    </div>
+
+    <!-- Children's Health -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Children's Health</span><div class="cond-cat-line"></div></div>
+    <div class="cond-grid">
+      <div class="cond-card" data-cat="children" style="--accent:linear-gradient(90deg,#256035,#4AAA60);">
+        <div class="cond-card-icon">🌱</div>
+        <div class="cond-card-name">Children's Health</div>
+        <div class="cond-card-note">Recurrent infections, growth concerns, and general wellness — 100% safe for all ages.</div>
+        <span class="cond-card-tag tag-child">Children</span>
+      </div>
+      <div class="cond-card" data-cat="children mental" style="--accent:linear-gradient(90deg,#256035,#4AAA60);">
+        <div class="cond-card-icon">🎯</div>
+        <div class="cond-card-name">ADHD</div>
+        <div class="cond-card-note">Attention and hyperactivity concerns in children addressed through individualised constitutional treatment.</div>
+        <span class="cond-card-tag tag-child">Children</span>
+      </div>
+      <div class="cond-card" data-cat="children mental" style="--accent:linear-gradient(90deg,#256035,#4AAA60);">
+        <div class="cond-card-icon">🌟</div>
+        <div class="cond-card-name">Autism Spectrum</div>
+        <div class="cond-card-note">Supportive homeopathic care to complement the development and well-being of children on the autism spectrum.</div>
+        <span class="cond-card-tag tag-child">Children</span>
+      </div>
+      <div class="cond-card" data-cat="children mental" style="--accent:linear-gradient(90deg,#256035,#4AAA60);">
+        <div class="cond-card-icon">🤝</div>
+        <div class="cond-card-name">Behaviour Problems in Children</div>
+        <div class="cond-card-note">Temper, aggression, withdrawal, and emotional regulation in children — gently addressed through homeopathy.</div>
+        <span class="cond-card-tag tag-child">Children</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- APPROACH STATEMENT -->
+<section class="sec" style="background:#fff;">
+  <div class="wrap" style="max-width:820px;">
+    <div style="text-align:center;margin-bottom:40px;">
+      <span class="eyebrow">The Approach</span>
+      <h2>Treat the person. Not the diagnosis.</h2>
+    </div>
+    <div class="grid-3" style="gap:20px;">
+      <div style="text-align:center;padding:28px 20px;background:#FDFAF2;border:1px solid rgba(200,150,30,0.2);border-radius:16px;">
+        <div style="font-size:1.6rem;margin-bottom:12px;">🔍</div>
+        <h4 style="font-size:0.96rem;font-weight:500;color:#2E2A22;margin-bottom:8px;">Deep Case Taking</h4>
+        <p style="font-size:0.81rem;color:var(--muted);line-height:1.65;">60–90 minutes to understand your complete history — physical, mental, and emotional.</p>
+      </div>
+      <div style="text-align:center;padding:28px 20px;background:#F5FBF7;border:1px solid rgba(46,122,64,0.2);border-radius:16px;">
+        <div style="font-size:1.6rem;margin-bottom:12px;">💊</div>
+        <h4 style="font-size:0.96rem;font-weight:500;color:#2E2A22;margin-bottom:8px;">Constitutional Remedy</h4>
+        <p style="font-size:0.81rem;color:var(--muted);line-height:1.65;">A single, precise remedy chosen for you — not a standard protocol.</p>
+      </div>
+      <div style="text-align:center;padding:28px 20px;background:#F0F7FF;border:1px solid rgba(80,100,200,0.15);border-radius:16px;">
+        <div style="font-size:1.6rem;margin-bottom:12px;">📈</div>
+        <h4 style="font-size:0.96rem;font-weight:500;color:#2E2A22;margin-bottom:8px;">Lasting Results</h4>
+        <p style="font-size:0.81rem;color:var(--muted);line-height:1.65;">Follow-ups and adjustments until full recovery — not just symptom management.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:var(--charcoal);padding:72px 0;">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap;">
+    <div>
+      <span class="eyebrow" style="color:var(--sage);">Don't See Your Condition?</span>
+      <h2 style="color:#F5F3EE;margin-top:8px;">Every condition has a remedy.</h2>
+      <p style="color:#8C8070;margin-top:10px;max-width:420px;">Homeopathy treats the whole person. Share your concern — Dr. Suchitra will discuss your case personally.</p>
+    </div>
+    <a href="contact.html" class="btn-wa"><span class="wa-dot">WA</span> Ask via WhatsApp</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div><div class="footer-logo-name">Consciousness Cures</div><p class="footer-tagline">Homeopathy · Art of Living · Natural Wellness</p><div class="footer-socials"><span>FB</span><span>IG</span><span>YT</span><span>WA</span></div></div>
+    <div class="footer-col"><h6>Conditions</h6><ul>
+      <li>Headache &amp; Migraine</li><li>Thyroid · PCOS</li>
+      <li>Skin Disorders · Psoriasis</li><li>Anxiety · Depression</li>
+      <li>Arthritis · Spondylitis</li><li>Children's Health · ADHD</li>
+    </ul></div>
+    <div class="footer-col"><h6>Explore</h6><ul><li><a href="about.html">About Doctor</a></li><li><a href="homeopathy.html">Homeopathy</a></li><li><a href="programs.html">Programs</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="footer-col"><h6>Connect</h6><ul><li>📱 [WhatsApp Number]</li><li>📧 [Email Address]</li><li>📍 Ravindra Nagar Last Bus Stop</li><li>🕐 Mon–Sat · 10am–7pm</li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Dr. Suchitra Mylapilli. All rights reserved.</span><span>Privacy Policy · Terms</span></div>
+</footer>
+
+<script>
+  // Filter
+  function filterCond(cat, btn) {
+    document.querySelectorAll('.cond-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.cond-card').forEach(card => {
+      const cats = card.dataset.cat || '';
+      card.classList.toggle('cond-hidden', cat !== 'all' && !cats.includes(cat));
+    });
+    // hide/show category rows
+    document.querySelectorAll('.cond-cat-row').forEach(row => {
+      const grid = row.nextElementSibling;
+      if (!grid) return;
+      const visible = grid.querySelectorAll('.cond-card:not(.cond-hidden)');
+      row.style.display = visible.length === 0 ? 'none' : 'flex';
+      grid.style.display = visible.length === 0 ? 'none' : 'grid';
+    });
+  }
+
+  // Scroll reveal
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('cond-in'), i * 50);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('.cond-card').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

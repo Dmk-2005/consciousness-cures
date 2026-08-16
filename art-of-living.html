@@ -1,0 +1,485 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Art of Living — Consciousness Cures | Dr. Suchitra Mylapilli</title>
+<link rel="stylesheet" href="style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+body { background:#FDFCF7; }
+
+/* ── HERO ── */
+.aol-hero {
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(80,200,130,0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 80%, rgba(245,210,80,0.1) 0%, transparent 50%),
+    linear-gradient(150deg, #0A2818 0%, #071E14 50%, #0B2E20 100%);
+  min-height: calc(100vh - 116px);
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+}
+.aol-hero::before {
+  content:''; position:absolute; top:-120px; right:-120px;
+  width:550px; height:550px;
+  background:radial-gradient(circle, rgba(80,200,130,0.12) 0%, transparent 65%);
+  pointer-events:none;
+}
+.aol-hero-inner { display:flex; align-items:center; gap:72px; position:relative; z-index:1; }
+.aol-hero-text { flex:1; display:flex; flex-direction:column; gap:24px; }
+.aol-eyebrow { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.22em; color:#6DBF8A; display:block; }
+.aol-hero-h1 { font-family:'Playfair Display',serif; font-size:clamp(2.4rem,3.5vw,3.8rem); color:#F5F0E8; line-height:1.1; font-weight:400; }
+.aol-hero-h1 em { color:#6DBF8A; font-style:italic; }
+.aol-hero-sub { font-size:1rem; color:#8ABAAA; max-width:460px; line-height:1.8; }
+.aol-hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
+.aol-btn-primary {
+  display:inline-flex; align-items:center; gap:8px;
+  background:linear-gradient(135deg,#2E7A40,#3DAA58); color:#fff;
+  padding:12px 28px; border-radius:8px; font-size:0.88rem; font-weight:500;
+  box-shadow:0 6px 20px rgba(46,122,64,0.35); transition:all 0.25s;
+}
+.aol-btn-primary:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(46,122,64,0.45); }
+.aol-btn-ghost {
+  display:inline-block; padding:12px 26px; border-radius:8px;
+  border:1.5px solid rgba(245,240,232,0.3); color:#F5F0E8;
+  font-size:0.88rem; transition:all 0.25s;
+}
+.aol-btn-ghost:hover { background:rgba(255,255,255,0.08); }
+.aol-stats { display:flex; gap:32px; flex-wrap:wrap; padding-top:8px; border-top:1px solid rgba(255,255,255,0.08); }
+.aol-stat { display:flex; flex-direction:column; gap:2px; }
+.aol-stat-num { font-family:'Playfair Display',serif; font-size:1.6rem; color:#6DBF8A; line-height:1; }
+.aol-stat-label { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.12em; color:rgba(255,255,255,0.4); }
+
+/* hero image side */
+.aol-hero-img { flex:0 0 420px; position:relative; }
+.aol-hero-img img { width:100%; height:500px; object-fit:cover; object-position:center top; border-radius:20px; display:block; border:2px solid rgba(80,200,130,0.2); }
+.aol-hero-badge {
+  position:absolute; bottom:24px; left:-20px;
+  background:linear-gradient(135deg,rgba(10,40,24,0.95),rgba(14,58,36,0.95));
+  backdrop-filter:blur(10px); border:1px solid rgba(80,200,130,0.3);
+  border-radius:12px; padding:12px 20px;
+  display:flex; flex-direction:column; gap:3px;
+  box-shadow:0 8px 28px rgba(0,0,0,0.35);
+}
+.aol-hero-badge span:first-child { font-family:'Playfair Display',serif; font-style:italic; font-size:0.95rem; color:#F5EDD0; }
+.aol-hero-badge span:last-child { font-size:0.62rem; text-transform:uppercase; letter-spacing:0.14em; color:rgba(109,191,138,0.9); }
+</style>
+</head>
+<body>
+
+<!-- TOP HEADER -->
+<div class="top-header">
+  <div class="top-header-inner">
+    <div class="top-brand">
+      <div class="top-guru-photo" style="width:72px;height:72px;flex-shrink:0;">
+        <img src="images/hahnemann.jpg" alt="Dr. Samuel Hahnemann" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/>
+      </div>
+      <div class="top-brand-text">
+        <span class="top-center-name">Dr. Samuel Hahnemann</span>
+        <span class="top-center-tagline">Father of Homeopathy</span>
+      </div>
+    </div>
+    <div class="top-divider"><div class="top-center-heading"><img src="images/logo.png" alt="Consciousness Cures" class="top-logo-center"/></div></div>
+    <div class="top-guru">
+      <div class="top-guru-label">
+        <span class="top-guru-name">Sri Sri Ravi Shankar</span>
+        <span class="top-guru-role">Founder, Art of Living</span>
+      </div>
+      <div class="top-guru-photo">
+        <img src="images/srisri.jpg" alt="Sri Sri Ravi Shankar" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-wrap">
+    <div class="nav-logo">
+      <img src="images/logo.png" alt="Consciousness Cures" style="height:100px;width:100px;object-fit:contain;border-radius:10px;flex-shrink:0;"/>
+      <div class="nav-logo-text"><span class="logo-main">Consciousness Cures</span><span class="logo-sub">Homeopathy · Art of Living</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a><a href="about.html">About</a>
+      <a href="homeopathy.html">Homeopathy</a>
+      <a href="art-of-living.html" class="on">Art of Living</a>
+      <a href="programs.html">Programs</a><a href="conditions.html">Conditions</a>
+      <a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn nav-cta">Book via WhatsApp</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ 1. HERO ══ -->
+<section class="aol-hero">
+  <div class="wrap aol-hero-inner">
+    <div class="aol-hero-text">
+      <span class="aol-eyebrow">Breath · Meditation · Consciousness · Transformation</span>
+      <h1 class="aol-hero-h1">Live with Joy.<br/>Breathe with <em>Purpose.</em></h1>
+      <p class="aol-hero-sub">The Art of Living Foundation — transforming lives through the power of breath, meditation, and inner wisdom since 1981. Over 450 million lives touched across 180 countries.</p>
+      <div class="aol-hero-btns">
+        <a href="contact.html" class="aol-btn-primary">🌿 Join a Program</a>
+        <a href="#programs" class="aol-btn-ghost">Explore Programs ↓</a>
+      </div>
+      <div class="aol-stats">
+        <div class="aol-stat"><span class="aol-stat-num">450M+</span><span class="aol-stat-label">Lives Touched</span></div>
+        <div class="aol-stat"><span class="aol-stat-num">180+</span><span class="aol-stat-label">Countries</span></div>
+        <div class="aol-stat"><span class="aol-stat-num">1981</span><span class="aol-stat-label">Founded</span></div>
+        <div class="aol-stat"><span class="aol-stat-num">∞</span><span class="aol-stat-label">Transformation</span></div>
+      </div>
+    </div>
+    <div class="aol-hero-img">
+      <img src="images/srisri.jpg" alt="Sri Sri Ravi Shankar — Founder, Art of Living"/>
+      <div class="aol-hero-badge">
+        <span>Sri Sri Ravi Shankar</span>
+        <span>Founder, Art of Living Foundation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 2. ABOUT ART OF LIVING ══ -->
+<section class="sec" style="background:#FDFAF2;">
+  <div class="wrap" style="display:flex;gap:72px;align-items:center;">
+    <div style="flex:0 0 380px;display:flex;flex-direction:column;gap:16px;">
+      <div style="background:#fff;border:1px solid #E8E2D0;border-radius:18px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.06);">
+        <div style="background:linear-gradient(135deg,#0A2818,#145A30);padding:20px 28px;">
+          <h4 style="color:#6DBF8A;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;">About the Foundation</h4>
+        </div>
+        <div style="padding:24px 28px;display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;justify-content:space-between;border-bottom:1px solid #F0EAD8;padding-bottom:12px;">
+            <span style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Founded</span>
+            <span style="font-size:0.88rem;font-weight:500;color:var(--ink);">1981, Bangalore</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;border-bottom:1px solid #F0EAD8;padding-bottom:12px;">
+            <span style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Founder</span>
+            <span style="font-size:0.88rem;font-weight:500;color:var(--ink);">Sri Sri Ravi Shankar</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;border-bottom:1px solid #F0EAD8;padding-bottom:12px;">
+            <span style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Reach</span>
+            <span style="font-size:0.88rem;font-weight:500;color:var(--ink);">180+ Countries</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;border-bottom:1px solid #F0EAD8;padding-bottom:12px;">
+            <span style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Lives Impacted</span>
+            <span style="font-size:0.88rem;font-weight:500;color:var(--ink);">450 Million+</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;">
+            <span style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Core Practice</span>
+            <span style="font-size:0.88rem;font-weight:500;color:#2E7A40;">Sudarshan Kriya</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:20px;">
+      <span class="eyebrow">The Foundation</span>
+      <h2>About Art of Living</h2>
+      <p style="color:var(--ink);font-size:0.95rem;line-height:1.8;">The Art of Living Foundation is a non-profit, educational and humanitarian organization founded in 1981 by Sri Sri Ravi Shankar. With a presence in over 180 countries, it is one of the world's largest volunteer-based organizations — committed to eliminating stress and creating a violence-free, disease-free society.</p>
+      <p style="color:var(--ink);font-size:0.95rem;line-height:1.8;">At the heart of the Foundation is the <em>Sudarshan Kriya</em> — a powerful rhythmic breathing technique that harmonizes body, mind, and spirit. Alongside yoga, meditation, and practical wisdom programs, millions have experienced lasting transformation in their mental and physical health.</p>
+      <p style="color:var(--ink);font-size:0.95rem;line-height:1.8;">Dr. Suchitra Mylapilli is a certified Art of Living instructor, bringing these programs to the community — combining the healing of homeopathy with the transformative power of breath and consciousness.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:4px;">
+        <span class="chip">🌍 180+ Countries</span>
+        <span class="chip">👥 450 Million+ Lives</span>
+        <span class="chip">📅 Since 1981</span>
+        <span class="chip">🏆 UN Consultative Status</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3. SRI SRI QUOTE ══ -->
+<section class="sec" style="background:linear-gradient(135deg,#0A2818 0%,#071E14 100%);position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-80px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(80,200,130,0.1) 0%,transparent 65%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-60px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(245,210,80,0.08) 0%,transparent 65%);pointer-events:none;"></div>
+  <div class="wrap" style="max-width:900px;text-align:center;position:relative;z-index:1;">
+    <div style="font-family:'Playfair Display',serif;font-size:6rem;color:rgba(80,200,130,0.2);line-height:0.5;margin-bottom:28px;">"</div>
+    <p style="font-family:'Playfair Display',serif;font-size:1.6rem;color:#F5F0E8;line-height:1.6;font-style:italic;margin-bottom:32px;">Breath is the link between the inner world and the outer world. When you learn to use your breath, you are given a master key to unlock the highest states of consciousness.</p>
+    <div style="display:flex;align-items:center;justify-content:center;gap:16px;">
+      <div style="width:40px;height:2px;background:rgba(109,191,138,0.5);"></div>
+      <div style="text-align:left;">
+        <span style="font-size:0.92rem;color:#6DBF8A;font-weight:500;display:block;">Sri Sri Ravi Shankar</span>
+        <span style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.14em;color:rgba(255,255,255,0.35);">Founder, Art of Living Foundation</span>
+      </div>
+      <div style="width:40px;height:2px;background:rgba(109,191,138,0.5);"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 4. BENEFITS ══ -->
+<section class="sec" style="background:#fff;">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:56px;">
+      <span class="eyebrow">What Changes</span>
+      <h2>Benefits of the Programs</h2>
+      <p class="sub sub-c" style="margin-top:12px;">Thousands of practitioners report lasting shifts — not temporary relief, but genuine transformation.</p>
+    </div>
+    <div class="grid-4" style="gap:22px;">
+      <div class="aol-ben-card" style="--top:#2E7A40;">
+        <div class="aol-ben-icon" style="background:rgba(46,122,64,0.08);color:#2E7A40;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h4 class="aol-ben-title">Stress Relief</h4>
+        <p class="aol-ben-desc">Chronic stress dissolves through rhythmic breath — a deep nervous system reset at the cellular level.</p>
+      </div>
+      <div class="aol-ben-card" style="--top:#C8960A;">
+        <div class="aol-ben-icon" style="background:rgba(200,150,10,0.08);color:#C8960A;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <h4 class="aol-ben-title">Mental Clarity</h4>
+        <p class="aol-ben-desc">Enhanced focus, sharper decision-making, and renewed creativity — a calmer, clearer mind.</p>
+      </div>
+      <div class="aol-ben-card" style="--top:#7B50C8;">
+        <div class="aol-ben-icon" style="background:rgba(123,80,200,0.08);color:#7B50C8;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h4 class="aol-ben-title">Emotional Balance</h4>
+        <p class="aol-ben-desc">Anxiety, anger, and fear transform into lasting calm — greater equanimity in everyday life.</p>
+      </div>
+      <div class="aol-ben-card" style="--top:#0B3D35;">
+        <div class="aol-ben-icon" style="background:rgba(11,61,53,0.08);color:#0B3D35;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h4 class="aol-ben-title">Physical Vitality</h4>
+        <p class="aol-ben-desc">Better sleep, stronger immunity, improved digestion, and sustained energy through daily practice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+.aol-ben-card {
+  background:#fff; border:1px solid #EAE4D4;
+  border-top:3px solid var(--top,#2E7A40); border-radius:16px;
+  padding:32px 24px; text-align:center;
+  transition:transform 0.28s ease, box-shadow 0.28s ease;
+  opacity:0; transform:translateY(22px);
+}
+.aol-ben-card.aol-visible { animation:aolIn 0.5s cubic-bezier(0.22,1,0.36,1) forwards; }
+@keyframes aolIn { to { opacity:1; transform:translateY(0); } }
+.aol-ben-card:hover { transform:translateY(-6px); box-shadow:0 14px 40px rgba(0,0,0,0.08); }
+.aol-ben-icon { width:56px; height:56px; border-radius:14px; display:grid; place-items:center; margin:0 auto 18px; transition:transform 0.25s; }
+.aol-ben-card:hover .aol-ben-icon { transform:scale(1.1); }
+.aol-ben-title { font-size:1rem; font-weight:500; color:#2E2A22; margin-bottom:10px; }
+.aol-ben-desc { font-size:0.82rem; color:#7A7060; line-height:1.72; }
+</style>
+
+<!-- ══ 5. CORE PRACTICES ══ -->
+<section class="sec" style="background:linear-gradient(150deg,#FAF8FF 0%,#F5F0FE 100%);position:relative;overflow:hidden;" id="programs">
+  <div style="position:absolute;top:-60px;right:-60px;width:350px;height:350px;background:radial-gradient(circle,rgba(80,200,130,0.07) 0%,transparent 65%);pointer-events:none;"></div>
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:56px;">
+      <span class="eyebrow" style="color:#2E7A40;">Core Practices</span>
+      <h2>The Heart of Art of Living</h2>
+      <p class="sub sub-c" style="margin-top:12px;">Two complementary pillars — breath and stillness — that together create complete inner transformation.</p>
+    </div>
+    <div class="grid-2" style="gap:32px;">
+      <!-- Sudarshan Kriya -->
+      <div class="aol-practice-card aol-practice--breath">
+        <div class="aol-practice-header">
+          <div class="aol-practice-num">I</div>
+          <div>
+            <span style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.14em;color:rgba(109,191,138,0.8);display:block;margin-bottom:4px;">Breathwork</span>
+            <h3 style="color:#F5EDD0;font-family:'Playfair Display',serif;font-weight:400;font-size:1.7rem;">Sudarshan Kriya</h3>
+          </div>
+        </div>
+        <p style="color:#8ABAAA;font-size:0.9rem;line-height:1.75;margin:20px 0;">A unique, powerful rhythmic breathing technique that synchronizes the body's natural cycles. It eliminates accumulated stress, toxins, and negative emotions — leaving you feeling refreshed, energized, and deeply calm.</p>
+        <ul style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+          <li style="display:flex;gap:10px;font-size:0.85rem;color:#C8E0D0;"><span style="color:#6DBF8A;flex-shrink:0;">✦</span>Eliminates stress at a cellular level</li>
+          <li style="display:flex;gap:10px;font-size:0.85rem;color:#C8E0D0;"><span style="color:#6DBF8A;flex-shrink:0;">✦</span>Boosts immunity and energy levels</li>
+          <li style="display:flex;gap:10px;font-size:0.85rem;color:#C8E0D0;"><span style="color:#6DBF8A;flex-shrink:0;">✦</span>Improves sleep, focus, and emotional health</li>
+          <li style="display:flex;gap:10px;font-size:0.85rem;color:#C8E0D0;"><span style="color:#6DBF8A;flex-shrink:0;">✦</span>Clinical studies confirm measurable cortisol reduction</li>
+        </ul>
+        <a href="contact.html" style="display:inline-block;padding:11px 24px;background:rgba(46,122,64,0.2);border:1px solid rgba(109,191,138,0.4);border-radius:8px;color:#6DBF8A;font-size:0.85rem;transition:all 0.25s;">Join a Session →</a>
+      </div>
+      <!-- Meditation -->
+      <div class="aol-practice-card aol-practice--meditate">
+        <div class="aol-practice-header">
+          <div class="aol-practice-num">II</div>
+          <div>
+            <span style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.14em;color:rgba(245,210,80,0.8);display:block;margin-bottom:4px;">Meditation</span>
+            <h3 style="color:#F5EDD0;font-family:'Playfair Display',serif;font-weight:400;font-size:1.7rem;">Sahaj Samadhi</h3>
+          </div>
+        </div>
+        <p style="color:#8ABAAA;font-size:0.9rem;line-height:1.75;margin:20px 0;">An effortless mantra-based meditation technique that allows the mind to settle into its deepest state of rest — deeper than sleep. Regular practice cultivates inner silence, expanded awareness, and lasting joy.</p>
+        <ul style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+          <li style="display:flex;gap:10px;font-size:0.85rem;color:#C8E0D0;"><span style="color:#F5D250;flex-shrink:0;">✦</span>Rest deeper than the deepest sleep</li>
+          <li style="display:flex;gap:10px;font-size:0.85rem;color:#C8E0D0;"><span style="color:#F5D250;flex-shrink:0;">✦</span>Dissolves deep-rooted mental impressions</li>
+          <li style="display:flex;gap:10px;font-size:0.85rem;color:#C8E0D0;"><span style="color:#F5D250;flex-shrink:0;">✦</span>Cultivates inner peace and clarity</li>
+          <li style="display:flex;gap:10px;font-size:0.85rem;color:#C8E0D0;"><span style="color:#F5D250;flex-shrink:0;">✦</span>Reduces anxiety and depressive symptoms</li>
+        </ul>
+        <a href="contact.html" style="display:inline-block;padding:11px 24px;background:rgba(200,150,30,0.15);border:1px solid rgba(245,210,80,0.35);border-radius:8px;color:#F5D250;font-size:0.85rem;transition:all 0.25s;">Learn Meditation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+.aol-practice-card {
+  border-radius:20px; padding:36px;
+  transition:transform 0.28s ease, box-shadow 0.28s ease;
+}
+.aol-practice--breath {
+  background:linear-gradient(160deg,#0A2818 0%,#071E14 100%);
+  border:1px solid rgba(109,191,138,0.2);
+}
+.aol-practice--meditate {
+  background:linear-gradient(160deg,#0A1E2E 0%,#071626 100%);
+  border:1px solid rgba(245,210,80,0.15);
+}
+.aol-practice-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(0,0,0,0.3); }
+.aol-practice-header { display:flex; align-items:center; gap:20px; }
+.aol-practice-num {
+  width:52px; height:52px; flex-shrink:0;
+  background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
+  border-radius:50%; display:grid; place-items:center;
+  font-family:'Playfair Display',serif; font-size:1.3rem; color:rgba(255,255,255,0.4);
+}
+</style>
+
+<!-- ══ 6. PROGRAMS OVERVIEW ══ -->
+<section class="sec" style="background:linear-gradient(160deg,#F0F7F4 0%,#EAF4EF 100%);">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;flex-wrap:wrap;gap:20px;">
+      <div>
+        <span class="eyebrow">What We Offer</span>
+        <h2>Programs Overview</h2>
+        <p style="font-size:0.9rem;color:var(--muted);margin-top:10px;max-width:400px;">From beginners to advanced practitioners — there's a program for every stage of your journey.</p>
+      </div>
+      <a href="programs.html" style="display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;font-weight:500;color:#0B3D35;border:1.5px solid rgba(11,61,53,0.3);padding:9px 20px;border-radius:8px;transition:all 0.2s;">View All Programs →</a>
+    </div>
+    <div class="grid-3" style="gap:22px;">
+      <div class="aol-prog-card aol-prog-card--1">
+        <span class="aol-prog-tag" style="background:rgba(46,122,64,0.1);border-color:rgba(46,122,64,0.25);color:#256035;">Beginner</span>
+        <h4 class="aol-prog-title">Happiness Program</h4>
+        <p class="aol-prog-desc">Foundation Art of Living program — breathing techniques, practical wisdom, and Sudarshan Kriya. 3-day transformative workshop.</p>
+        <a href="contact.html" class="aol-prog-link">Register →</a>
+      </div>
+      <div class="aol-prog-card aol-prog-card--2">
+        <span class="aol-prog-tag" style="background:rgba(11,61,53,0.08);border-color:rgba(11,61,53,0.2);color:#0B3D35;">Signature</span>
+        <h4 class="aol-prog-title">Sudarshan Kriya</h4>
+        <p class="aol-prog-desc">The core breathing practice that cleanses stress at a cellular level, restoring natural inner rhythm and vitality.</p>
+        <a href="contact.html" class="aol-prog-link">Register →</a>
+      </div>
+      <div class="aol-prog-card aol-prog-card--3">
+        <span class="aol-prog-tag" style="background:rgba(200,150,30,0.08);border-color:rgba(200,150,30,0.25);color:#7A5808;">Intermediate</span>
+        <h4 class="aol-prog-title">Sahaj Samadhi</h4>
+        <p class="aol-prog-desc">Effortless mantra-based meditation — rest deeper than sleep, expand awareness, and dissolve deep mental impressions.</p>
+        <a href="contact.html" class="aol-prog-link">Register →</a>
+      </div>
+      <div class="aol-prog-card aol-prog-card--4">
+        <span class="aol-prog-tag" style="background:rgba(92,80,180,0.08);border-color:rgba(92,80,180,0.2);color:#4A3A90;">Youth</span>
+        <h4 class="aol-prog-title">Utkarsh &amp; Medha Yoga</h4>
+        <p class="aol-prog-desc">Sharpens memory, reduces exam anxiety, builds confidence and focus for students at every level.</p>
+        <a href="contact.html" class="aol-prog-link">Register →</a>
+      </div>
+      <div class="aol-prog-card aol-prog-card--5">
+        <span class="aol-prog-tag" style="background:rgba(46,122,64,0.08);border-color:rgba(46,122,64,0.2);color:#256035;">Children</span>
+        <h4 class="aol-prog-title">Sanskar Kendra</h4>
+        <p class="aol-prog-desc">Holistic child development through values, stories, gentle breathwork, and mindful activities.</p>
+        <a href="contact.html" class="aol-prog-link">Register →</a>
+      </div>
+      <div class="aol-prog-card aol-prog-card--6">
+        <span class="aol-prog-tag" style="background:rgba(11,61,53,0.1);border-color:rgba(11,61,53,0.25);color:#0B3D35;">Advanced</span>
+        <h4 class="aol-prog-title">Intuition Program</h4>
+        <p class="aol-prog-desc">Advanced workshop designed to awaken inner intelligence and sharpen intuitive perception beyond the rational mind.</p>
+        <a href="contact.html" class="aol-prog-link">Register →</a>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+.aol-prog-card {
+  background:#fff; border:1px solid #DDE8E4; border-radius:16px;
+  padding:28px 24px; display:flex; flex-direction:column; gap:12px;
+  position:relative; overflow:hidden;
+  transition:transform 0.28s ease, box-shadow 0.28s ease;
+  opacity:0; transform:translateY(22px);
+}
+.aol-prog-card.aol-visible { animation:aolIn 0.5s cubic-bezier(0.22,1,0.36,1) forwards; }
+.aol-prog-card--2.aol-visible { animation-delay:0.08s; }
+.aol-prog-card--3.aol-visible { animation-delay:0.16s; }
+.aol-prog-card--4.aol-visible { animation-delay:0.12s; }
+.aol-prog-card--5.aol-visible { animation-delay:0.20s; }
+.aol-prog-card--6.aol-visible { animation-delay:0.28s; }
+.aol-prog-card::after {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg,#2E7A40,#6DBF8A);
+  border-radius:16px 16px 0 0;
+  transform:scaleX(0); transform-origin:left; transition:transform 0.3s ease;
+}
+.aol-prog-card:hover::after { transform:scaleX(1); }
+.aol-prog-card:hover { transform:translateY(-5px); box-shadow:0 12px 32px rgba(11,61,53,0.1); }
+.aol-prog-tag { display:inline-block; font-size:0.63rem; text-transform:uppercase; letter-spacing:0.12em; padding:3px 10px; border-radius:20px; border:1px solid; width:fit-content; }
+.aol-prog-title { font-size:1rem; font-weight:500; color:#1E2A26; line-height:1.3; }
+.aol-prog-desc { font-size:0.82rem; color:#5A6E66; line-height:1.7; flex:1; }
+.aol-prog-link { font-size:0.79rem; font-weight:500; color:#2E7A40; border-bottom:1px solid rgba(46,122,64,0.3); padding-bottom:1px; width:fit-content; margin-top:6px; transition:color 0.2s,border-color 0.2s; }
+.aol-prog-link:hover { color:#C8960A; border-color:#C8960A; }
+</style>
+
+<!-- ══ 7. TESTIMONIALS ══ -->
+<section class="sec" style="background:linear-gradient(135deg,#0A2818 0%,#071E14 100%);position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-80px;right:-80px;width:450px;height:450px;background:radial-gradient(circle,rgba(80,200,130,0.08) 0%,transparent 65%);pointer-events:none;"></div>
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:48px;">
+      <span class="eyebrow" style="color:#6DBF8A;">Participant Stories</span>
+      <h2 style="color:#F5F0E8;">Lives <em>Transformed</em></h2>
+    </div>
+    <div class="grid-3" style="gap:22px;">
+      <div class="aol-testi">
+        <div class="aol-testi-mark">"</div>
+        <p class="aol-testi-text">The Sudarshan Kriya changed my life completely. I had been on antidepressants for three years. After the Happiness Program, I found a peace I had never known. Within six months I was medication-free.</p>
+        <div class="aol-testi-foot"><strong>Rajan S.</strong><span>Anxiety &amp; Depression · Hyderabad</span><div class="stars">★★★★★</div></div>
+      </div>
+      <div class="aol-testi">
+        <div class="aol-testi-mark">"</div>
+        <p class="aol-testi-text">I attended the Sahaj Samadhi program and it was the most profound experience of my life. The quality of my sleep improved within days. My mind is clearer, my relationships are better, I am simply happier.</p>
+        <div class="aol-testi-foot"><strong>Meera P.</strong><span>Meditation · Bangalore</span><div class="stars">★★★★★</div></div>
+      </div>
+      <div class="aol-testi">
+        <div class="aol-testi-mark">"</div>
+        <p class="aol-testi-text">My teenage son had terrible exam anxiety. After Medha Yoga, his confidence transformed completely. He became calmer, more focused, and his results improved dramatically. Thank you Dr. Suchitra.</p>
+        <div class="aol-testi-foot"><strong>Sunita A.</strong><span>Youth Program · Chennai</span><div class="stars">★★★★★</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+.aol-testi {
+  background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
+  border-radius:16px; padding:28px; display:flex; flex-direction:column; gap:16px;
+  transition:background 0.25s,transform 0.25s;
+}
+.aol-testi:hover { background:rgba(255,255,255,0.1); transform:translateY(-4px); }
+.aol-testi-mark { font-family:'Playfair Display',serif; font-size:3rem; color:rgba(109,191,138,0.3); line-height:0.7; }
+.aol-testi-text { font-size:0.88rem; color:#C8E4D0; font-style:italic; line-height:1.75; flex:1; }
+.aol-testi-foot { display:flex; flex-direction:column; gap:4px; border-top:1px solid rgba(255,255,255,0.08); padding-top:14px; }
+.aol-testi-foot strong { color:#F5EDD0; font-size:0.9rem; }
+.aol-testi-foot span { font-size:0.74rem; color:#6DBF8A; }
+</style>
+
+<!-- ══ 8. CTA BAND ══ -->
+<section style="background:var(--charcoal);padding:80px 0;">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap;">
+    <div>
+      <span class="eyebrow" style="color:var(--sage);">Transform Your Inner World</span>
+      <h2 style="color:#F5F3EE;margin-top:8px;max-width:500px;">Ready to experience the<br/>Art of Living?</h2>
+      <p style="color:#8C8070;margin-top:12px;max-width:420px;">All levels welcome. Online &amp; in-person. Join thousands who have found lasting peace through breath.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-end;">
+      <a href="contact.html" class="btn-wa"><span class="wa-dot">WA</span> Register via WhatsApp</a>
+      <p style="font-size:0.75rem;color:#6B6358;text-align:right;">Mon–Sat · 10am–7pm<br/>Online &amp; In-Person Available</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="footer-logo-name">Consciousness Cures</div>
+      <p class="footer-tagline">Homeopathy · Art of Living · Natural Wellness</p>
+      <div class="footer-socials"><span>FB</span><span>IG</span><span>YT</span><span>WA</span></div>
+    </div>
+    <div class="footer-col"><h6>Explore</h6><ul><li><a href="about.html">About Doctor</a></li><li><a href="homeopathy.html">Homeopathy</a></li><li><a href="art-of-living.html">Art of Living</a></li><li><a href="programs.html">Programs</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+    <div class="footer-col"><h6>Programs</h6><ul><li>Happiness Program</li><li>Sudarshan Kriya</li><li>Sahaj Samadhi</li><li>Intuition Program</li><li><a href="programs.html">View All →</a></li></ul></div>
+    <div class="footer-col"><h6>Connect</h6><ul><li>📱 [WhatsApp Number]</li><li>📧 [Email Address]</li><li>📍 [Clinic Address, City]</li><li>🕐 Mon–Sat · 10am–7pm</li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Dr. Suchitra Mylapilli. All rights reserved.</span><span>Privacy Policy · Terms</span></div>
+</footer>
+
+<script>
+  const aolObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('aol-visible'); aolObs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.aol-ben-card, .aol-prog-card').forEach(el => aolObs.observe(el));
+</script>
+</body>
+</html>

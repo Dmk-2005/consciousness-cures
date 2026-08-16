@@ -1,0 +1,544 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Homeopathy — Consciousness Cures | Dr. Suchitra Mylapilli</title>
+<link rel="stylesheet" href="style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ── PAGE-SPECIFIC STYLES ── */
+body { background:#FDFCF7; }
+
+/* ── HERO ── */
+.hp-hero {
+  background: linear-gradient(135deg, #0B3D35 0%, #0D4A3E 50%, #082E28 100%);
+  min-height: calc(100vh - 116px);
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+}
+.hp-hero::before {
+  content:''; position:absolute; top:-150px; right:-150px;
+  width:600px; height:600px;
+  background:radial-gradient(circle, rgba(245,210,80,0.12) 0%, transparent 65%);
+  pointer-events:none;
+}
+.hp-hero::after {
+  content:''; position:absolute; bottom:-100px; left:-60px;
+  width:450px; height:450px;
+  background:radial-gradient(circle, rgba(80,200,130,0.1) 0%, transparent 65%);
+  pointer-events:none;
+}
+.hp-hero-inner {
+  display: flex; align-items: center; gap: 72px;
+  position: relative; z-index: 1;
+}
+.hp-hero-text { flex:1; display:flex; flex-direction:column; gap:22px; }
+.hp-hero-eyebrow {
+  font-size:0.72rem; text-transform:uppercase; letter-spacing:0.22em;
+  color:#6DBF8A; display:block;
+}
+.hp-hero-h1 {
+  font-family:'Playfair Display',serif; font-size:clamp(2.4rem,3.5vw,3.8rem);
+  color:#F5F0E8; line-height:1.1; font-weight:400;
+}
+.hp-hero-h1 em { color:#F5D250; font-style:italic; }
+.hp-hero-sub { font-size:1rem; color:#9ABFAA; max-width:460px; line-height:1.75; }
+.hp-hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
+.hp-btn-wa {
+  display:inline-flex; align-items:center; gap:9px;
+  background:#25D366; color:#fff;
+  padding:12px 26px; border-radius:8px; font-size:0.88rem; font-weight:500;
+  transition:all 0.25s;
+}
+.hp-btn-wa:hover { background:#1fb856; transform:translateY(-2px); box-shadow:0 8px 24px rgba(37,211,102,0.3); }
+.hp-btn-outline {
+  display:inline-block; padding:12px 26px; border-radius:8px;
+  border:1.5px solid rgba(245,240,232,0.35); color:#F5F0E8;
+  font-size:0.88rem; transition:all 0.25s;
+}
+.hp-btn-outline:hover { background:rgba(255,255,255,0.1); }
+
+/* stat row */
+.hp-stats {
+  display:flex; gap:32px; flex-wrap:wrap; padding-top:8px;
+  border-top:1px solid rgba(255,255,255,0.1);
+}
+.hp-stat { display:flex; flex-direction:column; gap:2px; }
+.hp-stat-num {
+  font-family:'Playfair Display',serif; font-size:1.6rem;
+  color:#F5D250; line-height:1;
+}
+.hp-stat-label { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.12em; color:rgba(255,255,255,0.5); }
+
+/* hero image */
+.hp-hero-img { flex:0 0 420px; position:relative; }
+.hp-hero-img img {
+  width:100%; height:500px; object-fit:cover;
+  object-position:center top; border-radius:20px; display:block;
+  border:2px solid rgba(245,210,80,0.2);
+}
+.hp-hero-badge {
+  position:absolute; bottom:24px; left:-20px;
+  background:linear-gradient(135deg,rgba(11,61,53,0.95),rgba(20,90,72,0.95));
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(245,210,80,0.3); border-radius:12px;
+  padding:12px 20px; display:flex; flex-direction:column; gap:3px;
+  box-shadow:0 8px 28px rgba(0,0,0,0.3);
+}
+.hp-hero-badge span:first-child {
+  font-family:'Playfair Display',serif; font-style:italic;
+  font-size:0.95rem; color:#F5EDD0;
+}
+.hp-hero-badge span:last-child {
+  font-size:0.62rem; text-transform:uppercase;
+  letter-spacing:0.14em; color:rgba(245,210,80,0.8);
+}
+</style>
+</head>
+<body>
+
+<!-- TOP HEADER -->
+<div class="top-header">
+  <div class="top-header-inner">
+    <div class="top-brand">
+      <div class="top-guru-photo" style="width:72px;height:72px;flex-shrink:0;">
+        <img src="images/hahnemann.jpg" alt="Dr. Samuel Hahnemann" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/>
+      </div>
+      <div class="top-brand-text">
+        <span class="top-center-name">Dr. Samuel Hahnemann</span>
+        <span class="top-center-tagline">Father of Homeopathy</span>
+      </div>
+    </div>
+    <div class="top-divider">
+      <div class="top-center-heading">
+        <img src="images/logo.png" alt="Consciousness Cures" class="top-logo-center"/>
+      </div>
+    </div>
+    <div class="top-guru">
+      <div class="top-guru-label">
+        <span class="top-guru-name">Sri Sri Ravi Shankar</span>
+        <span class="top-guru-role">Founder, Art of Living</span>
+      </div>
+      <div class="top-guru-photo">
+        <img src="images/srisri.jpg" alt="Sri Sri Ravi Shankar" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-wrap">
+    <div class="nav-logo">
+      <img src="images/logo.png" alt="Consciousness Cures" style="height:100px;width:100px;object-fit:contain;border-radius:10px;flex-shrink:0;"/>
+      <div class="nav-logo-text"><span class="logo-main">Consciousness Cures</span><span class="logo-sub">Homeopathy · Art of Living</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a><a href="about.html">About</a>
+      <a href="homeopathy.html" class="on">Homeopathy</a>
+      <a href="art-of-living.html">Art of Living</a><a href="programs.html">Programs</a>
+      <a href="conditions.html">Conditions</a><a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn nav-cta">Book via WhatsApp</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ 1. HERO ══ -->
+<section class="hp-hero">
+  <div class="wrap hp-hero-inner">
+    <div class="hp-hero-text">
+      <span class="hp-hero-eyebrow">Natural · Gentle · Effective · Time-Tested</span>
+      <h1 class="hp-hero-h1">Heal from the Root.<br/><em>Not Just Symptoms.</em></h1>
+      <p class="hp-hero-sub">Homeopathy — a 200-year-old system of natural medicine that treats you as a whole person. Individualized remedies, zero side effects, lasting results.</p>
+      <div class="hp-hero-btns">
+        <a href="contact.html" class="hp-btn-wa">📱 Book a Consultation</a>
+        <a href="#what-is" class="hp-btn-outline">Learn More ↓</a>
+      </div>
+      <div class="hp-stats">
+        <div class="hp-stat"><span class="hp-stat-num">200+</span><span class="hp-stat-label">Conditions Treated</span></div>
+        <div class="hp-stat"><span class="hp-stat-num">15+</span><span class="hp-stat-label">Years Experience</span></div>
+        <div class="hp-stat"><span class="hp-stat-num">0</span><span class="hp-stat-label">Side Effects</span></div>
+        <div class="hp-stat"><span class="hp-stat-num">All</span><span class="hp-stat-label">Ages Welcome</span></div>
+      </div>
+    </div>
+    <div class="hp-hero-img">
+      <img src="images/father of homeo.png" alt="Dr. Samuel Hahnemann — Father of Homeopathy"/>
+      <div class="hp-hero-badge">
+        <span>Dr. Samuel Hahnemann</span>
+        <span>Father of Homeopathy · 1755–1843</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 2. WHAT IS HOMEOPATHY ══ -->
+<section class="sec" id="what-is" style="background:#FDFAF2;">
+  <div class="wrap" style="display:flex;gap:72px;align-items:center;">
+    <div style="flex:1;display:flex;flex-direction:column;gap:20px;">
+      <span class="eyebrow">The Science &amp; Art</span>
+      <h2>What is Homeopathy?</h2>
+      <p style="color:var(--ink);font-size:0.95rem;line-height:1.8;">Homeopathy is a 200-year-old holistic system of medicine founded by Dr. Samuel Hahnemann in 1796. It is based on the principle of <em>"Similia Similibus Curentur"</em> — like cures like — meaning a substance that causes symptoms in a healthy person can cure similar symptoms in a sick one.</p>
+      <p style="color:var(--ink);font-size:0.95rem;line-height:1.8;">Unlike conventional medicine that suppresses symptoms, homeopathy works by stimulating the body's own healing intelligence. Remedies are derived from natural sources — plants, minerals, and animal substances — and are prepared through a process of dilution and potentization that removes toxicity while retaining healing energy.</p>
+      <p style="color:var(--ink);font-size:0.95rem;line-height:1.8;">Dr. Suchitra Mylapilli brings 15+ years of deep classical homeopathic practice — spending 60–90 minutes per consultation to truly understand each patient before prescribing a single remedy.</p>
+      <a href="contact.html" class="btn btn-dark" style="width:fit-content;">Book a Consultation →</a>
+    </div>
+    <div style="flex:0 0 380px;display:flex;flex-direction:column;gap:16px;">
+      <!-- Key Facts Card -->
+      <div style="background:#fff;border:1px solid #E8E2D0;border-radius:18px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.06);">
+        <div style="background:linear-gradient(135deg,#0B3D35,#145A48);padding:20px 28px;">
+          <h4 style="color:#F5D250;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:400;">Key Facts</h4>
+        </div>
+        <div style="padding:24px 28px;display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;justify-content:space-between;border-bottom:1px solid #F0EAD8;padding-bottom:12px;">
+            <span style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Founded</span>
+            <span style="font-size:0.88rem;font-weight:500;color:var(--ink);">1796</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;border-bottom:1px solid #F0EAD8;padding-bottom:12px;">
+            <span style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Founder</span>
+            <span style="font-size:0.88rem;font-weight:500;color:var(--ink);">Dr. Samuel Hahnemann</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;border-bottom:1px solid #F0EAD8;padding-bottom:12px;">
+            <span style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Principle</span>
+            <span style="font-size:0.88rem;font-weight:500;color:var(--ink);">Like Cures Like</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;border-bottom:1px solid #F0EAD8;padding-bottom:12px;">
+            <span style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Users Worldwide</span>
+            <span style="font-size:0.88rem;font-weight:500;color:var(--ink);">500 Million+</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;">
+            <span style="font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;">Side Effects</span>
+            <span style="font-size:0.88rem;font-weight:500;color:#2E7A40;">Zero</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3. WHY CHOOSE HOMEOPATHY ══ -->
+<section class="sec" style="background:#fff;">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:56px;">
+      <span class="eyebrow">The Advantages</span>
+      <h2>Why Choose Homeopathy?</h2>
+      <p class="sub sub-c" style="margin-top:12px;">Science-backed natural healing that works with your body — not against it.</p>
+    </div>
+    <div class="grid-4" style="gap:24px;">
+      <div class="hp-adv-card" style="--top:#0B3D35;">
+        <div class="hp-adv-icon" style="background:rgba(11,61,53,0.08);color:#0B3D35;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4 class="hp-adv-title">Zero Side Effects</h4>
+        <p class="hp-adv-desc">Natural remedies prepared through potentization — completely safe for newborns, elderly, and during pregnancy.</p>
+      </div>
+      <div class="hp-adv-card" style="--top:#C8960A;">
+        <div class="hp-adv-icon" style="background:rgba(200,150,10,0.08);color:#C8960A;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h4 class="hp-adv-title">Root Cause Healing</h4>
+        <p class="hp-adv-desc">Addresses the underlying cause of disease — not just surface symptoms that keep returning year after year.</p>
+      </div>
+      <div class="hp-adv-card" style="--top:#5C7A52;">
+        <div class="hp-adv-icon" style="background:rgba(92,122,82,0.08);color:#5C7A52;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h4 class="hp-adv-title">Fully Individualized</h4>
+        <p class="hp-adv-desc">Every patient gets a unique constitutional remedy — based on their physical symptoms, mental state, and life story.</p>
+      </div>
+      <div class="hp-adv-card" style="--top:#7B50C8;">
+        <div class="hp-adv-icon" style="background:rgba(123,80,200,0.08);color:#7B50C8;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h4 class="hp-adv-title">All Ages Welcome</h4>
+        <p class="hp-adv-desc">From newborns to the elderly — homeopathy is the gentlest and safest healing system for every stage of life.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.hp-adv-card {
+  background:#fff;
+  border:1px solid #EAE4D4;
+  border-top:3px solid var(--top,#0B3D35);
+  border-radius:16px; padding:32px 24px;
+  text-align:center;
+  transition:transform 0.28s ease, box-shadow 0.28s ease;
+  opacity:0; transform:translateY(22px);
+}
+.hp-adv-card.hp-visible { animation:hpIn 0.5s cubic-bezier(0.22,1,0.36,1) forwards; }
+@keyframes hpIn { to { opacity:1; transform:translateY(0); } }
+.hp-adv-card:hover { transform:translateY(-6px); box-shadow:0 14px 40px rgba(0,0,0,0.08); }
+.hp-adv-icon {
+  width:56px; height:56px; border-radius:14px;
+  display:grid; place-items:center;
+  margin:0 auto 18px;
+  transition:transform 0.25s;
+}
+.hp-adv-card:hover .hp-adv-icon { transform:scale(1.1); }
+.hp-adv-title { font-size:1rem; font-weight:500; color:#2E2A22; margin-bottom:10px; }
+.hp-adv-desc { font-size:0.82rem; color:#7A7060; line-height:1.72; }
+</style>
+
+<!-- ══ 4. HAHNEMANN QUOTE ══ -->
+<section class="sec" style="background:linear-gradient(135deg,#0B3D35 0%,#082E28 100%);position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(245,210,80,0.1) 0%,transparent 65%);pointer-events:none;"></div>
+  <div class="wrap" style="display:flex;gap:72px;align-items:center;">
+    <div style="flex:0 0 300px;position:relative;">
+      <div style="border-radius:18px;overflow:hidden;border:2px solid rgba(245,210,80,0.25);">
+        <img src="images/father of homeo.png" alt="Dr. Samuel Hahnemann" style="width:100%;height:380px;object-fit:cover;object-position:center top;display:block;"/>
+      </div>
+    </div>
+    <div style="flex:1;">
+      <div style="font-family:'Playfair Display',serif;font-size:5rem;color:rgba(245,210,80,0.25);line-height:0.6;margin-bottom:24px;">"</div>
+      <p style="font-family:'Playfair Display',serif;font-size:1.4rem;color:#F5EDD0;line-height:1.65;font-style:italic;margin-bottom:28px;">Similia similibus curentur — Let likes be cured by likes. The physician's highest and only mission is to restore the sick to health, to cure, as it is termed.</p>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div style="width:40px;height:2px;background:rgba(245,210,80,0.5);"></div>
+        <div>
+          <span style="font-size:0.9rem;color:#F5D250;font-weight:500;display:block;">Dr. Samuel Hahnemann</span>
+          <span style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.14em;color:rgba(255,255,255,0.4);">Organon of Medicine, 1810</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 5. CONDITIONS TREATED ══ -->
+<section class="sec" style="background:linear-gradient(150deg,#FAF8FF 0%,#F5F0FE 100%);position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-60px;right:-60px;width:350px;height:350px;background:radial-gradient(circle,rgba(150,100,230,0.07) 0%,transparent 65%);pointer-events:none;"></div>
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:56px;">
+      <span class="eyebrow" style="color:#7B50C8;">Areas of Expertise</span>
+      <h2 style="color:#2A1A50;">Conditions <em>Treated</em></h2>
+      <p class="sub sub-c" style="color:#5A4A80;margin-top:12px;">Homeopathy addresses the person, not just the diagnosis — chronic and acute conditions healed from the root.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+      <a href="conditions.html" class="hp-cond-card"><div class="hp-cond-icon">🧠</div><div><h4 class="hp-cond-title">Migraine</h4><p class="hp-cond-desc">Frequency &amp; intensity reduced naturally</p></div><span class="hp-cond-arr">→</span></a>
+      <a href="conditions.html" class="hp-cond-card"><div class="hp-cond-icon">🦋</div><div><h4 class="hp-cond-title">Thyroid</h4><p class="hp-cond-desc">Hypo &amp; hyperthyroid management</p></div><span class="hp-cond-arr">→</span></a>
+      <a href="conditions.html" class="hp-cond-card"><div class="hp-cond-icon">🌸</div><div><h4 class="hp-cond-title">PCOS / PCOD</h4><p class="hp-cond-desc">Hormonal rebalancing, cycle regulation</p></div><span class="hp-cond-arr">→</span></a>
+      <a href="conditions.html" class="hp-cond-card"><div class="hp-cond-icon">✨</div><div><h4 class="hp-cond-title">Skin Disorders</h4><p class="hp-cond-desc">Eczema, psoriasis, acne — from within</p></div><span class="hp-cond-arr">→</span></a>
+      <a href="conditions.html" class="hp-cond-card"><div class="hp-cond-icon">🌊</div><div><h4 class="hp-cond-title">Anxiety</h4><p class="hp-cond-desc">Remedies + breathwork combined</p></div><span class="hp-cond-arr">→</span></a>
+      <a href="conditions.html" class="hp-cond-card"><div class="hp-cond-icon">💨</div><div><h4 class="hp-cond-title">Asthma</h4><p class="hp-cond-desc">Reduced attacks, improved lung health</p></div><span class="hp-cond-arr">→</span></a>
+      <a href="conditions.html" class="hp-cond-card"><div class="hp-cond-icon">🌤</div><div><h4 class="hp-cond-title">Depression</h4><p class="hp-cond-desc">Homeopathy + meditation approach</p></div><span class="hp-cond-arr">→</span></a>
+      <a href="conditions.html" class="hp-cond-card"><div class="hp-cond-icon">🦴</div><div><h4 class="hp-cond-title">Arthritis</h4><p class="hp-cond-desc">Pain &amp; inflammation relief, naturally</p></div><span class="hp-cond-arr">→</span></a>
+      <a href="conditions.html" class="hp-cond-card"><div class="hp-cond-icon">🌱</div><div><h4 class="hp-cond-title">Children's Health</h4><p class="hp-cond-desc">100% safe, gentle, effective for kids</p></div><span class="hp-cond-arr">→</span></a>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="conditions.html" class="btn btn-dark">View All Conditions →</a>
+    </div>
+  </div>
+</section>
+<style>
+.hp-cond-card {
+  background:rgba(255,255,255,0.8); border:1px solid rgba(160,120,220,0.18);
+  border-radius:14px; padding:18px 16px;
+  display:flex; align-items:center; gap:14px;
+  text-decoration:none; position:relative; overflow:hidden;
+  transition:transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.hp-cond-card:hover { transform:translateY(-3px) translateX(3px); background:#fff; box-shadow:0 8px 24px rgba(120,80,200,0.1); }
+.hp-cond-icon { font-size:1.6rem; flex-shrink:0; transition:transform 0.25s; }
+.hp-cond-card:hover .hp-cond-icon { transform:scale(1.15); }
+.hp-cond-title { font-size:0.92rem; font-weight:500; color:#2A1A50; margin-bottom:3px; }
+.hp-cond-desc { font-size:0.74rem; color:#7060A0; line-height:1.4; }
+.hp-cond-arr { font-size:0.85rem; color:#7B50C8; opacity:0; margin-left:auto; flex-shrink:0; transition:opacity 0.2s,transform 0.2s; transform:translateX(-4px); }
+.hp-cond-card:hover .hp-cond-arr { opacity:1; transform:translateX(0); }
+</style>
+
+<!-- ══ 6. CONSULTATION PROCESS ══ -->
+<section class="sec" style="background:#FDFAF2;">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:64px;">
+      <span class="eyebrow">The Process</span>
+      <h2>How Consultation Works</h2>
+      <p class="sub sub-c" style="margin-top:12px;">A thorough, unhurried process that gets to the root — every time.</p>
+    </div>
+    <div style="position:relative;">
+      <div style="position:absolute;top:26px;left:calc(12.5% + 26px);right:calc(12.5% + 26px);height:2px;background:repeating-linear-gradient(90deg,rgba(200,150,30,0.35) 0px,rgba(200,150,30,0.35) 8px,transparent 8px,transparent 16px);"></div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative;z-index:1;">
+        <div class="hp-step">
+          <div class="hp-step-num">01</div>
+          <div class="hp-step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div class="hp-step-card"><h4 class="hp-step-title">Book via WhatsApp</h4><p class="hp-step-desc">Online or in-clinic — your slot confirmed within hours.</p></div>
+        </div>
+        <div class="hp-step">
+          <div class="hp-step-num">02</div>
+          <div class="hp-step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+          <div class="hp-step-card"><h4 class="hp-step-title">Detailed Case Study</h4><p class="hp-step-desc">60–90 min deep analysis — physical, mental, emotional history.</p></div>
+        </div>
+        <div class="hp-step">
+          <div class="hp-step-num">03</div>
+          <div class="hp-step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <div class="hp-step-card"><h4 class="hp-step-title">Constitutional Remedy</h4><p class="hp-step-desc">Individualized remedy after careful repertorization — uniquely yours.</p></div>
+        </div>
+        <div class="hp-step">
+          <div class="hp-step-num">04</div>
+          <div class="hp-step-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div class="hp-step-card"><h4 class="hp-step-title">Follow-up &amp; Recovery</h4><p class="hp-step-desc">Regular check-ins, remedy adjustments, progress tracked to full recovery.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+.hp-step { display:flex; flex-direction:column; align-items:center; gap:0; }
+.hp-step-num {
+  width:52px; height:52px; background:#fff; border:2px solid rgba(200,150,30,0.4);
+  border-radius:50%; display:grid; place-items:center;
+  font-family:'Playfair Display',serif; font-size:1.1rem; color:#C8960A;
+  box-shadow:0 4px 16px rgba(200,150,30,0.15); position:relative; z-index:1;
+  transition:background 0.3s,transform 0.3s;
+}
+.hp-step:hover .hp-step-num { background:linear-gradient(135deg,#C8960A,#F5D250); color:#fff; border-color:transparent; transform:scale(1.1); }
+.hp-step-icon {
+  width:40px; height:40px; background:rgba(200,150,30,0.1); border:1px solid rgba(200,150,30,0.2);
+  border-radius:10px; display:grid; place-items:center; color:#8A6208;
+  margin:16px 0; transition:transform 0.25s;
+}
+.hp-step:hover .hp-step-icon { transform:scale(1.08); }
+.hp-step-card {
+  background:#fff; border:1px solid #EAE4D4; border-radius:14px;
+  padding:22px 18px; text-align:center; width:100%;
+  transition:transform 0.25s,box-shadow 0.25s,border-color 0.25s;
+}
+.hp-step:hover .hp-step-card { transform:translateY(-4px); box-shadow:0 10px 28px rgba(200,150,30,0.1); border-color:rgba(200,150,30,0.3); }
+.hp-step-title { font-size:0.95rem; font-weight:500; color:#2E2A22; margin-bottom:8px; }
+.hp-step-desc { font-size:0.79rem; color:#7A7060; line-height:1.65; }
+</style>
+
+<!-- ══ 7. FAQs ══ -->
+<section class="sec" style="background:#fff;">
+  <div class="wrap" style="max-width:820px;">
+    <div style="margin-bottom:52px;text-align:center;">
+      <span class="eyebrow">Common Questions</span>
+      <h2>Frequently Asked Questions</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div class="hp-faq">
+        <div class="hp-faq-q">Is homeopathy scientifically proven?<span class="hp-faq-icon">+</span></div>
+        <div class="hp-faq-a">Homeopathy has been practiced for over 200 years and is recognized by the WHO as the second largest therapeutic system globally. Multiple clinical studies and meta-analyses have shown efficacy beyond placebo. It is practised by over 500 million people worldwide across 80+ countries.</div>
+      </div>
+      <div class="hp-faq">
+        <div class="hp-faq-q">How long does treatment take?<span class="hp-faq-icon">+</span></div>
+        <div class="hp-faq-a">Duration varies by condition. Acute conditions may resolve in days to weeks. Chronic conditions like thyroid, PCOS, or skin disorders typically require 3–12 months of consistent treatment. The goal is permanent healing, not just temporary relief.</div>
+      </div>
+      <div class="hp-faq">
+        <div class="hp-faq-q">Can homeopathy be taken alongside other medicines?<span class="hp-faq-icon">+</span></div>
+        <div class="hp-faq-a">Yes. Homeopathic remedies do not interact with conventional medicines. Many patients use both simultaneously, gradually reducing allopathic medication as healing progresses — always under proper medical supervision.</div>
+      </div>
+      <div class="hp-faq">
+        <div class="hp-faq-q">Is it safe for children and pregnant women?<span class="hp-faq-icon">+</span></div>
+        <div class="hp-faq-a">Absolutely. Homeopathy is one of the safest systems of medicine and is ideal for children, pregnant women, and nursing mothers. The remedies are gentle, non-toxic, and carry zero risk of addiction or chemical side effects.</div>
+      </div>
+      <div class="hp-faq">
+        <div class="hp-faq-q">How does an online consultation work?<span class="hp-faq-icon">+</span></div>
+        <div class="hp-faq-a">Book via WhatsApp, then conduct your consultation via video call at your scheduled time. The case study process is identical to an in-person visit. Remedies are dispatched to your address. Follow-ups happen via call or WhatsApp — seamlessly from your home.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+.hp-faq {
+  border:1px solid #E8E2D0; border-radius:12px;
+  overflow:hidden; background:#fff;
+  transition:box-shadow 0.25s;
+}
+.hp-faq:hover { box-shadow:0 4px 20px rgba(0,0,0,0.06); }
+.hp-faq-q {
+  padding:20px 24px; font-size:0.97rem;
+  font-family:'Playfair Display',serif; color:#2E2A22;
+  display:flex; justify-content:space-between; align-items:center;
+  cursor:pointer;
+}
+.hp-faq-icon { color:var(--sage-dk); font-size:1.2rem; font-family:'DM Sans',sans-serif; font-weight:300; }
+.hp-faq-a {
+  padding:0 24px 20px; font-size:0.86rem; color:#6A6058;
+  line-height:1.75; border-top:1px solid #F0EAD8;
+  padding-top:16px;
+}
+</style>
+
+<!-- ══ 8. TESTIMONIALS ══ -->
+<section class="sec" style="background:linear-gradient(135deg,#0E3028 0%,#071E1A 100%);position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(80,200,130,0.08) 0%,transparent 65%);pointer-events:none;"></div>
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:48px;">
+      <span class="eyebrow" style="color:#6DBF8A;">Real Results</span>
+      <h2 style="color:#F5F0E8;">Patient <em>Success Stories</em></h2>
+    </div>
+    <div class="grid-3" style="gap:22px;">
+      <div class="hp-testi">
+        <div class="hp-testi-mark">"</div>
+        <p class="hp-testi-text">After 7 years of migraines every week, I finally found relief through homeopathy. Dr. Suchitra understood things no other doctor had ever asked about. Within 3 months, my attacks reduced by 80%.</p>
+        <div class="hp-testi-foot"><strong>Priya R.</strong><span>Migraine · Hyderabad</span><div class="stars">★★★★★</div></div>
+      </div>
+      <div class="hp-testi">
+        <div class="hp-testi-mark">"</div>
+        <p class="hp-testi-text">My son had severe eczema from age 2. Conventional creams only suppressed it temporarily. Six months into homeopathic treatment, his skin is completely clear. I wish we had found this earlier.</p>
+        <div class="hp-testi-foot"><strong>Anitha K.</strong><span>Child's Eczema · Bangalore</span><div class="stars">★★★★★</div></div>
+      </div>
+      <div class="hp-testi">
+        <div class="hp-testi-mark">"</div>
+        <p class="hp-testi-text">PCOS had disrupted my cycles for years and I was told I'd need hormones forever. The constitutional remedy changed everything. Cycles regularized, weight normalized, and I feel like myself again.</p>
+        <div class="hp-testi-foot"><strong>Deepa M.</strong><span>PCOS · Chennai</span><div class="stars">★★★★★</div></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <a href="testimonials.html" style="color:#F5D250;border-bottom:1px solid rgba(245,210,80,0.4);padding-bottom:2px;font-size:0.88rem;">Read All Stories →</a>
+    </div>
+  </div>
+</section>
+<style>
+.hp-testi {
+  background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
+  border-radius:16px; padding:28px; display:flex; flex-direction:column; gap:16px;
+  transition:background 0.25s,transform 0.25s;
+}
+.hp-testi:hover { background:rgba(255,255,255,0.1); transform:translateY(-4px); }
+.hp-testi-mark { font-family:'Playfair Display',serif; font-size:3rem; color:rgba(245,210,80,0.35); line-height:0.7; }
+.hp-testi-text { font-size:0.88rem; color:#C8E4D0; font-style:italic; line-height:1.75; flex:1; }
+.hp-testi-foot { display:flex; flex-direction:column; gap:4px; border-top:1px solid rgba(255,255,255,0.08); padding-top:14px; }
+.hp-testi-foot strong { color:#F5EDD0; font-size:0.9rem; }
+.hp-testi-foot span { font-size:0.74rem; color:#6DBF8A; }
+.stars { color:#F5D250; font-size:0.82rem; margin-top:4px; }
+</style>
+
+<!-- ══ 9. CTA BAND ══ -->
+<section style="background:var(--charcoal);padding:80px 0;">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:48px;">
+    <div>
+      <span class="eyebrow" style="color:var(--sage);">Start Natural Healing Today</span>
+      <h2 style="color:#F5F3EE;margin-top:8px;max-width:500px;">Ready to heal naturally?<br/>Let's have a conversation.</h2>
+      <p style="color:#8C8070;margin-top:12px;max-width:420px;">Online &amp; in-clinic consultations available. Deep case analysis. Lasting healing from the root.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-end;">
+      <a href="contact.html" class="btn-wa"><span class="wa-dot">WA</span> Book via WhatsApp</a>
+      <p style="font-size:0.75rem;color:#6B6358;text-align:right;">Mon–Sat · 10am–7pm<br/>Online &amp; In-Clinic</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="footer-logo-name">Consciousness Cures</div>
+      <p class="footer-tagline">Homeopathy · Art of Living · Natural Wellness</p>
+      <div class="footer-socials"><span>FB</span><span>IG</span><span>YT</span><span>WA</span></div>
+    </div>
+    <div class="footer-col"><h6>Explore</h6><ul><li><a href="about.html">About Doctor</a></li><li><a href="homeopathy.html">Homeopathy</a></li><li><a href="art-of-living.html">Art of Living</a></li><li><a href="programs.html">Programs</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+    <div class="footer-col"><h6>Conditions</h6><ul><li>Migraine &amp; Thyroid</li><li>PCOS / PCOD</li><li>Anxiety &amp; Depression</li><li>Skin Disorders</li><li><a href="conditions.html">View All →</a></li></ul></div>
+    <div class="footer-col"><h6>Connect</h6><ul><li>📱 [WhatsApp Number]</li><li>📧 [Email Address]</li><li>📍 [Clinic Address, City]</li><li>🕐 Mon–Sat · 10am–7pm</li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 Dr. Suchitra Mylapilli. All rights reserved.</span><span>Privacy Policy · Terms</span></div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('hp-visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.hp-adv-card').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

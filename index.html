@@ -1,0 +1,1540 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Dr. Suchitra Mylapilli — Homeopathy & Art of Living</title>
+<link rel="stylesheet" href="style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ── HOME PAGE SECTION BACKGROUNDS ──────────────
+   Rhythm: Hero → Dark → Light → DARK → Light → DARK → Light → Dark → Light
+   Never two identical light tones adjacent
+─────────────────────────────────────────────── */
+
+/* Whole page warm base */
+body { background: #FDFCF7; }
+
+/* Section 1 — Hero: banner image */
+.s-hero {
+  background: linear-gradient(135deg, rgba(255,251,238,0.35) 0%, rgba(247,249,242,0.30) 100%),
+              url('images/banner.png') center center / cover no-repeat;
+  position: relative; overflow: hidden;
+}
+.s-hero::before {
+  content:''; position:absolute; top:-160px; right:-160px;
+  width:560px; height:560px;
+  background:radial-gradient(circle, rgba(230,190,50,0.2) 0%, transparent 65%);
+  pointer-events:none;
+}
+.s-hero::after {
+  content:''; position:absolute; bottom:-100px; left:-60px;
+  width:420px; height:420px;
+  background:radial-gradient(circle, rgba(80,150,110,0.14) 0%, transparent 65%);
+  pointer-events:none;
+}
+.s-hero > * { position:relative; z-index:1; }
+
+/* Section 2 — Doctor Intro: deep teal (DARK) */
+.s-intro {
+  background: linear-gradient(135deg, #0B3D35 0%, #082E28 100%);
+}
+
+/* Section 3 — Philosophy: warm ivory (LIGHT — distinct from sage) */
+.s-gold { background: #FDFAF2; }
+
+/* Section 4 — Pillars: deep charcoal-slate (DARK — breaks the light chain) */
+/* handled by .s-pillars below */
+
+/* Section 5 — Programs: deep navy (DARK) */
+.s-navy {
+  background: linear-gradient(150deg, #0F2D3A 0%, #0A2230 100%);
+  position: relative; overflow: hidden;
+}
+.s-navy::before {
+  content:''; position:absolute; top:-80px; left:50%; transform:translateX(-50%);
+  width:700px; height:300px;
+  background:radial-gradient(ellipse, rgba(230,190,50,0.1) 0%, transparent 65%);
+  pointer-events:none;
+}
+
+/* Section 6 — Conditions: rich lavender */
+.s-lavender {
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(160,120,220,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 80%, rgba(120,80,200,0.05) 0%, transparent 50%),
+    linear-gradient(150deg, #FAF8FF 0%, #F5F0FE 50%, #F0EAFD 100%);
+  position: relative; overflow: hidden;
+}
+.s-lavender::before {
+  content:''; position:absolute; top:-80px; right:-80px;
+  width:420px; height:420px;
+  background: radial-gradient(circle, rgba(150,100,230,0.06) 0%, transparent 65%);
+  pointer-events:none;
+}
+
+/* Section 7 — Journey: warm ivory light */
+.s-saffron {
+  background: linear-gradient(160deg, #FDFBF5 0%, #F8F3E8 100%);
+  position: relative;
+}
+.s-saffron::before {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:1px;
+  background: linear-gradient(90deg, transparent, rgba(200,150,30,0.3), transparent);
+}
+
+/* Section 8 — Testimonials: deep forest (DARK) */
+.s-forest {
+  background: linear-gradient(135deg, #0E3028 0%, #071E1A 100%);
+  position: relative; overflow: hidden;
+}
+.s-forest::before {
+  content:''; position:absolute; top:-100px; right:-100px;
+  width:500px; height:500px;
+  background:radial-gradient(circle, rgba(80,200,130,0.1) 0%, transparent 65%);
+  pointer-events:none;
+}
+
+/* Section 9 — Blog: cool off-white (LIGHT — not cream, breaks amber repeat) */
+.s-amber { background: #F8F8F6; }
+
+/* ── Dark section text overrides ── */
+.s-intro .eyebrow { color: #6DBF8A; }
+.s-intro h2 { color: #F5F0E8; }
+.s-intro p  { color: #9ABFAA; }
+.s-intro .chip { background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.15); color:#D4EDD8; }
+.s-intro .btn-text { color:#F5D250; border-color:#F5D250; }
+.s-intro .img-box { background:rgba(255,255,255,0.07); border-color:rgba(255,255,255,0.15); color:#6A9A7A; }
+
+.s-navy .eyebrow { color: #6DBF8A; }
+.s-navy h2 { color: #F5F0E8; }
+.s-navy .btn-text { color: #F5D250; border-color: #F5D250; }
+.s-navy .card { background:rgba(255,255,255,0.07); border-color:rgba(255,255,255,0.1); }
+.s-navy .card:hover { background:rgba(255,255,255,0.12); box-shadow:0 12px 40px rgba(0,0,0,0.25); }
+.s-navy h4 { color:#F5EDD0; }
+.s-navy p  { color:#8AB8A8; }
+.s-navy .tag { background:rgba(230,190,50,0.15); border-color:rgba(230,190,50,0.3); color:#F0D070; }
+.s-navy .tag-sage { background:rgba(80,180,120,0.15); border-color:rgba(80,180,120,0.3); color:#80D4A0; }
+.s-navy .tag-dark { background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.15); color:#F0EDE4; }
+
+.s-forest .eyebrow { color: #6DBF8A; }
+.s-forest h2  { color: #F5F0E8; }
+.s-forest .testi { background:rgba(255,255,255,0.07); border-color:rgba(255,255,255,0.1); }
+.s-forest .testi p { color:#C8E4D0; font-style:italic; }
+.s-forest .testi-mark { color:rgba(245,210,80,0.4); }
+.s-forest strong { color:#F0EDE4; }
+.s-forest .testi span { color:#6DBF8A; }
+.s-forest .stars { color:#F5D250; }
+.s-forest .btn-text { color:#F5D250; border-color:#F5D250; }
+.s-forest .testi-avatar { background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.15); color:#6DBF8A; }
+
+/* ── Journey steps warm ── */
+.s-saffron .step { background:#fff; box-shadow:0 4px 20px rgba(200,140,40,0.08); }
+.s-saffron .step-num { color:#C8960A; }
+
+/* ══════════════════════════════════════
+   HOW IT WORKS — JOURNEY
+   Light ivory bg, 4-step horizontal timeline
+   Gold numbered bubbles, white cards
+══════════════════════════════════════ */
+.journey-wrap {
+  position: relative;
+}
+
+/* the connecting dashed line */
+.journey-line {
+  position: absolute;
+  top: 26px; /* centre of the bubble */
+  left: calc(12.5% + 26px);
+  right: calc(12.5% + 26px);
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(200,150,30,0.35) 0px,
+    rgba(200,150,30,0.35) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+  z-index: 0;
+}
+
+.journey-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* step wrapper */
+.journey-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  opacity: 0;
+  transform: translateY(24px);
+}
+.journey-step.js-visible {
+  animation: jsIn 0.55s cubic-bezier(0.22,1,0.36,1) var(--jd,0s) forwards;
+}
+@keyframes jsIn { to { opacity:1; transform:translateY(0); } }
+
+/* bubble = number circle + icon below */
+.journey-bubble {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.journey-num {
+  width: 52px; height: 52px;
+  background: #fff;
+  border: 2px solid rgba(200,150,30,0.4);
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: #C8960A;
+  box-shadow: 0 4px 16px rgba(200,150,30,0.15);
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  position: relative;
+  z-index: 1;
+}
+.journey-step:hover .journey-num {
+  background: linear-gradient(135deg, #C8960A, #F5D250);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 8px 24px rgba(200,150,30,0.35);
+  transform: scale(1.1);
+}
+
+.journey-icon-ring {
+  width: 44px; height: 44px;
+  background: rgba(200,150,30,0.1);
+  border: 1.5px solid rgba(200,150,30,0.25);
+  border-radius: 12px;
+  display: grid; place-items: center;
+  color: #8A6208;
+  transition: background 0.3s, transform 0.3s;
+}
+.journey-step:hover .journey-icon-ring {
+  background: rgba(200,150,30,0.18);
+  transform: scale(1.08);
+}
+
+/* card */
+.journey-card {
+  background: #fff;
+  border: 1px solid #EAE4D4;
+  border-radius: 16px;
+  padding: 24px 20px;
+  text-align: center;
+  width: 100%;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+.journey-step:hover .journey-card {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(200,150,30,0.12);
+  border-color: rgba(200,150,30,0.35);
+}
+
+.journey-title {
+  font-size: 0.97rem;
+  font-weight: 500;
+  color: #2E2A22;
+  margin-bottom: 8px;
+}
+.journey-desc {
+  font-size: 0.81rem;
+  color: #7A7060;
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════════════
+   CONDITIONS / AREAS OF EXPERTISE
+══════════════════════════════════════ */
+.cond-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.cond-card {
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(160,120,220,0.2);
+  border-radius: 16px;
+  padding: 22px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+  transition: transform 0.28s ease, box-shadow 0.28s ease,
+              background 0.28s ease, border-color 0.28s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.cond-card.cond-visible {
+  animation: condIn 0.5s cubic-bezier(0.22,1,0.36,1) var(--cd,0s) forwards;
+}
+@keyframes condIn { to { opacity:1; transform:translateY(0); } }
+
+/* left accent bar that grows on hover */
+.cond-card::before {
+  content:'';
+  position: absolute; left:0; top:15%; bottom:15%;
+  width: 3px;
+  background: linear-gradient(180deg, var(--ic, #7B50C8), transparent);
+  border-radius: 0 3px 3px 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s ease;
+}
+.cond-card:hover::before { transform: scaleY(1); }
+
+.cond-card:hover {
+  transform: translateY(-4px) translateX(4px);
+  background: rgba(255,255,255,0.95);
+  border-color: rgba(160,120,220,0.45);
+  box-shadow: 0 10px 30px rgba(120,80,200,0.12),
+              -4px 0 0 var(--ic, #7B50C8);
+}
+
+/* icon circle */
+.cond-icon-wrap {
+  width: 52px; height: 52px;
+  background: var(--ib, rgba(123,80,200,0.12));
+  border: 1.5px solid rgba(160,120,220,0.25);
+  border-radius: 14px;
+  display: grid; place-items: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.cond-card:hover .cond-icon-wrap {
+  transform: scale(1.12) rotate(-4deg);
+  background: rgba(160,120,220,0.2);
+}
+
+.cond-body { flex: 1; }
+.cond-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #2A1A50;
+  margin-bottom: 4px;
+  transition: color 0.2s;
+}
+.cond-card:hover .cond-title { color: var(--ic, #7B50C8); }
+.cond-desc {
+  font-size: 0.76rem;
+  color: #7060A0;
+  line-height: 1.5;
+}
+
+/* arrow that slides in */
+.cond-arrow {
+  font-size: 0.9rem;
+  color: var(--ic, #7B50C8);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.25s, transform 0.25s;
+  flex-shrink: 0;
+}
+.cond-card:hover .cond-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* CTA button */
+.cond-btn {
+  display: inline-block;
+  padding: 12px 32px;
+  background: linear-gradient(135deg, #7B50C8, #9B70E8);
+  color: #fff;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 20px rgba(123,80,200,0.3);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.cond-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(123,80,200,0.4);
+}
+
+/* ── Program heading above dark section ── */
+.s-navy .flex-between { color:#F5F0E8; }
+
+/* ══════════════════════════════════════
+   SIGNATURE OFFERINGS / PROGRAMS
+   Light sage-tinted bg, white cards,
+   teal/sage/gold accents, clean & readable
+══════════════════════════════════════ */
+.s-programs {
+  background: linear-gradient(160deg, #F0F7F4 0%, #EAF4EF 100%);
+}
+
+.prog-view-all {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.85rem; font-weight: 500;
+  color: #0B3D35;
+  border: 1.5px solid rgba(11,61,53,0.3);
+  padding: 9px 20px; border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+.prog-view-all:hover { background:#0B3D35; color:#F5EDD0; }
+.prog-view-all span { display:inline-block; transition:transform 0.2s; }
+.prog-view-all:hover span { transform:translateX(4px); }
+
+/* uniform 3-col grid, 2 rows */
+.prog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+/* card */
+.prog-card {
+  background: #fff;
+  border: 1px solid #DDE8E4;
+  border-radius: 16px;
+  padding: 28px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  opacity: 0;
+  transform: translateY(22px);
+}
+.prog-card.prog-visible {
+  animation: progIn 0.5s cubic-bezier(0.22,1,0.36,1) var(--pd,0s) forwards;
+}
+@keyframes progIn { to { opacity:1; transform:translateY(0); } }
+
+.prog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 32px rgba(11,61,53,0.1);
+}
+
+/* coloured top border per card on hover */
+.prog-card::after {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background: linear-gradient(90deg, #0B3D35, #C8960A);
+  border-radius: 16px 16px 0 0;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.prog-card:hover::after { transform: scaleX(1); }
+
+/* icon box */
+.prog-card-icon {
+  width: 44px; height: 44px;
+  border-radius: 11px;
+  display: grid; place-items: center;
+  margin-bottom: 4px;
+  transition: transform 0.25s;
+}
+.prog-card:hover .prog-card-icon { transform: scale(1.1); }
+.prog-icon--teal { background:rgba(11,61,53,0.08);  border:1px solid rgba(11,61,53,0.15);  color:#0B3D35; }
+.prog-icon--sage { background:rgba(60,140,90,0.09);  border:1px solid rgba(60,140,90,0.18);  color:#2E6A44; }
+.prog-icon--gold { background:rgba(200,150,30,0.09); border:1px solid rgba(200,150,30,0.18); color:#8A6208; }
+
+/* tags */
+.prog-tag {
+  display:inline-block; font-size:0.63rem;
+  text-transform:uppercase; letter-spacing:0.12em;
+  padding:3px 10px; border-radius:20px; width:fit-content;
+}
+.prog-tag--teal { background:rgba(11,61,53,0.07);  border:1px solid rgba(11,61,53,0.18);  color:#0B3D35; }
+.prog-tag--sage { background:rgba(60,140,90,0.08);  border:1px solid rgba(60,140,90,0.2);   color:#256035; }
+.prog-tag--gold { background:rgba(200,150,30,0.08); border:1px solid rgba(200,150,30,0.2);  color:#7A5808; }
+
+/* text */
+.prog-title {
+  font-size: 1rem; font-weight: 500;
+  color: #1E2A26; line-height: 1.3;
+}
+.prog-desc {
+  font-size: 0.82rem; color: #5A6E66;
+  line-height: 1.7; flex:1;
+}
+.prog-link {
+  font-size: 0.79rem; font-weight:500;
+  color: #0B3D35;
+  border-bottom: 1px solid rgba(11,61,53,0.3);
+  padding-bottom: 1px; width:fit-content;
+  margin-top: 6px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.prog-link:hover { color:#C8960A; border-color:#C8960A; }
+
+/* ── Image background card variant ── */
+.prog-card--img {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 240px;
+  border-color: transparent;
+}
+.prog-card--img::after {
+  /* override the hover top-bar animation — not needed on image cards */
+  display: none;
+}
+.prog-card-img-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: linear-gradient(160deg, rgba(11,40,32,0.72) 0%, rgba(6,22,18,0.82) 100%);
+  transition: background 0.35s ease;
+  z-index: 0;
+}
+.prog-card--img:hover .prog-card-img-overlay {
+  background: linear-gradient(160deg, rgba(11,40,32,0.55) 0%, rgba(6,22,18,0.68) 100%);
+}
+/* push all children above overlay */
+.prog-card--img > *:not(.prog-card-img-overlay) {
+  position: relative;
+  z-index: 1;
+}
+/* image zooms on hover */
+.prog-card--img {
+  overflow: hidden;
+}
+.prog-card--img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+  border-radius: 16px;
+  z-index: 0;
+}
+.prog-card--img:hover::before {
+  transform: scale(1.06);
+}
+
+/* ══════════════════════════════════════
+   HEALING PILLARS SECTION
+   Background: deep charcoal-slate — sits between
+   warm ivory (philosophy) and navy (programs)
+   Cards: solid warm white — pop clearly
+══════════════════════════════════════ */
+.s-pillars {
+  background:
+    radial-gradient(ellipse at 15% 50%, rgba(200,150,30,0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 50%, rgba(60,160,100,0.1) 0%, transparent 50%),
+    linear-gradient(160deg, #1C2B2A 0%, #162220 50%, #1A2530 100%);
+  position: relative;
+  overflow: hidden;
+}
+.s-pillars::before {
+  content:''; position:absolute; top:-120px; left:50%; transform:translateX(-50%);
+  width:800px; height:300px;
+  background: radial-gradient(ellipse, rgba(245,210,80,0.06) 0%, transparent 65%);
+  pointer-events:none;
+}
+
+/* ── Pillar cards — warm tinted glass, distinct from dark bg ── */
+.pillar-card {
+  border-radius: 22px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  opacity: 0;
+  transform: translateY(40px);
+}
+.pillar-hom-card {
+  background: linear-gradient(160deg, #0A2E38 0%, #071E28 60%, #0A2830 100%);
+  border: 1px solid rgba(100,180,210,0.2);
+}
+.pillar-aol-card {
+  background: linear-gradient(160deg, #082A1C 0%, #061E16 60%, #082420 100%);
+  border: 1px solid rgba(60,160,100,0.25);
+}
+.pillar-card.pillar-visible {
+  animation: pillarIn 0.65s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.pillar-hom-card.pillar-visible { animation-delay: 0s; }
+.pillar-aol-card.pillar-visible { animation-delay: 0.15s; }
+
+@keyframes pillarIn {
+  to { opacity:1; transform:translateY(0); }
+}
+
+.pillar-hom-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 28px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(100,180,210,0.45);
+}
+.pillar-aol-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 28px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(60,160,100,0.5);
+}
+
+/* ── Image area ── */
+.pillar-img-wrap {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+.pillar-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.pillar-card:hover .pillar-img-wrap img {
+  transform: scale(1.05);
+}
+
+/* gradient overlay on image */
+.pillar-img-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom,
+    transparent 40%,
+    rgba(10,40,30,0.85) 100%);
+}
+.pillar-img-overlay--sage {
+  background: linear-gradient(to bottom,
+    transparent 40%,
+    rgba(7,30,26,0.85) 100%);
+}
+
+/* caption pinned to bottom of image */
+.pillar-img-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 14px 20px;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.pillar-caption-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9rem;
+  color: #F5EDD0;
+  font-style: italic;
+}
+.pillar-caption-role {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ── Body ── */
+.pillar-body {
+  padding: 32px 36px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* tags */
+.pillar-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 4px 14px;
+  border-radius: 20px;
+  width: fit-content;
+}
+.pillar-tag--gold {
+  background: rgba(100,180,210,0.15);
+  border: 1px solid rgba(100,180,210,0.35);
+  color: #7CC8E8;
+}
+.pillar-tag--sage {
+  background: rgba(60,160,100,0.18);
+  border: 1px solid rgba(60,160,100,0.4);
+  color: #6DBF8A;
+}
+
+/* heading */
+.pillar-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem,2vw,2rem);
+  font-weight: 400;
+  color: #F5EDD0;
+  line-height: 1.2;
+}
+
+/* desc */
+.pillar-desc {
+  font-size: 0.88rem;
+  color: #9ABFAA;
+  line-height: 1.75;
+  max-width: 420px;
+}
+
+/* list */
+.pillar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+.pillar-list li {
+  font-size: 0.85rem;
+  color: #C8E0D0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+.pillar-bullet {
+  flex-shrink: 0;
+  font-size: 0.55rem;
+  margin-top: 5px;
+}
+.pillar-bullet--gold { color: #7CC8E8; }
+.pillar-bullet--sage { color: #6DBF8A; }
+
+/* CTA link */
+.pillar-link {
+  display: inline-block;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding-bottom: 2px;
+  border-bottom: 1px solid;
+  width: fit-content;
+  margin-top: 4px;
+  transition: letter-spacing 0.25s ease, opacity 0.25s ease;
+}
+.pillar-link--gold { color: #7CC8E8; border-color: rgba(100,180,210,0.5); }
+.pillar-link--sage { color: #6DBF8A; border-color: rgba(60,160,100,0.6); }
+.pillar-link:hover { letter-spacing: 0.04em; opacity: 0.75; }
+
+/* ══════════════════════════════════════
+   PHILOSOPHY CARDS — Healing from Root
+   Section bg: s-gold (warm cream already)
+   Cards: white with gold top-border accent,
+   icon circle, smooth hover lift + glow
+══════════════════════════════════════ */
+.phil-card {
+  background: #fff;
+  border: 1px solid rgba(210,180,60,0.25);
+  border-radius: 18px;
+  padding: 36px 26px 30px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease;
+  /* scroll-in start state */
+  opacity: 0;
+  transform: translateY(28px);
+}
+.phil-card.phil-visible {
+  animation: philIn 0.55s cubic-bezier(0.22,1,0.36,1) forwards;
+}
+.phil-card--1.phil-visible { animation-delay: 0s; }
+.phil-card--2.phil-visible { animation-delay: 0.1s; }
+.phil-card--3.phil-visible { animation-delay: 0.2s; }
+.phil-card--4.phil-visible { animation-delay: 0.3s; }
+
+@keyframes philIn {
+  to { opacity:1; transform:translateY(0); }
+}
+
+/* coloured top border per card */
+.phil-card--1::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#C8960A,#F5D250); border-radius:18px 18px 0 0; }
+.phil-card--2::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#2E7A40,#6DBF8A); border-radius:18px 18px 0 0; }
+.phil-card--3::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#5C7A42,#A8C870); border-radius:18px 18px 0 0; }
+.phil-card--4::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,#0B3D35,#2A8A65); border-radius:18px 18px 0 0; }
+
+.phil-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(210,180,60,0.5);
+  box-shadow: 0 16px 48px rgba(180,140,20,0.13), 0 4px 16px rgba(0,0,0,0.06);
+}
+
+/* soft radial glow on hover (hidden by default) */
+.phil-glow {
+  position:absolute; inset:0; border-radius:18px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(245,210,80,0.1) 0%, transparent 65%);
+  opacity:0; transition:opacity 0.35s;
+  pointer-events:none;
+}
+.phil-card:hover .phil-glow { opacity:1; }
+
+/* icon circle */
+.phil-icon {
+  width:58px; height:58px;
+  background: linear-gradient(135deg,#FFFCEE,#FFF6D0);
+  border: 1.5px solid rgba(200,160,40,0.3);
+  border-radius: 50%;
+  display: grid; place-items: center;
+  margin: 0 auto 20px;
+  color: #8A6A10;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+.phil-card--2 .phil-icon { background:linear-gradient(135deg,#F0FBF4,#DDF2E6); border-color:rgba(60,150,90,0.25); color:#2E7A40; }
+.phil-card--3 .phil-icon { background:linear-gradient(135deg,#F4FBF0,#E4F2D8); border-color:rgba(80,130,60,0.25); color:#4A7030; }
+.phil-card--4 .phil-icon { background:linear-gradient(135deg,#EEF5F3,#D8EDEA); border-color:rgba(11,61,53,0.2);  color:#0B3D35; }
+
+.phil-card:hover .phil-icon {
+  transform: scale(1.1);
+  background: linear-gradient(135deg,#FFF8D0,#FFEE90);
+}
+.phil-card--2:hover .phil-icon { background:linear-gradient(135deg,#D8F2E2,#A8E4C0); }
+.phil-card--3:hover .phil-icon { background:linear-gradient(135deg,#DDF2CC,#BEE4A0); }
+.phil-card--4:hover .phil-icon { background:linear-gradient(135deg,#C8E8E0,#90CEC0); }
+
+.phil-title {
+  font-size:1.02rem;
+  font-weight:500;
+  color:#2E2A22;
+  margin-bottom:10px;
+}
+.phil-desc {
+  font-size:0.83rem;
+  color:#7A7060;
+  line-height:1.72;
+}
+
+/* bottom accent line that grows on hover */
+.phil-accent-line {
+  width:28px; height:2px;
+  background:rgba(200,150,30,0.4);
+  border-radius:2px;
+  margin:18px auto 0;
+  transition:width 0.3s ease, background 0.3s ease;
+}
+.phil-card:hover .phil-accent-line { width:56px; background:rgba(200,150,30,0.8); }
+
+/* ── Doctor Name Badge (Hero) ── */
+.doctor-name-badge {
+  position: absolute;
+  bottom: 28px;
+  left: -24px;
+  background: linear-gradient(135deg, rgba(11,61,53,0.88) 0%, rgba(20,90,72,0.92) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(245,210,80,0.35);
+  border-radius: 14px;
+  padding: 14px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: 0 8px 32px rgba(11,61,53,0.35), 0 0 0 1px rgba(255,255,255,0.06);
+
+  /* Start hidden — slides up on load */
+  opacity: 0;
+  transform: translateY(18px);
+  animation: badgeReveal 0.7s cubic-bezier(0.22,1,0.36,1) 0.5s forwards;
+}
+.doctor-name-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: #F5EDD0;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+.doctor-name-sub {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(245,210,80,0.85);
+  white-space: nowrap;
+}
+
+@keyframes badgeReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP HEADER -->
+<div class="top-header">
+  <div class="top-header-inner">
+    <div class="top-brand">
+      <div class="top-guru-photo" style="width:72px;height:72px;flex-shrink:0;">
+        <img src="images/hahnemann.jpg" alt="Dr. Samuel Hahnemann" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/>
+      </div>
+      <div class="top-brand-text">
+        <span class="top-center-name">Dr. Samuel Hahnemann</span>
+        <span class="top-center-tagline">Father of Homeopathy</span>
+      </div>
+    </div>
+    <div class="top-divider">
+      <div class="top-center-heading">
+        <img src="images/logo.png" alt="Consciousness Cures" class="top-logo-center"/>
+      </div>
+    </div>
+    <div class="top-guru">
+      <div class="top-guru-label">
+        <span class="top-guru-name">Sri Sri Ravi Shankar</span>
+        <span class="top-guru-role">Founder, Art of Living</span>
+      </div>
+      <div class="top-guru-photo">
+        <img src="images/srisri.jpg" alt="Sri Sri Ravi Shankar" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-wrap">
+    <div class="nav-logo">
+      <img src="images/logo.png" alt="Consciousness Cures" style="height:100px;width:100px;object-fit:contain;border-radius:10px;flex-shrink:0;"/>
+      <div class="nav-logo-text"><span class="logo-main">Consciousness Cures</span><span class="logo-sub">Homeopathy · Art of Living</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="on">Home</a>
+      <a href="about.html">About</a>
+      <a href="homeopathy.html">Homeopathy</a>
+      <a href="art-of-living.html">Art of Living</a>
+      <a href="programs.html">Programs</a>
+      <a href="conditions.html">Conditions</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn nav-cta">Book via WhatsApp</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ 1. HERO ══ -->
+<section class="sec s-hero" style="padding-top:40px;padding-bottom:40px;min-height:calc(100vh - 116px);display:flex;align-items:center;">
+  <div class="wrap" style="display:flex;align-items:center;gap:72px;">
+    <!-- Text content — left -->
+    <div style="flex:1;display:flex;flex-direction:column;gap:22px;">
+      <span class="eyebrow">Holistic Healing · Natural Wellness</span>
+      <h1 style="line-height:1.1;">Heal from<br/><em>the Root.</em><br/>Live Fully.</h1>
+      <p style="font-size:1.05rem;color:#5A5245;max-width:440px;">Homeopathic care and Art of Living programs — online and in-clinic — designed around you, not a prescription pad.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-dark">Book a Consultation</a>
+        <a href="about.html" class="btn btn-outline">Meet the Doctor</a>
+      </div>
+    </div>
+    <!-- Doctor portrait -->
+    <div style="flex:0 0 420px;position:relative;">
+      <div style="height:520px;border-radius:20px;overflow:hidden;">
+        <img src="images/photo.png" alt="Dr. Suchitra Mylapilli" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;border-radius:20px;"/>
+      </div>
+      <div class="doctor-name-badge">
+        <span class="doctor-name-label">Dr. Suchitra Mylapilli</span>
+        <span class="doctor-name-sub">Homeopath · Art of Living Instructor</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-inner">
+    <b>Homeopathy</b><span>·</span><b>Art of Living</b><span>·</span>
+    <b>Sudarshan Kriya</b><span>·</span><b>Natural Healing</b><span>·</span>
+    <b>Meditation</b><span>·</span><b>Consciousness Cures</b><span>·</span>
+    <b>Breathwork</b><span>·</span><b>Holistic Wellness</b><span>·</span>
+    <b>Homeopathy</b><span>·</span><b>Art of Living</b><span>·</span>
+    <b>Sudarshan Kriya</b><span>·</span><b>Natural Healing</b><span>·</span>
+    <b>Meditation</b><span>·</span><b>Consciousness Cures</b><span>·</span>
+    <b>Breathwork</b><span>·</span><b>Holistic Wellness</b><span>·</span>
+  </div>
+</div>
+
+<!-- ══ 2. DOCTOR INTRO — Deep Teal ══ -->
+<section class="sec s-intro">
+  <div class="wrap" style="display:flex;align-items:center;gap:72px;">
+
+    <!-- Doctor photo -->
+    <div style="flex:0 0 460px;position:relative;">
+      <!-- decorative glow ring behind photo -->
+      <div style="position:absolute;inset:-12px;border-radius:24px;
+                  background:radial-gradient(ellipse at 60% 40%, rgba(245,210,80,0.18) 0%, transparent 70%);
+                  pointer-events:none;z-index:0;"></div>
+      <!-- outer border frame -->
+      <div style="position:relative;z-index:1;border-radius:20px;
+                  border:1.5px solid rgba(245,210,80,0.3);
+                  padding:6px;
+                  background:rgba(255,255,255,0.05);
+                  backdrop-filter:blur(4px);">
+        <img src="images/photo 2.png" alt="Dr. Suchitra Mylapilli"
+             style="width:100%;height:500px;object-fit:cover;object-position:center top;
+                    display:block;border-radius:15px;"/>
+      </div>
+      <!-- floating credential pill -->
+      <div style="position:absolute;bottom:-18px;right:-18px;z-index:2;
+                  background:linear-gradient(135deg,#0B3D35,#145A48);
+                  border:1px solid rgba(245,210,80,0.4);
+                  border-radius:12px;padding:10px 16px;
+                  box-shadow:0 8px 24px rgba(0,0,0,0.3);">
+        <span style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.14em;color:rgba(245,210,80,0.8);display:block;">Experience</span>
+        <span style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#F5EDD0;">15+ Years</span>
+      </div>
+    </div>
+
+    <div style="flex:1;display:flex;flex-direction:column;gap:18px;">
+      <span class="eyebrow">Meet Your Healer</span>
+      <h2>Dr. Suchitra Mylapilli</h2>
+      <p style="max-width:480px;">[Certified homeopath and Art of Living instructor — 15+ years of healing in [City]. Online and in-clinic consultations available.]</p>
+      <div style="display:flex;flex-wrap:wrap;gap:9px;">
+        <span class="chip">🌿 Certified Homeopath</span>
+        <span class="chip">🧘 AOL Instructor</span>
+        <span class="chip">📍 [City]</span>
+        <span class="chip">💻 Online Available</span>
+      </div>
+      <a href="about.html" class="btn-text" style="width:fit-content;margin-top:4px;">Read Full Story →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3. PHILOSOPHY — Healing from the Root ══ -->
+<section class="sec s-gold">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:64px;">
+      <span class="eyebrow">The Philosophy</span>
+      <h2>Healing from the <em>Root</em></h2>
+      <p class="sub sub-c">Treat the person, not just the disease. Mind, body, and spirit in balance.</p>
+    </div>
+
+    <div class="grid-4 phil-grid" style="gap:24px;">
+
+      <!-- Card 1 -->
+      <div class="phil-card phil-card--1">
+        <div class="phil-glow"></div>
+        <div class="phil-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h4 class="phil-title">Whole Person Care</h4>
+        <p class="phil-desc">Every patient seen as a complete individual — physical, mental, and emotional.</p>
+        <div class="phil-accent-line"></div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="phil-card phil-card--2">
+        <div class="phil-glow"></div>
+        <div class="phil-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4 class="phil-title">Nature as Medicine</h4>
+        <p class="phil-desc">Plant-based remedies with centuries of clinical wisdom behind them.</p>
+        <div class="phil-accent-line"></div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="phil-card phil-card--3">
+        <div class="phil-glow"></div>
+        <div class="phil-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <h4 class="phil-title">Mind-Body Balance</h4>
+        <p class="phil-desc">Breathwork and meditation complement homeopathy for complete healing.</p>
+        <div class="phil-accent-line"></div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="phil-card phil-card--4">
+        <div class="phil-glow"></div>
+        <div class="phil-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h4 class="phil-title">Long-term Wellness</h4>
+        <p class="phil-desc">Not quick fixes — sustainable health that lasts a lifetime.</p>
+        <div class="phil-accent-line"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ 4. HEALING PILLARS — Soft Sage ══ -->
+<section class="sec s-pillars">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:64px;">
+      <span class="eyebrow" style="color:#6DBF8A;">Two Paths · One Journey</span>
+      <h2 style="color:#F5F0E8;">The Healing <em>Pillars</em></h2>
+      <p class="sub sub-c" style="color:#8ABAAA;margin-top:12px;">Two ancient wisdom traditions, united in one practice — for healing that is complete.</p>
+    </div>
+
+    <div class="grid-2 pillars-grid" style="gap:36px;">
+
+      <!-- ── Pillar I: Homeopathy ── -->
+      <div class="pillar-card pillar-hom-card">
+        <!-- image -->
+        <div class="pillar-img-wrap">
+          <img src="images/father of homeo.png" alt="Dr. Samuel Hahnemann"/>
+          <div class="pillar-img-overlay"></div>
+          <div class="pillar-img-caption">
+            <span class="pillar-caption-name">Dr. Samuel Hahnemann</span>
+            <span class="pillar-caption-role">Father of Homeopathy · 1755–1843</span>
+          </div>
+        </div>
+        <!-- body -->
+        <div class="pillar-body">
+          <div class="pillar-tag pillar-tag--gold">Pillar I</div>
+          <h3 class="pillar-heading">Homeopathy</h3>
+          <p class="pillar-desc">Individualized natural remedies that address the root cause — gentle, effective, with zero side effects. Healing the whole person since 1796.</p>
+          <ul class="pillar-list">
+            <li><span class="pillar-bullet pillar-bullet--gold">✦</span>Constitutional treatment tailored to you</li>
+            <li><span class="pillar-bullet pillar-bullet--gold">✦</span>100% natural — safe for all ages</li>
+            <li><span class="pillar-bullet pillar-bullet--gold">✦</span>Heals root cause, not just symptoms</li>
+            <li><span class="pillar-bullet pillar-bullet--gold">✦</span>Chronic & acute conditions addressed</li>
+          </ul>
+          <a href="homeopathy.html" class="pillar-link pillar-link--gold">Explore Homeopathy →</a>
+        </div>
+      </div>
+
+      <!-- ── Pillar II: Art of Living ── -->
+      <div class="pillar-card pillar-aol-card">
+        <!-- image -->
+        <div class="pillar-img-wrap">
+          <img src="images/srisri.jpg" alt="Sri Sri Ravi Shankar"/>
+          <div class="pillar-img-overlay pillar-img-overlay--sage"></div>
+          <div class="pillar-img-caption">
+            <span class="pillar-caption-name">Sri Sri Ravi Shankar</span>
+            <span class="pillar-caption-role">Founder, Art of Living Foundation</span>
+          </div>
+        </div>
+        <!-- body -->
+        <div class="pillar-body">
+          <div class="pillar-tag pillar-tag--sage">Pillar II</div>
+          <h3 class="pillar-heading">Art of Living</h3>
+          <p class="pillar-desc">Breathwork, meditation, and consciousness programs that dissolve stress at the cellular level — bringing lasting inner peace and transformation.</p>
+          <ul class="pillar-list">
+            <li><span class="pillar-bullet pillar-bullet--sage">✦</span>Sudarshan Kriya — rhythmic breathing</li>
+            <li><span class="pillar-bullet pillar-bullet--sage">✦</span>Guided meditation & mindfulness</li>
+            <li><span class="pillar-bullet pillar-bullet--sage">✦</span>Consciousness workshops</li>
+            <li><span class="pillar-bullet pillar-bullet--sage">✦</span>Stress relief at a cellular level</li>
+          </ul>
+          <a href="art-of-living.html" class="pillar-link pillar-link--sage">Explore Art of Living →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ 5. PROGRAMS — Signature Offerings ══ -->
+<section class="sec s-programs">
+  <div class="wrap">
+
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;flex-wrap:wrap;gap:20px;">
+      <div>
+        <span class="eyebrow">Signature Offerings</span>
+        <h2>Healing &amp; Wellness <em>Programs</em></h2>
+        <p style="font-size:0.9rem;color:var(--muted);margin-top:10px;max-width:400px;">Online &amp; in-clinic. Each program personalised to your constitution.</p>
+      </div>
+      <a href="programs.html" class="prog-view-all">View All Programs <span>→</span></a>
+    </div>
+
+    <div class="prog-grid">
+
+      <div class="prog-card prog-card--img prog-anim" style="--pd:0s;background-image:url('images/01_consciousness_cures_homeopathy.png');">
+        <div class="prog-card-img-overlay"></div>
+        <div class="prog-card-icon prog-icon--teal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <span class="prog-tag prog-tag--teal" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#fff;">Homeopathy</span>
+        <h4 class="prog-title" style="color:#fff;">Consciousness Cures</h4>
+        <p class="prog-desc" style="color:rgba(255,255,255,0.8);">Bridging inner awareness with homeopathic healing for deep, lasting transformation.</p>
+        <a href="program-consciousness-cures.html" class="prog-link" style="color:#F5D250;border-color:rgba(245,210,80,0.5);">Learn More →</a>
+      </div>
+
+      <div class="prog-card prog-card--img prog-anim" style="--pd:0.08s;background-image:url('images/02_sudarshan_kriya.png');">
+        <div class="prog-card-img-overlay"></div>
+        <div class="prog-card-icon prog-icon--teal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <span class="prog-tag prog-tag--teal" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#fff;">Art of Living</span>
+        <h4 class="prog-title" style="color:#fff;">Sudarshan Kriya</h4>
+        <p class="prog-desc" style="color:rgba(255,255,255,0.8);">Rhythmic breathwork that eliminates stress at a cellular level and restores inner rhythm.</p>
+        <a href="program-sudarshan-kriya.html" class="prog-link" style="color:#F5D250;border-color:rgba(245,210,80,0.5);">Learn More →</a>
+      </div>
+
+      <div class="prog-card prog-card--img prog-anim" style="--pd:0.16s;background-image:url('images/03_rakkheno.png');">
+        <div class="prog-card-img-overlay"></div>
+        <div class="prog-card-icon prog-icon--gold"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg></div>
+        <span class="prog-tag prog-tag--teal" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#fff;">Wellness</span>
+        <h4 class="prog-title" style="color:#fff;">Rakheno</h4>
+        <p class="prog-desc" style="color:rgba(255,255,255,0.8);">Preventive care — maintain health through natural rhythms before illness begins.</p>
+        <a href="program-rakheno.html" class="prog-link" style="color:#F5D250;border-color:rgba(245,210,80,0.5);">Learn More →</a>
+      </div>
+
+      <div class="prog-card prog-card--img prog-anim" style="--pd:0.12s;background-image:url('images/04_sanskar_kendra.png');">
+        <div class="prog-card-img-overlay"></div>
+        <div class="prog-card-icon prog-icon--gold" style="font-size:1.1rem;">🌱</div>
+        <span class="prog-tag prog-tag--teal" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#fff;">Children</span>
+        <h4 class="prog-title" style="color:#fff;">Sanskar Kendra</h4>
+        <p class="prog-desc" style="color:rgba(255,255,255,0.8);">Holistic child development through values, gentle breathwork, and mindful play.</p>
+        <a href="program-sanskar-kendra.html" class="prog-link" style="color:#F5D250;border-color:rgba(245,210,80,0.5);">Learn More →</a>
+      </div>
+
+      <div class="prog-card prog-card--img prog-anim" style="--pd:0.20s;background-image:url('images/05_utkarsh_medha_yoga.png');">
+        <div class="prog-card-img-overlay"></div>
+        <div class="prog-card-icon prog-icon--sage"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+        <span class="prog-tag prog-tag--teal" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#fff;">Youth</span>
+        <h4 class="prog-title" style="color:#fff;">Utkarsh &amp; Medha Yoga</h4>
+        <p class="prog-desc" style="color:rgba(255,255,255,0.8);">Excellence programs sharpening memory, focus, and confidence for students.</p>
+        <a href="program-utkarsh-medha.html" class="prog-link" style="color:#F5D250;border-color:rgba(245,210,80,0.5);">Learn More →</a>
+      </div>
+
+      <div class="prog-card prog-card--img prog-anim" style="--pd:0.28s;background-image:url('images/06_intuition_program.png');">
+        <div class="prog-card-img-overlay"></div>
+        <div class="prog-card-icon prog-icon--teal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <span class="prog-tag prog-tag--teal" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#fff;">Advanced</span>
+        <h4 class="prog-title" style="color:#fff;">Intuition Program</h4>
+        <p class="prog-desc" style="color:rgba(255,255,255,0.8);">Advanced workshop awakening inner intelligence and sharpening intuitive perception.</p>
+        <a href="program-intuition.html" class="prog-link" style="color:#F5D250;border-color:rgba(245,210,80,0.5);">Learn More →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ 6. CONDITIONS ══ -->
+<section class="sec s-lavender">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:60px;">
+      <span class="eyebrow" style="color:#7B50C8;">Areas of Expertise</span>
+      <h2 style="color:#2A1A50;">Conditions <em>Treated</em></h2>
+      <p class="sub sub-c" style="color:#5A4A80;">Homeopathy treats the whole person — chronic and acute conditions addressed at the root.</p>
+    </div>
+
+    <div class="cond-grid">
+
+      <a href="conditions.html" class="cond-card cond-anim" style="--cd:0s">
+        <div class="cond-icon-wrap" style="--ic:#7B50C8;--ib:rgba(123,80,200,0.15);">🧠</div>
+        <div class="cond-body">
+          <h4 class="cond-title">Migraine</h4>
+          <p class="cond-desc">Frequency &amp; intensity reduced naturally</p>
+        </div>
+        <span class="cond-arrow">→</span>
+      </a>
+
+      <a href="conditions.html" class="cond-card cond-anim" style="--cd:0.06s">
+        <div class="cond-icon-wrap" style="--ic:#5C80D8;--ib:rgba(92,128,216,0.15);">🦋</div>
+        <div class="cond-body">
+          <h4 class="cond-title">Thyroid</h4>
+          <p class="cond-desc">Hypo &amp; hyperthyroid management</p>
+        </div>
+        <span class="cond-arrow">→</span>
+      </a>
+
+      <a href="conditions.html" class="cond-card cond-anim" style="--cd:0.12s">
+        <div class="cond-icon-wrap" style="--ic:#C060A8;--ib:rgba(192,96,168,0.15);">🌸</div>
+        <div class="cond-body">
+          <h4 class="cond-title">PCOS / PCOD</h4>
+          <p class="cond-desc">Hormonal rebalancing, cycle regulation</p>
+        </div>
+        <span class="cond-arrow">→</span>
+      </a>
+
+      <a href="conditions.html" class="cond-card cond-anim" style="--cd:0.18s">
+        <div class="cond-icon-wrap" style="--ic:#D4881A;--ib:rgba(212,136,26,0.15);">✨</div>
+        <div class="cond-body">
+          <h4 class="cond-title">Skin Disorders</h4>
+          <p class="cond-desc">Eczema, psoriasis, acne — from within</p>
+        </div>
+        <span class="cond-arrow">→</span>
+      </a>
+
+      <a href="conditions.html" class="cond-card cond-anim" style="--cd:0.24s">
+        <div class="cond-icon-wrap" style="--ic:#2E8A9A;--ib:rgba(46,138,154,0.15);">🌊</div>
+        <div class="cond-body">
+          <h4 class="cond-title">Anxiety</h4>
+          <p class="cond-desc">Remedies + AOL breathwork combined</p>
+        </div>
+        <span class="cond-arrow">→</span>
+      </a>
+
+      <a href="conditions.html" class="cond-card cond-anim" style="--cd:0.30s">
+        <div class="cond-icon-wrap" style="--ic:#5090C8;--ib:rgba(80,144,200,0.15);">🌤</div>
+        <div class="cond-body">
+          <h4 class="cond-title">Depression</h4>
+          <p class="cond-desc">Homeopathy + meditation approach</p>
+        </div>
+        <span class="cond-arrow">→</span>
+      </a>
+
+      <a href="conditions.html" class="cond-card cond-anim" style="--cd:0.36s">
+        <div class="cond-icon-wrap" style="--ic:#4A8858;--ib:rgba(74,136,88,0.15);">💨</div>
+        <div class="cond-body">
+          <h4 class="cond-title">Asthma</h4>
+          <p class="cond-desc">Reduced attacks, improved lung health</p>
+        </div>
+        <span class="cond-arrow">→</span>
+      </a>
+
+      <a href="conditions.html" class="cond-card cond-anim" style="--cd:0.42s">
+        <div class="cond-icon-wrap" style="--ic:#A05030;--ib:rgba(160,80,48,0.15);">🦴</div>
+        <div class="cond-body">
+          <h4 class="cond-title">Arthritis</h4>
+          <p class="cond-desc">Pain &amp; inflammation relief, naturally</p>
+        </div>
+        <span class="cond-arrow">→</span>
+      </a>
+
+      <a href="conditions.html" class="cond-card cond-anim" style="--cd:0.48s">
+        <div class="cond-icon-wrap" style="--ic:#3A9060;--ib:rgba(58,144,96,0.15);">🌱</div>
+        <div class="cond-body">
+          <h4 class="cond-title">Children's Health</h4>
+          <p class="cond-desc">100% safe, gentle, effective for kids</p>
+        </div>
+        <span class="cond-arrow">→</span>
+      </a>
+
+    </div>
+
+    <div style="text-align:center;margin-top:48px;">
+      <a href="conditions.html" class="cond-btn">View All Conditions →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 7. JOURNEY ══ -->
+<section class="sec s-saffron">
+  <div class="wrap">
+
+    <div style="text-align:center;margin-bottom:72px;">
+      <span class="eyebrow">How It Works</span>
+      <h2>Your Healing <em>Journey</em></h2>
+      <p class="sub sub-c" style="margin-top:12px;">From your first message to lasting wellness — simple, clear, and personal.</p>
+    </div>
+
+    <div class="journey-wrap">
+
+      <!-- connecting line behind steps -->
+      <div class="journey-line"></div>
+
+      <div class="journey-steps">
+
+        <div class="journey-step js-anim" style="--jd:0s">
+          <div class="journey-bubble">
+            <div class="journey-num">01</div>
+            <div class="journey-icon-ring">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+          </div>
+          <div class="journey-card">
+            <h4 class="journey-title">Book via WhatsApp</h4>
+            <p class="journey-desc">Send a message — your slot is confirmed within hours. Online or in-clinic, your choice.</p>
+          </div>
+        </div>
+
+        <div class="journey-step js-anim" style="--jd:0.12s">
+          <div class="journey-bubble">
+            <div class="journey-num">02</div>
+            <div class="journey-icon-ring">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            </div>
+          </div>
+          <div class="journey-card">
+            <h4 class="journey-title">Deep Case Study</h4>
+            <p class="journey-desc">A 60–90 min session — physical, mental, and emotional history understood fully.</p>
+          </div>
+        </div>
+
+        <div class="journey-step js-anim" style="--jd:0.24s">
+          <div class="journey-bubble">
+            <div class="journey-num">03</div>
+            <div class="journey-icon-ring">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>
+            </div>
+          </div>
+          <div class="journey-card">
+            <h4 class="journey-title">Personalised Plan</h4>
+            <p class="journey-desc">A custom remedy + healing program built uniquely for your constitution.</p>
+          </div>
+        </div>
+
+        <div class="journey-step js-anim" style="--jd:0.36s">
+          <div class="journey-bubble">
+            <div class="journey-num">04</div>
+            <div class="journey-icon-ring">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+          </div>
+          <div class="journey-card">
+            <h4 class="journey-title">Ongoing Support</h4>
+            <p class="journey-desc">Regular follow-ups, WhatsApp check-ins, progress tracked until fully healed.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:56px;">
+      <a href="contact.html" class="btn btn-dark" style="padding:13px 36px;font-size:0.92rem;">Begin Your Journey →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ 8. TESTIMONIALS — Forest Green ══ -->
+<section class="sec s-forest">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:48px;">
+      <span class="eyebrow">What Patients Say</span>
+      <h2>Real Healing Stories</h2>
+    </div>
+    <div style="display:flex;gap:24px;align-items:flex-start;">
+      <div class="testi" style="flex:0 0 48%;">
+        <span class="testi-mark">"</span>
+        <p>[Featured patient story — 3–4 lines. Specific condition, treatment journey, real outcome.]</p>
+        <div class="testi-who">
+          <div class="testi-avatar">Photo</div>
+          <div><strong>[Patient Name]</strong><span>[Condition · City]</span></div>
+        </div>
+        <div class="stars">★★★★★</div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:16px;">
+        <div class="testi"><p>"[Short patient review — 2 lines]"</p><div style="font-size:0.78rem;margin-top:10px;"><strong>[Name]</strong> · [Condition]</div><div class="stars" style="font-size:0.8rem;">★★★★★</div></div>
+        <div class="testi"><p>"[Short AOL workshop review — 2 lines]"</p><div style="font-size:0.78rem;margin-top:10px;"><strong>[Name]</strong> · Sudarshan Kriya</div><div class="stars" style="font-size:0.8rem;">★★★★★</div></div>
+        <div class="testi"><p>"[Short review — child health or chronic case — 2 lines]"</p><div style="font-size:0.78rem;margin-top:10px;"><strong>[Name]</strong> · [Condition]</div><div class="stars" style="font-size:0.8rem;">★★★★★</div></div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <a href="testimonials.html" class="btn-text">Read All Stories →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 9. BLOG — Warm Amber ══ -->
+<section class="sec s-amber">
+  <div class="wrap">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;">
+      <div><span class="eyebrow">Insights &amp; Knowledge</span><h2>From the Healing Journal</h2></div>
+      <a href="blog.html" class="btn-text" style="white-space:nowrap;">Visit the Journal →</a>
+    </div>
+    <div style="display:flex;gap:28px;align-items:stretch;">
+      <div class="card" style="flex:0 0 56%;display:flex;flex-direction:column;">
+        <div class="img-box" style="height:280px;border-radius:12px 12px 0 0;border:none;border-bottom:1px dashed var(--yellow-dk);">
+          <span>Featured article image</span><span class="img-label">[ Hero Image ]</span>
+        </div>
+        <div class="card-pad" style="flex:1;display:flex;flex-direction:column;gap:12px;">
+          <span class="tag">Homeopathy</span>
+          <h3 style="font-size:1.4rem;">[Featured Article Headline — informative, wellness-focused]</h3>
+          <p style="font-size:0.88rem;color:var(--muted);">[2-line preview pulling the reader in with an insight or surprising fact.]</p>
+          <a href="blog.html" class="btn-text" style="margin-top:auto;width:fit-content;">Read Article →</a>
+        </div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;gap:16px;">
+        <div class="card" style="display:flex;gap:14px;padding:18px;align-items:center;">
+          <div class="img-box" style="width:90px;height:80px;flex-shrink:0;border-radius:8px;font-size:0.68rem;">[ Img ]</div>
+          <div><span class="tag tag-sage" style="margin-bottom:8px;display:inline-block;">Art of Living</span><h4 style="font-size:0.95rem;margin-bottom:6px;">[Article Title — Breathwork topic]</h4><a href="blog.html" class="btn-text" style="font-size:0.78rem;">Read →</a></div>
+        </div>
+        <div class="card" style="display:flex;gap:14px;padding:18px;align-items:center;">
+          <div class="img-box" style="width:90px;height:80px;flex-shrink:0;border-radius:8px;font-size:0.68rem;">[ Img ]</div>
+          <div><span class="tag" style="margin-bottom:8px;display:inline-block;">Wellness</span><h4 style="font-size:0.95rem;margin-bottom:6px;">[Article Title — Lifestyle or nutrition]</h4><a href="blog.html" class="btn-text" style="font-size:0.78rem;">Read →</a></div>
+        </div>
+        <div class="card" style="display:flex;gap:14px;padding:18px;align-items:center;">
+          <div class="img-box" style="width:90px;height:80px;flex-shrink:0;border-radius:8px;font-size:0.68rem;">[ Img ]</div>
+          <div><span class="tag" style="margin-bottom:8px;display:inline-block;">Children</span><h4 style="font-size:0.95rem;margin-bottom:6px;">[Article Title — Child health topic]</h4><a href="blog.html" class="btn-text" style="font-size:0.78rem;">Read →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA BAND ══ -->
+<section style="background:var(--charcoal);padding:72px 0;">
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:48px;">
+    <div>
+      <span class="eyebrow" style="color:#6DBF8A;">Begin Your Healing Today</span>
+      <h2 style="color:#F5F0E8;margin-top:8px;max-width:500px;">Ready to heal? Let's have a conversation.</h2>
+      <p style="color:#8C8070;margin-top:12px;max-width:420px;">Online and in-clinic consultations available. Share your concern on WhatsApp — we'll take it from there.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:14px;flex-shrink:0;">
+      <a href="contact.html" class="btn-wa"><span class="wa-dot">WA</span> Book via WhatsApp</a>
+      <div style="text-align:right;">
+        <p style="font-size:0.78rem;color:#6B6358;">Mon–Sat · 10am–7pm</p>
+        <p style="font-size:0.78rem;color:#6B6358;">Online &amp; In-Clinic Available</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="footer-logo-name">Dr. Suchitra Mylapilli</div>
+      <p class="footer-tagline">[Premium Wellness Tagline — 1 line]</p>
+      <div class="footer-socials"><span>FB</span><span>IG</span><span>YT</span><span>WA</span></div>
+    </div>
+    <div class="footer-col"><h6>Explore</h6><ul><li><a href="about.html">About Doctor</a></li><li><a href="homeopathy.html">Homeopathy</a></li><li><a href="art-of-living.html">Art of Living</a></li><li><a href="programs.html">Programs</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+    <div class="footer-col"><h6>Conditions</h6><ul><li>Migraine &amp; Thyroid</li><li>PCOS / PCOD</li><li>Anxiety &amp; Depression</li><li>Skin Disorders</li><li><a href="conditions.html">View All →</a></li></ul></div>
+    <div class="footer-col"><h6>Connect</h6><ul><li>📱 [WhatsApp Number]</li><li>📧 [Email Address]</li><li>📍 [Clinic Address, City]</li><li>🕐 Mon–Sat · 10am–7pm</li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Dr. Suchitra Mylapilli. All rights reserved.</span>
+    <span>Privacy Policy · Terms of Service</span>
+  </div>
+</footer>
+
+<script>
+  // Scroll-reveal for philosophy cards
+  const philCards = document.querySelectorAll('.phil-card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('phil-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  philCards.forEach(card => observer.observe(card));
+
+  // Scroll-reveal for pillar cards
+  const pillarCards = document.querySelectorAll('.pillar-card');
+  const pillarObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('pillar-visible');
+        pillarObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  pillarCards.forEach(card => pillarObserver.observe(card));
+
+  // Scroll-reveal for program cards
+  const progCards = document.querySelectorAll('.prog-card');
+  const progObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('prog-visible');
+        progObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  progCards.forEach(card => progObserver.observe(card));
+
+  // Scroll-reveal for condition cards
+  const condCards = document.querySelectorAll('.cond-card');
+  const condObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('cond-visible');
+        condObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  condCards.forEach(card => condObserver.observe(card));
+
+  // Scroll-reveal for journey steps
+  const journeySteps = document.querySelectorAll('.journey-step');
+  const journeyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('js-visible');
+        journeyObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  journeySteps.forEach(step => journeyObserver.observe(step));
+</script>
+
+</body>
+</html>
