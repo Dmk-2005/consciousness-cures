@@ -70,19 +70,21 @@ img { max-width: 100%; display: block; }
 .nav-wrap {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 48px;
+  padding: 0 32px;
   height: 116px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  gap: 16px;
+  overflow: hidden;
 }
 .nav-logo {
   display: flex;
   align-items: center;
   gap: 16px;
   flex-shrink: 0;
-  margin-left: -48px;
+  min-width: 0;
+  margin-left: 0;
 }
 .nav-logo img {
   height: 100px;
@@ -118,10 +120,12 @@ img { max-width: 100%; display: block; }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
   flex: 1;
   justify-content: flex-end;
-  margin-right: -24px;
+  margin-right: 0;
+  overflow: hidden;
+  flex-wrap: nowrap;
 }
 .nav-links a {
   font-size: 0.88rem;
@@ -328,39 +332,57 @@ h4 { font-family: 'DM Sans', sans-serif; font-size: 1.05rem; font-weight: 500; }
 .page-top p { margin-top: 14px; max-width: 580px; color: var(--ink); font-size: 1rem; }
 
 /* ── Footer ── */
-.footer { background: #F7F5EC; border-top: 1px solid var(--border); padding: 64px 0 0; }
+.footer { background: #1E1C16; border-top: 1px solid rgba(255,255,255,0.06); padding: 64px 0 0; }
 .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1.2fr; gap: 48px; padding-bottom: 52px; }
-.footer-logo-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--charcoal); margin-bottom: 8px; }
-.footer-tagline { font-size: 0.85rem; color: var(--muted); margin-bottom: 22px; }
+
+/* brand column */
+.footer-brand { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+.footer-brand img { width:44px; height:44px; border-radius:10px; object-fit:contain; flex-shrink:0; }
+.footer-logo-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: #F5EDD0; font-style:italic; line-height:1.2; }
+.footer-logo-sub { font-size:0.6rem; text-transform:uppercase; letter-spacing:0.18em; color:rgba(255,255,255,0.35); display:block; margin-top:2px; }
+.footer-tagline { font-size: 0.83rem; color: rgba(255,255,255,0.4); margin-bottom: 22px; line-height:1.65; }
+
+/* social icons */
 .footer-socials { display: flex; gap: 10px; }
-.footer-socials span {
-  width: 34px; height: 34px;
-  background: var(--yellow-lt);
-  border: 1px solid var(--border);
-  border-radius: 8px;
+.footer-socials a {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 9px;
   display: grid; place-items: center;
-  font-size: 0.65rem; color: var(--ink); cursor: pointer;
-  transition: background 0.2s;
+  color: rgba(255,255,255,0.5);
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+  text-decoration: none;
 }
-.footer-socials span:hover { background: var(--yellow); }
+.footer-socials a:hover {
+  background: rgba(255,255,255,0.14);
+  color: #F5EDD0;
+  border-color: rgba(255,255,255,0.25);
+  transform: translateY(-2px);
+}
+.footer-socials a svg { width:16px; height:16px; fill:currentColor; }
+
+/* columns */
 .footer-col h6 {
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--charcoal);
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.35);
   margin-bottom: 18px;
 }
-.footer-col ul { display: flex; flex-direction: column; gap: 9px; }
-.footer-col li { font-size: 0.86rem; color: var(--ink); }
-.footer-col a { color: var(--ink); transition: color 0.2s; }
-.footer-col a:hover { color: var(--sage-dk); }
+.footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+.footer-col li { font-size: 0.84rem; color: rgba(255,255,255,0.5); }
+.footer-col a { color: rgba(255,255,255,0.5); transition: color 0.2s; }
+.footer-col a:hover { color: #F5D250; }
+
+/* bottom bar */
 .footer-bottom {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid rgba(255,255,255,0.06);
   padding: 18px 48px;
   display: flex;
   justify-content: space-between;
   font-size: 0.76rem;
-  color: var(--muted);
+  color: rgba(255,255,255,0.3);
 }
 
 /* ── Marquee strip ── */
@@ -1441,4 +1463,17 @@ body {
   padding: 1px 5px;
   white-space: nowrap;
   pointer-events: none;
+}
+
+/* ── Mid-screen nav fix (1100px) — shrink links before hamburger ── */
+@media (max-width: 1100px) {
+  .nav-wrap { padding: 0 20px; gap: 12px; }
+  .nav-logo img { height: 72px !important; width: 72px !important; }
+  .logo-main { font-size: 1.1rem; }
+  .nav-links { gap: 10px; }
+  .nav-links a { font-size: 0.78rem; letter-spacing: 0.02em; }
+  .nav-cta { padding: 8px 14px !important; font-size: 0.78rem !important; }
+  .nav-wrap { height: 90px; }
+  /* sticky top offset update */
+  .pg-filter, .cond-filter { top: 90px; }
 }
