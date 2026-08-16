@@ -1417,3 +1417,28 @@ body {
   /* animate to X when open */
   .nav-links.mobile-open ~ * { display: none; }
 }
+
+/* ── Blog — Coming Soon ── */
+.nav-coming-soon {
+  position: relative;
+  opacity: 0.5;
+  cursor: not-allowed !important;
+  pointer-events: auto;
+}
+.nav-coming-soon::after {
+  content: 'Soon';
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.52rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #C8960A;
+  background: rgba(200,150,30,0.12);
+  border: 1px solid rgba(200,150,30,0.3);
+  border-radius: 4px;
+  padding: 1px 5px;
+  white-space: nowrap;
+  pointer-events: none;
+}
