@@ -2,227 +2,532 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Blog — Dr. </title>
+<title>The Healing Journal — Consciousness Cures | Dr. Suchitra Mylapilli</title>
 <link rel="stylesheet" href="style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+body { background:#FDFCF7; }
+
+/* ── HERO ── */
+.blog-hero {
+  background: linear-gradient(150deg,#1C1410 0%,#2E2A22 60%,#1A1208 100%);
+  padding: 80px 0 68px; position:relative; overflow:hidden;
+}
+.blog-hero::before {
+  content:''; position:absolute; top:-80px; right:-80px;
+  width:450px; height:450px;
+  background:radial-gradient(circle,rgba(200,150,30,0.1) 0%,transparent 65%);
+  pointer-events:none;
+}
+.blog-hero::after {
+  content:''; position:absolute; bottom:-60px; left:-40px;
+  width:320px; height:320px;
+  background:radial-gradient(circle,rgba(92,122,82,0.1) 0%,transparent 65%);
+  pointer-events:none;
+}
+
+/* ── COMING SOON BANNER ── */
+.blog-coming-banner {
+  background: linear-gradient(90deg,rgba(200,150,30,0.15),rgba(200,150,30,0.08),rgba(200,150,30,0.15));
+  border-top: 1px solid rgba(200,150,30,0.3);
+  border-bottom: 1px solid rgba(200,150,30,0.3);
+  padding: 12px 0; text-align:center;
+  font-size:0.82rem; color:#C8960A;
+  letter-spacing:0.05em;
+}
+.blog-coming-banner span { margin:0 8px; opacity:0.5; }
+
+/* ── FILTER BAR ── */
+.blog-filter {
+  background:#fff; border-bottom:1px solid #E8E2D0;
+  padding:14px 0; position:sticky; top:90px; z-index:800;
+  box-shadow:0 2px 12px rgba(0,0,0,0.04);
+}
+.blog-filter-inner { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.blog-filter-btn {
+  padding:6px 16px; border-radius:20px; font-size:0.77rem;
+  font-family:'DM Sans',sans-serif; cursor:pointer;
+  border:1px solid #E8E2D0; background:transparent; color:var(--muted);
+  transition:all 0.2s;
+}
+.blog-filter-btn:hover,.blog-filter-btn.active { background:#2E2A22; color:#F5EDD0; border-color:#2E2A22; }
+
+/* ── FEATURED ARTICLE ── */
+.blog-featured {
+  background:#fff; border:1px solid #E8E2D0; border-radius:20px;
+  overflow:hidden; display:flex; transition:box-shadow 0.3s,transform 0.3s;
+}
+.blog-featured:hover { transform:translateY(-4px); box-shadow:0 16px 48px rgba(0,0,0,0.09); }
+.blog-featured-img {
+  flex:0 0 50%; min-height:380px; position:relative;
+  overflow:hidden;
+}
+.blog-featured-img-bg {
+  width:100%; height:100%; object-fit:cover; display:block;
+  transition:transform 0.5s ease;
+}
+.blog-featured:hover .blog-featured-img-bg { transform:scale(1.04); }
+.blog-featured-cat {
+  position:absolute; top:20px; left:20px;
+}
+.blog-featured-body {
+  flex:1; padding:40px; display:flex; flex-direction:column; gap:16px;
+}
+.blog-meta {
+  display:flex; align-items:center; gap:12px;
+  font-size:0.74rem; color:var(--muted);
+}
+.blog-meta-dot { width:3px; height:3px; background:var(--muted); border-radius:50%; }
+.blog-featured-title {
+  font-family:'Playfair Display',serif; font-weight:400;
+  font-size:1.7rem; color:#2E2A22; line-height:1.3;
+}
+.blog-featured-excerpt { font-size:0.9rem; color:var(--muted); line-height:1.78; flex:1; }
+.blog-read-btn {
+  display:inline-flex; align-items:center; gap:6px;
+  font-size:0.84rem; font-weight:500; color:#2E2A22;
+  border-bottom:1px solid rgba(46,42,34,0.3); padding-bottom:2px;
+  width:fit-content; transition:color 0.2s,border-color 0.2s;
+}
+.blog-read-btn:hover { color:#C8960A; border-color:#C8960A; }
+
+/* ── ARTICLE CARD ── */
+.blog-card {
+  background:#fff; border:1px solid #E8E2D0; border-radius:16px;
+  overflow:hidden; display:flex; flex-direction:column;
+  transition:transform 0.28s,box-shadow 0.28s;
+  opacity:0; transform:translateY(18px);
+}
+.blog-card.bl-in { animation:blIn 0.5s cubic-bezier(0.22,1,0.36,1) forwards; }
+@keyframes blIn { to { opacity:1; transform:translateY(0); } }
+.blog-card:hover { transform:translateY(-5px); box-shadow:0 12px 36px rgba(0,0,0,0.09); }
+
+.blog-card-img {
+  height:200px; overflow:hidden; position:relative;
+  background:#F0EAD8;
+}
+.blog-card-img-inner {
+  width:100%; height:100%; object-fit:cover; display:block;
+  transition:transform 0.5s ease;
+}
+.blog-card:hover .blog-card-img-inner { transform:scale(1.05); }
+.blog-card-img-gradient {
+  position:absolute; inset:0;
+  background:linear-gradient(to bottom,transparent 50%,rgba(0,0,0,0.3) 100%);
+}
+.blog-card-body {
+  padding:22px; display:flex; flex-direction:column; gap:10px; flex:1;
+}
+.blog-card-title {
+  font-family:'Playfair Display',serif; font-weight:400;
+  font-size:1.08rem; color:#2E2A22; line-height:1.35;
+}
+.blog-card-excerpt { font-size:0.81rem; color:var(--muted); line-height:1.7; flex:1; }
+.blog-card-footer {
+  display:flex; justify-content:space-between; align-items:center;
+  margin-top:4px; padding-top:12px; border-top:1px solid #F0EAD8;
+  font-size:0.72rem; color:var(--muted);
+}
+
+/* ── SIDEBAR ── */
+.blog-sidebar-card {
+  background:#fff; border:1px solid #E8E2D0;
+  border-radius:14px; padding:24px;
+}
+.blog-sidebar-title {
+  font-size:0.7rem; text-transform:uppercase; letter-spacing:0.18em;
+  color:var(--charcoal); margin-bottom:18px; display:block;
+}
+.blog-cat-row {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:9px 0; border-bottom:1px solid #F0EAD8; cursor:pointer;
+}
+.blog-cat-row:last-child { border-bottom:none; padding-bottom:0; }
+.blog-cat-row a { font-size:0.84rem; color:var(--ink); transition:color 0.2s; }
+.blog-cat-row:hover a { color:#0B3D35; }
+.blog-cat-count {
+  font-size:0.68rem; background:#F0EAD8; padding:2px 9px;
+  border-radius:20px; color:var(--muted);
+}
+.blog-popular-item {
+  display:flex; gap:12px; align-items:flex-start;
+  padding:12px 0; border-bottom:1px solid #F0EAD8;
+}
+.blog-popular-item:last-child { border-bottom:none; padding-bottom:0; }
+.blog-popular-num {
+  font-family:'Playfair Display',serif; font-size:1.4rem;
+  color:rgba(200,150,30,0.3); line-height:1; flex-shrink:0;
+  width:28px; text-align:center;
+}
+.blog-popular-title {
+  font-size:0.83rem; color:var(--ink); line-height:1.45;
+  cursor:pointer; transition:color 0.2s;
+}
+.blog-popular-title:hover { color:#0B3D35; }
+.blog-popular-meta { font-size:0.7rem; color:var(--muted); margin-top:3px; }
+
+/* Category bg icons */
+.blog-icon-bg {
+  width:100%; height:100%; display:flex;
+  align-items:center; justify-content:center;
+  font-size:4rem; opacity:0.15;
+}
+
+/* Coming Soon overlay on article links */
+.coming-soon-overlay {
+  position:relative; cursor:default;
+}
+.coming-soon-overlay::after {
+  content:'Coming Soon';
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.72rem; text-transform:uppercase; letter-spacing:0.14em;
+  color:#C8960A; background:rgba(255,255,255,0.0);
+  opacity:0; transition:opacity 0.3s; border-radius:inherit;
+  font-family:'DM Sans',sans-serif;
+}
+</style>
 </head>
 <body>
-<div class="top-header">
-  <div class="top-header-inner">
-    <div class="top-brand">
-      <div class="top-guru-photo" style="width:72px;height:72px;flex-shrink:0;">
-        <img src="images/hahnemann.jpg" alt="Dr. Samuel Hahnemann" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/>
-      </div>
-      <div class="top-brand-text">
-        <span class="top-center-name">Dr. Samuel Hahnemann</span>
-        <span class="top-center-tagline">Father of Homeopathy</span>
-      </div>
+
+</div>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-wrap">
+    <div class="nav-logo"><img src="images/logo.png" alt="Consciousness Cures" style="height:100px;width:100px;object-fit:contain;border-radius:10px;flex-shrink:0;"/><div class="nav-logo-text"><span class="logo-main">Consciousness Cures</span><span class="logo-sub">Homeopathy · Art of Living</span></div></div>
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="homeopathy.html">Homeopathy</a><a href="art-of-living.html">Art of Living</a><a href="programs.html">Programs</a><a href="conditions.html">Conditions</a>
+      <a href="blog.html" class="on">Blog</a><a href="contact.html">Contact</a>
+      <a href="https://wa.me/919100414201" target="_blank" class="btn nav-cta">Book via WhatsApp</a>
     </div>
-    <div class="top-divider">
-      <div class="top-center-heading">
-        <img src="images/logo.png" alt="Consciousness Cures" class="top-logo-center"/>
+  </div>
+</nav>
+
+<!-- COMING SOON BANNER -->
+<div class="blog-coming-banner">
+  ✦ <span>The Healing Journal is launching soon</span> · Articles are being prepared and will be published shortly ✦
+</div>
+
+<!-- HERO -->
+<section class="blog-hero">
+  <div class="wrap" style="position:relative;z-index:1;">
+    <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.22em;color:rgba(200,150,30,0.7);display:block;margin-bottom:14px;">Insights · Knowledge · Healing</span>
+    <h1 style="font-family:'Playfair Display',serif;color:#F5EDD0;font-weight:400;font-size:clamp(2.2rem,3.5vw,3.6rem);line-height:1.1;max-width:640px;">The Healing <em style="color:#F5D250;">Journal</em></h1>
+    <p style="color:rgba(255,255,255,0.45);font-size:1rem;max-width:520px;line-height:1.8;margin-top:16px;">In-depth articles on Homeopathy, Art of Living, women's health, children's wellness, and the science of natural healing — written by Dr. Suchitra Mylapilli.</p>
+    <div style="display:flex;gap:32px;margin-top:32px;flex-wrap:wrap;">
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <span style="font-family:'Playfair Display',serif;font-size:1.6rem;color:#F5D250;line-height:1;">6</span>
+        <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.3);">Articles Ready</span>
       </div>
-    </div>
-    <div class="top-guru">
-      <div class="top-guru-label">
-        <span class="top-guru-name">Sri Sri Ravi Shankar</span>
-        <span class="top-guru-role">Founder, Art of Living</span>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <span style="font-family:'Playfair Display',serif;font-size:1.6rem;color:#6DBF8A;line-height:1;">5</span>
+        <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.3);">Categories</span>
       </div>
-      <div class="top-guru-photo">
-        <img src="images/srisri.jpg" alt="Sri Sri Ravi Shankar" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"/>
+      <div style="display:flex;flex-direction:column;gap:4px;">
+        <span style="font-family:'Playfair Display',serif;font-size:1.6rem;color:#F5D250;line-height:1;">Dr. S</span>
+        <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.3);">Author</span>
       </div>
     </div>
   </div>
-</div>
-<nav class="site-nav"><div class="nav-wrap">
-  <div class="nav-logo"><img src="images/logo.png" alt="Consciousness Cures" style="height:100px;width:100px;object-fit:contain;border-radius:10px;flex-shrink:0;"/>
-      <div class="nav-logo-text"><span class="logo-main">Consciousness Cures</span><span class="logo-sub">Homeopathy · Art of Living</span></div>
-    <div class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="homeopathy.html">Homeopathy</a><a href="art-of-living.html">Art of Living</a><a href="programs.html">Programs</a><a href="conditions.html">Conditions</a><a href="blog.html" class="on">Blog</a><a href="https://wa.me/919100414201" target="_blank">Contact</a><a href="https://wa.me/919100414201" target="_blank" class="btn nav-cta">Book via WhatsApp</a></div>
-</div></nav>
+</section>
 
-<div class="page-top">
-  <div class="wrap">
-    <span class="crumb"><a href="index.html">Home</a> → Blog</span>
-    <span class="eyebrow">Insights · Knowledge · Healing</span>
-    <h1>The Healing Journal</h1>
-    <p></p>
+<!-- FILTER BAR -->
+<div class="blog-filter">
+  <div class="wrap blog-filter-inner">
+    <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--muted);margin-right:4px;flex-shrink:0;">Filter:</span>
+    <button class="blog-filter-btn active" onclick="filterBlog('all',this)">All</button>
+    <button class="blog-filter-btn" onclick="filterBlog('homeopathy',this)">Homeopathy</button>
+    <button class="blog-filter-btn" onclick="filterBlog('aol',this)">Art of Living</button>
+    <button class="blog-filter-btn" onclick="filterBlog('womens',this)">Women's Health</button>
+    <button class="blog-filter-btn" onclick="filterBlog('children',this)">Children</button>
+    <button class="blog-filter-btn" onclick="filterBlog('wellness',this)">Wellness</button>
   </div>
 </div>
 
-<section class="sec">
+<!-- MAIN CONTENT -->
+<section class="sec" style="background:#FDFCF7;">
   <div class="wrap" style="display:flex;gap:48px;align-items:flex-start;">
 
     <!-- MAIN FEED -->
-    <div style="flex:1;display:flex;flex-direction:column;gap:40px;">
+    <div style="flex:1;display:flex;flex-direction:column;gap:48px;">
 
-      <!-- Featured -->
+      <!-- FEATURED ARTICLE -->
       <div>
-        <span class="eyebrow">Featured Article</span>
-        <div class="card" style="border-radius:14px;overflow:hidden;margin-top:14px;">
-          <img src="images/placeholder.jpg" alt="" style="width:100%;height:320px;object-fit:cover;border-radius:12px;display:block;"/>
-          <div class="card-pad" style="display:flex;flex-direction:column;gap:14px;">
-            <div style="display:flex;gap:12px;align-items:center;"><span class="tag">Homeopathy</span><span style="font-size:0.75rem;color:var(--muted);">📅  · ⏱  min read</span></div>
-            <h2 style="font-size:1.7rem;"></h2>
-            <p style="color:var(--muted);font-size:0.92rem;"></p>
-            <div style="display:flex;align-items:center;gap:18px;margin-top:4px;">
-              <div style="display:flex;align-items:center;gap:9px;"><div style="width:32px;height:32px;background:var(--yellow-lt);border:1px solid var(--border);border-radius:50%;display:grid;place-items:center;font-size:0.6rem;color:var(--muted);">Dr</div><span style="font-size:0.82rem;color:var(--ink);">Dr. </span></div>
-              <a href="#" class="btn-text">Read Full Article →</a>
+        <span class="eyebrow" style="margin-bottom:18px;display:block;">Featured Article</span>
+        <div class="blog-featured" data-cat="homeopathy">
+          <div class="blog-featured-img">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#0B3D35,#145A48);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;padding:40px;">
+              <div style="font-size:4rem;opacity:0.4;">🌿</div>
+              <p style="font-family:'Playfair Display',serif;font-size:1rem;color:rgba(245,240,232,0.5);text-align:center;font-style:italic;line-height:1.5;">Homeopathy ·<br/>Deep Healing</p>
+            </div>
+            <div class="blog-featured-cat"><span class="tag" style="background:rgba(245,210,80,0.2);border-color:rgba(245,210,80,0.4);color:#F5D250;">Homeopathy</span></div>
+          </div>
+          <div class="blog-featured-body">
+            <div class="blog-meta">
+              <span>Dr. Suchitra Mylapilli</span>
+              <span class="blog-meta-dot"></span>
+              <span>August 2026</span>
+              <span class="blog-meta-dot"></span>
+              <span>8 min read</span>
+            </div>
+            <h2 class="blog-featured-title">Why Homeopathy Works When Everything Else Has Failed</h2>
+            <p class="blog-featured-excerpt">Most patients who walk into a homeopathic clinic have tried everything — years of prescriptions, tests, and temporary relief that never lasts. There is a reason why constitutional homeopathy succeeds where others haven't, and it comes down to one fundamental difference: homeopathy treats the person, not the diagnosis. Here is what makes it fundamentally different and why the results can be so lasting.</p>
+            <div style="display:flex;align-items:center;gap:20px;margin-top:4px;flex-wrap:wrap;">
+              <div style="display:flex;align-items:center;gap:9px;">
+                <div style="width:34px;height:34px;background:rgba(11,61,53,0.1);border:1px solid rgba(11,61,53,0.15);border-radius:50%;display:grid;place-items:center;font-size:0.65rem;color:#0B3D35;font-weight:500;">DS</div>
+                <span style="font-size:0.82rem;color:var(--ink);">Dr. Suchitra Mylapilli</span>
+              </div>
+              <a href="#" class="blog-read-btn nav-coming-soon" onclick="return false">Read Full Article →</a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Recent Posts -->
+      <!-- RECENT ARTICLES GRID -->
       <div>
-        <span class="eyebrow">Recent Posts</span>
-        <div class="grid-2" style="gap:20px;margin-top:14px;">
-          <div class="card" style="border-radius:12px;overflow:hidden;">
-            <img src="images/placeholder.jpg" alt="" style="width:100%;height:160px;object-fit:cover;border-radius:12px;display:block;"/>
-            <div class="card-pad" style="display:flex;flex-direction:column;gap:10px;">
-              <span class="tag tag-sage">Art of Living</span>
-              <h4 style="font-family:'Playfair Display',serif;font-weight:400;"></h4>
-              <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:0.73rem;color:var(--muted);"> ·  min</span><a href="#" class="btn-text" style="font-size:0.8rem;">Read →</a></div>
+        <span class="eyebrow" style="margin-bottom:18px;display:block;">All Articles</span>
+        <div class="grid-3" id="blog-grid" style="gap:22px;">
+
+          <!-- Article 1 -->
+          <div class="blog-card bl-in" data-cat="aol" style="animation-delay:0s;">
+            <div class="blog-card-img">
+              <div class="blog-icon-bg" style="background:linear-gradient(135deg,#0A2818,#145A30);">🌬️</div>
+              <div class="blog-card-img-gradient"></div>
+              <div style="position:absolute;top:14px;left:14px;"><span class="tag tag-sage">Art of Living</span></div>
+            </div>
+            <div class="blog-card-body">
+              <h4 class="blog-card-title">Sudarshan Kriya — What Happens to Your Body When You Breathe Rhythmically</h4>
+              <p class="blog-card-excerpt">The science behind how rhythmic breath synchronises your biological cycles, reduces cortisol, and creates a deep cellular reset.</p>
+              <div class="blog-card-footer">
+                <span>August 2026 · 6 min read</span>
+                <a href="#" class="blog-read-btn nav-coming-soon" onclick="return false" style="font-size:0.78rem;">Read →</a>
+              </div>
             </div>
           </div>
-          <div class="card" style="border-radius:12px;overflow:hidden;">
-            <img src="images/placeholder.jpg" alt="" style="width:100%;height:160px;object-fit:cover;border-radius:12px;display:block;"/>
-            <div class="card-pad" style="display:flex;flex-direction:column;gap:10px;">
-              <span class="tag">Wellness</span>
-              <h4 style="font-family:'Playfair Display',serif;font-weight:400;"></h4>
-              <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:0.73rem;color:var(--muted);"> ·  min</span><a href="#" class="btn-text" style="font-size:0.8rem;">Read →</a></div>
+
+          <!-- Article 2 -->
+          <div class="blog-card bl-in" data-cat="womens" style="animation-delay:0.08s;">
+            <div class="blog-card-img">
+              <div class="blog-icon-bg" style="background:linear-gradient(135deg,#1A0A1E,#3A1A3E);">🌸</div>
+              <div class="blog-card-img-gradient"></div>
+              <div style="position:absolute;top:14px;left:14px;"><span class="tag" style="background:rgba(192,96,168,0.2);border-color:rgba(192,96,168,0.35);color:#E080C8;">Women's Health</span></div>
+            </div>
+            <div class="blog-card-body">
+              <h4 class="blog-card-title">PCOS &amp; Homeopathy — A Natural Path to Hormonal Balance</h4>
+              <p class="blog-card-excerpt">How constitutional homeopathic treatment addresses the root cause of PCOS — not just the symptoms — through individualised remedies.</p>
+              <div class="blog-card-footer">
+                <span>July 2026 · 7 min read</span>
+                <a href="#" class="blog-read-btn nav-coming-soon" onclick="return false" style="font-size:0.78rem;">Read →</a>
+              </div>
             </div>
           </div>
-          <div class="card" style="border-radius:12px;overflow:hidden;">
-            <img src="images/placeholder.jpg" alt="" style="width:100%;height:160px;object-fit:cover;border-radius:12px;display:block;"/>
-            <div class="card-pad" style="display:flex;flex-direction:column;gap:10px;">
-              <span class="tag">Homeopathy</span>
-              <h4 style="font-family:'Playfair Display',serif;font-weight:400;"></h4>
-              <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:0.73rem;color:var(--muted);"> ·  min</span><a href="#" class="btn-text" style="font-size:0.8rem;">Read →</a></div>
+
+          <!-- Article 3 -->
+          <div class="blog-card bl-in" data-cat="children" style="animation-delay:0.16s;">
+            <div class="blog-card-img">
+              <div class="blog-icon-bg" style="background:linear-gradient(135deg,#0A2818,#145A30);">🌱</div>
+              <div class="blog-card-img-gradient"></div>
+              <div style="position:absolute;top:14px;left:14px;"><span class="tag" style="background:rgba(46,122,64,0.2);border-color:rgba(46,122,64,0.35);color:#4AAA60;">Children</span></div>
+            </div>
+            <div class="blog-card-body">
+              <h4 class="blog-card-title">Is Homeopathy Safe for Children? Everything Parents Need to Know</h4>
+              <p class="blog-card-excerpt">A parent's complete guide to homeopathic treatment for children — from safety and dosage to what conditions respond best.</p>
+              <div class="blog-card-footer">
+                <span>July 2026 · 5 min read</span>
+                <a href="#" class="blog-read-btn nav-coming-soon" onclick="return false" style="font-size:0.78rem;">Read →</a>
+              </div>
             </div>
           </div>
-          <div class="card" style="border-radius:12px;overflow:hidden;">
-            <img src="images/placeholder.jpg" alt="" style="width:100%;height:160px;object-fit:cover;border-radius:12px;display:block;"/>
-            <div class="card-pad" style="display:flex;flex-direction:column;gap:10px;">
-              <span class="tag tag-sage">Meditation</span>
-              <h4 style="font-family:'Playfair Display',serif;font-weight:400;"></h4>
-              <div style="display:flex;justify-content:space-between;align-items:center;"><span style="font-size:0.73rem;color:var(--muted);"> ·  min</span><a href="#" class="btn-text" style="font-size:0.8rem;">Read →</a></div>
+
+          <!-- Article 4 -->
+          <div class="blog-card bl-in" data-cat="homeopathy" style="animation-delay:0.12s;">
+            <div class="blog-card-img">
+              <div class="blog-icon-bg" style="background:linear-gradient(135deg,#0B3D35,#145A48);">💊</div>
+              <div class="blog-card-img-gradient"></div>
+              <div style="position:absolute;top:14px;left:14px;"><span class="tag">Homeopathy</span></div>
+            </div>
+            <div class="blog-card-body">
+              <h4 class="blog-card-title">The Constitutional Remedy — What It Is and Why It Changes Everything</h4>
+              <p class="blog-card-excerpt">Understanding the concept of a constitutional remedy and why one carefully chosen remedy can address conditions that seem unrelated to each other.</p>
+              <div class="blog-card-footer">
+                <span>June 2026 · 6 min read</span>
+                <a href="#" class="blog-read-btn nav-coming-soon" onclick="return false" style="font-size:0.78rem;">Read →</a>
+              </div>
             </div>
           </div>
+
+          <!-- Article 5 -->
+          <div class="blog-card bl-in" data-cat="wellness" style="animation-delay:0.20s;">
+            <div class="blog-card-img">
+              <div class="blog-icon-bg" style="background:linear-gradient(135deg,#1A1000,#3A2408);">🌞</div>
+              <div class="blog-card-img-gradient"></div>
+              <div style="position:absolute;top:14px;left:14px;"><span class="tag" style="background:rgba(200,150,30,0.2);border-color:rgba(200,150,30,0.35);color:#F0C840;">Wellness</span></div>
+            </div>
+            <div class="blog-card-body">
+              <h4 class="blog-card-title">Prevention is Better Than Cure — Building Daily Wellness Habits</h4>
+              <p class="blog-card-excerpt">Simple daily practices from Homeopathy and Art of Living that build resilience, strengthen immunity, and maintain health year-round.</p>
+              <div class="blog-card-footer">
+                <span>June 2026 · 4 min read</span>
+                <a href="#" class="blog-read-btn nav-coming-soon" onclick="return false" style="font-size:0.78rem;">Read →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Article 6 -->
+          <div class="blog-card bl-in" data-cat="aol wellness" style="animation-delay:0.28s;">
+            <div class="blog-card-img">
+              <div class="blog-icon-bg" style="background:linear-gradient(135deg,#0A0A1E,#1A1A2E);">🧘</div>
+              <div class="blog-card-img-gradient"></div>
+              <div style="position:absolute;top:14px;left:14px;"><span class="tag tag-sage">Art of Living</span></div>
+            </div>
+            <div class="blog-card-body">
+              <h4 class="blog-card-title">Meditation and Anxiety — How 20 Minutes a Day Changes Your Brain</h4>
+              <p class="blog-card-excerpt">What research says about the Sahaj Samadhi meditation technique and its measurable impact on anxiety, sleep quality, and emotional regulation.</p>
+              <div class="blog-card-footer">
+                <span>May 2026 · 5 min read</span>
+                <a href="#" class="blog-read-btn nav-coming-soon" onclick="return false" style="font-size:0.78rem;">Read →</a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
+
+      <!-- NEWSLETTER / NOTIFY BAND -->
+      <div style="background:linear-gradient(135deg,#1C1410,#2E2A22);border-radius:18px;padding:40px;display:flex;gap:32px;align-items:center;flex-wrap:wrap;">
+        <div style="flex:1;min-width:240px;">
+          <h3 style="font-family:'Playfair Display',serif;font-weight:400;color:#F5EDD0;font-size:1.4rem;margin-bottom:8px;">Get notified when we publish.</h3>
+          <p style="font-size:0.84rem;color:rgba(255,255,255,0.4);line-height:1.65;">New articles on Homeopathy, Art of Living, and natural wellness — sent directly to you.</p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;flex:0 0 auto;">
+          <input type="email" placeholder="Your email address" style="padding:11px 16px;border-radius:9px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.07);color:#F5EDD0;font-family:'DM Sans',sans-serif;font-size:0.85rem;outline:none;min-width:220px;"/>
+          <button style="padding:11px 22px;background:linear-gradient(135deg,#C8960A,#F5D250);color:#1A0E00;border:none;border-radius:9px;font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:500;cursor:pointer;white-space:nowrap;">Notify Me →</button>
+        </div>
+      </div>
+
     </div>
 
     <!-- SIDEBAR -->
-    <div style="width:280px;flex-shrink:0;display:flex;flex-direction:column;gap:24px;position:sticky;top:128px;">
-      <div style="background:var(--yellow-lt);border:1px solid var(--border);border-radius:12px;padding:24px;">
-        <h6 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--charcoal);margin-bottom:16px;">Categories</h6>
-        <div style="display:flex;flex-direction:column;gap:0;">
-          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);"><a href="#" style="font-size:0.86rem;color:var(--ink);">Homeopathy</a><span style="font-size:0.72rem;background:#fff;border:1px solid var(--border);padding:2px 9px;border-radius:20px;color:var(--muted);"></span></div>
-          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);"><a href="#" style="font-size:0.86rem;color:var(--ink);">Art of Living</a><span style="font-size:0.72rem;background:#fff;border:1px solid var(--border);padding:2px 9px;border-radius:20px;color:var(--muted);"></span></div>
-          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);"><a href="#" style="font-size:0.86rem;color:var(--ink);">Wellness</a><span style="font-size:0.72rem;background:#fff;border:1px solid var(--border);padding:2px 9px;border-radius:20px;color:var(--muted);"></span></div>
-          <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--border);"><a href="#" style="font-size:0.86rem;color:var(--ink);">Meditation</a><span style="font-size:0.72rem;background:#fff;border:1px solid var(--border);padding:2px 9px;border-radius:20px;color:var(--muted);"></span></div>
-          <div style="display:flex;justify-content:space-between;padding:10px 0;"><a href="#" style="font-size:0.86rem;color:var(--ink);">Children's Health</a><span style="font-size:0.72rem;background:#fff;border:1px solid var(--border);padding:2px 9px;border-radius:20px;color:var(--muted);"></span></div>
-        </div>
-      </div>
-      <div style="background:var(--charcoal);border-radius:12px;padding:24px;text-align:center;">
-        <span class="eyebrow" style="color:var(--sage);">Ready to Heal?</span>
-        <h4 style="color:#F5F3EE;font-family:'Playfair Display',serif;font-weight:400;margin:10px 0;font-size:1.2rem;">Book a Consultation</h4>
-        <p style="font-size:0.8rem;color:#6B6358;margin-bottom:18px;">Online &amp; In-Clinic available</p>
-        <a href="https://wa.me/919100414201" target="_blank" class="btn-wa" style="justify-content:center;"><span class="wa-dot">WA</span> WhatsApp</a>
-      </div>
-      <div style="background:var(--yellow-lt);border:1px solid var(--border);border-radius:12px;padding:24px;">
-        <h6 style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--charcoal);margin-bottom:14px;">Popular Tags</h6>
-        <div style="display:flex;flex-wrap:wrap;gap:7px;">
-          <span class="chip" style="cursor:pointer;font-size:0.74rem;">Migraine</span>
-          <span class="chip" style="cursor:pointer;font-size:0.74rem;">PCOS</span>
-          <span class="chip" style="cursor:pointer;font-size:0.74rem;">Anxiety</span>
-          <span class="chip" style="cursor:pointer;font-size:0.74rem;">Sudarshan Kriya</span>
-          <span class="chip" style="cursor:pointer;font-size:0.74rem;">Skin</span>
-          <span class="chip" style="cursor:pointer;font-size:0.74rem;">Children</span>
-          <span class="chip" style="cursor:pointer;font-size:0.74rem;">Thyroid</span>
-        </div>
-      </div>
-    </div>
+    <div style="width:280px;flex-shrink:0;display:flex;flex-direction:column;gap:20px;position:sticky;top:144px;">
 
+      <!-- Categories -->
+      <div class="blog-sidebar-card">
+        <span class="blog-sidebar-title">Categories</span>
+        <div class="blog-cat-row"><a href="#" onclick="filterBlog('homeopathy',null);return false;">Homeopathy</a><span class="blog-cat-count">2</span></div>
+        <div class="blog-cat-row"><a href="#" onclick="filterBlog('aol',null);return false;">Art of Living</a><span class="blog-cat-count">2</span></div>
+        <div class="blog-cat-row"><a href="#" onclick="filterBlog('womens',null);return false;">Women's Health</a><span class="blog-cat-count">1</span></div>
+        <div class="blog-cat-row"><a href="#" onclick="filterBlog('children',null);return false;">Children</a><span class="blog-cat-count">1</span></div>
+        <div class="blog-cat-row"><a href="#" onclick="filterBlog('wellness',null);return false;">Wellness</a><span class="blog-cat-count">2</span></div>
+      </div>
+
+      <!-- Popular Articles -->
+      <div class="blog-sidebar-card">
+        <span class="blog-sidebar-title">Popular Articles</span>
+        <div class="blog-popular-item">
+          <div class="blog-popular-num">1</div>
+          <div><div class="blog-popular-title">Why Homeopathy Works When Everything Else Has Failed</div><div class="blog-popular-meta">Homeopathy · 8 min</div></div>
+        </div>
+        <div class="blog-popular-item">
+          <div class="blog-popular-num">2</div>
+          <div><div class="blog-popular-title">PCOS &amp; Homeopathy — A Natural Path to Hormonal Balance</div><div class="blog-popular-meta">Women's Health · 7 min</div></div>
+        </div>
+        <div class="blog-popular-item">
+          <div class="blog-popular-num">3</div>
+          <div><div class="blog-popular-title">Sudarshan Kriya — What Happens to Your Body</div><div class="blog-popular-meta">Art of Living · 6 min</div></div>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="blog-sidebar-card">
+        <span class="blog-sidebar-title">Topics</span>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;">
+          <span class="chip" style="font-size:0.74rem;cursor:pointer;">Migraine</span>
+          <span class="chip" style="font-size:0.74rem;cursor:pointer;">PCOS</span>
+          <span class="chip" style="font-size:0.74rem;cursor:pointer;">Anxiety</span>
+          <span class="chip" style="font-size:0.74rem;cursor:pointer;">Sudarshan Kriya</span>
+          <span class="chip" style="font-size:0.74rem;cursor:pointer;">Skin</span>
+          <span class="chip" style="font-size:0.74rem;cursor:pointer;">Children</span>
+          <span class="chip" style="font-size:0.74rem;cursor:pointer;">Thyroid</span>
+          <span class="chip" style="font-size:0.74rem;cursor:pointer;">Meditation</span>
+          <span class="chip" style="font-size:0.74rem;cursor:pointer;">Prevention</span>
+        </div>
+      </div>
+
+      <!-- Book CTA -->
+      <div style="background:linear-gradient(135deg,#0B3D35,#145A48);border-radius:14px;padding:24px;text-align:center;">
+        <span style="font-size:0.65rem;text-transform:uppercase;letter-spacing:0.18em;color:#6DBF8A;display:block;margin-bottom:8px;">Have a health question?</span>
+        <h4 style="font-family:'Playfair Display',serif;font-weight:400;color:#F5EDD0;font-size:1.1rem;margin-bottom:10px;">Book a Consultation</h4>
+        <p style="font-size:0.78rem;color:#8ABAAA;margin-bottom:18px;">Online &amp; In-Clinic · Same-day response</p>
+        <a href="https://wa.me/919100414201" target="_blank" class="btn-wa" style="justify-content:center;width:100%;"><span class="wa-dot">WA</span> WhatsApp</a>
+      </div>
+
+    </div>
   </div>
-  <div class="wrap"></div>
 </section>
 
+<!-- CTA BAND -->
 <section style="background:var(--charcoal);padding:72px 0;">
-  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:48px;">
-    <div><span class="eyebrow" style="color:var(--sage);">Have a Health Question?</span><h2 style="color:#F5F3EE;margin-top:8px;">Let's talk about<br/>your health.</h2><p style="color:#8C8070;margin-top:10px;">Articles are a start — a consultation gives you a personalized answer.</p></div>
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap;">
+    <div>
+      <span class="eyebrow" style="color:var(--sage);">Articles are just the beginning</span>
+      <h2 style="color:#F5F3EE;margin-top:8px;">A consultation gives you<br/>a personalised answer.</h2>
+      <p style="color:#8C8070;margin-top:10px;max-width:420px;">Every person is different. What worked for someone else may not work for you — that's exactly why homeopathy is individualised.</p>
+    </div>
     <a href="https://wa.me/919100414201" target="_blank" class="btn-wa"><span class="wa-dot">WA</span> Book via WhatsApp</a>
   </div>
 </section>
+
+<!-- FOOTER -->
 <footer class="footer">
   <div class="wrap footer-grid">
-    <!-- Brand column -->
     <div>
-      <div class="footer-brand">
-        <img src="images/logo.png" alt="Consciousness Cures"/>
-        <div>
-          <div class="footer-logo-name">Consciousness Cures</div>
-          <span class="footer-logo-sub">Dr. Suchitra Mylapilli</span>
-        </div>
-      </div>
+      <div class="footer-brand"><img src="images/logo.png" alt="Consciousness Cures"/><div><div class="footer-logo-name">Consciousness Cures</div><span class="footer-logo-sub">Dr. Suchitra Mylapilli</span></div></div>
       <p class="footer-tagline">Homeopathy · Art of Living · Natural Wellness<br/>Healing from the root — mind, body and spirit.</p>
       <div class="footer-socials">
-        <!-- Facebook -->
         <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <!-- Instagram -->
         <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" style="fill:none;stroke:currentColor;stroke-width:2;"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" style="stroke:currentColor;stroke-width:2;stroke-linecap:round;"/></svg></a>
-        <!-- YouTube -->
         <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" style="fill:#1E1C16;"/></svg></a>
-        <!-- WhatsApp -->
         <a href="https://wa.me/919100414201" aria-label="WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
       </div>
     </div>
-
-    <!-- Explore -->
-    <div class="footer-col">
-      <h6>Explore</h6>
-      <ul>
-        <li><a href="about.html">About Doctor</a></li>
-        <li><a href="homeopathy.html">Homeopathy</a></li>
-        <li><a href="art-of-living.html">Art of Living</a></li>
-        <li><a href="programs.html">Programs</a></li>
-        <li><a href="conditions.html">Conditions</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-      </ul>
-    </div>
-
-    <!-- Programs -->
-    <div class="footer-col">
-      <h6>Programs</h6>
-      <ul>
-        <li><a href="program-consciousness-cures.html">Consciousness Cures</a></li>
-        <li><a href="program-sudarshan-kriya.html">Sudarshan Kriya</a></li>
-        <li><a href="program-rakheno.html">Rakheno</a></li>
-        <li><a href="program-sanskar-kendra.html">Sanskar Kendra</a></li>
-        <li><a href="program-utkarsh-medha.html">Utkarsh &amp; Medha Yoga</a></li>
-        <li><a href="program-intuition.html">Intuition Program</a></li>
-      </ul>
-    </div>
-
-    <!-- Connect -->
-    <div class="footer-col">
-      <h6>Connect</h6>
-      <ul>
-        <li><a href="https://wa.me/919100414201">📱 +91 9100414201</a></li>
-        <li><a href="mailto:himabindhusuchitra@gmail.com">📧 himabindhusuchitra@gmail.com</a></li>
-        <li>📍 Ravindra Nagar Last Bus Stop,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Visakhapatnam, A.P.</li>
-        <li>🕐 Mon–Sat · 10am–7pm</li>
-      </ul>
-    </div>
+    <div class="footer-col"><h6>Explore</h6><ul><li><a href="about.html">About Doctor</a></li><li><a href="homeopathy.html">Homeopathy</a></li><li><a href="art-of-living.html">Art of Living</a></li><li><a href="programs.html">Programs</a></li><li><a href="conditions.html">Conditions</a></li></ul></div>
+    <div class="footer-col"><h6>Programs</h6><ul><li><a href="program-consciousness-cures.html">Consciousness Cures</a></li><li><a href="program-sudarshan-kriya.html">Sudarshan Kriya</a></li><li><a href="program-rakheno.html">Rakheno</a></li><li><a href="program-sanskar-kendra.html">Sanskar Kendra</a></li><li><a href="program-utkarsh-medha.html">Utkarsh &amp; Medha Yoga</a></li><li><a href="program-intuition.html">Intuition Program</a></li></ul></div>
+    <div class="footer-col"><h6>Connect</h6><ul><li><a href="https://wa.me/919100414201">📱 +91 9100414201</a></li><li><a href="mailto:himabindhusuchitra@gmail.com">📧 himabindhusuchitra@gmail.com</a></li><li>📍 Ravindra Nagar Last Bus Stop,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Visakhapatnam, A.P.</li><li>🕐 Mon–Sat · 10am–7pm</li></ul></div>
   </div>
-
-  <div class="footer-bottom">
-    <span>© 2026 Dr. Suchitra Mylapilli · Consciousness Cures. All rights reserved.</span>
-    <span>Privacy Policy · Terms of Service</span>
-  </div>
+  <div class="footer-bottom"><span>© 2026 Dr. Suchitra Mylapilli · Consciousness Cures. All rights reserved.</span><span>Privacy Policy · Terms of Service</span></div>
 </footer>
-</body></html>
 
+<script>
+  // Category filter
+  function filterBlog(cat, btn) {
+    if (btn) {
+      document.querySelectorAll('.blog-filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+    document.querySelectorAll('#blog-grid .blog-card').forEach(card => {
+      const cats = card.dataset.cat || '';
+      card.style.display = (cat === 'all' || cats.includes(cat)) ? '' : 'none';
+    });
+  }
 
+  // Scroll reveal
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e,i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('bl-in'), i * 60);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.blog-card').forEach(el => obs.observe(el));
 
-
+  // Prevent coming-soon links
+  document.querySelectorAll('.nav-coming-soon').forEach(el => {
+    el.addEventListener('click', e => e.preventDefault());
+  });
+</script>
+</body>
+</html>
 
