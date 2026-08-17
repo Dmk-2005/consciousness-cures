@@ -1640,3 +1640,10 @@ body {
   .sec { padding: 36px 0 !important; }
   .sec-sm { padding: 28px 0 !important; }
 }
+
+/* ── Hide filter bars on mobile ── */
+@media (max-width: 768px) {
+  .pg-filter,
+  .cond-filter,
+  .blog-filter { display: none !important; }
+}
