@@ -1647,3 +1647,414 @@ body {
   .cond-filter,
   .blog-filter { display: none !important; }
 }
+
+/* ── Hero sections — remove full-screen height on mobile ── */
+@media (max-width: 768px) {
+  /* Index homepage hero */
+  .s-hero {
+    min-height: auto !important;
+    padding: 44px 0 40px !important;
+  }
+
+  /* Homeopathy page hero */
+  .hp-hero {
+    min-height: auto !important;
+    padding: 44px 0 40px !important;
+  }
+
+  /* Art of Living page hero */
+  .aol-hero {
+    min-height: auto !important;
+    padding: 44px 0 40px !important;
+  }
+
+  /* About page hero */
+  .ab-hero {
+    min-height: auto !important;
+    padding: 44px 0 40px !important;
+  }
+
+  /* Programs page hero */
+  .pg-hero {
+    min-height: auto !important;
+    padding: 44px 0 40px !important;
+  }
+
+  /* Individual program page heroes */
+  .prog-hero {
+    min-height: auto !important;
+    padding: 44px 0 40px !important;
+  }
+
+  /* Contact page hero */
+  .ct-hero {
+    min-height: auto !important;
+    padding: 40px 0 36px !important;
+  }
+
+  /* Conditions page hero */
+  .cond-page-hero {
+    min-height: auto !important;
+    padding: 40px 0 36px !important;
+  }
+
+  /* Blog page hero */
+  .blog-hero {
+    min-height: auto !important;
+    padding: 40px 0 36px !important;
+  }
+
+  /* Pillars section hero band */
+  .s-pillars {
+    min-height: auto !important;
+  }
+
+  /* Any inline min-height on section elements */
+  .s-hero .wrap > div,
+  .hp-hero .wrap,
+  .aol-hero .wrap,
+  .pg-hero .wrap {
+    min-height: auto !important;
+  }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   COMPREHENSIVE MOBILE LAYOUT — PROFESSIONAL REWRITE
+   Clean, consistent, edge-safe across all pages & sections
+══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+
+  /* ─────────────────────────────────────────────
+     BASE — Typography, spacing, safe zones
+  ───────────────────────────────────────────── */
+  html { font-size: 15px; }
+  body { overflow-x: hidden; }
+
+  h1 { font-size: clamp(1.75rem, 6.5vw, 2.4rem) !important; }
+  h2 { font-size: clamp(1.4rem, 5vw, 1.9rem) !important; }
+  h3 { font-size: clamp(1.1rem, 4vw, 1.4rem) !important; }
+
+  /* Safe horizontal padding on all wraps */
+  .wrap { padding: 0 20px !important; box-sizing: border-box; }
+
+  /* Sections — comfortable vertical padding */
+  .sec     { padding: 48px 0 !important; }
+  .sec-sm  { padding: 32px 0 !important; }
+
+  /* ─────────────────────────────────────────────
+     ALL HERO SECTIONS — no full-screen height
+  ───────────────────────────────────────────── */
+  .s-hero, .hp-hero, .aol-hero, .ab-hero,
+  .pg-hero, .prog-hero, .ct-hero,
+  .cond-page-hero, .blog-hero {
+    min-height: auto !important;
+    padding: 48px 0 40px !important;
+  }
+
+  /* Hero inner containers — stack vertically */
+  .s-hero .wrap > div[style*="display:flex"],
+  .hp-hero-inner, .aol-hero-inner, .ab-hero-inner,
+  .pg-hero-inner, .prog-hero > .wrap > div[style*="display:flex"] {
+    flex-direction: column !important;
+    gap: 28px !important;
+  }
+
+  /* Hero images — full width, reduced height */
+  .hp-hero-img, .aol-hero-img, .ab-hero-img {
+    flex: none !important; width: 100% !important;
+  }
+  .hp-hero-img img { height: 280px !important; }
+  .aol-hero-img img { height: 280px !important; }
+  .ab-img-frame img { height: 300px !important; }
+
+  /* Remove left margin on homepage hero wrap */
+  .s-hero .wrap { margin-left: 0 !important; }
+
+  /* Hero doctor badge — repositioned */
+  .doctor-name-badge { left: 8px !important; bottom: 12px !important; }
+  .hp-hero-badge, .aol-hero-badge, .ab-img-badge {
+    left: 8px !important; bottom: 12px !important;
+  }
+
+  /* Hero buttons — full width on mobile */
+  .hp-hero-btns, .aol-hero-btns, .ab-hero-btns,
+  [style*="display:flex;gap:14px;flex-wrap:wrap"] {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .hp-btn-wa, .aol-btn-primary, .hp-btn-outline,
+  .aol-btn-ghost, .ab-hero-btns a {
+    width: 100% !important; text-align: center !important;
+    justify-content: center !important;
+  }
+
+  /* ─────────────────────────────────────────────
+     ALL INLINE FLEX → COLUMN (generic fix)
+  ───────────────────────────────────────────── */
+  /* Any flex container with large gaps = desktop 2-col */
+  [style*="display:flex"][style*="gap:72px"],
+  [style*="display:flex"][style*="gap:80px"],
+  [style*="display:flex"][style*="gap:64px"],
+  [style*="display:flex"][style*="gap:56px"],
+  [style*="display:flex"][style*="gap:48px"] {
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+
+  /* Fixed-width flex children → full width */
+  [style*="flex:0 0 420px"], [style*="flex:0 0 460px"],
+  [style*="flex:0 0 400px"], [style*="flex:0 0 380px"],
+  [style*="flex:0 0 360px"], [style*="flex:0 0 340px"],
+  [style*="flex:0 0 320px"], [style*="flex:0 0 300px"],
+  [style*="flex:0 0 280px"], [style*="flex:0 0 48%"] {
+    flex: none !important; width: 100% !important;
+  }
+
+  /* Tall desktop images → mobile height */
+  [style*="height:520px"], [style*="height:500px"],
+  [style*="height:460px"], [style*="height:420px"],
+  [style*="height:400px"] { height: 260px !important; }
+  [style*="height:380px"], [style*="height:360px"],
+  [style*="height:340px"] { height: 220px !important; }
+
+  /* ─────────────────────────────────────────────
+     ALL GRIDS → SINGLE COLUMN
+  ───────────────────────────────────────────── */
+  .grid-2, .grid-3, .grid-4,
+  .prog-grid, .cond-grid, .phil-grid,
+  .journey-steps, .prog-two-col, .prog-audience-grid,
+  .prog-who-grid, .pillars-grid, .ct-contact-grid,
+  .ct-faq-grid, .ab-teach-card, .footer-grid,
+  [style*="grid-template-columns:repeat(3,1fr)"],
+  [style*="grid-template-columns:repeat(2,1fr)"],
+  [style*="grid-template-columns:1fr 1fr"],
+  [style*="grid-template-columns:1fr 1.4fr"],
+  [style*="grid-template-columns:1fr 1.5fr"],
+  [style*="grid-template-columns:repeat(4,1fr)"],
+  [style*="grid-template-columns:1.8fr 1fr 1fr 1.2fr"] {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  /* ─────────────────────────────────────────────
+     CARDS — safe padding, rounded corners
+  ───────────────────────────────────────────── */
+  .card        { border-radius: 14px !important; }
+  .card-pad    { padding: 16px !important; }
+  .card-pad-lg { padding: 20px !important; }
+
+  /* All padded containers */
+  .phil-card   { padding: 22px 16px !important; border-radius: 14px !important; }
+  .prog-card   { padding: 16px !important; border-radius: 14px !important; }
+  .cond-card   { padding: 14px 12px !important; border-radius: 12px !important; }
+  .journey-card { padding: 16px !important; border-radius: 14px !important; }
+  .pillar-card  { border-radius: 16px !important; }
+  .pillar-body  { padding: 20px 16px !important; }
+  .testi        { padding: 18px 16px !important; border-radius: 14px !important; }
+
+  /* Cards with inline large padding */
+  [style*="padding:36px"] { padding: 20px 16px !important; }
+  [style*="padding:32px"] { padding: 18px 16px !important; }
+  [style*="padding:28px"] { padding: 16px !important; }
+  [style*="padding:44px"] { padding: 22px 16px !important; }
+  [style*="padding:40px"] { padding: 20px 16px !important; }
+
+  /* ─────────────────────────────────────────────
+     PROGRAMS SECTION — image cards
+  ───────────────────────────────────────────── */
+  .prog-card--img  { min-height: 220px !important; }
+  .prog-card--featured {
+    grid-column: span 1 !important;
+    flex-direction: column !important;
+  }
+
+  /* ─────────────────────────────────────────────
+     PHILOSOPHY CARDS
+  ───────────────────────────────────────────── */
+  .phil-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+
+  /* ─────────────────────────────────────────────
+     CONDITIONS GRID
+  ───────────────────────────────────────────── */
+  .cond-grid { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+  .cond-card-icon { font-size: 1.3rem !important; }
+
+  /* ─────────────────────────────────────────────
+     JOURNEY SECTION
+  ───────────────────────────────────────────── */
+  .journey-wrap   { overflow: visible; }
+  .journey-line   { display: none; }
+  .journey-steps  { grid-template-columns: 1fr !important; gap: 16px !important; }
+  .journey-bubble { flex-direction: row; gap: 16px; margin-bottom: 14px; }
+  .journey-num    { width: 42px !important; height: 42px !important; }
+  .journey-icon-ring { display: none; }
+
+  /* ─────────────────────────────────────────────
+     STEPS (How it works)
+  ───────────────────────────────────────────── */
+  .steps       { flex-direction: column !important; gap: 0 !important; }
+  .step-arrow  { transform: rotate(90deg); display: flex; justify-content: center; padding: 6px 0; }
+  .step        { border-radius: 12px !important; }
+
+  /* ─────────────────────────────────────────────
+     TESTIMONIALS
+  ───────────────────────────────────────────── */
+  [style*="display:flex;gap:24px;align-items:flex-start"] {
+    flex-direction: column !important; gap: 14px !important;
+  }
+
+  /* ─────────────────────────────────────────────
+     CTA BANDS (dark charcoal sections)
+  ───────────────────────────────────────────── */
+  [style*="background:var(--charcoal)"][style*="padding:72px 0"] .wrap,
+  [style*="padding:72px 0"] .wrap,
+  [style*="padding:80px 0"] .wrap,
+  [style*="padding:88px 0"] .wrap {
+    flex-direction: column !important;
+    gap: 20px !important;
+    text-align: center !important;
+  }
+  .btn-wa { width: 100% !important; justify-content: center !important; }
+
+  /* ─────────────────────────────────────────────
+     ABOUT PAGE SPECIFICS
+  ───────────────────────────────────────────── */
+  .ab-strip-inner   { flex-direction: column; }
+  .ab-strip-item    { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 12px 0 !important; }
+  .ab-strip-item:last-child { border-bottom: none; }
+  .ab-path-node     { font-size: 0.65rem; padding: 4px 8px; }
+  .ab-path-arrow    { padding: 0 3px; }
+  .ab-img-ring      { display: none; }
+  .ab-img-frame     { padding: 4px !important; }
+
+  /* ─────────────────────────────────────────────
+     CONTACT PAGE
+  ───────────────────────────────────────────── */
+  .ct-wa-card    { flex-direction: column !important; padding: 22px 16px !important; gap: 18px !important; border-radius: 16px !important; }
+  .ct-form-card  { padding: 20px 16px !important; border-radius: 14px !important; }
+  .ct-hours      { padding: 16px !important; }
+  .ct-map        { height: 150px !important; }
+  .form-row      { grid-template-columns: 1fr !important; gap: 0 !important; }
+
+  /* ─────────────────────────────────────────────
+     BLOG PAGE
+  ───────────────────────────────────────────── */
+  .blog-featured { flex-direction: column !important; }
+  .blog-featured-img { flex: none !important; width: 100% !important; min-height: 200px !important; }
+  .blog-featured-body { padding: 20px 16px !important; }
+  /* Hide sidebar on mobile */
+  [style*="width:280px;flex-shrink:0"] { display: none !important; }
+  /* Blog main feed takes full width */
+  .blog-filter .wrap { padding: 0 16px !important; }
+
+  /* ─────────────────────────────────────────────
+     HEALING PILLARS
+  ───────────────────────────────────────────── */
+  .pillar-hom-card, .pillar-aol-card { border-radius: 18px !important; }
+  .pillar-img-wrap { height: 220px !important; }
+
+  /* ─────────────────────────────────────────────
+     FOOTER
+  ───────────────────────────────────────────── */
+  .footer { padding: 40px 0 0 !important; }
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    padding: 0 20px 36px !important;
+  }
+  .footer-brand { gap: 10px !important; }
+  .footer-brand img { width: 56px !important; height: 56px !important; }
+  .footer-logo-name { font-size: 0.95rem !important; }
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 6px !important;
+    text-align: center !important;
+    padding: 14px 20px !important;
+    font-size: 0.7rem !important;
+  }
+
+  /* ─────────────────────────────────────────────
+     MARQUEE
+  ───────────────────────────────────────────── */
+  .marquee-inner { gap: 20px; }
+
+  /* ─────────────────────────────────────────────
+     GALLERY
+  ───────────────────────────────────────────── */
+  .gal { grid-template-columns: repeat(2, 1fr) !important; }
+  .gal-tall { grid-row: span 1; }
+  .gal-wide { grid-column: span 1; }
+
+  /* ─────────────────────────────────────────────
+     TIMELINE
+  ───────────────────────────────────────────── */
+  .tl::before { left: 16px; }
+  .tl-item { flex-direction: column !important; gap: 12px; }
+  .tl-item:nth-child(even) { flex-direction: column !important; }
+  .tl-gap { display: none; }
+  .tl-year { min-width: auto; padding-top: 0; }
+
+  /* ─────────────────────────────────────────────
+     PROGRAM INDIVIDUAL PAGES
+  ───────────────────────────────────────────── */
+  .prog-feature-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+  .prog-process { gap: 0; }
+  .prog-step { padding: 14px 0 !important; }
+  .prog-audience-grid { grid-template-columns: 1fr !important; }
+  .prog-variant { padding: 20px 16px !important; }
+}
+
+/* ────────────────────────────────────
+   SMALL PHONES (≤ 480px)
+──────────────────────────────────── */
+@media (max-width: 480px) {
+  .wrap { padding: 0 14px !important; }
+  .sec  { padding: 36px 0 !important; }
+
+  h1 { font-size: clamp(1.5rem, 6vw, 1.9rem) !important; }
+  h2 { font-size: clamp(1.25rem, 5vw, 1.6rem) !important; }
+
+  /* Single column everything */
+  .phil-grid  { grid-template-columns: 1fr !important; }
+  .cond-grid  { grid-template-columns: 1fr !important; }
+  .prog-feature-grid { grid-template-columns: 1fr !important; }
+
+  /* cards tighter */
+  .card-pad    { padding: 14px !important; }
+  .prog-card   { padding: 14px !important; }
+  .phil-card   { padding: 16px 12px !important; }
+  .ct-form-card { padding: 16px 12px !important; }
+  .ct-wa-card  { padding: 16px 12px !important; }
+  .footer-grid { padding: 0 14px 28px !important; }
+
+  /* stats row */
+  .hp-stats, .aol-stats { gap: 14px; }
+
+  /* doctor name badge smaller */
+  .doctor-name-label { font-size: 0.82rem; }
+  .doctor-name-sub   { font-size: 0.6rem; }
+
+  .pillar-img-wrap { height: 180px !important; }
+  .blog-featured-img { min-height: 160px !important; }
+}
+
+/* ── Hide doctor portrait in homepage hero on mobile ── */
+@media (max-width: 768px) {
+  .hero-portrait-col { display: none !important; }
+}
+
+/* ── Hero portrait — hidden on mobile (belt + suspenders approach) ── */
+@media (max-width: 768px) {
+  #hero-portrait,
+  .hero-portrait-col {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    flex: none !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
