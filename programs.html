@@ -123,6 +123,103 @@ body { background:#FDFCF7; }
 /* hidden when filtered */
 .pg-card.pg-hidden { display:none; }
 
+/* ── RESPONSIVE — program cards ── */
+@media (max-width: 900px) {
+  .pg-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  /* Featured card — stack vertically at tablet too */
+  .pg-card--featured {
+    flex-direction: column !important;
+  }
+  .pg-card-img--featured {
+    flex: none !important;
+    width: 100% !important;
+    height: 220px !important;
+  }
+  .pg-card-img--featured img {
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Single full-width cards on small screens */
+  .pg-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  /* Card image — shorter on mobile */
+  .pg-card-img { height: 180px; }
+
+  /* Card body — tighter padding */
+  .pg-card-body { padding: 18px; gap: 10px; }
+
+  /* Meta row — stack tag above mode */
+  .pg-card-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .pg-card-mode {
+    font-size: 0.65rem;
+    white-space: normal;
+  }
+
+  /* Title — slightly smaller */
+  .pg-card-title { font-size: 1.1rem; }
+
+  /* Description — readable */
+  .pg-card-desc { font-size: 0.82rem; }
+
+  /* Details list — compact */
+  .pg-card-details { font-size: 0.74rem; gap: 4px; padding: 10px 0; }
+
+  /* Buttons — full width stacked */
+  .pg-card-btns {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .pg-btn-learn,
+  .pg-btn-enquire {
+    width: 100%;
+    text-align: center;
+    padding: 11px 14px;
+    font-size: 0.84rem;
+  }
+
+  /* Category heading — tighter */
+  .pg-cat-heading { margin-bottom: 20px; margin-top: 10px; }
+  .pg-grid[style*="margin-bottom"] { margin-bottom: 36px !important; }
+
+  /* Filter bar — scrollable row */
+  .pg-filter { top: 58px; }
+  .pg-filter-inner { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+  .pg-filter-inner::-webkit-scrollbar { display: none; }
+  .pg-filter-btn { flex-shrink: 0; font-size: 0.73rem; padding: 6px 14px; }
+
+  /* Featured (horizontal) card — stack vertically on mobile */
+  .pg-card--featured {
+    flex-direction: column !important;
+    display: flex !important;
+  }
+  .pg-card-img--featured {
+    flex: none !important;
+    width: 100% !important;
+    height: 180px !important;
+  }
+  .pg-card-img--featured img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+}
+
+@media (max-width: 374px) {
+  .pg-card-body { padding: 14px; }
+  .pg-card-title { font-size: 1rem; }
+  .pg-card-img { height: 160px; }
+}
+
 /* card buttons — two per card */
 .pg-card-btns {
   display: flex;
@@ -403,8 +500,8 @@ body { background:#FDFCF7; }
     <div style="max-width:680px;">
 
       <!-- 6. Intuition Program -->
-      <div class="pg-card" data-cat="advanced aol children youth" style="flex-direction:row;align-items:stretch;display:flex;">
-        <div class="pg-card-img" style="flex:0 0 280px;height:auto;">
+      <div class="pg-card pg-card--featured" data-cat="advanced aol children youth" style="flex-direction:row;align-items:stretch;display:flex;">
+        <div class="pg-card-img pg-card-img--featured" style="flex:0 0 280px;height:auto;">
           <img src="images/06_intuition_program.png" alt="Intuition Program" style="height:100%;"/>
           <div class="pg-card-img-overlay"></div>
           <span class="pg-card-img-badge" style="background:rgba(46,42,34,0.9);color:#F5EDD0;border:1px solid rgba(200,150,30,0.3);">Advanced</span>

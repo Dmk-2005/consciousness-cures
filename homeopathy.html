@@ -16,6 +16,36 @@ body { background:#FDFCF7; }
   display: flex; align-items: center;
   position: relative; overflow: hidden;
 }
+@media (max-width: 900px) {
+  .hp-hero {
+    min-height: unset !important;
+    height: auto !important;
+    padding: 56px 0 48px !important;
+  }
+  .hp-hero-inner {
+    flex-direction: column !important;
+    gap: 32px !important;
+  }
+  .hp-hero-img {
+    flex: none !important;
+    width: 100% !important;
+  }
+  .hp-hero-img img {
+    width: 100% !important;
+    height: 300px !important;
+    object-fit: cover !important;
+  }
+  .hp-hero-btns {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .hp-hero-btns a {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+}
 .hp-hero::before {
   content:''; position:absolute; top:-150px; right:-150px;
   width:600px; height:600px;

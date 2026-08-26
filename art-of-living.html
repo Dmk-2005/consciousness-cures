@@ -18,6 +18,37 @@ body { background:#FDFCF7; }
   display: flex; align-items: center;
   position: relative; overflow: hidden;
 }
+@media (max-width: 900px) {
+  .aol-hero {
+    min-height: unset !important;
+    height: auto !important;
+    padding: 56px 0 48px !important;
+  }
+  .aol-hero-inner {
+    flex-direction: column !important;
+    gap: 32px !important;
+  }
+  .aol-hero-img {
+    flex: none !important;
+    width: 100% !important;
+  }
+  .aol-hero-img img {
+    width: 100% !important;
+    height: 300px !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+  }
+  .aol-hero-btns {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .aol-hero-btns a {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+}
 .aol-hero::before {
   content:''; position:absolute; top:-120px; right:-120px;
   width:550px; height:550px;
