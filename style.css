@@ -2058,3 +2058,627 @@ body {
     margin: 0 !important;
   }
 }
+
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE OVERFLOW & LAYOUT FIX — FINAL CLEAN VERSION
+   Fixes: nav overflow, hero full-page height, horizontal scroll
+══════════════════════════════════════════════════════════════ */
+
+/* ── 1. Prevent ALL horizontal overflow globally ── */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* ── 2. Hero section — content-driven height, never full-page ── */
+.s-hero {
+  min-height: unset !important;
+  height: auto !important;
+}
+
+/* ── 3. Desktop nav — prevent overflow at all viewport widths ── */
+.site-nav {
+  overflow: visible;
+  width: 100%;
+}
+.nav-wrap {
+  width: 100%;
+  max-width: 1280px;
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+  overflow: visible;
+}
+.nav-links {
+  overflow: visible;
+  min-width: 0;
+}
+.nav-links a {
+  white-space: nowrap;
+  min-width: 0;
+  overflow: visible;
+}
+
+/* ── 4. Responsive breakpoints ── */
+
+/* 1280px — full desktop */
+@media (min-width: 1281px) {
+  .nav-links { gap: 20px; }
+  .nav-links a { font-size: 0.88rem; }
+}
+
+/* 1100px — medium desktop, shrink nav */
+@media (max-width: 1100px) {
+  .nav-wrap { padding: 0 20px; height: 90px; }
+  .nav-logo img { height: 60px !important; width: 60px !important; }
+  .logo-main { font-size: 0.95rem; }
+  .logo-sub { display: none; }
+  .nav-links { gap: 10px; }
+  .nav-links a { font-size: 0.75rem; letter-spacing: 0; }
+  .nav-cta { padding: 7px 12px !important; font-size: 0.73rem !important; }
+}
+
+/* 900px — tablet, switch to hamburger */
+@media (max-width: 900px) {
+  /* nav: show hamburger, hide links by default */
+  .nav-wrap {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    height: auto !important;
+    padding: 10px 16px !important;
+    gap: 12px !important;
+  }
+  .nav-logo {
+    flex: 1;
+    margin-left: 0 !important;
+    min-width: 0;
+  }
+  .nav-logo img { height: 44px !important; width: 44px !important; }
+  .logo-main { font-size: 0.88rem; }
+  .logo-sub { display: none; }
+
+  /* hamburger visible */
+  .nav-hamburger {
+    display: flex !important;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px;
+    border: none;
+    background: none;
+    flex-shrink: 0;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px; height: 2px;
+    background: #2E2A22;
+    border-radius: 2px;
+  }
+
+  /* nav links: hidden by default, dropdown on open */
+  .nav-links {
+    display: none !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    background: linear-gradient(135deg, #FFFBEE, #FFF6D8) !important;
+    border-top: 1px solid rgba(200,160,40,0.25) !important;
+    border-bottom: 2px solid rgba(200,160,40,0.25) !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12) !important;
+    z-index: 9999 !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    padding: 6px 16px 14px !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+  .nav-links.mobile-open {
+    display: flex !important;
+  }
+  .nav-links a {
+    font-size: 0.9rem !important;
+    padding: 11px 4px !important;
+    border-bottom: 1px solid rgba(200,160,40,0.12) !important;
+    white-space: nowrap !important;
+    width: 100% !important;
+    letter-spacing: 0 !important;
+  }
+  .nav-links a:last-child { border-bottom: none !important; }
+  .nav-cta {
+    display: block !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin-top: 10px !important;
+    padding: 11px !important;
+    border-radius: 8px !important;
+    font-size: 0.86rem !important;
+  }
+
+  /* site-nav must be position:relative so absolute dropdown works */
+  .site-nav { position: relative !important; }
+}
+
+/* 768px — mobile */
+@media (max-width: 768px) {
+  /* hero — content-driven, no full viewport height */
+  .s-hero {
+    min-height: unset !important;
+    height: auto !important;
+    padding: 44px 0 40px !important;
+  }
+
+  /* hero inner — stack vertically */
+  .s-hero .wrap > div[style] {
+    flex-direction: column !important;
+    gap: 28px !important;
+  }
+
+  /* hide doctor portrait on mobile */
+  #hero-portrait,
+  .hero-portrait-col {
+    display: none !important;
+  }
+
+  /* hero text full width */
+  .s-hero .wrap > div > div:first-child {
+    width: 100% !important;
+    flex: none !important;
+  }
+
+  /* all sections: no fixed heights */
+  .hp-hero, .aol-hero, .ab-hero,
+  .pg-hero, .prog-hero, .ct-hero,
+  .cond-page-hero, .blog-hero {
+    min-height: unset !important;
+    height: auto !important;
+    padding: 44px 0 36px !important;
+  }
+
+  /* prevent images from overflowing */
+  img {
+    max-width: 100% !important;
+    height: auto;
+  }
+
+  /* sections get proper padding */
+  .sec { padding: 44px 0 !important; }
+  .wrap { padding: 0 18px !important; max-width: 100% !important; }
+}
+
+/* 480px — small phones */
+@media (max-width: 480px) {
+  .wrap { padding: 0 14px !important; }
+  .s-hero { padding: 36px 0 32px !important; }
+  .nav-wrap { padding: 8px 14px !important; }
+}
+
+
+/* ══════════════════════════════════════════════════════
+   MOBILE REFINEMENT — GUTTERS & FOOTER
+   Single clean block. Resolves conflicting earlier rules.
+   Approach: .wrap carries the 20px gutter on all screens.
+   Sections have zero horizontal padding (content via .wrap).
+══════════════════════════════════════════════════════ */
+
+/* ── Canonical .wrap padding at every breakpoint ── */
+@media (max-width: 900px)  { .wrap { padding-left: 20px !important; padding-right: 20px !important; } }
+@media (max-width: 768px)  { .wrap { padding-left: 20px !important; padding-right: 20px !important; } }
+@media (max-width: 480px)  { .wrap { padding-left: 16px !important; padding-right: 16px !important; } }
+@media (max-width: 360px)  { .wrap { padding-left: 14px !important; padding-right: 14px !important; } }
+
+/* ── Sections never carry their own horizontal padding — .wrap handles it ── */
+@media (max-width: 900px) {
+  section, .sec, .sec-sm,
+  .s-hero, .s-intro, .s-gold, .s-pillars, .s-programs,
+  .s-lavender, .s-saffron, .s-forest, .s-amber,
+  .hp-hero, .aol-hero, .ab-hero, .ct-hero,
+  .pg-hero, .prog-hero, .cond-page-hero, .blog-hero {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+/* ── Hero sections: content-driven height on mobile ── */
+@media (max-width: 900px) {
+  .s-hero, .hp-hero, .aol-hero, .ab-hero,
+  .pg-hero, .prog-hero, .ct-hero,
+  .cond-page-hero, .blog-hero {
+    min-height: unset !important;
+    height: auto !important;
+  }
+  .s-hero { padding-top: 48px !important; padding-bottom: 44px !important; }
+  .hp-hero, .aol-hero, .ab-hero,
+  .pg-hero, .prog-hero, .ct-hero,
+  .cond-page-hero, .blog-hero {
+    padding-top: 44px !important;
+    padding-bottom: 40px !important;
+  }
+}
+
+/* ── Hero image: hidden on mobile, visible desktop ── */
+@media (max-width: 768px) {
+  #hero-portrait, .hero-portrait-col { display: none !important; }
+}
+
+/* ── Images never overflow ── */
+img { max-width: 100%; box-sizing: border-box; }
+
+/* ════════════════════════════════════════════════════
+   MOBILE FOOTER — 2-COLUMN NAV + COMPACT CONNECT
+   Desktop: unchanged (4-col grid)
+   ≤768px: brand full-width, Explore+Programs 2-col,
+           Connect full-width below
+════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .footer { padding: 36px 0 0 !important; }
+
+  /* Outer grid: brand top, then 2-col nav, then connect */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto auto auto !important;
+    gap: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Brand column — full width, row 1 */
+  .footer-grid > div:first-child {
+    grid-column: 1 / -1 !important;
+    padding: 0 20px 28px !important;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    margin-bottom: 24px;
+  }
+
+  /* Explore column — row 2 col 1 */
+  .footer-grid > .footer-col:nth-child(2) {
+    padding: 0 12px 24px 20px !important;
+  }
+
+  /* Programs column — row 2 col 2 */
+  .footer-grid > .footer-col:nth-child(3) {
+    padding: 0 20px 24px 12px !important;
+  }
+
+  /* Connect column — row 3, full width */
+  .footer-grid > .footer-col:nth-child(4) {
+    grid-column: 1 / -1 !important;
+    padding: 20px 20px 0 !important;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* Column headings */
+  .footer-col h6 {
+    font-size: 0.65rem !important;
+    margin-bottom: 12px !important;
+    letter-spacing: 0.18em;
+  }
+
+  /* Column links */
+  .footer-col ul { gap: 8px !important; }
+  .footer-col li { font-size: 0.8rem !important; }
+  .footer-col a  { font-size: 0.8rem !important; }
+
+  /* Connect list compact */
+  .footer-grid > .footer-col:nth-child(4) ul { gap: 10px !important; }
+  .footer-grid > .footer-col:nth-child(4) li { font-size: 0.8rem !important; line-height: 1.5; }
+
+  /* Footer brand compact */
+  .footer-brand { gap: 10px !important; }
+  .footer-brand img { width: 52px !important; height: 52px !important; }
+  .footer-logo-name { font-size: 0.95rem !important; }
+  .footer-tagline { font-size: 0.79rem !important; margin-bottom: 16px !important; }
+  .footer-socials a { width: 32px !important; height: 32px !important; }
+
+  /* Bottom bar */
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 5px !important;
+    text-align: center !important;
+    padding: 14px 20px !important;
+    font-size: 0.68rem !important;
+  }
+}
+
+/* ── 480px: slightly tighter ── */
+@media (max-width: 480px) {
+  .footer-grid > div:first-child { padding: 0 14px 24px !important; }
+  .footer-grid > .footer-col:nth-child(2) { padding: 0 8px 20px 14px !important; }
+  .footer-grid > .footer-col:nth-child(3) { padding: 0 14px 20px 8px !important; }
+  .footer-grid > .footer-col:nth-child(4) { padding: 18px 14px 0 !important; }
+  .footer-bottom { padding: 12px 14px !important; }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   FINAL MOBILE REFINEMENT — GUTTERS + FOOTER 2-COL
+   Version: Clean override block — appended last so it wins.
+
+   ROOT CAUSES FIXED:
+   1. Several earlier blocks set padding:0 on .wrap or inner
+      hero containers, stripping all side gutters on mobile.
+   2. .footer-grid was forced to 1fr in the "ALL GRIDS" block,
+      preventing the 2-column footer layout from taking effect.
+   3. Conflicting !important declarations at different breakpoints
+      created unpredictable padding on narrow screens.
+
+   STRATEGY:
+   - .wrap always carries the gutter (20px ≥375px, 16px <375px).
+   - Sections strip their own h-padding (content is via .wrap).
+   - Footer 2-col: Explore + Programs side-by-side, Connect full-width below.
+   - No changes to desktop layout (>900px untouched).
+══════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────
+   MOBILE BASE — ≤ 767px
+───────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+
+  /* 1. THE GUTTER — single source of truth */
+  .wrap {
+    padding-left:  20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box !important;
+    max-width: 100% !important;
+  }
+
+  /* 2. Sections carry NO horizontal padding of their own */
+  section,
+  .sec, .sec-sm,
+  .s-hero, .s-intro, .s-gold, .s-pillars, .s-programs,
+  .s-lavender, .s-saffron, .s-forest, .s-amber,
+  .hp-hero, .aol-hero, .ab-hero, .ct-hero,
+  .pg-hero, .prog-hero, .cond-page-hero, .blog-hero,
+  .footer {
+    padding-left:  0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* 3. Inner hero containers — restore gutter (fixes the padding:0 override) */
+  .blog-hero .wrap,
+  .ct-hero .wrap,
+  .cond-page-hero .wrap,
+  .prog-hero .wrap,
+  .hp-hero .wrap,
+  .aol-hero .wrap,
+  .ab-hero .wrap {
+    padding-left:  20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* 4. Hero section heights — content-driven, never full-viewport */
+  .s-hero, .hp-hero, .aol-hero, .ab-hero,
+  .pg-hero, .prog-hero, .ct-hero,
+  .cond-page-hero, .blog-hero {
+    min-height: unset !important;
+    height: auto !important;
+  }
+
+  /* 5. Hero inner stacks — column on mobile */
+  .s-hero .wrap > div,
+  .hp-hero-inner, .aol-hero-inner, .ab-hero-inner {
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+
+  /* 6. Fixed-width hero image columns → full width */
+  [style*="flex:0 0 420px"],
+  [style*="flex:0 0 460px"],
+  [style*="flex:0 0 400px"],
+  [style*="flex:0 0 380px"],
+  [style*="flex:0 0 360px"] {
+    flex: none !important;
+    width: 100% !important;
+  }
+
+  /* 7. Large inline flex gaps → stack */
+  [style*="display:flex"][style*="gap:72px"],
+  [style*="display:flex"][style*="gap:64px"],
+  [style*="display:flex"][style*="gap:56px"],
+  [style*="display:flex"][style*="gap:48px"] {
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+
+  /* 8. Tall inline image containers → readable height */
+  [style*="height:520px"],
+  [style*="height:500px"],
+  [style*="height:460px"],
+  [style*="height:420px"] { height: 260px !important; }
+  [style*="height:380px"],
+  [style*="height:360px"] { height: 220px !important; }
+
+  /* 9. Images never overflow */
+  img { max-width: 100% !important; box-sizing: border-box; }
+
+  /* 10. Responsive headings */
+  h1 { font-size: clamp(1.75rem, 6.5vw, 2.5rem) !important; }
+  h2 { font-size: clamp(1.4rem, 5vw, 2rem)   !important; }
+  h3 { font-size: clamp(1.1rem, 4vw, 1.5rem)  !important; }
+
+  /* 11. Section vertical rhythm */
+  .sec   { padding-top: 48px !important; padding-bottom: 48px !important; }
+  .sec-sm { padding-top: 32px !important; padding-bottom: 32px !important; }
+
+  /* 12. Prevent horizontal overflow globally */
+  html, body { overflow-x: hidden; max-width: 100%; }
+
+  /* 13. Hero buttons — stack and full-width */
+  .s-hero .wrap [style*="display:flex;gap:14px"],
+  [style*="display:flex;gap:14px;flex-wrap:wrap"] {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .s-hero .wrap .btn,
+  .s-hero .wrap a.btn {
+    width: 100% !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 14. Doctor badge — stay inside container */
+  .doctor-name-badge {
+    left: 0 !important;
+    bottom: 10px !important;
+    max-width: calc(100% - 20px) !important;
+  }
+
+  /* 15. Cards — comfortable padding */
+  .card-pad    { padding: 18px !important; }
+  .card-pad-lg { padding: 22px !important; }
+  .phil-card   { padding: 22px 16px !important; }
+  .prog-card   { padding: 16px !important; }
+  .cond-card   { padding: 14px 12px !important; }
+  .testi       { padding: 18px 16px !important; }
+  .pillar-body { padding: 20px 16px !important; }
+
+  /* 16. Grids → single column (except where overridden below) */
+  .grid-2, .grid-3, .grid-4,
+  .prog-grid, .cond-grid, .phil-grid,
+  .pillars-grid, .journey-steps {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  /* 17. 2-col exceptions on mobile */
+  .cond-grid { grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+  .phil-grid { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+
+  /* 18. Journey line hidden, steps single column */
+  .journey-line { display: none !important; }
+
+  /* 19. CTA bands — stack */
+  [style*="background:var(--charcoal)"] .wrap,
+  [style*="padding:72px 0"] .wrap {
+    flex-direction: column !important;
+    gap: 20px !important;
+    text-align: center !important;
+  }
+  .btn-wa { width: 100% !important; justify-content: center !important; }
+
+  /* 20. Testimonials — stack */
+  [style*="flex:0 0 48%"] { flex: none !important; width: 100% !important; }
+  [style*="display:flex;gap:24px;align-items:flex-start"] {
+    flex-direction: column !important; gap: 14px !important;
+  }
+
+  /* 21. Blog section full-width */
+  [style*="flex:0 0 56%"] { flex: none !important; width: 100% !important; }
+  [style*="width:280px;flex-shrink:0"] { display: none !important; }
+
+  /* ─────────────────────────────────────────────────────────
+     FOOTER — 2-COLUMN NAV + FULL-WIDTH CONNECT
+     Structure: .footer > .wrap.footer-grid
+     Children: [0]=brand, [1]=Explore, [2]=Programs, [3]=Connect
+  ───────────────────────────────────────────────────────── */
+
+  /* Footer outer — no horizontal padding (wrap handles it) */
+  .footer {
+    padding-top: 36px !important;
+  }
+
+  /* Footer wrap carries the gutter */
+  .footer > .wrap {
+    padding-left:  20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* footer-grid: 2-column layout */
+  .footer-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto auto auto !important;
+    gap: 0 !important;
+    /* padding handled by .footer > .wrap */
+    padding-left:  0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 28px !important;
+  }
+
+  /* Brand — full width, row 1 */
+  .footer-grid > div:first-child {
+    grid-column: 1 / -1 !important;
+    padding-bottom: 24px !important;
+    margin-bottom: 20px !important;
+    border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+  }
+
+  /* Explore — row 2, col 1 */
+  .footer-grid > .footer-col:nth-child(2) {
+    grid-column: 1 !important;
+    padding-right: 10px !important;
+    padding-bottom: 20px !important;
+  }
+
+  /* Programs — row 2, col 2 */
+  .footer-grid > .footer-col:nth-child(3) {
+    grid-column: 2 !important;
+    padding-left: 10px !important;
+    padding-bottom: 20px !important;
+  }
+
+  /* Connect — row 3, full width */
+  .footer-grid > .footer-col:nth-child(4) {
+    grid-column: 1 / -1 !important;
+    padding-top: 18px !important;
+    border-top: 1px solid rgba(255,255,255,0.06) !important;
+  }
+
+  /* Column headings */
+  .footer-col h6 {
+    font-size: 0.65rem !important;
+    letter-spacing: 0.18em !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* Link lists — compact */
+  .footer-col ul { gap: 8px !important; }
+  .footer-col li,
+  .footer-col a  { font-size: 0.8rem !important; }
+
+  /* Brand block compact */
+  .footer-brand      { gap: 10px !important; }
+  .footer-brand img  { width: 52px !important; height: 52px !important; }
+  .footer-logo-name  { font-size: 0.9rem !important; }
+  .footer-tagline    { font-size: 0.79rem !important; margin-bottom: 14px !important; }
+  .footer-socials a  { width: 32px !important; height: 32px !important; }
+
+  /* Bottom bar */
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 5px !important;
+    text-align: center !important;
+    padding: 14px 20px !important;
+    font-size: 0.68rem !important;
+  }
+
+  /* Hide doctor portrait on homepage hero */
+  #hero-portrait, .hero-portrait-col {
+    display: none !important;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   SMALL PHONES — ≤ 374px
+───────────────────────────────────────────────────────── */
+@media (max-width: 374px) {
+  .wrap {
+    padding-left:  14px !important;
+    padding-right: 14px !important;
+  }
+  .footer > .wrap { padding-left: 14px !important; padding-right: 14px !important; }
+  .footer-bottom  { padding-left: 14px !important; padding-right: 14px !important; }
+
+  h1 { font-size: clamp(1.5rem, 6vw, 1.9rem) !important; }
+  h2 { font-size: clamp(1.25rem, 5vw, 1.6rem) !important; }
+
+  .cond-grid { grid-template-columns: 1fr !important; }
+  .phil-grid { grid-template-columns: 1fr !important; }
+}
