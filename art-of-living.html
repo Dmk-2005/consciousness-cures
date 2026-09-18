@@ -454,6 +454,292 @@ body { background:#FDFCF7; }
 .aol-testi-foot span { font-size:0.74rem; color:#6DBF8A; }
 </style>
 
+<!-- -- 7.5 MOMENTS WITH GURUDEV -- -->
+<style>
+/* ── Gallery Section ── */
+.aol-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 14px;
+}
+/* Feature photo — spans 2 cols and 2 rows */
+.aol-gallery-item { position: relative; overflow: hidden; border-radius: 16px; cursor: zoom-in; }
+.aol-gallery-item--featured { grid-column: 1 / 3; grid-row: 1 / 3; }
+.aol-gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+  border-radius: 16px;
+}
+.aol-gallery-item--featured img { min-height: 440px; }
+.aol-gallery-item--sm img { height: 210px; }
+.aol-gallery-item:hover img { transform: scale(1.06); }
+
+/* Overlay on hover */
+.aol-gallery-overlay {
+  position: absolute; inset: 0; border-radius: 16px;
+  background: linear-gradient(to top, rgba(10,40,24,0.65) 0%, transparent 55%);
+  opacity: 0; transition: opacity 0.3s ease;
+  display: flex; align-items: flex-end; padding: 18px;
+}
+.aol-gallery-item:hover .aol-gallery-overlay { opacity: 1; }
+.aol-gallery-zoom {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 50%; display: grid; place-items: center;
+  margin-left: auto; backdrop-filter: blur(4px);
+}
+.aol-gallery-zoom svg { stroke: #fff; }
+
+/* Carousel strip below grid (mobile fallback becomes the main view on small screens) */
+.aol-carousel-wrap { position: relative; overflow: hidden; border-radius: 16px; }
+.aol-carousel-track {
+  display: flex; gap: 12px;
+  transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94);
+  will-change: transform;
+}
+.aol-carousel-slide {
+  flex: 0 0 calc(33.333% - 8px);
+  border-radius: 14px; overflow: hidden;
+  cursor: zoom-in; position: relative;
+}
+.aol-carousel-slide img {
+  width: 100%; height: 240px;
+  object-fit: cover; display: block;
+  transition: transform 0.4s ease;
+  border-radius: 14px;
+}
+.aol-carousel-slide:hover img { transform: scale(1.04); }
+.aol-carousel-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px; border-radius: 50%; border: none; cursor: pointer;
+  background: rgba(255,255,255,0.92); box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  display: grid; place-items: center; transition: background 0.2s, transform 0.2s;
+  z-index: 10;
+}
+.aol-carousel-btn:hover { background: #fff; transform: translateY(-50%) scale(1.08); }
+.aol-carousel-prev { left: 10px; }
+.aol-carousel-next { right: 10px; }
+.aol-carousel-dots {
+  display: flex; gap: 7px; justify-content: center; margin-top: 16px;
+}
+.aol-carousel-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(46,122,64,0.25); border: none; cursor: pointer;
+  transition: background 0.2s, transform 0.2s; padding: 0;
+}
+.aol-carousel-dot.active { background: #2E7A40; transform: scale(1.3); }
+
+/* Lightbox */
+.aol-lb {
+  display: none; position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,0.92); align-items: center; justify-content: center;
+  padding: 20px; cursor: zoom-out;
+}
+.aol-lb.open { display: flex; }
+.aol-lb img {
+  max-width: 90vw; max-height: 88vh;
+  object-fit: contain; border-radius: 10px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+  cursor: default;
+}
+.aol-lb-close {
+  position: fixed; top: 18px; right: 22px;
+  width: 42px; height: 42px; border-radius: 50%;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  color: #fff; font-size: 1.4rem; cursor: pointer; display: grid; place-items: center;
+  transition: background 0.2s; line-height: 1;
+}
+.aol-lb-close:hover { background: rgba(255,255,255,0.2); }
+.aol-lb-prev, .aol-lb-next {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  color: #fff; font-size: 1.2rem; cursor: pointer; display: grid; place-items: center;
+  transition: background 0.2s;
+}
+.aol-lb-prev:hover, .aol-lb-next:hover { background: rgba(255,255,255,0.2); }
+.aol-lb-prev { left: 16px; }
+.aol-lb-next { right: 16px; }
+.aol-lb-caption {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+  font-size: 0.78rem; color: rgba(255,255,255,0.55);
+  letter-spacing: 0.06em; white-space: nowrap;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .aol-gallery-grid { display: none; }
+  .aol-carousel-slide { flex: 0 0 calc(50% - 6px); }
+}
+@media (max-width: 640px) {
+  .aol-carousel-slide { flex: 0 0 100%; }
+  .aol-carousel-slide img { height: 260px; }
+}
+</style>
+
+<section class="sec" style="background:linear-gradient(160deg,#0A2818 0%,#071E14 100%);position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(80,200,130,0.08) 0%,transparent 65%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-80px;left:-60px;width:380px;height:380px;background:radial-gradient(circle,rgba(245,210,80,0.06) 0%,transparent 65%);pointer-events:none;"></div>
+  <div class="wrap" style="position:relative;z-index:1;">
+
+    <!-- Heading -->
+    <div style="text-align:center;margin-bottom:48px;">
+      <span class="eyebrow" style="color:#6DBF8A;">Personal Moments</span>
+      <h2 style="color:#F5F0E8;margin-top:8px;">Moments with <em style="color:#6DBF8A;font-family:'Playfair Display',serif;font-style:italic;">Gurudev</em></h2>
+      <p style="color:#8ABAAA;font-size:0.95rem;max-width:520px;margin:14px auto 0;line-height:1.8;">Dr. Suchitra&rsquo;s journey with the Art of Living Foundation — captured in moments of grace, devotion and community.</p>
+    </div>
+
+    <!-- Desktop masonry grid -->
+    <div class="aol-gallery-grid" id="aolGalleryGrid">
+
+      <!-- Featured large photo -->
+      <div class="aol-gallery-item aol-gallery-item--featured" onclick="aolLbOpen(0)">
+        <img src="images/IMG-20240420-WA0038.jpg.jpeg" alt="Moment with Gurudev Sri Sri Ravi Shankar"/>
+        <div class="aol-gallery-overlay">
+          <span class="aol-gallery-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+        </div>
+      </div>
+
+      <!-- Top-right small -->
+      <div class="aol-gallery-item aol-gallery-item--sm" onclick="aolLbOpen(1)">
+        <img src="images/IMG-20260828-WA0003.jpg.jpeg" alt="Art of Living event moment"/>
+        <div class="aol-gallery-overlay">
+          <span class="aol-gallery-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+        </div>
+      </div>
+
+      <!-- Bottom-right small -->
+      <div class="aol-gallery-item aol-gallery-item--sm" onclick="aolLbOpen(2)">
+        <img src="images/IMG-20260828-WA0004.jpg.jpeg" alt="Art of Living gathering"/>
+        <div class="aol-gallery-overlay">
+          <span class="aol-gallery-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Second row grid -->
+    <div class="aol-gallery-grid" style="margin-top:14px;" id="aolGalleryGrid2">
+      <div class="aol-gallery-item aol-gallery-item--sm" onclick="aolLbOpen(3)">
+        <img src="images/IMG_20240531_120839.jpg.jpeg" alt="Satsang with Sri Sri"/>
+        <div class="aol-gallery-overlay"><span class="aol-gallery-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span></div>
+      </div>
+      <div class="aol-gallery-item aol-gallery-item--sm" onclick="aolLbOpen(4)">
+        <img src="images/IMG-20240420-WA0036.jpg.jpeg" alt="Prasad from Gurudev"/>
+        <div class="aol-gallery-overlay"><span class="aol-gallery-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span></div>
+      </div>
+      <div class="aol-gallery-item aol-gallery-item--sm" onclick="aolLbOpen(5)">
+        <img src="images/IMG_20240531_120701.jpg.jpeg" alt="Art of Living program"/>
+        <div class="aol-gallery-overlay"><span class="aol-gallery-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span></div>
+      </div>
+    </div>
+
+    <!-- Mobile/tablet carousel -->
+    <div class="aol-carousel-wrap" style="margin-top:0;" id="aolCarouselWrap">
+      <div class="aol-carousel-track" id="aolCarouselTrack">
+        <div class="aol-carousel-slide" onclick="aolLbOpen(0)"><img src="images/IMG-20240420-WA0038.jpg.jpeg" alt="Moment with Gurudev"/></div>
+        <div class="aol-carousel-slide" onclick="aolLbOpen(1)"><img src="images/IMG-20260828-WA0003.jpg.jpeg" alt="Art of Living event"/></div>
+        <div class="aol-carousel-slide" onclick="aolLbOpen(2)"><img src="images/IMG-20260828-WA0004.jpg.jpeg" alt="Art of Living gathering"/></div>
+        <div class="aol-carousel-slide" onclick="aolLbOpen(3)"><img src="images/IMG_20240531_120839.jpg.jpeg" alt="Satsang with Sri Sri"/></div>
+        <div class="aol-carousel-slide" onclick="aolLbOpen(4)"><img src="images/IMG-20240420-WA0036.jpg.jpeg" alt="Prasad from Gurudev"/></div>
+        <div class="aol-carousel-slide" onclick="aolLbOpen(5)"><img src="images/IMG_20240531_120701.jpg.jpeg" alt="Art of Living program"/></div>
+      </div>
+      <button class="aol-carousel-btn aol-carousel-prev" onclick="aolCarouselMove(-1)" aria-label="Previous">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E2A22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="aol-carousel-btn aol-carousel-next" onclick="aolCarouselMove(1)" aria-label="Next">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E2A22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+    <div class="aol-carousel-dots" id="aolDots"></div>
+
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="aol-lb" id="aolLb" onclick="aolLbClose()">
+  <button class="aol-lb-close" onclick="aolLbClose()" aria-label="Close">&times;</button>
+  <button class="aol-lb-prev" onclick="event.stopPropagation();aolLbNav(-1)" aria-label="Previous">&#8249;</button>
+  <img id="aolLbImg" src="" alt="" onclick="event.stopPropagation()"/>
+  <button class="aol-lb-next" onclick="event.stopPropagation();aolLbNav(1)" aria-label="Next">&#8250;</button>
+  <span class="aol-lb-caption" id="aolLbCaption"></span>
+</div>
+
+<script>
+(function(){
+  var imgs = [
+    { src:'images/IMG-20240420-WA0038.jpg.jpeg', alt:'Moment with Gurudev Sri Sri Ravi Shankar' },
+    { src:'images/IMG-20260828-WA0003.jpg.jpeg', alt:'Art of Living event — Sri Sri with devotees' },
+    { src:'images/IMG-20260828-WA0004.jpg.jpeg', alt:'Art of Living gathering' },
+    { src:'images/IMG_20240531_120839.jpg.jpeg', alt:'Satsang with Sri Sri Ravi Shankar' },
+    { src:'images/IMG-20240420-WA0036.jpg.jpeg', alt:'Receiving prasad from Gurudev' },
+    { src:'images/IMG_20240531_120701.jpg.jpeg', alt:'Art of Living program' }
+  ];
+  var lbIdx = 0;
+
+  window.aolLbOpen = function(i) {
+    lbIdx = i;
+    document.getElementById('aolLbImg').src = imgs[i].src;
+    document.getElementById('aolLbImg').alt = imgs[i].alt;
+    document.getElementById('aolLbCaption').textContent = (i+1) + ' / ' + imgs.length;
+    document.getElementById('aolLb').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+  window.aolLbClose = function() {
+    document.getElementById('aolLb').classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  window.aolLbNav = function(dir) {
+    lbIdx = (lbIdx + dir + imgs.length) % imgs.length;
+    document.getElementById('aolLbImg').src = imgs[lbIdx].src;
+    document.getElementById('aolLbImg').alt = imgs[lbIdx].alt;
+    document.getElementById('aolLbCaption').textContent = (lbIdx+1) + ' / ' + imgs.length;
+  };
+  document.addEventListener('keydown', function(e) {
+    var lb = document.getElementById('aolLb');
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') aolLbClose();
+    if (e.key === 'ArrowLeft')  aolLbNav(-1);
+    if (e.key === 'ArrowRight') aolLbNav(1);
+  });
+
+  /* ── Carousel ── */
+  var track = document.getElementById('aolCarouselTrack');
+  var dotsWrap = document.getElementById('aolDots');
+  var slidesPerView = window.innerWidth <= 640 ? 1 : window.innerWidth <= 900 ? 2 : 3;
+  var current = 0;
+  var total = imgs.length;
+
+  // Build dots
+  for (var d = 0; d < total; d++) {
+    var dot = document.createElement('button');
+    dot.className = 'aol-carousel-dot' + (d === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to slide ' + (d+1));
+    dot.dataset.idx = d;
+    dot.addEventListener('click', function(){ aolGoTo(parseInt(this.dataset.idx)); });
+    dotsWrap.appendChild(dot);
+  }
+
+  function aolGoTo(idx) {
+    current = Math.max(0, Math.min(idx, total - slidesPerView));
+    var slideW = track.children[0].offsetWidth + 12;
+    track.style.transform = 'translateX(-' + (current * slideW) + 'px)';
+    document.querySelectorAll('.aol-carousel-dot').forEach(function(d,i){ d.classList.toggle('active', i === current); });
+  }
+
+  window.aolCarouselMove = function(dir) { aolGoTo(current + dir); };
+
+  // Recalc on resize
+  window.addEventListener('resize', function(){
+    slidesPerView = window.innerWidth <= 640 ? 1 : window.innerWidth <= 900 ? 2 : 3;
+    aolGoTo(0);
+  });
+})();
+</script>
+
 <!-- -- 8. CTA BAND -- -->
 <section style="background:var(--charcoal);padding:80px 0;">
   <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap;">
