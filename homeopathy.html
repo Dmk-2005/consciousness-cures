@@ -508,6 +508,268 @@ SKIP<section class="sec" style="background:linear-gradient(160deg,#E8F7F0 0%,#D6
 .stars { color:#F5D250; font-size:0.82rem; margin-top:4px; }
 </style>
 
+<!-- -- 9. DR. SUCHITRA'S JOURNEY -- -->
+<style>
+/* ── Homeopathy Gallery ── */
+.hp-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.hp-gallery-item { position: relative; overflow: hidden; border-radius: 16px; cursor: zoom-in; }
+.hp-gallery-item--featured { grid-column: 1 / 3; grid-row: 1 / 3; }
+.hp-gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+  border-radius: 16px;
+}
+.hp-gallery-item--featured img { min-height: 440px; }
+.hp-gallery-item--sm img { height: 210px; }
+.hp-gallery-item:hover img { transform: scale(1.06); }
+.hp-gallery-overlay {
+  position: absolute; inset: 0; border-radius: 16px;
+  background: linear-gradient(to top, rgba(11,61,53,0.65) 0%, transparent 55%);
+  opacity: 0; transition: opacity 0.3s ease;
+  display: flex; align-items: flex-end; padding: 18px;
+}
+.hp-gallery-item:hover .hp-gallery-overlay { opacity: 1; }
+.hp-gallery-zoom {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 50%; display: grid; place-items: center;
+  margin-left: auto; backdrop-filter: blur(4px);
+}
+.hp-gallery-zoom svg { stroke: #fff; }
+
+/* Carousel */
+.hp-carousel-wrap { position: relative; overflow: hidden; border-radius: 16px; }
+.hp-carousel-track {
+  display: flex; gap: 12px;
+  transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94);
+  will-change: transform;
+}
+.hp-carousel-slide {
+  flex: 0 0 calc(33.333% - 8px);
+  border-radius: 14px; overflow: hidden;
+  cursor: zoom-in; position: relative;
+}
+.hp-carousel-slide img {
+  width: 100%; height: 240px;
+  object-fit: cover; display: block;
+  transition: transform 0.4s ease;
+  border-radius: 14px;
+}
+.hp-carousel-slide:hover img { transform: scale(1.04); }
+.hp-carousel-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px; border-radius: 50%; border: none; cursor: pointer;
+  background: rgba(255,255,255,0.92); box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  display: grid; place-items: center; transition: background 0.2s, transform 0.2s;
+  z-index: 10;
+}
+.hp-carousel-btn:hover { background: #fff; transform: translateY(-50%) scale(1.08); }
+.hp-carousel-prev { left: 10px; }
+.hp-carousel-next { right: 10px; }
+.hp-carousel-dots { display: flex; gap: 7px; justify-content: center; margin-top: 16px; }
+.hp-carousel-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: rgba(11,61,53,0.2); border: none; cursor: pointer;
+  transition: background 0.2s, transform 0.2s; padding: 0;
+}
+.hp-carousel-dot.active { background: #0B3D35; transform: scale(1.3); }
+
+/* Lightbox */
+.hp-lb {
+  display: none; position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,0.92); align-items: center; justify-content: center;
+  padding: 20px; cursor: zoom-out;
+}
+.hp-lb.open { display: flex; }
+.hp-lb img {
+  max-width: 90vw; max-height: 88vh;
+  object-fit: contain; border-radius: 10px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6); cursor: default;
+}
+.hp-lb-close {
+  position: fixed; top: 18px; right: 22px;
+  width: 42px; height: 42px; border-radius: 50%;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  color: #fff; font-size: 1.4rem; cursor: pointer; display: grid; place-items: center;
+  transition: background 0.2s; line-height: 1;
+}
+.hp-lb-close:hover { background: rgba(255,255,255,0.2); }
+.hp-lb-prev, .hp-lb-next {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  color: #fff; font-size: 1.2rem; cursor: pointer; display: grid; place-items: center;
+  transition: background 0.2s;
+}
+.hp-lb-prev:hover, .hp-lb-next:hover { background: rgba(255,255,255,0.2); }
+.hp-lb-prev { left: 16px; }
+.hp-lb-next { right: 16px; }
+.hp-lb-caption {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+  font-size: 0.78rem; color: rgba(255,255,255,0.55);
+  letter-spacing: 0.06em; white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .hp-gallery-grid { display: none; }
+  .hp-carousel-slide { flex: 0 0 calc(50% - 6px); }
+}
+@media (max-width: 640px) {
+  .hp-carousel-slide { flex: 0 0 100%; }
+  .hp-carousel-slide img { height: 260px; }
+}
+</style>
+
+<section class="sec" style="background:linear-gradient(160deg,#0B3D35 0%,#082E28 100%);position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(109,191,138,0.1) 0%,transparent 65%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-80px;left:-60px;width:380px;height:380px;background:radial-gradient(circle,rgba(245,210,80,0.07) 0%,transparent 65%);pointer-events:none;"></div>
+  <div class="wrap" style="position:relative;z-index:1;">
+
+    <div style="text-align:center;margin-bottom:48px;">
+      <span class="eyebrow" style="color:#6DBF8A;">Credentials &amp; Community</span>
+      <h2 style="color:#F5F0E8;margin-top:8px;">Dr. Suchitra&rsquo;s <em style="color:#6DBF8A;font-style:italic;">Journey</em></h2>
+      <p style="color:#8ABAAA;font-size:0.95rem;max-width:520px;margin:14px auto 0;line-height:1.8;">From graduation at ASR Homeopathic Medical College to conducting wellness programs across schools and communities &mdash; a journey of healing in action.</p>
+    </div>
+
+    <!-- Desktop masonry grid — row 1 -->
+    <div class="hp-gallery-grid" id="hpGalleryGrid1">
+      <div class="hp-gallery-item hp-gallery-item--featured" onclick="hpLbOpen(0)">
+        <img src="images/hpty3.jpeg" alt="Dr. Suchitra — Graduation ceremony, ASR Homeopathic Medical College"/>
+        <div class="hp-gallery-overlay"><span class="hp-gallery-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span></div>
+      </div>
+      <div class="hp-gallery-item hp-gallery-item--sm" onclick="hpLbOpen(1)">
+        <img src="images/hpty2.jpeg" alt="Dr. Suchitra in graduation gown — BHMS degree"/>
+        <div class="hp-gallery-overlay"><span class="hp-gallery-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span></div>
+      </div>
+      <div class="hp-gallery-item hp-gallery-item--sm" onclick="hpLbOpen(2)">
+        <img src="images/hpty1.jpeg" alt="International Day of Yoga — meditation session"/>
+        <div class="hp-gallery-overlay"><span class="hp-gallery-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span></div>
+      </div>
+    </div>
+
+    <!-- Desktop grid — row 2 -->
+    <div class="hp-gallery-grid" style="margin-top:14px;" id="hpGalleryGrid2">
+      <div class="hp-gallery-item hp-gallery-item--sm" onclick="hpLbOpen(3)">
+        <img src="images/hpty4.jpeg" alt="Yoga session with community members"/>
+        <div class="hp-gallery-overlay"><span class="hp-gallery-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span></div>
+      </div>
+      <div class="hp-gallery-item hp-gallery-item--sm" onclick="hpLbOpen(4)">
+        <img src="images/hpty5.jpeg" alt="Wellness program with school children"/>
+        <div class="hp-gallery-overlay"><span class="hp-gallery-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span></div>
+      </div>
+      <div class="hp-gallery-item hp-gallery-item--sm" onclick="hpLbOpen(5)">
+        <img src="images/hpty6.jpeg" alt="Breathwork session with students"/>
+        <div class="hp-gallery-overlay"><span class="hp-gallery-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span></div>
+      </div>
+    </div>
+
+    <!-- Mobile / tablet carousel -->
+    <div class="hp-carousel-wrap" id="hpCarouselWrap">
+      <div class="hp-carousel-track" id="hpCarouselTrack">
+        <div class="hp-carousel-slide" onclick="hpLbOpen(0)"><img src="images/hpty3.jpeg" alt="Graduation ceremony"/></div>
+        <div class="hp-carousel-slide" onclick="hpLbOpen(1)"><img src="images/hpty2.jpeg" alt="Graduation gown"/></div>
+        <div class="hp-carousel-slide" onclick="hpLbOpen(2)"><img src="images/hpty1.jpeg" alt="International Day of Yoga"/></div>
+        <div class="hp-carousel-slide" onclick="hpLbOpen(3)"><img src="images/hpty4.jpeg" alt="Community yoga session"/></div>
+        <div class="hp-carousel-slide" onclick="hpLbOpen(4)"><img src="images/hpty5.jpeg" alt="School wellness program"/></div>
+        <div class="hp-carousel-slide" onclick="hpLbOpen(5)"><img src="images/hpty6.jpeg" alt="Breathwork with students"/></div>
+      </div>
+      <button class="hp-carousel-btn hp-carousel-prev" onclick="hpCarouselMove(-1)" aria-label="Previous">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E2A22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="hp-carousel-btn hp-carousel-next" onclick="hpCarouselMove(1)" aria-label="Next">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E2A22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+    <div class="hp-carousel-dots" id="hpDots"></div>
+
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="hp-lb" id="hpLb" onclick="hpLbClose()">
+  <button class="hp-lb-close" onclick="hpLbClose()" aria-label="Close">&times;</button>
+  <button class="hp-lb-prev" onclick="event.stopPropagation();hpLbNav(-1)" aria-label="Previous">&#8249;</button>
+  <img id="hpLbImg" src="" alt="" onclick="event.stopPropagation()"/>
+  <button class="hp-lb-next" onclick="event.stopPropagation();hpLbNav(1)" aria-label="Next">&#8250;</button>
+  <span class="hp-lb-caption" id="hpLbCaption"></span>
+</div>
+
+<script>
+(function(){
+  var imgs = [
+    { src:'images/hpty3.jpeg', alt:'Graduation ceremony — ASR Homeopathic Medical College' },
+    { src:'images/hpty2.jpeg', alt:'Dr. Suchitra Mylapilli — BHMS graduation' },
+    { src:'images/hpty1.jpeg', alt:'International Day of Yoga — meditation session' },
+    { src:'images/hpty4.jpeg', alt:'Yoga and wellness session with community' },
+    { src:'images/hpty5.jpeg', alt:'School wellness program — breathwork with children' },
+    { src:'images/hpty6.jpeg', alt:'Breathwork session with school students' }
+  ];
+  var lbIdx = 0;
+
+  window.hpLbOpen = function(i) {
+    lbIdx = i;
+    document.getElementById('hpLbImg').src = imgs[i].src;
+    document.getElementById('hpLbImg').alt = imgs[i].alt;
+    document.getElementById('hpLbCaption').textContent = (i+1) + ' / ' + imgs.length;
+    document.getElementById('hpLb').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+  window.hpLbClose = function() {
+    document.getElementById('hpLb').classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  window.hpLbNav = function(dir) {
+    lbIdx = (lbIdx + dir + imgs.length) % imgs.length;
+    document.getElementById('hpLbImg').src = imgs[lbIdx].src;
+    document.getElementById('hpLbImg').alt = imgs[lbIdx].alt;
+    document.getElementById('hpLbCaption').textContent = (lbIdx+1) + ' / ' + imgs.length;
+  };
+  document.addEventListener('keydown', function(e) {
+    var lb = document.getElementById('hpLb');
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')      hpLbClose();
+    if (e.key === 'ArrowLeft')   hpLbNav(-1);
+    if (e.key === 'ArrowRight')  hpLbNav(1);
+  });
+
+  /* Carousel */
+  var track = document.getElementById('hpCarouselTrack');
+  var dotsWrap = document.getElementById('hpDots');
+  var slidesPerView = window.innerWidth <= 640 ? 1 : window.innerWidth <= 900 ? 2 : 3;
+  var current = 0;
+  var total = imgs.length;
+
+  for (var d = 0; d < total; d++) {
+    var dot = document.createElement('button');
+    dot.className = 'hp-carousel-dot' + (d === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to slide ' + (d+1));
+    dot.dataset.idx = d;
+    dot.addEventListener('click', function(){ hpGoTo(parseInt(this.dataset.idx)); });
+    dotsWrap.appendChild(dot);
+  }
+
+  function hpGoTo(idx) {
+    current = Math.max(0, Math.min(idx, total - slidesPerView));
+    var slideW = track.children[0].offsetWidth + 12;
+    track.style.transform = 'translateX(-' + (current * slideW) + 'px)';
+    document.querySelectorAll('.hp-carousel-dot').forEach(function(d,i){ d.classList.toggle('active', i === current); });
+  }
+
+  window.hpCarouselMove = function(dir) { hpGoTo(current + dir); };
+
+  window.addEventListener('resize', function(){
+    slidesPerView = window.innerWidth <= 640 ? 1 : window.innerWidth <= 900 ? 2 : 3;
+    hpGoTo(0);
+  });
+})();
+</script>
+
 <!-- -- 9. CTA BAND -- -->
 <section style="background:var(--charcoal);padding:80px 0;">
   <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:48px;">

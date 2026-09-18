@@ -456,14 +456,14 @@ body { background:#FDFCF7; }
 
 <!-- -- 7.5 MOMENTS WITH GURUDEV -- -->
 <style>
-/* ── Gallery Section ── */
+/* -- Gallery Section -- */
 .aol-gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto auto;
   gap: 14px;
 }
-/* Feature photo — spans 2 cols and 2 rows */
+/* Feature photo ? spans 2 cols and 2 rows */
 .aol-gallery-item { position: relative; overflow: hidden; border-radius: 16px; cursor: zoom-in; }
 .aol-gallery-item--featured { grid-column: 1 / 3; grid-row: 1 / 3; }
 .aol-gallery-item img {
@@ -589,7 +589,7 @@ body { background:#FDFCF7; }
     <div style="text-align:center;margin-bottom:48px;">
       <span class="eyebrow" style="color:#6DBF8A;">Personal Moments</span>
       <h2 style="color:#F5F0E8;margin-top:8px;">Moments with <em style="color:#6DBF8A;font-family:'Playfair Display',serif;font-style:italic;">Gurudev</em></h2>
-      <p style="color:#8ABAAA;font-size:0.95rem;max-width:520px;margin:14px auto 0;line-height:1.8;">Dr. Suchitra&rsquo;s journey with the Art of Living Foundation — captured in moments of grace, devotion and community.</p>
+      <p style="color:#8ABAAA;font-size:0.95rem;max-width:520px;margin:14px auto 0;line-height:1.8;">Dr. Suchitra&rsquo;s journey with the Art of Living Foundation ? captured in moments of grace, devotion and community.</p>
     </div>
 
     <!-- Desktop masonry grid -->
@@ -636,8 +636,31 @@ body { background:#FDFCF7; }
         <div class="aol-gallery-overlay"><span class="aol-gallery-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span></div>
       </div>
     </div>
+    <!-- Third row grid -->
+    <div class="aol-gallery-grid" style="margin-top:14px;grid-template-columns:1fr 1fr;">
+      <div class="aol-gallery-item aol-gallery-item--sm" onclick="aolLbOpen(6)">
+        <img src="images/IMG-20260828-WA0027.jpg.jpeg" alt="Art of Living ? special moment"/>
+        <div class="aol-gallery-overlay"><span class="aol-gallery-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span></div>
+      </div>
+      <div class="aol-gallery-item aol-gallery-item--sm" onclick="aolLbOpen(7)">
+        <img src="images/IMG-20260828-WA0029.jpg.jpeg" alt="Art of Living ? blessings"/>
+        <div class="aol-gallery-overlay"><span class="aol-gallery-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span></div>
+      </div>
+    </div>
 
-    <!-- Mobile/tablet carousel -->
+
+
+    <!-- Third row grid ? 2 new images -->
+    <div class="aol-gallery-grid" style="margin-top:14px;grid-template-columns:1fr 1fr;" id="aolGalleryGrid3">
+      <div class="aol-gallery-item aol-gallery-item--sm" onclick="aolLbOpen(6)">
+        <img src="images/IMG-20260828-WA0027.jpg.jpeg" alt="Art of Living ? special moment"/>
+        <div class="aol-gallery-overlay"><span class="aol-gallery-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span></div>
+      </div>
+      <div class="aol-gallery-item aol-gallery-item--sm" onclick="aolLbOpen(7)">
+        <img src="images/IMG-20260828-WA0029.jpg.jpeg" alt="Art of Living ? blessings"/>
+        <div class="aol-gallery-overlay"><span class="aol-gallery-zoom"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span></div>
+      </div>
+    </div>    <!-- Mobile/tablet carousel -->
     <div class="aol-carousel-wrap" style="margin-top:0;" id="aolCarouselWrap">
       <div class="aol-carousel-track" id="aolCarouselTrack">
         <div class="aol-carousel-slide" onclick="aolLbOpen(0)"><img src="images/IMG-20240420-WA0038.jpg.jpeg" alt="Moment with Gurudev"/></div>
@@ -646,6 +669,8 @@ body { background:#FDFCF7; }
         <div class="aol-carousel-slide" onclick="aolLbOpen(3)"><img src="images/IMG_20240531_120839.jpg.jpeg" alt="Satsang with Sri Sri"/></div>
         <div class="aol-carousel-slide" onclick="aolLbOpen(4)"><img src="images/IMG-20240420-WA0036.jpg.jpeg" alt="Prasad from Gurudev"/></div>
         <div class="aol-carousel-slide" onclick="aolLbOpen(5)"><img src="images/IMG_20240531_120701.jpg.jpeg" alt="Art of Living program"/></div>
+        <div class="aol-carousel-slide" onclick="aolLbOpen(6)"><img src="images/IMG-20260828-WA0027.jpg.jpeg" alt="Art of Living ? special moment"/></div>
+        <div class="aol-carousel-slide" onclick="aolLbOpen(7)"><img src="images/IMG-20260828-WA0029.jpg.jpeg" alt="Art of Living ? blessings"/></div>
       </div>
       <button class="aol-carousel-btn aol-carousel-prev" onclick="aolCarouselMove(-1)" aria-label="Previous">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E2A22" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
@@ -672,11 +697,13 @@ body { background:#FDFCF7; }
 (function(){
   var imgs = [
     { src:'images/IMG-20240420-WA0038.jpg.jpeg', alt:'Moment with Gurudev Sri Sri Ravi Shankar' },
-    { src:'images/IMG-20260828-WA0003.jpg.jpeg', alt:'Art of Living event — Sri Sri with devotees' },
+    { src:'images/IMG-20260828-WA0003.jpg.jpeg', alt:'Art of Living event ? Sri Sri with devotees' },
     { src:'images/IMG-20260828-WA0004.jpg.jpeg', alt:'Art of Living gathering' },
     { src:'images/IMG_20240531_120839.jpg.jpeg', alt:'Satsang with Sri Sri Ravi Shankar' },
     { src:'images/IMG-20240420-WA0036.jpg.jpeg', alt:'Receiving prasad from Gurudev' },
-    { src:'images/IMG_20240531_120701.jpg.jpeg', alt:'Art of Living program' }
+    { src:'images/IMG_20240531_120701.jpg.jpeg', alt:'Art of Living program' },
+    { src:'images/IMG-20260828-WA0027.jpg.jpeg', alt:'Art of Living ? special moment' },
+    { src:'images/IMG-20260828-WA0029.jpg.jpeg', alt:'Art of Living ? blessings' }
   ];
   var lbIdx = 0;
 
@@ -706,7 +733,7 @@ body { background:#FDFCF7; }
     if (e.key === 'ArrowRight') aolLbNav(1);
   });
 
-  /* ── Carousel ── */
+  /* -- Carousel -- */
   var track = document.getElementById('aolCarouselTrack');
   var dotsWrap = document.getElementById('aolDots');
   var slidesPerView = window.innerWidth <= 640 ? 1 : window.innerWidth <= 900 ? 2 : 3;
