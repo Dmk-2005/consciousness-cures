@@ -1,20 +1,20 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Dr. Suchitra Mylapilli — Homeopathy & Art of Living</title>
+<title>Dr. Suchitra Mylapilli ? Homeopathy & Art of Living</title>
 <link rel="stylesheet" href="style.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
-/* ── HOME PAGE SECTION BACKGROUNDS ──────────────
-   Rhythm: Hero → Dark → Light → DARK → Light → DARK → Light → Dark → Light
+/* -- HOME PAGE SECTION BACKGROUNDS --------------
+   Rhythm: Hero ? Dark ? Light ? DARK ? Light ? DARK ? Light ? Dark ? Light
    Never two identical light tones adjacent
-─────────────────────────────────────────────── */
+----------------------------------------------- */
 
 /* Whole page warm base */
 body { background: #FDFCF7; }
 
-/* Section 1 — Hero: banner image */
+/* Section 1 ? Hero: banner image */
 .s-hero {
   background: linear-gradient(135deg, rgba(255,251,238,0.35) 0%, rgba(247,249,242,0.30) 100%),
               url('images/banner.png') center center / cover no-repeat;
@@ -34,18 +34,24 @@ body { background: #FDFCF7; }
 }
 .s-hero > * { position:relative; z-index:1; }
 
-/* Section 2 — Doctor Intro: deep teal (DARK) */
+/* Section 2 ? Doctor Intro: deep teal (DARK) */
 .s-intro {
   background: linear-gradient(135deg, #0B3D35 0%, #082E28 100%);
 }
 
-/* Section 3 — Philosophy: warm ivory (LIGHT — distinct from sage) */
-.s-gold { background: #FDFAF2; }
+/* Section 3 ? Philosophy: warm ivory (LIGHT ? distinct from sage) */
+.s-gold {
+  background:
+    radial-gradient(ellipse at 10% 50%, rgba(200,150,30,0.1) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 20%, rgba(245,210,80,0.08) 0%, transparent 50%),
+    linear-gradient(160deg, #FFFEF5 0%, #FFF9E0 50%, #FDF3C0 100%);
+  position: relative;
+}
 
-/* Section 4 — Pillars: deep charcoal-slate (DARK — breaks the light chain) */
+/* Section 4 ? Pillars: deep charcoal-slate (DARK ? breaks the light chain) */
 /* handled by .s-pillars below */
 
-/* Section 5 — Programs: deep navy (DARK) */
+/* Section 5 ? Programs: deep navy (DARK) */
 .s-navy {
   background: linear-gradient(150deg, #0F2D3A 0%, #0A2230 100%);
   position: relative; overflow: hidden;
@@ -57,12 +63,12 @@ body { background: #FDFCF7; }
   pointer-events:none;
 }
 
-/* Section 6 — Conditions: rich lavender */
+/* Section 6 ? Conditions: rich lavender */
 .s-lavender {
   background:
     radial-gradient(ellipse at 80% 20%, rgba(160,120,220,0.07) 0%, transparent 55%),
     radial-gradient(ellipse at 20% 80%, rgba(120,80,200,0.05) 0%, transparent 50%),
-    linear-gradient(150deg, #FAF8FF 0%, #F5F0FE 50%, #F0EAFD 100%);
+    linear-gradient(150deg, #F5F0FF 0%, #EDE5FF 50%, #E5D8FF 100%);
   position: relative; overflow: hidden;
 }
 .s-lavender::before {
@@ -72,9 +78,12 @@ body { background: #FDFCF7; }
   pointer-events:none;
 }
 
-/* Section 7 — Journey: warm ivory light */
+/* Section 7 ? Journey: warm ivory light */
 .s-saffron {
-  background: linear-gradient(160deg, #FDFBF5 0%, #F8F3E8 100%);
+  background:
+    radial-gradient(ellipse at 90% 10%, rgba(245,180,30,0.1) 0%, transparent 55%),
+    radial-gradient(ellipse at 10% 90%, rgba(200,140,30,0.07) 0%, transparent 50%),
+    linear-gradient(160deg, #FFFBEF 0%, #FFF3D0 50%, #FDEAB0 100%);
   position: relative;
 }
 .s-saffron::before {
@@ -82,7 +91,7 @@ body { background: #FDFCF7; }
   background: linear-gradient(90deg, transparent, rgba(200,150,30,0.3), transparent);
 }
 
-/* Section 8 — Testimonials: deep forest (DARK) */
+/* Section 8 ? Testimonials: deep forest (DARK) */
 .s-forest {
   background: linear-gradient(135deg, #0E3028 0%, #071E1A 100%);
   position: relative; overflow: hidden;
@@ -94,10 +103,15 @@ body { background: #FDFCF7; }
   pointer-events:none;
 }
 
-/* Section 9 — Blog: cool off-white (LIGHT — not cream, breaks amber repeat) */
-.s-amber { background: #F8F8F6; }
+/* Section 9 ? Blog: cool off-white (LIGHT ? not cream, breaks amber repeat) */
+.s-amber {
+  background:
+    radial-gradient(ellipse at 80% 50%, rgba(80,130,220,0.05) 0%, transparent 55%),
+    linear-gradient(160deg, #F8F9FF 0%, #EFF2FF 50%, #E8ECFF 100%);
+  position: relative;
+}
 
-/* ── Dark section text overrides ── */
+/* -- Dark section text overrides -- */
 .s-intro .eyebrow { color: #6DBF8A; }
 .s-intro h2 { color: #F5F0E8; }
 .s-intro p  { color: #9ABFAA; }
@@ -127,15 +141,15 @@ body { background: #FDFCF7; }
 .s-forest .btn-text { color:#F5D250; border-color:#F5D250; }
 .s-forest .testi-avatar { background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.15); color:#6DBF8A; }
 
-/* ── Journey steps warm ── */
+/* -- Journey steps warm -- */
 .s-saffron .step { background:#fff; box-shadow:0 4px 20px rgba(200,140,40,0.08); }
 .s-saffron .step-num { color:#C8960A; }
 
-/* ══════════════════════════════════════
-   HOW IT WORKS — JOURNEY
+/* --------------------------------------
+   HOW IT WORKS ? JOURNEY
    Light ivory bg, 4-step horizontal timeline
    Gold numbered bubbles, white cards
-══════════════════════════════════════ */
+-------------------------------------- */
 .journey-wrap {
   position: relative;
 }
@@ -252,9 +266,9 @@ body { background: #FDFCF7; }
   line-height: 1.7;
 }
 
-/* ══════════════════════════════════════
+/* --------------------------------------
    CONDITIONS / AREAS OF EXPERTISE
-══════════════════════════════════════ */
+-------------------------------------- */
 .cond-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -314,6 +328,12 @@ body { background: #FDFCF7; }
   font-size: 1.4rem;
   flex-shrink: 0;
   transition: transform 0.3s ease, background 0.3s ease;
+  color: var(--ic, #7B50C8);
+}
+.cond-icon-wrap svg {
+  width: 22px; height: 22px;
+  stroke: var(--ic, #7B50C8);
+  flex-shrink: 0;
 }
 .cond-card:hover .cond-icon-wrap {
   transform: scale(1.12) rotate(-4deg);
@@ -342,6 +362,12 @@ body { background: #FDFCF7; }
   opacity: 0;
   transform: translateX(-6px);
   transition: opacity 0.25s, transform 0.25s;
+  display: flex; align-items: center;
+}
+.cond-arrow svg {
+  stroke: var(--ic, #7B50C8);
+  width: 14px; height: 14px;
+}
   flex-shrink: 0;
 }
 .cond-card:hover .cond-arrow {
@@ -367,16 +393,20 @@ body { background: #FDFCF7; }
   box-shadow: 0 10px 28px rgba(123,80,200,0.4);
 }
 
-/* ── Program heading above dark section ── */
+/* -- Program heading above dark section -- */
 .s-navy .flex-between { color:#F5F0E8; }
 
-/* ══════════════════════════════════════
+/* --------------------------------------
    SIGNATURE OFFERINGS / PROGRAMS
    Light sage-tinted bg, white cards,
    teal/sage/gold accents, clean & readable
-══════════════════════════════════════ */
+-------------------------------------- */
 .s-programs {
-  background: linear-gradient(160deg, #F0F7F4 0%, #EAF4EF 100%);
+  background:
+    radial-gradient(ellipse at 80% 0%, rgba(11,61,53,0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 100%, rgba(80,200,130,0.08) 0%, transparent 50%),
+    linear-gradient(160deg, #E8F7F0 0%, #D6F0E4 50%, #C8EEDA 100%);
+  position: relative;
 }
 
 .prog-view-all {
@@ -476,7 +506,7 @@ body { background: #FDFCF7; }
 }
 .prog-link:hover { color:#C8960A; border-color:#C8960A; }
 
-/* ── Image background card variant ── */
+/* -- Image background card variant -- */
 .prog-card--img {
   background-size: cover;
   background-position: center;
@@ -486,7 +516,7 @@ body { background: #FDFCF7; }
   border-color: transparent;
 }
 .prog-card--img::after {
-  /* override the hover top-bar animation — not needed on image cards */
+  /* override the hover top-bar animation ? not needed on image cards */
   display: none;
 }
 .prog-card-img-overlay {
@@ -524,12 +554,12 @@ body { background: #FDFCF7; }
   transform: scale(1.06);
 }
 
-/* ══════════════════════════════════════
+/* --------------------------------------
    HEALING PILLARS SECTION
-   Background: deep charcoal-slate — sits between
+   Background: deep charcoal-slate ? sits between
    warm ivory (philosophy) and navy (programs)
-   Cards: solid warm white — pop clearly
-══════════════════════════════════════ */
+   Cards: solid warm white ? pop clearly
+-------------------------------------- */
 .s-pillars {
   background:
     radial-gradient(ellipse at 15% 50%, rgba(200,150,30,0.1) 0%, transparent 50%),
@@ -545,7 +575,7 @@ body { background: #FDFCF7; }
   pointer-events:none;
 }
 
-/* ── Pillar cards — warm tinted glass, distinct from dark bg ── */
+/* -- Pillar cards ? warm tinted glass, distinct from dark bg -- */
 .pillar-card {
   border-radius: 22px;
   overflow: hidden;
@@ -580,7 +610,7 @@ body { background: #FDFCF7; }
   box-shadow: 0 28px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(60,160,100,0.5);
 }
 
-/* ── Image area ── */
+/* -- Image area -- */
 .pillar-img-wrap {
   position: relative;
   height: 300px;
@@ -630,7 +660,7 @@ body { background: #FDFCF7; }
   color: rgba(255,255,255,0.5);
 }
 
-/* ── Body ── */
+/* -- Body -- */
 .pillar-body {
   padding: 32px 36px 36px;
   display: flex;
@@ -714,12 +744,12 @@ body { background: #FDFCF7; }
 .pillar-link--sage { color: #6DBF8A; border-color: rgba(60,160,100,0.6); }
 .pillar-link:hover { letter-spacing: 0.04em; opacity: 0.75; }
 
-/* ══════════════════════════════════════
-   PHILOSOPHY CARDS — Healing from Root
+/* --------------------------------------
+   PHILOSOPHY CARDS ? Healing from Root
    Section bg: s-gold (warm cream already)
    Cards: white with gold top-border accent,
    icon circle, smooth hover lift + glow
-══════════════════════════════════════ */
+-------------------------------------- */
 .phil-card {
   background: #fff;
   border: 1px solid rgba(210,180,60,0.25);
@@ -811,7 +841,7 @@ body { background: #FDFCF7; }
 }
 .phil-card:hover .phil-accent-line { width:56px; background:rgba(200,150,30,0.8); }
 
-/* ── Doctor Name Badge (Hero) ── */
+/* -- Doctor Name Badge (Hero) -- */
 .doctor-name-badge {
   position: absolute;
   bottom: 28px;
@@ -827,7 +857,7 @@ body { background: #FDFCF7; }
   gap: 4px;
   box-shadow: 0 8px 32px rgba(11,61,53,0.35), 0 0 0 1px rgba(255,255,255,0.06);
 
-  /* Start hidden — slides up on load */
+  /* Start hidden ? slides up on load */
   opacity: 0;
   transform: translateY(18px);
   animation: badgeReveal 0.7s cubic-bezier(0.22,1,0.36,1) 0.5s forwards;
@@ -891,8 +921,8 @@ body { background: #FDFCF7; }
 <nav class="site-nav">
   <div class="nav-wrap">
     <div class="nav-logo">
-      <img src="images/logo.png" alt="Consciousness Cures" style="height:100px;width:100px;object-fit:contain;border-radius:10px;flex-shrink:0;"/>
-      <div class="nav-logo-text"><span class="logo-main">Consciousness Cures</span><span class="logo-sub">Homeopathy · Art of Living</span></div>
+      <img src="images/logo.png" alt="Consciousness Cures" style="height:68px;width:68px;object-fit:contain;border-radius:10px;flex-shrink:0;"/>
+      <div class="nav-logo-text"><span class="logo-main">Consciousness Cures</span><span class="logo-sub">Homeopathy ? Art of Living</span></div>
     </div>
     <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -904,21 +934,73 @@ body { background: #FDFCF7; }
       <a href="art-of-living.html">Art of Living</a>
       <a href="programs.html">Programs</a>
       <a href="conditions.html">Conditions</a>
-      <a href="blog.html">Blog</a>
+      <a href="products.html">Products</a><a href="blog.html">Blog</a>
       <a href="contact.html">Contact</a>
-      <a href="https://wa.me/919100414201" target="_blank" class="btn nav-cta">Book via WhatsApp</a>
+      <a href="https://wa.me/919100414201" target="_blank" class="btn nav-cta">Book an Appointment</a>
     </div>
   </div>
 </nav>
 
-<!-- ══ 1. HERO ══ -->
+<!-- -- SOCIAL FOLLOW STRIP -- -->
+<div class="social-strip">
+  <div class="wrap social-strip-inner">
+    <span class="social-strip-label">Follow Us</span>
+    <div class="social-strip-divider"></div>
+    <div class="social-strip-icons">
+
+      <a href="#" target="_blank" aria-label="Instagram" class="social-strip-link" data-platform="instagram">
+        <span class="social-strip-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+            <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="social-strip-name">Instagram</span>
+      </a>
+
+      <a href="#" target="_blank" aria-label="Facebook" class="social-strip-link" data-platform="facebook">
+        <span class="social-strip-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+        </span>
+        <span class="social-strip-name">Facebook</span>
+      </a>
+
+      <a href="#" target="_blank" aria-label="YouTube" class="social-strip-link" data-platform="youtube">
+        <span class="social-strip-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
+            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff"/>
+          </svg>
+        </span>
+        <span class="social-strip-name">YouTube</span>
+      </a>
+
+      <a href="https://wa.me/919100414201" target="_blank" aria-label="WhatsApp" class="social-strip-link" data-platform="whatsapp">
+        <span class="social-strip-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+        </span>
+        <span class="social-strip-name">WhatsApp</span>
+      </a>
+
+    </div>
+    <div class="social-strip-divider"></div>
+    <span class="social-strip-handle">@consciousnesscures</span>
+  </div>
+</div>
+
+<!-- -- 1. HERO -- -->
 <section class="sec s-hero" style="padding-top:64px;padding-bottom:64px;display:flex;align-items:center;">
   <div class="wrap" style="display:flex;align-items:center;gap:72px;">
-    <!-- Text content — left -->
+    <!-- Text content ? left -->
     <div style="flex:1;display:flex;flex-direction:column;gap:22px;">
-      <span class="eyebrow">Holistic Healing · Natural Wellness</span>
+      <span class="eyebrow">Holistic Healing ? Natural Wellness</span>
       <h1 style="line-height:1.1;">Heal from<br/><em>the Root.</em><br/>Live Fully.</h1>
-      <p style="font-size:1.05rem;color:#5A5245;max-width:440px;">Homeopathic care and Art of Living programs — online and in-clinic — designed around you, not a prescription pad.</p>
+      <p style="font-size:1.05rem;color:#5A5245;max-width:440px;">Homeopathic care and Art of Living programs ? online and in-clinic ? designed around you, not a prescription pad.</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap;">
         <a href="contact.html" class="btn btn-dark">Book a Consultation</a>
         <a href="about.html" class="btn btn-outline">Meet the Doctor</a>
@@ -931,7 +1013,7 @@ body { background: #FDFCF7; }
       </div>
       <div class="doctor-name-badge">
         <span class="doctor-name-label">Dr. Suchitra Mylapilli</span>
-        <span class="doctor-name-sub">Homeopath · Art of Living Instructor</span>
+        <span class="doctor-name-sub">Homeopath ? Art of Living Instructor</span>
       </div>
     </div>
   </div>
@@ -940,18 +1022,18 @@ body { background: #FDFCF7; }
 <!-- MARQUEE -->
 <div class="marquee">
   <div class="marquee-inner">
-    <b>Homeopathy</b><span>·</span><b>Art of Living</b><span>·</span>
-    <b>Sudarshan Kriya</b><span>·</span><b>Natural Healing</b><span>·</span>
-    <b>Meditation</b><span>·</span><b>Consciousness Cures</b><span>·</span>
-    <b>Breathwork</b><span>·</span><b>Holistic Wellness</b><span>·</span>
-    <b>Homeopathy</b><span>·</span><b>Art of Living</b><span>·</span>
-    <b>Sudarshan Kriya</b><span>·</span><b>Natural Healing</b><span>·</span>
-    <b>Meditation</b><span>·</span><b>Consciousness Cures</b><span>·</span>
-    <b>Breathwork</b><span>·</span><b>Holistic Wellness</b><span>·</span>
+    <b>Homeopathy</b><span>?</span><b>Art of Living</b><span>?</span>
+    <b>Sudarshan Kriya</b><span>?</span><b>Natural Healing</b><span>?</span>
+    <b>Meditation</b><span>?</span><b>Consciousness Cures</b><span>?</span>
+    <b>Breathwork</b><span>?</span><b>Holistic Wellness</b><span>?</span>
+    <b>Homeopathy</b><span>?</span><b>Art of Living</b><span>?</span>
+    <b>Sudarshan Kriya</b><span>?</span><b>Natural Healing</b><span>?</span>
+    <b>Meditation</b><span>?</span><b>Consciousness Cures</b><span>?</span>
+    <b>Breathwork</b><span>?</span><b>Holistic Wellness</b><span>?</span>
   </div>
 </div>
 
-<!-- ══ 2. DOCTOR INTRO — Deep Teal ══ -->
+<!-- -- 2. DOCTOR INTRO ? Deep Teal -- -->
 <section class="sec s-intro">
   <div class="wrap" style="display:flex;align-items:center;gap:72px;">
 
@@ -985,20 +1067,20 @@ body { background: #FDFCF7; }
     <div style="flex:1;display:flex;flex-direction:column;gap:18px;">
       <span class="eyebrow">Meet Your Healer</span>
       <h2>Dr. Suchitra Mylapilli</h2>
-      <p style="max-width:480px;">B.H.M.S. Homeopathy Physician and certified Art of Living Faculty (AP0735) — bringing together natural healing and inner wellness through Homeopathy, Sudarshan Kriya, and Rakkheno Therapy. Available online and in-clinic at Ravindra Nagar, Visakhapatnam.</p>
+      <p style="max-width:480px;">B.H.M.S. Homeopathy Physician and certified Art of Living Faculty (AP0735) ? bringing together natural healing and inner wellness through Homeopathy, Sudarshan Kriya, and Rakkheno Therapy. Available online and in-clinic at Ravindra Nagar, Visakhapatnam.</p>
       <div style="display:flex;flex-wrap:wrap;gap:9px;">
-        <span class="chip">🌿 B.H.M.S. Homeopath</span>
-        <span class="chip">🧘 AOL Faculty · AP0735</span>
-        <span class="chip">📍 Visakhapatnam</span>
-        <span class="chip">💻 Online Available</span>
-        <span class="chip">🌱 Rakkheno Therapist</span>
+        <span class="chip">?? B.H.M.S. Homeopath</span>
+        <span class="chip">?? AOL Faculty ? AP0735</span>
+        <span class="chip">?? Visakhapatnam</span>
+        <span class="chip">?? Online Available</span>
+        <span class="chip">?? Rakkheno Therapist</span>
       </div>
-      <a href="about.html" class="btn-text" style="width:fit-content;margin-top:4px;">Read Full Story →</a>
+      <a href="about.html" class="btn-text" style="width:fit-content;margin-top:4px;">Read Full Story ?</a>
     </div>
   </div>
 </section>
 
-<!-- ══ 3. PHILOSOPHY — Healing from the Root ══ -->
+<!-- -- 3. PHILOSOPHY ? Healing from the Root -- -->
 <section class="sec s-gold">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:64px;">
@@ -1016,7 +1098,7 @@ body { background: #FDFCF7; }
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
         </div>
         <h4 class="phil-title">Whole Person Care</h4>
-        <p class="phil-desc">Every patient seen as a complete individual — physical, mental, and emotional.</p>
+        <p class="phil-desc">Every patient seen as a complete individual ? physical, mental, and emotional.</p>
         <div class="phil-accent-line"></div>
       </div>
 
@@ -1049,7 +1131,7 @@ body { background: #FDFCF7; }
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
         </div>
         <h4 class="phil-title">Long-term Wellness</h4>
-        <p class="phil-desc">Not quick fixes — sustainable health that lasts a lifetime.</p>
+        <p class="phil-desc">Not quick fixes ? sustainable health that lasts a lifetime.</p>
         <div class="phil-accent-line"></div>
       </div>
 
@@ -1057,18 +1139,18 @@ body { background: #FDFCF7; }
   </div>
 </section>
 
-<!-- ══ 4. HEALING PILLARS — Soft Sage ══ -->
+<!-- -- 4. HEALING PILLARS ? Soft Sage -- -->
 <section class="sec s-pillars">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:64px;">
-      <span class="eyebrow" style="color:#6DBF8A;">Two Paths · One Journey</span>
+      <span class="eyebrow" style="color:#6DBF8A;">Two Paths ? One Journey</span>
       <h2 style="color:#F5F0E8;">The Healing <em>Pillars</em></h2>
-      <p class="sub sub-c" style="color:#8ABAAA;margin-top:12px;">Two ancient wisdom traditions, united in one practice — for healing that is complete.</p>
+      <p class="sub sub-c" style="color:#8ABAAA;margin-top:12px;">Two ancient wisdom traditions, united in one practice ? for healing that is complete.</p>
     </div>
 
     <div class="grid-2 pillars-grid" style="gap:36px;">
 
-      <!-- ── Pillar I: Homeopathy ── -->
+      <!-- -- Pillar I: Homeopathy -- -->
       <div class="pillar-card pillar-hom-card">
         <!-- image -->
         <div class="pillar-img-wrap">
@@ -1076,25 +1158,25 @@ body { background: #FDFCF7; }
           <div class="pillar-img-overlay"></div>
           <div class="pillar-img-caption">
             <span class="pillar-caption-name">Dr. Samuel Hahnemann</span>
-            <span class="pillar-caption-role">Father of Homeopathy · 1755–1843</span>
+            <span class="pillar-caption-role">Father of Homeopathy ? 1755?1843</span>
           </div>
         </div>
         <!-- body -->
         <div class="pillar-body">
           <div class="pillar-tag pillar-tag--gold">Pillar I</div>
           <h3 class="pillar-heading">Homeopathy</h3>
-          <p class="pillar-desc">Individualized natural remedies that address the root cause — gentle, effective, with zero side effects. Healing the whole person since 1796.</p>
+          <p class="pillar-desc">Individualized natural remedies that address the root cause ? gentle, effective, with zero side effects. Healing the whole person since 1796.</p>
           <ul class="pillar-list">
-            <li><span class="pillar-bullet pillar-bullet--gold">✦</span>Constitutional treatment tailored to you</li>
-            <li><span class="pillar-bullet pillar-bullet--gold">✦</span>100% natural — safe for all ages</li>
-            <li><span class="pillar-bullet pillar-bullet--gold">✦</span>Heals root cause, not just symptoms</li>
-            <li><span class="pillar-bullet pillar-bullet--gold">✦</span>Chronic & acute conditions addressed</li>
+            <li><span class="pillar-bullet pillar-bullet--gold">?</span>Constitutional treatment tailored to you</li>
+            <li><span class="pillar-bullet pillar-bullet--gold">?</span>100% natural ? safe for all ages</li>
+            <li><span class="pillar-bullet pillar-bullet--gold">?</span>Heals root cause, not just symptoms</li>
+            <li><span class="pillar-bullet pillar-bullet--gold">?</span>Chronic & acute conditions addressed</li>
           </ul>
-          <a href="homeopathy.html" class="pillar-link pillar-link--gold">Explore Homeopathy →</a>
+          <a href="homeopathy.html" class="pillar-link pillar-link--gold">Explore Homeopathy ?</a>
         </div>
       </div>
 
-      <!-- ── Pillar II: Art of Living ── -->
+      <!-- -- Pillar II: Art of Living -- -->
       <div class="pillar-card pillar-aol-card">
         <!-- image -->
         <div class="pillar-img-wrap">
@@ -1109,14 +1191,14 @@ body { background: #FDFCF7; }
         <div class="pillar-body">
           <div class="pillar-tag pillar-tag--sage">Pillar II</div>
           <h3 class="pillar-heading">Art of Living</h3>
-          <p class="pillar-desc">Breathwork, meditation, and consciousness programs that dissolve stress at the cellular level — bringing lasting inner peace and transformation.</p>
+          <p class="pillar-desc">Breathwork, meditation, and consciousness programs that dissolve stress at the cellular level ? bringing lasting inner peace and transformation.</p>
           <ul class="pillar-list">
-            <li><span class="pillar-bullet pillar-bullet--sage">✦</span>Sudarshan Kriya — rhythmic breathing</li>
-            <li><span class="pillar-bullet pillar-bullet--sage">✦</span>Guided meditation & mindfulness</li>
-            <li><span class="pillar-bullet pillar-bullet--sage">✦</span>Meditation &amp; Breathe workshops</li>
-            <li><span class="pillar-bullet pillar-bullet--sage">✦</span>Stress relief at a cellular level</li>
+            <li><span class="pillar-bullet pillar-bullet--sage">?</span>Sudarshan Kriya ? rhythmic breathing</li>
+            <li><span class="pillar-bullet pillar-bullet--sage">?</span>Guided meditation & mindfulness</li>
+            <li><span class="pillar-bullet pillar-bullet--sage">?</span>Meditation &amp; Breathe workshops</li>
+            <li><span class="pillar-bullet pillar-bullet--sage">?</span>Stress relief at a cellular level</li>
           </ul>
-          <a href="art-of-living.html" class="pillar-link pillar-link--sage">Explore Art of Living →</a>
+          <a href="art-of-living.html" class="pillar-link pillar-link--sage">Explore Art of Living ?</a>
         </div>
       </div>
 
@@ -1124,7 +1206,7 @@ body { background: #FDFCF7; }
   </div>
 </section>
 
-<!-- ══ 5. PROGRAMS — Signature Offerings ══ -->
+<!-- -- 5. PROGRAMS ? Signature Offerings -- -->
 <section class="sec s-programs">
   <div class="wrap">
 
@@ -1134,7 +1216,7 @@ body { background: #FDFCF7; }
         <h2>Healing &amp; Wellness <em>Programs</em></h2>
         <p style="font-size:0.9rem;color:var(--muted);margin-top:10px;max-width:400px;">Online &amp; in-clinic. Each program personalised to your constitution.</p>
       </div>
-      <a href="programs.html" class="prog-view-all">View All Programs <span>→</span></a>
+      <a href="programs.html" class="prog-view-all">View All Programs <span>?</span></a>
     </div>
 
     <div class="prog-grid">
@@ -1145,7 +1227,7 @@ body { background: #FDFCF7; }
         <span class="prog-tag prog-tag--teal" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#fff;">Homeopathy</span>
         <h4 class="prog-title" style="color:#fff;">Consciousness Cures</h4>
         <p class="prog-desc" style="color:rgba(255,255,255,0.8);">Bridging inner awareness with homeopathic healing for deep, lasting transformation.</p>
-        <a href="program-consciousness-cures.html" class="prog-link" style="color:#F5D250;border-color:rgba(245,210,80,0.5);">Learn More →</a>
+        <a href="program-consciousness-cures.html" class="prog-link" style="color:#F5D250;border-color:rgba(245,210,80,0.5);">Learn More ?</a>
       </div>
 
       <div class="prog-card prog-card--img prog-anim" style="--pd:0.08s;background-image:url('images/02_sudarshan_kriya.png');">
@@ -1154,7 +1236,7 @@ body { background: #FDFCF7; }
         <span class="prog-tag prog-tag--teal" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#fff;">Happiness</span>
         <h4 class="prog-title" style="color:#fff;">Sudarshan Kriya</h4>
         <p class="prog-desc" style="color:rgba(255,255,255,0.8);">Rhythmic breathwork that eliminates stress at a cellular level and restores inner rhythm.</p>
-        <a href="program-sudarshan-kriya.html" class="prog-link" style="color:#F5D250;border-color:rgba(245,210,80,0.5);">Learn More →</a>
+        <a href="program-sudarshan-kriya.html" class="prog-link" style="color:#F5D250;border-color:rgba(245,210,80,0.5);">Learn More ?</a>
       </div>
 
       <div class="prog-card prog-card--img prog-anim" style="--pd:0.16s;background-image:url('images/03_rakkheno.png');">
@@ -1162,17 +1244,17 @@ body { background: #FDFCF7; }
         <div class="prog-card-icon prog-icon--gold"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg></div>
         <span class="prog-tag prog-tag--teal" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#fff;">Wellness</span>
         <h4 class="prog-title" style="color:#fff;">Rakheno</h4>
-        <p class="prog-desc" style="color:rgba(255,255,255,0.8);">Preventive care — maintain health through natural rhythms before illness begins.</p>
-        <a href="program-rakheno.html" class="prog-link" style="color:#F5D250;border-color:rgba(245,210,80,0.5);">Learn More →</a>
+        <p class="prog-desc" style="color:rgba(255,255,255,0.8);">Preventive care ? maintain health through natural rhythms before illness begins.</p>
+        <a href="program-rakheno.html" class="prog-link" style="color:#F5D250;border-color:rgba(245,210,80,0.5);">Learn More ?</a>
       </div>
 
       <div class="prog-card prog-card--img prog-anim" style="--pd:0.12s;background-image:url('images/04_sanskar_kendra.png');">
         <div class="prog-card-img-overlay"></div>
-        <div class="prog-card-icon prog-icon--gold" style="font-size:1.1rem;">🌱</div>
+        <div class="prog-card-icon prog-icon--gold" style="font-size:1.1rem;">??</div>
         <span class="prog-tag prog-tag--teal" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#fff;">Children</span>
         <h4 class="prog-title" style="color:#fff;">Sri Sri Sanskar Kendra</h4>
         <p class="prog-desc" style="color:rgba(255,255,255,0.8);">Holistic child development through values, gentle breathwork, and mindful play.</p>
-        <a href="program-sanskar-kendra.html" class="prog-link" style="color:#F5D250;border-color:rgba(245,210,80,0.5);">Learn More →</a>
+        <a href="program-sanskar-kendra.html" class="prog-link" style="color:#F5D250;border-color:rgba(245,210,80,0.5);">Learn More ?</a>
       </div>
 
       <div class="prog-card prog-card--img prog-anim" style="--pd:0.20s;background-image:url('images/05_utkarsh_medha_yoga.png');">
@@ -1181,7 +1263,7 @@ body { background: #FDFCF7; }
         <span class="prog-tag prog-tag--teal" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#fff;">Youth</span>
         <h4 class="prog-title" style="color:#fff;">Utkarsh &amp; Medha Yoga</h4>
         <p class="prog-desc" style="color:rgba(255,255,255,0.8);">Excellence programs sharpening memory, focus, and confidence for students.</p>
-        <a href="program-utkarsh-medha.html" class="prog-link" style="color:#F5D250;border-color:rgba(245,210,80,0.5);">Learn More →</a>
+        <a href="program-utkarsh-medha.html" class="prog-link" style="color:#F5D250;border-color:rgba(245,210,80,0.5);">Learn More ?</a>
       </div>
 
       <div class="prog-card prog-card--img prog-anim" style="--pd:0.28s;background-image:url('images/06_intuition_program.png');">
@@ -1190,94 +1272,94 @@ body { background: #FDFCF7; }
         <span class="prog-tag prog-tag--teal" style="background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.3);color:#fff;">Advanced</span>
         <h4 class="prog-title" style="color:#fff;">Intuition Program</h4>
         <p class="prog-desc" style="color:rgba(255,255,255,0.8);">Advanced workshop awakening inner intelligence and sharpening intuitive perception.</p>
-        <a href="program-intuition.html" class="prog-link" style="color:#F5D250;border-color:rgba(245,210,80,0.5);">Learn More →</a>
+        <a href="program-intuition.html" class="prog-link" style="color:#F5D250;border-color:rgba(245,210,80,0.5);">Learn More ?</a>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ══ 6. CONDITIONS ══ -->
+<!-- -- 6. CONDITIONS -- -->
 <section class="sec s-lavender">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:60px;">
       <span class="eyebrow" style="color:#7B50C8;">Areas of Expertise</span>
       <h2 style="color:#2A1A50;">Conditions <em>Treated</em></h2>
-      <p class="sub sub-c" style="color:#5A4A80;">Homeopathy treats the whole person — chronic and acute conditions addressed at the root.</p>
+      <p class="sub sub-c" style="color:#5A4A80;">Homeopathy treats the whole person &mdash; chronic and acute conditions addressed at the root.</p>
     </div>
 
     <div class="cond-grid">
 
       <a href="conditions.html" class="cond-card cond-anim" style="--cd:0s">
-        <div class="cond-icon-wrap" style="--ic:#7B50C8;--ib:rgba(123,80,200,0.15);">🧠</div>
+        <div class="cond-icon-wrap" style="--ic:#7B50C8;--ib:rgba(123,80,200,0.15);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M12 2a8 8 0 0 1 8 8c0 3-1.5 5.5-4 7v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2c-2.5-1.5-4-4-4-7a8 8 0 0 1 8-8z"/><line x1="12" y1="6" x2="12" y2="10"/><line x1="9" y1="9" x2="15" y2="9"/></svg></div>
         <div class="cond-body"><h4 class="cond-title">Migraine</h4><p class="cond-desc">Frequency &amp; intensity reduced naturally</p></div>
-        <span class="cond-arrow">→</span>
+        <span class="cond-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
 
       <a href="conditions.html" class="cond-card cond-anim" style="--cd:0.06s">
-        <div class="cond-icon-wrap" style="--ic:#5C80D8;--ib:rgba(92,128,216,0.15);">🦋</div>
+        <div class="cond-icon-wrap" style="--ic:#5C80D8;--ib:rgba(92,128,216,0.15);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><circle cx="12" cy="12" r="3"/><path d="M12 9c0-3-2-5-5-5s-4 3-2 6"/><path d="M12 9c0-3 2-5 5-5s4 3 2 6"/><path d="M12 15c0 3-2 5-5 5s-4-3-2-6"/><path d="M12 15c0 3 2 5 5 5s4-3 2-6"/></svg></div>
         <div class="cond-body"><h4 class="cond-title">Thyroid</h4><p class="cond-desc">Hypo &amp; hyperthyroid management</p></div>
-        <span class="cond-arrow">→</span>
+        <span class="cond-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
 
       <a href="conditions.html" class="cond-card cond-anim" style="--cd:0.12s">
-        <div class="cond-icon-wrap" style="--ic:#C060A8;--ib:rgba(192,96,168,0.15);">🌸</div>
+        <div class="cond-icon-wrap" style="--ic:#C060A8;--ib:rgba(192,96,168,0.15);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><circle cx="12" cy="8" r="4"/><path d="M12 12v8"/><path d="M9 18h6"/></svg></div>
         <div class="cond-body"><h4 class="cond-title">PCOS / PCOD</h4><p class="cond-desc">Hormonal rebalancing, cycle regulation</p></div>
-        <span class="cond-arrow">→</span>
+        <span class="cond-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
 
       <a href="conditions.html" class="cond-card cond-anim" style="--cd:0.18s">
-        <div class="cond-icon-wrap" style="--ic:#D4881A;--ib:rgba(212,136,26,0.15);">✨</div>
-        <div class="cond-body"><h4 class="cond-title">Skin Disorders</h4><p class="cond-desc">Eczema, psoriasis, acne — from within</p></div>
-        <span class="cond-arrow">→</span>
+        <div class="cond-icon-wrap" style="--ic:#D4881A;--ib:rgba(212,136,26,0.15);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <div class="cond-body"><h4 class="cond-title">Skin Disorders</h4><p class="cond-desc">Eczema, psoriasis, acne &mdash; from within</p></div>
+        <span class="cond-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
 
       <a href="conditions.html" class="cond-card cond-anim" style="--cd:0.24s">
-        <div class="cond-icon-wrap" style="--ic:#2E8A9A;--ib:rgba(46,138,154,0.15);">🌊</div>
+        <div class="cond-icon-wrap" style="--ic:#2E8A9A;--ib:rgba(46,138,154,0.15);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
         <div class="cond-body"><h4 class="cond-title">Anxiety</h4><p class="cond-desc">Remedies + AOL breathwork combined</p></div>
-        <span class="cond-arrow">→</span>
+        <span class="cond-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
 
       <a href="conditions.html" class="cond-card cond-anim" style="--cd:0.30s">
-        <div class="cond-icon-wrap" style="--ic:#C03030;--ib:rgba(192,48,48,0.15);">❤️</div>
+        <div class="cond-icon-wrap" style="--ic:#C03030;--ib:rgba(192,48,48,0.15);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
         <div class="cond-body"><h4 class="cond-title">Hypertension</h4><p class="cond-desc">Blood pressure management, naturally</p></div>
-        <span class="cond-arrow">→</span>
+        <span class="cond-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
 
       <a href="conditions.html" class="cond-card cond-anim" style="--cd:0.36s">
-        <div class="cond-icon-wrap" style="--ic:#2E7A40;--ib:rgba(46,122,64,0.15);">🩸</div>
+        <div class="cond-icon-wrap" style="--ic:#2E7A40;--ib:rgba(46,122,64,0.15);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></div>
         <div class="cond-body"><h4 class="cond-title">Early Diabetes</h4><p class="cond-desc">Constitutional approach, sugar management</p></div>
-        <span class="cond-arrow">→</span>
+        <span class="cond-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
 
       <a href="conditions.html" class="cond-card cond-anim" style="--cd:0.42s">
-        <div class="cond-icon-wrap" style="--ic:#5040A0;--ib:rgba(80,64,160,0.15);">😴</div>
+        <div class="cond-icon-wrap" style="--ic:#5040A0;--ib:rgba(80,64,160,0.15);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></div>
         <div class="cond-body"><h4 class="cond-title">Insomnia</h4><p class="cond-desc">Chronic sleeplessness, deep rest restored</p></div>
-        <span class="cond-arrow">→</span>
+        <span class="cond-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
 
       <a href="conditions.html" class="cond-card cond-anim" style="--cd:0.48s">
-        <div class="cond-icon-wrap" style="--ic:#C060A8;--ib:rgba(192,96,168,0.15);">🤰</div>
+        <div class="cond-icon-wrap" style="--ic:#C060A8;--ib:rgba(192,96,168,0.15);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><circle cx="12" cy="8" r="4"/><path d="M12 12v8"/><path d="M9 18h6"/></svg></div>
         <div class="cond-body"><h4 class="cond-title">Infertility</h4><p class="cond-desc">Hormonal &amp; constitutional support</p></div>
-        <span class="cond-arrow">→</span>
+        <span class="cond-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
       </a>
 
     </div>
 
     <div style="text-align:center;margin-top:48px;">
-      <a href="conditions.html" class="cond-btn">View All Conditions →</a>
+      <a href="conditions.html" class="cond-btn">View All Conditions &rarr;</a>
     </div>
   </div>
 </section>
 
-<!-- ══ 7. JOURNEY ══ -->
+<!-- -- 7. JOURNEY -- -->
 <section class="sec s-saffron">
   <div class="wrap">
 
     <div style="text-align:center;margin-bottom:72px;">
       <span class="eyebrow">How It Works</span>
       <h2>Your Healing <em>Journey</em></h2>
-      <p class="sub sub-c" style="margin-top:12px;">From your first message to lasting wellness — simple, clear, and personal.</p>
+      <p class="sub sub-c" style="margin-top:12px;">From your first message to lasting wellness ? simple, clear, and personal.</p>
     </div>
 
     <div class="journey-wrap">
@@ -1296,7 +1378,7 @@ body { background: #FDFCF7; }
           </div>
           <div class="journey-card">
             <h4 class="journey-title">Book via WhatsApp</h4>
-            <p class="journey-desc">Send a message — your slot is confirmed within hours. Online or in-clinic, your choice.</p>
+            <p class="journey-desc">Send a message ? your slot is confirmed within hours. Online or in-clinic, your choice.</p>
           </div>
         </div>
 
@@ -1309,7 +1391,7 @@ body { background: #FDFCF7; }
           </div>
           <div class="journey-card">
             <h4 class="journey-title">Deep Case Study</h4>
-            <p class="journey-desc">A 60–90 min session — physical, mental, and emotional history understood fully.</p>
+            <p class="journey-desc">A 60?90 min session ? physical, mental, and emotional history understood fully.</p>
           </div>
         </div>
 
@@ -1343,13 +1425,13 @@ body { background: #FDFCF7; }
     </div>
 
     <div style="text-align:center;margin-top:56px;">
-      <a href="contact.html" class="btn btn-dark" style="padding:13px 36px;font-size:0.92rem;">Begin Your Journey →</a>
+      <a href="contact.html" class="btn btn-dark" style="padding:13px 36px;font-size:0.92rem;">Begin Your Journey ?</a>
     </div>
 
   </div>
 </section>
 
-<!-- ══ 8. TESTIMONIALS — Forest Green ══ -->
+<!-- -- 8. TESTIMONIALS ? Forest Green -- -->
 <section class="sec s-forest">
   <div class="wrap">
     <div style="text-align:center;margin-bottom:48px;">
@@ -1361,41 +1443,41 @@ body { background: #FDFCF7; }
       <!-- Featured large testimonial -->
       <div class="testi" style="flex:0 0 48%;">
         <span class="testi-mark">"</span>
-        <p>I had been suffering from severe migraines every week for nearly six years. I had tried multiple medicines but nothing gave lasting relief. After my first consultation with Dr. Suchitra, she spent almost an hour understanding everything about me — not just the headaches. Within three months of the constitutional remedy, my attacks reduced drastically. I haven't had a single migraine in the last four months.</p>
+        <p>I had been suffering from severe migraines every week for nearly six years. I had tried multiple medicines but nothing gave lasting relief. After my first consultation with Dr. Suchitra, she spent almost an hour understanding everything about me ? not just the headaches. Within three months of the constitutional remedy, my attacks reduced drastically. I haven't had a single migraine in the last four months.</p>
         <div class="testi-who">
           <div class="testi-avatar" style="background:rgba(11,61,53,0.1);color:#0B3D35;font-size:0.7rem;">SR</div>
-          <div><strong>Sravani R.</strong><span>Migraine · Visakhapatnam</span></div>
+          <div><strong>Sravani R.</strong><span>Migraine ? Visakhapatnam</span></div>
         </div>
-        <div class="stars">★★★★★</div>
+        <div class="stars">?????</div>
       </div>
 
       <!-- Three smaller testimonials -->
       <div style="flex:1;display:flex;flex-direction:column;gap:16px;">
         <div class="testi">
-          <p>"My thyroid levels had been off for three years despite medication. Dr. Suchitra's approach was completely different — she treated me as a whole person. Within six months my TSH normalised and I feel more energetic than I have in years."</p>
-          <div style="font-size:0.78rem;margin-top:10px;"><strong>Lakshmi P.</strong> · Thyroid · Hyderabad</div>
-          <div class="stars" style="font-size:0.8rem;">★★★★★</div>
+          <p>"My thyroid levels had been off for three years despite medication. Dr. Suchitra's approach was completely different ? she treated me as a whole person. Within six months my TSH normalised and I feel more energetic than I have in years."</p>
+          <div style="font-size:0.78rem;margin-top:10px;"><strong>Lakshmi P.</strong> ? Thyroid ? Hyderabad</div>
+          <div class="stars" style="font-size:0.8rem;">?????</div>
         </div>
         <div class="testi">
           <p>"I attended the Sudarshan Kriya workshop and it genuinely changed the quality of my sleep and my stress levels. The breathing practice Dr. Suchitra taught is something I now do every single morning without fail."</p>
-          <div style="font-size:0.78rem;margin-top:10px;"><strong>Arjun M.</strong> · Sudarshan Kriya</div>
-          <div class="stars" style="font-size:0.8rem;">★★★★★</div>
+          <div style="font-size:0.78rem;margin-top:10px;"><strong>Arjun M.</strong> ? Sudarshan Kriya</div>
+          <div class="stars" style="font-size:0.8rem;">?????</div>
         </div>
         <div class="testi">
-          <p>"My 8-year-old son had recurring chest infections and was on antibiotics constantly. After homeopathic treatment his immunity improved so much — he has had only one mild cold in the past year. I wish we had found this earlier."</p>
-          <div style="font-size:0.78rem;margin-top:10px;"><strong>Priya N.</strong> · Children's Health · Vizag</div>
-          <div class="stars" style="font-size:0.8rem;">★★★★★</div>
+          <p>"My 8-year-old son had recurring chest infections and was on antibiotics constantly. After homeopathic treatment his immunity improved so much ? he has had only one mild cold in the past year. I wish we had found this earlier."</p>
+          <div style="font-size:0.78rem;margin-top:10px;"><strong>Priya N.</strong> ? Children's Health ? Vizag</div>
+          <div class="stars" style="font-size:0.8rem;">?????</div>
         </div>
       </div>
 
     </div>
     <div style="text-align:center;margin-top:36px;">
-      <a href="testimonials.html" class="btn-text">Read All Stories →</a>
+      <a href="testimonials.html" class="btn-text">Read All Stories ?</a>
     </div>
   </div>
 </section>
 
-<!-- ══ 9. BLOG — Insights & Knowledge ══ -->
+<!-- -- 9. BLOG ? Insights & Knowledge -- -->
 <section class="sec s-amber">
   <div class="wrap">
     <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;flex-wrap:wrap;gap:16px;">
@@ -1403,7 +1485,7 @@ body { background: #FDFCF7; }
         <span class="eyebrow">Insights &amp; Knowledge</span>
         <h2>From the Healing Journal</h2>
       </div>
-      <a href="#" class="nav-coming-soon btn-text" style="white-space:nowrap;">Visit the Journal →</a>
+      <a href="#" class="nav-coming-soon btn-text" style="white-space:nowrap;">Visit the Journal ?</a>
     </div>
 
     <div style="display:flex;gap:28px;align-items:stretch;flex-wrap:wrap;">
@@ -1415,8 +1497,8 @@ body { background: #FDFCF7; }
           <p style="font-family:'Playfair Display',serif;font-size:1.2rem;color:#F5EDD0;line-height:1.4;font-style:italic;">Why Homeopathy Works When Everything Else Has Failed</p>
         </div>
         <div class="card-pad" style="flex:1;display:flex;flex-direction:column;gap:12px;">
-          <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;">Most patients who walk into a homeopathic clinic have tried everything. They carry years of prescriptions, reports, and disappointment. Here is why constitutional homeopathy often succeeds where others haven't — and what makes it fundamentally different.</p>
-          <a href="#" class="nav-coming-soon btn-text" style="margin-top:auto;width:fit-content;">Read Article →</a>
+          <p style="font-size:0.88rem;color:var(--muted);line-height:1.7;">Most patients who walk into a homeopathic clinic have tried everything. They carry years of prescriptions, reports, and disappointment. Here is why constitutional homeopathy often succeeds where others haven't ? and what makes it fundamentally different.</p>
+          <a href="#" class="nav-coming-soon btn-text" style="margin-top:auto;width:fit-content;">Read Article ?</a>
         </div>
       </div>
 
@@ -1424,29 +1506,29 @@ body { background: #FDFCF7; }
       <div style="flex:1;display:flex;flex-direction:column;gap:16px;min-width:240px;">
 
         <div class="card" style="display:flex;gap:14px;padding:18px;align-items:center;">
-          <div style="width:90px;height:80px;flex-shrink:0;border-radius:8px;background:linear-gradient(135deg,#0A2818,#145A30);display:flex;align-items:center;justify-content:center;font-size:1.8rem;">🌬️</div>
+          <div style="width:90px;height:80px;flex-shrink:0;border-radius:8px;background:linear-gradient(135deg,#0A2818,#145A30);display:flex;align-items:center;justify-content:center;font-size:1.8rem;">???</div>
           <div>
             <span class="tag tag-sage" style="margin-bottom:8px;display:inline-block;">Art of Living</span>
-            <h4 style="font-size:0.93rem;margin-bottom:6px;line-height:1.3;">Sudarshan Kriya — What Happens to Your Body When You Breathe Rhythmically</h4>
-            <a href="#" class="nav-coming-soon btn-text" style="font-size:0.78rem;">Read →</a>
+            <h4 style="font-size:0.93rem;margin-bottom:6px;line-height:1.3;">Sudarshan Kriya ? What Happens to Your Body When You Breathe Rhythmically</h4>
+            <a href="#" class="nav-coming-soon btn-text" style="font-size:0.78rem;">Read ?</a>
           </div>
         </div>
 
         <div class="card" style="display:flex;gap:14px;padding:18px;align-items:center;">
-          <div style="width:90px;height:80px;flex-shrink:0;border-radius:8px;background:linear-gradient(135deg,#1A1000,#3A2408);display:flex;align-items:center;justify-content:center;font-size:1.8rem;">🌸</div>
+          <div style="width:90px;height:80px;flex-shrink:0;border-radius:8px;background:linear-gradient(135deg,#1A1000,#3A2408);display:flex;align-items:center;justify-content:center;font-size:1.8rem;">??</div>
           <div>
             <span class="tag" style="margin-bottom:8px;display:inline-block;">Women's Health</span>
-            <h4 style="font-size:0.93rem;margin-bottom:6px;line-height:1.3;">PCOS &amp; Homeopathy — A Natural Path to Hormonal Balance</h4>
-            <a href="#" class="nav-coming-soon btn-text" style="font-size:0.78rem;">Read →</a>
+            <h4 style="font-size:0.93rem;margin-bottom:6px;line-height:1.3;">PCOS &amp; Homeopathy ? A Natural Path to Hormonal Balance</h4>
+            <a href="#" class="nav-coming-soon btn-text" style="font-size:0.78rem;">Read ?</a>
           </div>
         </div>
 
         <div class="card" style="display:flex;gap:14px;padding:18px;align-items:center;">
-          <div style="width:90px;height:80px;flex-shrink:0;border-radius:8px;background:linear-gradient(135deg,#0A1E2E,#145A48);display:flex;align-items:center;justify-content:center;font-size:1.8rem;">🌱</div>
+          <div style="width:90px;height:80px;flex-shrink:0;border-radius:8px;background:linear-gradient(135deg,#0A1E2E,#145A48);display:flex;align-items:center;justify-content:center;font-size:1.8rem;">??</div>
           <div>
             <span class="tag" style="margin-bottom:8px;display:inline-block;">Children</span>
             <h4 style="font-size:0.93rem;margin-bottom:6px;line-height:1.3;">Is Homeopathy Safe for Children? Everything Parents Need to Know</h4>
-            <a href="#" class="nav-coming-soon btn-text" style="font-size:0.78rem;">Read →</a>
+            <a href="#" class="nav-coming-soon btn-text" style="font-size:0.78rem;">Read ?</a>
           </div>
         </div>
 
@@ -1455,18 +1537,18 @@ body { background: #FDFCF7; }
   </div>
 </section>
 
-<!-- ══ CTA BAND ══ -->
+<!-- -- CTA BAND -- -->
 <section style="background:var(--charcoal);padding:72px 0;">
   <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:48px;">
     <div>
       <span class="eyebrow" style="color:#6DBF8A;">Begin Your Healing Today</span>
       <h2 style="color:#F5F0E8;margin-top:8px;max-width:500px;">Ready to heal? Let's have a conversation.</h2>
-      <p style="color:#8C8070;margin-top:12px;max-width:420px;">Online and in-clinic consultations available. Share your concern on WhatsApp — we'll take it from there.</p>
+      <p style="color:#8C8070;margin-top:12px;max-width:420px;">Online and in-clinic consultations available. Share your concern on WhatsApp ? we'll take it from there.</p>
     </div>
     <div style="display:flex;flex-direction:column;align-items:flex-end;gap:14px;flex-shrink:0;">
       <a href="https://wa.me/919100414201" target="_blank" class="btn-wa"><span class="wa-dot">WA</span> Book via WhatsApp</a>
       <div style="text-align:right;">
-        <p style="font-size:0.78rem;color:#6B6358;">Mon–Sat · 10am–7pm</p>
+        <p style="font-size:0.78rem;color:#6B6358;">Mon?Sat ? 10am?7pm</p>
         <p style="font-size:0.78rem;color:#6B6358;">Online &amp; In-Clinic Available</p>
       </div>
     </div>
@@ -1485,7 +1567,7 @@ body { background: #FDFCF7; }
           <span class="footer-logo-sub">Dr. Suchitra Mylapilli</span>
         </div>
       </div>
-      <p class="footer-tagline">Homeopathy · Art of Living · Natural Wellness<br/>Healing from the root — mind, body and spirit.</p>
+      <p class="footer-tagline">Homeopathy ? Art of Living ? Natural Wellness<br/>Healing from the root ? mind, body and spirit.</p>
       <div class="footer-socials">
         <!-- Facebook -->
         <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
@@ -1507,7 +1589,7 @@ body { background: #FDFCF7; }
         <li><a href="art-of-living.html">Art of Living</a></li>
         <li><a href="programs.html">Programs</a></li>
         <li><a href="conditions.html">Conditions</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="products.html">Products</a></li><li><a href="gallery.html">Gallery</a></li>
       </ul>
     </div>
 
@@ -1528,17 +1610,17 @@ body { background: #FDFCF7; }
     <div class="footer-col">
       <h6>Connect</h6>
       <ul>
-        <li><a href="https://wa.me/919100414201">📱 +91 9100414201</a></li>
-        <li><a href="mailto:consciousnesscure@gmail.com">📧 consciousnesscure@gmail.com</a></li>
-        <li>📍 Ravindra Nagar Last Bus Stop,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Visakhapatnam, A.P.</li>
-        <li>🕐 Mon–Sat · 10am–7pm</li>
+        <li><a href="https://wa.me/919100414201">?? +91 9100414201</a></li>
+        <li><a href="mailto:consciousnesscure@gmail.com">?? consciousnesscure@gmail.com</a></li>
+        <li>?? Ravindra Nagar Last Bus Stop,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Visakhapatnam, A.P.</li>
+        <li>?? Mon?Sat ? 10am?7pm</li>
       </ul>
     </div>
   </div>
 
   <div class="footer-bottom">
-    <span>© 2026 Dr. Suchitra Mylapilli · Consciousness Cures. All rights reserved.</span>
-    <span>Privacy Policy · Terms of Service</span>
+    <span>? 2026 Dr. Suchitra Mylapilli ? Consciousness Cures. All rights reserved.</span>
+    <span>Privacy Policy ? Terms of Service</span>
   </div>
 </footer>
 

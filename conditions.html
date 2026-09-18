@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -29,105 +29,166 @@ body { background:#FDFCF7; }
   padding:14px 0; position:sticky; top:116px; z-index:800;
   box-shadow:0 2px 12px rgba(0,0,0,0.04);
 }
-.cond-filter-inner { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
-.cond-filter-label { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.14em; color:var(--muted); margin-right:4px; flex-shrink:0; }
+.cond-filter-inner {
+  display:flex; gap:8px; align-items:center; flex-wrap:wrap;
+}
+.cond-filter-label {
+  font-size:0.68rem; text-transform:uppercase; letter-spacing:0.14em;
+  color:var(--muted); margin-right:4px; flex-shrink:0;
+}
 .cond-filter-btn {
-  padding:6px 16px; border-radius:20px; font-size:0.77rem;
+  padding:6px 14px; border-radius:20px; font-size:0.75rem;
   font-family:'DM Sans',sans-serif; cursor:pointer;
   border:1px solid #E8E2D0; background:transparent; color:var(--muted);
-  transition:all 0.2s;
+  transition:all 0.2s; white-space:nowrap;
 }
 .cond-filter-btn:hover { border-color:#0B3D35; color:#0B3D35; }
 .cond-filter-btn.active { background:#0B3D35; color:#F5EDD0; border-color:#0B3D35; }
 
 /* ── CATEGORY HEADING ── */
 .cond-cat-row {
-  display:flex; align-items:center; gap:16px; margin-bottom:28px;
+  display:flex; align-items:center; gap:16px;
+  margin-bottom:20px; margin-top:36px;
 }
+.cond-cat-row:first-child { margin-top:0; }
 .cond-cat-line { flex:1; height:1px; background:#E8E2D0; }
 .cond-cat-label {
   font-size:0.7rem; text-transform:uppercase; letter-spacing:0.2em;
   color:var(--muted); flex-shrink:0; white-space:nowrap;
 }
 
-/* ── CONDITION CARDS ── */
+/* ── CONDITION GRID ── */
 .cond-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-bottom: 52px;
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap:10px;
+  margin-bottom:8px;
 }
+
+/* ── BASE CARD ── */
 .cond-card {
   background:#fff;
   border:1px solid #E8E2D0;
-  border-radius:14px;
-  padding:22px 18px;
-  display:flex; flex-direction:column; gap:10px;
-  position:relative; overflow:hidden;
-  transition:transform 0.27s ease, box-shadow 0.27s ease, border-color 0.27s ease;
-  text-decoration:none; color:inherit;
-  cursor:default;
-  opacity:0; transform:translateY(18px);
+  border-radius:10px;
+  padding:14px 16px;
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  position:relative;
+  overflow:hidden;
+  transition:transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  opacity:0;
+  transform:translateY(14px);
 }
-.cond-card.cond-in { animation:condPageIn 0.45s cubic-bezier(0.22,1,0.36,1) forwards; }
+.cond-card.cond-in {
+  animation:condPageIn 0.4s cubic-bezier(0.22,1,0.36,1) forwards;
+}
 @keyframes condPageIn { to { opacity:1; transform:translateY(0); } }
 
-.cond-card::before {
-  content:''; position:absolute; top:0; left:0; right:0; height:3px;
-  border-radius:14px 14px 0 0;
-  background: var(--accent, linear-gradient(90deg,#0B3D35,#2A8A65));
-  transform:scaleX(0); transform-origin:left; transition:transform 0.3s ease;
-}
-.cond-card:hover::before { transform:scaleX(1); }
 .cond-card:hover {
-  transform:translateY(-5px);
-  box-shadow:0 12px 32px rgba(11,61,53,0.1);
-  border-color:rgba(11,61,53,0.25);
+  transform:translateY(-3px);
+  box-shadow:0 8px 24px rgba(11,61,53,0.09);
+  border-color:rgba(11,61,53,0.2);
 }
 
-/* icon circle */
-.cond-card-icon {
-  font-size:1.6rem; line-height:1;
-  transition:transform 0.25s;
+/* left accent bar */
+.cond-card::before {
+  content:'';
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:3px;
+  background: var(--accent, linear-gradient(180deg,#0B3D35,#2A8A65));
+  border-radius:10px 0 0 10px;
+  transform:scaleY(0);
+  transform-origin:bottom;
+  transition:transform 0.25s ease;
 }
-.cond-card:hover .cond-card-icon { transform:scale(1.15); }
+.cond-card:hover::before { transform:scaleY(1); }
 
 .cond-card-name {
-  font-size:0.96rem; font-weight:500; color:#2E2A22; line-height:1.3;
+  font-size:0.88rem;
+  font-weight:500;
+  color:#2E2A22;
+  line-height:1.35;
+  flex:1;
 }
-.cond-card-note {
-  font-size:0.76rem; color:#8C8070; line-height:1.55;
-}
-.cond-card-tag {
-  display:inline-block; font-size:0.6rem; text-transform:uppercase;
-  letter-spacing:0.1em; padding:2px 9px; border-radius:20px;
-  width:fit-content; margin-top:auto;
-}
-/* tag variants */
-.tag-neuro  { background:rgba(100,80,200,0.08); border:1px solid rgba(100,80,200,0.2); color:#5040A0; }
-.tag-gastro { background:rgba(200,120,30,0.08); border:1px solid rgba(200,120,30,0.2); color:#8A5010; }
-.tag-hormonal{ background:rgba(192,96,168,0.08);border:1px solid rgba(192,96,168,0.2);color:#8A3070; }
-.tag-resp   { background:rgba(46,138,154,0.08); border:1px solid rgba(46,138,154,0.2); color:#1E7080; }
-.tag-musculo{ background:rgba(160,80,48,0.08);  border:1px solid rgba(160,80,48,0.2);  color:#8A3A18; }
-.tag-skin   { background:rgba(200,150,30,0.08); border:1px solid rgba(200,150,30,0.2); color:#8A6208; }
-.tag-mental { background:rgba(80,100,200,0.08); border:1px solid rgba(80,100,200,0.2); color:#3050A0; }
-.tag-child  { background:rgba(46,122,64,0.08);  border:1px solid rgba(46,122,64,0.2);  color:#256035; }
-.tag-urology{ background:rgba(46,138,154,0.08); border:1px solid rgba(46,138,154,0.2); color:#1E7080; }
 
-/* hidden card */
+/* ── HIGHLIGHTED (UNDERLINED in PDF) CARD ── */
+.cond-card.cond-highlight {
+  background: linear-gradient(135deg, #FFFEF5 0%, #FFF9E0 100%);
+  border:1.5px solid rgba(200,150,30,0.35);
+}
+.cond-card.cond-highlight::before {
+  background: linear-gradient(180deg, #C8960A, #F5D250);
+  transform:scaleY(1);
+  width:4px;
+}
+.cond-card.cond-highlight .cond-card-name {
+  color:#2E2A22;
+  font-weight:600;
+}
+.cond-card.cond-highlight .cond-hl-badge {
+  display:inline-block;
+  font-size:0.58rem;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  color:#8A6208;
+  background:rgba(200,150,30,0.12);
+  border:1px solid rgba(200,150,30,0.25);
+  border-radius:20px;
+  padding:2px 7px;
+  white-space:nowrap;
+  flex-shrink:0;
+  margin-top:1px;
+}
+.cond-hl-badge { display:none; }
+
 .cond-card.cond-hidden { display:none; }
+
+/* ── APPROACH SECTION CARDS ── */
+.approach-card {
+  text-align:center;
+  padding:28px 20px;
+  border-radius:16px;
+  border:1px solid rgba(200,150,30,0.2);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width:900px) {
+  .cond-grid { grid-template-columns: repeat(auto-fill, minmax(160px,1fr)); gap:9px; }
+}
+@media (max-width:640px) {
+  .cond-filter { top:58px; }
+  .cond-filter-inner { flex-wrap:nowrap; overflow-x:auto; padding-bottom:4px; }
+  .cond-filter-inner::-webkit-scrollbar { display:none; }
+  .cond-filter-btn { flex-shrink:0; }
+  .cond-grid { grid-template-columns: repeat(2,1fr); gap:8px; }
+  .cond-card { padding:12px 13px; }
+  .cond-card-name { font-size:0.82rem; }
+}
+@media (max-width:374px) {
+  .cond-grid { grid-template-columns: 1fr 1fr; gap:7px; }
+  .cond-card-name { font-size:0.78rem; }
+}
 </style>
 </head>
 <body>
 
-</div>
-
 <!-- NAV -->
 <nav class="site-nav">
   <div class="nav-wrap">
-    <div class="nav-logo"><img src="images/logo.png" alt="Consciousness Cures" style="height:100px;width:100px;object-fit:contain;border-radius:10px;flex-shrink:0;"/><div class="nav-logo-text"><span class="logo-main">Consciousness Cures</span><span class="logo-sub">Homeopathy · Art of Living</span></div></div>
+    <div class="nav-logo">
+      <img src="images/logo.png" alt="Consciousness Cures" style="height:68px;width:68px;object-fit:contain;border-radius:10px;flex-shrink:0;"/>
+      <div class="nav-logo-text"><span class="logo-main">Consciousness Cures</span><span class="logo-sub">Homeopathy · Art of Living</span></div>
+    </div>
     <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Menu"><span></span><span></span><span></span></button>
-    <div class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="homeopathy.html">Homeopathy</a><a href="art-of-living.html">Art of Living</a><a href="programs.html">Programs</a><a href="conditions.html" class="on">Conditions</a><a href="blog.html">Blog</a><a href="https://wa.me/919100414201" target="_blank">Contact</a><a href="https://wa.me/919100414201" target="_blank" class="btn nav-cta">Book via WhatsApp</a></div>
+    <div class="nav-links">
+      <a href="index.html">Home</a><a href="about.html">About</a>
+      <a href="homeopathy.html">Homeopathy</a><a href="art-of-living.html">Art of Living</a>
+      <a href="programs.html">Programs</a><a href="conditions.html" class="on">Conditions</a>
+      <a href="products.html">Products</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+      <a href="https://wa.me/919100414201" target="_blank" class="btn nav-cta">Book an Appointment</a>
+    </div>
   </div>
 </nav>
 
@@ -136,12 +197,12 @@ body { background:#FDFCF7; }
   <div class="wrap" style="position:relative;z-index:1;">
     <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.22em;color:#6DBF8A;display:block;margin-bottom:14px;">Natural Healing for Every Condition</span>
     <h1 style="font-family:'Playfair Display',serif;color:#F5F0E8;font-weight:400;font-size:clamp(2.2rem,3.2vw,3.4rem);line-height:1.1;max-width:600px;">Conditions <em style="color:#F5D250;">Treated</em></h1>
-    <p style="color:#8ABAAA;font-size:1rem;max-width:560px;line-height:1.8;margin-top:16px;">Homeopathy treats the whole person, not just the diagnosis. Below is the full list of conditions addressed through individualised homeopathic care at Consciousness Cures.</p>
-    <!-- stat row -->
+    <p style="color:#8ABAAA;font-size:1rem;max-width:560px;line-height:1.8;margin-top:16px;">Homeopathy treats the whole person, not just the diagnosis. Below is the complete list of conditions addressed through individualised homeopathic care at Consciousness Cures. <span style="color:#F5D250;font-size:0.85rem;">★ Highlighted conditions</span> are those Dr. Suchitra has specifically emphasised in her practice document.</p>
     <div style="display:flex;gap:40px;margin-top:32px;flex-wrap:wrap;">
-      <div><div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#F5D250;line-height:1;">18+</div><div style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-top:4px;">Conditions Listed</div></div>
-      <div><div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#6DBF8A;line-height:1;">All</div><div style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-top:4px;">Ages Welcome</div></div>
-      <div><div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#F5D250;line-height:1;">0</div><div style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-top:4px;">Side Effects</div></div>
+      <div><div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#F5D250;line-height:1;">200+</div><div style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-top:4px;">Conditions Listed</div></div>
+      <div><div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#6DBF8A;line-height:1;">16+</div><div style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-top:4px;">Categories</div></div>
+      <div><div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#F5D250;line-height:1;">All</div><div style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-top:4px;">Ages Welcome</div></div>
+      <div><div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#6DBF8A;line-height:1;">0</div><div style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.4);margin-top:4px;">Side Effects</div></div>
     </div>
   </div>
 </section>
@@ -150,234 +211,444 @@ body { background:#FDFCF7; }
 <div class="cond-filter">
   <div class="wrap cond-filter-inner">
     <span class="cond-filter-label">Filter:</span>
-    <button class="cond-filter-btn active" onclick="filterCond('all',this)">All Conditions</button>
-    <button class="cond-filter-btn" onclick="filterCond('neurological',this)">Neurological</button>
-    <button class="cond-filter-btn" onclick="filterCond('gastro',this)">Gastro</button>
-    <button class="cond-filter-btn" onclick="filterCond('hormonal',this)">Hormonal</button>
-    <button class="cond-filter-btn" onclick="filterCond('respiratory',this)">Respiratory</button>
-    <button class="cond-filter-btn" onclick="filterCond('musculo',this)">Musculoskeletal</button>
-    <button class="cond-filter-btn" onclick="filterCond('skin',this)">Skin</button>
-    <button class="cond-filter-btn" onclick="filterCond('mental',this)">Mental Health</button>
+    <button class="cond-filter-btn active" onclick="filterCond('all',this)">All</button>
+    <button class="cond-filter-btn" onclick="filterCond('mental',this)">Mental</button>
+    <button class="cond-filter-btn" onclick="filterCond('neuro',this)">Neurological</button>
+    <button class="cond-filter-btn" onclick="filterCond('eyes',this)">Eyes</button>
+    <button class="cond-filter-btn" onclick="filterCond('ears',this)">Ears</button>
+    <button class="cond-filter-btn" onclick="filterCond('nose',this)">Nose</button>
+    <button class="cond-filter-btn" onclick="filterCond('throat',this)">Throat</button>
+    <button class="cond-filter-btn" onclick="filterCond('mouth',this)">Mouth &amp; Teeth</button>
+    <button class="cond-filter-btn" onclick="filterCond('chest',this)">Chest</button>
+    <button class="cond-filter-btn" onclick="filterCond('heart',this)">Heart</button>
+    <button class="cond-filter-btn" onclick="filterCond('digestive',this)">Digestive</button>
+    <button class="cond-filter-btn" onclick="filterCond('liver',this)">Liver</button>
+    <button class="cond-filter-btn" onclick="filterCond('rectum',this)">Rectum</button>
+    <button class="cond-filter-btn" onclick="filterCond('urinary',this)">Urinary</button>
+    <button class="cond-filter-btn" onclick="filterCond('female',this)">Female</button>
+    <button class="cond-filter-btn" onclick="filterCond('bones',this)">Bones &amp; Joints</button>
+    <button class="cond-filter-btn" onclick="filterCond('skin',this)">Skin &amp; Hair</button>
+    <button class="cond-filter-btn" onclick="filterCond('fevers',this)">Fevers</button>
+    <button class="cond-filter-btn" onclick="filterCond('std',this)">STDs</button>
     <button class="cond-filter-btn" onclick="filterCond('children',this)">Children</button>
+    <button class="cond-filter-btn" onclick="filterCond('other',this)">Other</button>
   </div>
 </div>
 
 <!-- ALL CONDITIONS -->
-<section class="sec" style="background:#FDFCF7;">
+<section class="sec" style="background:linear-gradient(160deg,#F8F9FF 0%,#EFF2FF 50%,#E8ECFF 100%);">
   <div class="wrap">
 
-    <!-- Neurological & Head -->
-    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Neurological &amp; Head</span><div class="cond-cat-line"></div></div>
+    <!-- ① Mental Diseases -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">① Mental Diseases</span><div class="cond-cat-line"></div></div>
     <div class="cond-grid">
-      <div class="cond-card" data-cat="neurological" style="--accent:linear-gradient(90deg,#5040A0,#8060D0);">
-        <div class="cond-card-icon">🧠</div>
-        <div class="cond-card-name">Headache &amp; Migraine</div>
-        <div class="cond-card-note">Frequency &amp; intensity reduced through constitutional treatment and trigger management.</div>
-        <span class="cond-card-tag tag-neuro">Neurological</span>
-      </div>
-      <div class="cond-card" data-cat="neurological respiratory" style="--accent:linear-gradient(90deg,#1E7080,#3AAABB);">
-        <div class="cond-card-icon">🤧</div>
-        <div class="cond-card-name">Sinusitis</div>
-        <div class="cond-card-note">Chronic and acute sinusitis addressed at the root — reducing recurrence naturally.</div>
-        <span class="cond-card-tag tag-resp">Respiratory</span>
-      </div>
-      <div class="cond-card" data-cat="neurological" style="--accent:linear-gradient(90deg,#5040A0,#8060D0);">
-        <div class="cond-card-icon">🌿</div>
-        <div class="cond-card-name">Allergies</div>
-        <div class="cond-card-note">Dust, food, and seasonal allergies managed with safe, individualised homeopathic remedies.</div>
-        <span class="cond-card-tag tag-neuro">Neurological</span>
-      </div>
+      <div class="cond-card" data-cat="mental" style="--accent:linear-gradient(180deg,#3050A0,#6080D0);"><div class="cond-card-name">Forgetfulness / Absent-mindedness</div></div>
+      <div class="cond-card" data-cat="mental" style="--accent:linear-gradient(180deg,#3050A0,#6080D0);"><div class="cond-card-name">Overthinking</div></div>
+      <div class="cond-card" data-cat="mental" style="--accent:linear-gradient(180deg,#3050A0,#6080D0);"><div class="cond-card-name">Anger / Abusiveness</div></div>
+      <div class="cond-card cond-highlight" data-cat="mental" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Alcoholism</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="mental" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Anxiety</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="mental" style="--accent:linear-gradient(180deg,#3050A0,#6080D0);"><div class="cond-card-name">Brooding / Confusion</div></div>
+      <div class="cond-card cond-highlight" data-cat="mental" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Delusion</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="mental" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Depression</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="mental" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Fear (animals, darkness, cancer, exam)</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="mental" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Insanity</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="mental" style="--accent:linear-gradient(180deg,#3050A0,#6080D0);"><div class="cond-card-name">Disappointed Love</div></div>
+      <div class="cond-card" data-cat="mental" style="--accent:linear-gradient(180deg,#3050A0,#6080D0);"><div class="cond-card-name">Quarrelsome</div></div>
+      <div class="cond-card" data-cat="mental" style="--accent:linear-gradient(180deg,#3050A0,#6080D0);"><div class="cond-card-name">Shy</div></div>
+      <div class="cond-card" data-cat="mental" style="--accent:linear-gradient(180deg,#3050A0,#6080D0);"><div class="cond-card-name">Sleepiness</div></div>
+      <div class="cond-card cond-highlight" data-cat="mental" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Sleeplessness</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="mental" style="--accent:linear-gradient(180deg,#3050A0,#6080D0);"><div class="cond-card-name">Weeping</div></div>
     </div>
 
-    <!-- Respiratory -->
-    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Respiratory</span><div class="cond-cat-line"></div></div>
+    <!-- ② Neurological Problems -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">② Neurological Problems</span><div class="cond-cat-line"></div></div>
     <div class="cond-grid">
-      <div class="cond-card" data-cat="respiratory" style="--accent:linear-gradient(90deg,#1E7080,#3AAABB);">
-        <div class="cond-card-icon">💨</div>
-        <div class="cond-card-name">Asthma</div>
-        <div class="cond-card-note">Attacks reduced, lung health improved. Constitutional remedies combined with breathing support.</div>
-        <span class="cond-card-tag tag-resp">Respiratory</span>
-      </div>
+      <div class="cond-card" data-cat="neuro" style="--accent:linear-gradient(180deg,#5040A0,#8060D0);"><div class="cond-card-name">Apoplexy</div></div>
+      <div class="cond-card" data-cat="neuro" style="--accent:linear-gradient(180deg,#5040A0,#8060D0);"><div class="cond-card-name">Brain Fevers / Meningitis</div></div>
+      <div class="cond-card" data-cat="neuro" style="--accent:linear-gradient(180deg,#5040A0,#8060D0);"><div class="cond-card-name">Chorea</div></div>
+      <div class="cond-card" data-cat="neuro" style="--accent:linear-gradient(180deg,#5040A0,#8060D0);"><div class="cond-card-name">Coma</div></div>
+      <div class="cond-card" data-cat="neuro" style="--accent:linear-gradient(180deg,#5040A0,#8060D0);"><div class="cond-card-name">Congestion</div></div>
+      <div class="cond-card cond-highlight" data-cat="neuro" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Convulsions</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="neuro" style="--accent:linear-gradient(180deg,#5040A0,#8060D0);"><div class="cond-card-name">Delirium</div></div>
+      <div class="cond-card cond-highlight" data-cat="neuro" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Encephalitis</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="neuro" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Epilepsy</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="neuro" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Fainting</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="neuro" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Headache / Migraine</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="neuro" style="--accent:linear-gradient(180deg,#5040A0,#8060D0);"><div class="cond-card-name">Hyperaemia</div></div>
+      <div class="cond-card" data-cat="neuro" style="--accent:linear-gradient(180deg,#5040A0,#8060D0);"><div class="cond-card-name">Neuritis</div></div>
+      <div class="cond-card cond-highlight" data-cat="neuro" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Paralysis</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="neuro" style="--accent:linear-gradient(180deg,#5040A0,#8060D0);"><div class="cond-card-name">Numbness</div></div>
+      <div class="cond-card cond-highlight" data-cat="neuro" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Parkinson's Disease</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="neuro" style="--accent:linear-gradient(180deg,#5040A0,#8060D0);"><div class="cond-card-name">Spasms</div></div>
+      <div class="cond-card" data-cat="neuro" style="--accent:linear-gradient(180deg,#5040A0,#8060D0);"><div class="cond-card-name">Tetanus</div></div>
+      <div class="cond-card" data-cat="neuro" style="--accent:linear-gradient(180deg,#5040A0,#8060D0);"><div class="cond-card-name">Tremors</div></div>
+      <div class="cond-card" data-cat="neuro" style="--accent:linear-gradient(180deg,#5040A0,#8060D0);"><div class="cond-card-name">Tumours in Brain</div></div>
+      <div class="cond-card cond-highlight" data-cat="neuro" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Vertigo</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="neuro" style="--accent:linear-gradient(180deg,#5040A0,#8060D0);"><div class="cond-card-name">Nerves Oversensitivity</div></div>
+      <div class="cond-card cond-highlight" data-cat="neuro" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Toothache (Nerve)</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="neuro" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Earache (Nerve)</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="neuro" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Writer's Hand</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="neuro" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Trigeminal Neuralgia</div><span class="cond-hl-badge">★</span></div>
     </div>
 
-    <!-- Musculoskeletal -->
-    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Musculoskeletal &amp; Spine</span><div class="cond-cat-line"></div></div>
+    <!-- ③ Eyes & Vision -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">③ Eyes &amp; Vision Problems</span><div class="cond-cat-line"></div></div>
     <div class="cond-grid">
-      <div class="cond-card" data-cat="musculo" style="--accent:linear-gradient(90deg,#8A3A18,#C06030);">
-        <div class="cond-card-icon">🦴</div>
-        <div class="cond-card-name">Arthritis</div>
-        <div class="cond-card-note">Rheumatoid &amp; osteoarthritis — pain and inflammation relief naturally, without side effects.</div>
-        <span class="cond-card-tag tag-musculo">Musculoskeletal</span>
-      </div>
-      <div class="cond-card" data-cat="musculo" style="--accent:linear-gradient(90deg,#8A3A18,#C06030);">
-        <div class="cond-card-icon">🔩</div>
-        <div class="cond-card-name">Spondylitis</div>
-        <div class="cond-card-note">Cervical and lumbar spondylitis managed with remedies that address stiffness and nerve involvement.</div>
-        <span class="cond-card-tag tag-musculo">Musculoskeletal</span>
-      </div>
-      <div class="cond-card" data-cat="musculo" style="--accent:linear-gradient(90deg,#8A3A18,#C06030);">
-        <div class="cond-card-icon">⚡</div>
-        <div class="cond-card-name">Sciatica</div>
-        <div class="cond-card-note">Radiating nerve pain in the lower back and leg addressed through constitutional homeopathic treatment.</div>
-        <span class="cond-card-tag tag-musculo">Musculoskeletal</span>
-      </div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Corneal Abscess</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Dimness of Vision</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Weakness of Ocular Muscles</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Atrophy</div></div>
+      <div class="cond-card cond-highlight" data-cat="eyes" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Inflammation of Eyelids (Blepharitis)</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="eyes" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Blinking of Eyes</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Intolerance to Brightness</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Burning in Eyes</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Cataract</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Chondritis</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Coloured Vision</div></div>
+      <div class="cond-card cond-highlight" data-cat="eyes" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Conjunctivitis</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Cyst</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Detachment of Retina</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Diplopia</div></div>
+      <div class="cond-card cond-highlight" data-cat="eyes" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Watery Discharge</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Discolouration</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Eyeball Protrusion</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Fistula of Lacrymal Duct</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Glaucoma</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Haemorrhage</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Hair Falling from Eyebrows</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Injury</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Iritis</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Myopia</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Eye Ache</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Photophobia</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Post Operation Troubles</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Paralysis of Upper Eyelids</div></div>
+      <div class="cond-card" data-cat="eyes" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Spasms</div></div>
+      <div class="cond-card cond-highlight" data-cat="eyes" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Squint</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="eyes" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Styes</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="eyes" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Twitching of Eyes</div><span class="cond-hl-badge">★</span></div>
     </div>
 
-    <!-- Gastro & Liver -->
-    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Gastro &amp; Digestive</span><div class="cond-cat-line"></div></div>
+    <!-- ④ Ears & Hearing -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">④ Ears &amp; Hearing</span><div class="cond-cat-line"></div></div>
     <div class="cond-grid">
-      <div class="cond-card" data-cat="gastro" style="--accent:linear-gradient(90deg,#8A5010,#C08020);">
-        <div class="cond-card-icon">🫃</div>
-        <div class="cond-card-name">Gastric Troubles</div>
-        <div class="cond-card-note">Acidity, bloating, IBS, and chronic gastritis treated holistically — not just suppressed.</div>
-        <span class="cond-card-tag tag-gastro">Digestive</span>
-      </div>
-      <div class="cond-card" data-cat="gastro" style="--accent:linear-gradient(90deg,#8A5010,#C08020);">
-        <div class="cond-card-icon">🫀</div>
-        <div class="cond-card-name">Liver Disorders</div>
-        <div class="cond-card-note">Fatty liver, hepatitis, and liver function support through gentle, non-toxic homeopathic remedies.</div>
-        <span class="cond-card-tag tag-gastro">Digestive</span>
-      </div>
-      <div class="cond-card" data-cat="gastro" style="--accent:linear-gradient(90deg,#8A5010,#C08020);">
-        <div class="cond-card-icon">🩸</div>
-        <div class="cond-card-name">Piles, Fissures &amp; Fistula</div>
-        <div class="cond-card-note">Anorectal conditions treated constitutionally — avoiding surgery in many cases through early intervention.</div>
-        <span class="cond-card-tag tag-gastro">Digestive</span>
-      </div>
+      <div class="cond-card cond-highlight" data-cat="ears" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Earache / Ear Pain</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="ears" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Oversensitiveness</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="ears" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Deafness</div></div>
+      <div class="cond-card cond-highlight" data-cat="ears" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Pus Discharge from Ear</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="ears" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Intolerance to Noises</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="ears" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Otalgia</div></div>
+      <div class="cond-card" data-cat="ears" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Otorrhoea</div></div>
+      <div class="cond-card" data-cat="ears" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Perforation of Drum</div></div>
+      <div class="cond-card" data-cat="ears" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Wax Accumulation</div></div>
     </div>
 
-    <!-- Urology -->
-    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Urology</span><div class="cond-cat-line"></div></div>
+    <!-- ⑤ Nose -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">⑤ Nose</span><div class="cond-cat-line"></div></div>
     <div class="cond-grid">
-      <div class="cond-card" data-cat="urology" style="--accent:linear-gradient(90deg,#1E7080,#3AAABB);">
-        <div class="cond-card-icon">💧</div>
-        <div class="cond-card-name">Kidney Stones</div>
-        <div class="cond-card-note">Homeopathic treatment to help dissolve small stones and prevent recurrence through constitutional care.</div>
-        <span class="cond-card-tag tag-urology">Urology</span>
-      </div>
+      <div class="cond-card cond-highlight" data-cat="nose" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Adenoids</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="nose" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Bleeding from Nose</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="nose" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Catarrh</div></div>
+      <div class="cond-card cond-highlight" data-cat="nose" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Cold</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="nose" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Coryza</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="nose" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Hay Fever</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="nose" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Polyps</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="nose" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Sinusitis</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="nose" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Ulceration in Nose</div></div>
+      <div class="cond-card" data-cat="nose" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Loss of Tendency to Smell</div></div>
+      <div class="cond-card" data-cat="nose" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Hypersensitive to Smell</div></div>
+      <div class="cond-card" data-cat="nose" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Sneezing</div></div>
+      <div class="cond-card cond-highlight" data-cat="nose" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Snoring</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="nose" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Spots on Nose</div></div>
+      <div class="cond-card" data-cat="nose" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Deviated Nasal Septum</div></div>
     </div>
 
-    <!-- Hormonal & Women's Health -->
-    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Hormonal &amp; Women's Health</span><div class="cond-cat-line"></div></div>
+    <!-- ⑥ Throat -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">⑥ Throat</span><div class="cond-cat-line"></div></div>
     <div class="cond-grid">
-      <div class="cond-card" data-cat="hormonal" style="--accent:linear-gradient(90deg,#8A3070,#C060A0);">
-        <div class="cond-card-icon">🌸</div>
-        <div class="cond-card-name">PCOS / PCOD</div>
-        <div class="cond-card-note">Hormonal rebalancing, cycle regulation, and metabolic support — naturally.</div>
-        <span class="cond-card-tag tag-hormonal">Hormonal</span>
-      </div>
-      <div class="cond-card" data-cat="hormonal" style="--accent:linear-gradient(90deg,#8A3070,#C060A0);">
-        <div class="cond-card-icon">🦋</div>
-        <div class="cond-card-name">Thyroid Disorders</div>
-        <div class="cond-card-note">Hypothyroidism, hyperthyroidism, and Hashimoto's — managed constitutionally over time.</div>
-        <span class="cond-card-tag tag-hormonal">Hormonal</span>
-      </div>
-      <div class="cond-card" data-cat="hormonal" style="--accent:linear-gradient(90deg,#8A3070,#C060A0);">
-        <div class="cond-card-icon">🌙</div>
-        <div class="cond-card-name">Menstrual Troubles</div>
-        <div class="cond-card-note">Irregular periods, painful menstruation, and PMS addressed through deep constitutional treatment.</div>
-        <span class="cond-card-tag tag-hormonal">Hormonal</span>
-      </div>
-      <div class="cond-card" data-cat="hormonal" style="--accent:linear-gradient(90deg,#8A3070,#C060A0);">
-        <div class="cond-card-icon">⚖️</div>
-        <div class="cond-card-name">Hormonal Disorders</div>
-        <div class="cond-card-note">Broader hormonal imbalances affecting mood, weight, energy, and overall well-being.</div>
-        <span class="cond-card-tag tag-hormonal">Hormonal</span>
-      </div>
+      <div class="cond-card" data-cat="throat" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Choking</div></div>
+      <div class="cond-card" data-cat="throat" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Laryngitis</div></div>
+      <div class="cond-card cond-highlight" data-cat="throat" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Hoarseness</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="throat" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Paralysis of Throat</div></div>
+      <div class="cond-card" data-cat="throat" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Pharyngitis</div></div>
+      <div class="cond-card cond-highlight" data-cat="throat" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Sore Throat</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="throat" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Swelling</div></div>
+      <div class="cond-card" data-cat="throat" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Swallowing Difficulty</div></div>
+      <div class="cond-card cond-highlight" data-cat="throat" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Tonsillitis</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="throat" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Post Tonsillectomy</div></div>
+      <div class="cond-card" data-cat="throat" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Uvula</div></div>
+      <div class="cond-card cond-highlight" data-cat="throat" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Voice Loss (Singers / Speakers / Teachers)</div><span class="cond-hl-badge">★</span></div>
     </div>
 
-    <!-- Skin -->
-    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Skin Conditions</span><div class="cond-cat-line"></div></div>
+    <!-- ⑦ Gums, Mouth & Teeth -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">⑦ Gums, Mouth &amp; Teeth</span><div class="cond-cat-line"></div></div>
     <div class="cond-grid">
-      <div class="cond-card" data-cat="skin" style="--accent:linear-gradient(90deg,#8A6208,#C8A030);">
-        <div class="cond-card-icon">✨</div>
-        <div class="cond-card-name">Psoriasis</div>
-        <div class="cond-card-note">Chronic skin condition treated from within — reducing flare-ups and addressing the root trigger.</div>
-        <span class="cond-card-tag tag-skin">Skin</span>
-      </div>
-      <div class="cond-card" data-cat="skin" style="--accent:linear-gradient(90deg,#8A6208,#C8A030);">
-        <div class="cond-card-icon">🌿</div>
-        <div class="cond-card-name">Eczema &amp; Skin Disorders</div>
-        <div class="cond-card-note">Eczema, urticaria, and other chronic skin conditions managed with safe, individualised remedies.</div>
-        <span class="cond-card-tag tag-skin">Skin</span>
-      </div>
+      <div class="cond-card" data-cat="mouth" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Abscess</div></div>
+      <div class="cond-card cond-highlight" data-cat="mouth" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Bleeding from Gums</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="mouth" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Teeth Falling Away</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="mouth" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Neuralgia</div></div>
+      <div class="cond-card" data-cat="mouth" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Tumour</div></div>
+      <div class="cond-card cond-highlight" data-cat="mouth" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Ulceration</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="mouth" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Cracking Jaw</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="mouth" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Tooth Decay</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="mouth" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Lock Jaw</div></div>
+      <div class="cond-card" data-cat="mouth" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Decay of Jaw</div></div>
+      <div class="cond-card cond-highlight" data-cat="mouth" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Loss of Speech</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="mouth" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Taste Lost</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="mouth" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Stammering Speech</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="mouth" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Blisters in Lips</div></div>
+      <div class="cond-card" data-cat="mouth" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Cancer of Lips</div></div>
+      <div class="cond-card" data-cat="mouth" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Cracked Lips</div></div>
+      <div class="cond-card" data-cat="mouth" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Swelling of Lips</div></div>
+      <div class="cond-card" data-cat="mouth" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Tumour / Twitching (Lips)</div></div>
+      <div class="cond-card cond-highlight" data-cat="mouth" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Dryness of Mouth</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="mouth" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Open Mouth</div></div>
+      <div class="cond-card" data-cat="mouth" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Salivation</div></div>
+      <div class="cond-card" data-cat="mouth" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Sore Mouth</div></div>
+      <div class="cond-card cond-highlight" data-cat="mouth" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Speech Difficult</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="mouth" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Toothache</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="mouth" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Biting</div></div>
+      <div class="cond-card" data-cat="mouth" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Coloration</div></div>
     </div>
 
-    <!-- Mental & Emotional Health -->
-    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Mental &amp; Emotional Health</span><div class="cond-cat-line"></div></div>
+    <!-- ⑧ Chest & Lungs -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">⑧ Chest &amp; Lungs</span><div class="cond-cat-line"></div></div>
     <div class="cond-grid">
-      <div class="cond-card" data-cat="mental" style="--accent:linear-gradient(90deg,#3050A0,#6080D0);">
-        <div class="cond-card-icon">🌊</div>
-        <div class="cond-card-name">Anxiety</div>
-        <div class="cond-card-note">Homeopathic remedies combined with Sudarshan Kriya breathwork for a complete mind-body approach.</div>
-        <span class="cond-card-tag tag-mental">Mental Health</span>
-      </div>
-      <div class="cond-card" data-cat="mental" style="--accent:linear-gradient(90deg,#3050A0,#6080D0);">
-        <div class="cond-card-icon">🌤</div>
-        <div class="cond-card-name">Depression</div>
-        <div class="cond-card-note">Homeopathy plus meditation programs — treating the emotional root alongside the physical state.</div>
-        <span class="cond-card-tag tag-mental">Mental Health</span>
-      </div>
-      <div class="cond-card" data-cat="mental children" style="--accent:linear-gradient(90deg,#3050A0,#6080D0);">
-        <div class="cond-card-icon">🧩</div>
-        <div class="cond-card-name">Psychological Therapy</div>
-        <div class="cond-card-note">Psychological support through homeopathic constitutional treatment — for stress, behavioural, and emotional concerns.</div>
-        <span class="cond-card-tag tag-mental">Mental Health</span>
-      </div>
+      <div class="cond-card cond-highlight" data-cat="chest" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Bronchitis</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="chest" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Bronchopneumonia</div></div>
+      <div class="cond-card" data-cat="chest" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Asthma Cough</div></div>
+      <div class="cond-card cond-highlight" data-cat="chest" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Pain in Chest</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="chest" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Region Chest</div></div>
+      <div class="cond-card" data-cat="chest" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Pleurisy</div></div>
+      <div class="cond-card cond-highlight" data-cat="chest" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Pneumonia</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="chest" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Tuberculosis</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="chest" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Bronchial Cough</div></div>
+      <div class="cond-card" data-cat="chest" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Cardiac Cough</div></div>
+      <div class="cond-card" data-cat="chest" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Whooping Cough</div></div>
     </div>
 
-    <!-- Children's Health -->
-    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Children's Health</span><div class="cond-cat-line"></div></div>
+    <!-- ⑨ Heart & Cardiac Issues -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">⑨ Heart &amp; Cardiac Issues</span><div class="cond-cat-line"></div></div>
     <div class="cond-grid">
-      <div class="cond-card" data-cat="children" style="--accent:linear-gradient(90deg,#256035,#4AAA60);">
-        <div class="cond-card-icon">🌱</div>
-        <div class="cond-card-name">Children's Health</div>
-        <div class="cond-card-note">Recurrent infections, growth concerns, and general wellness — 100% safe for all ages.</div>
-        <span class="cond-card-tag tag-child">Children</span>
-      </div>
-      <div class="cond-card" data-cat="children mental" style="--accent:linear-gradient(90deg,#256035,#4AAA60);">
-        <div class="cond-card-icon">🎯</div>
-        <div class="cond-card-name">ADHD</div>
-        <div class="cond-card-note">Attention and hyperactivity concerns in children addressed through individualised constitutional treatment.</div>
-        <span class="cond-card-tag tag-child">Children</span>
-      </div>
-      <div class="cond-card" data-cat="children mental" style="--accent:linear-gradient(90deg,#256035,#4AAA60);">
-        <div class="cond-card-icon">🌟</div>
-        <div class="cond-card-name">Autism Spectrum</div>
-        <div class="cond-card-note">Supportive homeopathic care to complement the development and well-being of children on the autism spectrum.</div>
-        <span class="cond-card-tag tag-child">Children</span>
-      </div>
-      <div class="cond-card" data-cat="children mental" style="--accent:linear-gradient(90deg,#256035,#4AAA60);">
-        <div class="cond-card-icon">🤝</div>
-        <div class="cond-card-name">Behaviour Problems in Children</div>
-        <div class="cond-card-note">Temper, aggression, withdrawal, and emotional regulation in children — gently addressed through homeopathy.</div>
-        <span class="cond-card-tag tag-child">Children</span>
-      </div>
+      <div class="cond-card" data-cat="heart" style="--accent:linear-gradient(180deg,#8A3070,#C060A0);"><div class="cond-card-name">Weakness of Heart</div></div>
+      <div class="cond-card" data-cat="heart" style="--accent:linear-gradient(180deg,#8A3070,#C060A0);"><div class="cond-card-name">Aneurisms</div></div>
+      <div class="cond-card cond-highlight" data-cat="heart" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Angina Pectoris</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="heart" style="--accent:linear-gradient(180deg,#8A3070,#C060A0);"><div class="cond-card-name">Arteriosclerosis</div></div>
+      <div class="cond-card cond-highlight" data-cat="heart" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Hypertension</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="heart" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Endocarditis</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="heart" style="--accent:linear-gradient(180deg,#8A3070,#C060A0);"><div class="cond-card-name">Enlargement of Heart</div></div>
+      <div class="cond-card" data-cat="heart" style="--accent:linear-gradient(180deg,#8A3070,#C060A0);"><div class="cond-card-name">Palpitations</div></div>
+      <div class="cond-card cond-highlight" data-cat="heart" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Pulse Irregular</div><span class="cond-hl-badge">★</span></div>
+    </div>
+
+    <!-- ⑩ Digestive Problems -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">⑩ Digestive Problems</span><div class="cond-cat-line"></div></div>
+    <div class="cond-grid">
+      <div class="cond-card cond-highlight" data-cat="digestive" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Worm Manifestations</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="digestive" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Ascites</div></div>
+      <div class="cond-card cond-highlight" data-cat="digestive" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Appendicitis</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="digestive" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Colic</div></div>
+      <div class="cond-card cond-highlight" data-cat="digestive" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Distension of Abdomen</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="digestive" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Flatulence</div></div>
+      <div class="cond-card" data-cat="digestive" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Gastralgia</div></div>
+      <div class="cond-card" data-cat="digestive" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Hernia</div></div>
+      <div class="cond-card cond-highlight" data-cat="digestive" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Intestinal Obstruction</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="digestive" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Intussusception</div></div>
+      <div class="cond-card cond-highlight" data-cat="digestive" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Pancreatitis</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="digestive" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Peritonitis</div></div>
+      <div class="cond-card cond-highlight" data-cat="digestive" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Acidity</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="digestive" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Stomach Cancer</div></div>
+      <div class="cond-card cond-highlight" data-cat="digestive" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Eructation</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="digestive" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Food Poisoning</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="digestive" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Gastric Ulcers</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="digestive" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Acidity / Heartburn</div></div>
+      <div class="cond-card" data-cat="digestive" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Hiccups</div></div>
+      <div class="cond-card" data-cat="digestive" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Hyperacidity</div></div>
+      <div class="cond-card cond-highlight" data-cat="digestive" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Nausea</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="digestive" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Vomiting</div></div>
+      <div class="cond-card cond-highlight" data-cat="digestive" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Tuberculosis (Digestive)</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="digestive" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Ulceration</div></div>
+    </div>
+
+    <!-- ⑪ Liver, Spleen & Gallbladder -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">⑪ Liver, Spleen &amp; Gallbladder</span><div class="cond-cat-line"></div></div>
+    <div class="cond-grid">
+      <div class="cond-card cond-highlight" data-cat="liver" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Cholecystitis / Gall Stone</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="liver" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Icterus</div></div>
+      <div class="cond-card cond-highlight" data-cat="liver" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Jaundice</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="liver" style="--accent:linear-gradient(180deg,#8A5010,#C08020);"><div class="cond-card-name">Enlargement of Spleen</div></div>
+      <div class="cond-card cond-highlight" data-cat="liver" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Cirrhosis of Liver</div><span class="cond-hl-badge">★</span></div>
+    </div>
+
+    <!-- ⑫ Rectum & Stool -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">⑫ Rectum &amp; Stool</span><div class="cond-cat-line"></div></div>
+    <div class="cond-grid">
+      <div class="cond-card" data-cat="rectum" style="--accent:linear-gradient(180deg,#8A3A18,#C06030);"><div class="cond-card-name">Cancer (Rectal)</div></div>
+      <div class="cond-card" data-cat="rectum" style="--accent:linear-gradient(180deg,#8A3A18,#C06030);"><div class="cond-card-name">Cholera</div></div>
+      <div class="cond-card" data-cat="rectum" style="--accent:linear-gradient(180deg,#8A3A18,#C06030);"><div class="cond-card-name">Constipation</div></div>
+      <div class="cond-card cond-highlight" data-cat="rectum" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Diarrhoea</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="rectum" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Diarrhoea in Children</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="rectum" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Fissure</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="rectum" style="--accent:linear-gradient(180deg,#8A3A18,#C06030);"><div class="cond-card-name">Haemorrhage (Rectal)</div></div>
+      <div class="cond-card cond-highlight" data-cat="rectum" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Haemorrhoids / Piles</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="rectum" style="--accent:linear-gradient(180deg,#8A3A18,#C06030);"><div class="cond-card-name">Inflammation of Rectum</div></div>
+      <div class="cond-card cond-highlight" data-cat="rectum" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Piles</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="rectum" style="--accent:linear-gradient(180deg,#8A3A18,#C06030);"><div class="cond-card-name">Pain in Rectum</div></div>
+      <div class="cond-card" data-cat="rectum" style="--accent:linear-gradient(180deg,#8A3A18,#C06030);"><div class="cond-card-name">Spasm (Rectal)</div></div>
+      <div class="cond-card" data-cat="rectum" style="--accent:linear-gradient(180deg,#8A3A18,#C06030);"><div class="cond-card-name">Stricture</div></div>
+      <div class="cond-card cond-highlight" data-cat="rectum" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Tenesmus</div><span class="cond-hl-badge">★</span></div>
+    </div>
+
+    <!-- ⑬ Urinary System -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">⑬ Urinary System</span><div class="cond-cat-line"></div></div>
+    <div class="cond-grid">
+      <div class="cond-card" data-cat="urinary" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Bright's Disease</div></div>
+      <div class="cond-card cond-highlight" data-cat="urinary" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Renal / Kidney Stones</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="urinary" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Burning Urination</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="urinary" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Difficult to Urinate</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="urinary" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Enuresis / Bed Wetting</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="urinary" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Frequent Urination</div></div>
+      <div class="cond-card" data-cat="urinary" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Blood in Urine</div></div>
+      <div class="cond-card" data-cat="urinary" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Incontinence of Urine</div></div>
+      <div class="cond-card" data-cat="urinary" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Involuntary Urine</div></div>
+      <div class="cond-card" data-cat="urinary" style="--accent:linear-gradient(180deg,#1E7080,#3AAABB);"><div class="cond-card-name">Different Colours of Urine</div></div>
+    </div>
+
+    <!-- ⑭ Female Issues / Periods -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">⑭ Female Issues &amp; Periods</span><div class="cond-cat-line"></div></div>
+    <div class="cond-grid">
+      <div class="cond-card" data-cat="female" style="--accent:linear-gradient(180deg,#8A3070,#C060A0);"><div class="cond-card-name">Starting / Stopping (Periods)</div></div>
+      <div class="cond-card" data-cat="female" style="--accent:linear-gradient(180deg,#8A3070,#C060A0);"><div class="cond-card-name">Early Stages of Cancer</div></div>
+      <div class="cond-card" data-cat="female" style="--accent:linear-gradient(180deg,#8A3070,#C060A0);"><div class="cond-card-name">Menopause</div></div>
+      <div class="cond-card" data-cat="female" style="--accent:linear-gradient(180deg,#8A3070,#C060A0);"><div class="cond-card-name">Fungal Infections</div></div>
+      <div class="cond-card cond-highlight" data-cat="female" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">PCOD</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="female" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Frequent Abortions</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="female" style="--accent:linear-gradient(180deg,#8A3070,#C060A0);"><div class="cond-card-name">Uterine Problems</div></div>
+      <div class="cond-card cond-highlight" data-cat="female" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Post Delivery Complications</div><span class="cond-hl-badge">★</span></div>
+    </div>
+
+    <!-- ⑮ Bones, Joints & Muscles -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">⑮ Bones, Joints &amp; Muscles</span><div class="cond-cat-line"></div></div>
+    <div class="cond-grid">
+      <div class="cond-card cond-highlight" data-cat="bones" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Backache</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="bones" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Rheumatism / Gout / Arthritis</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="bones" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Sciatica</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="bones" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Gout</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="bones" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Arthritis</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="bones" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Spondylitis</div><span class="cond-hl-badge">★</span></div>
+    </div>
+
+    <!-- ⑯ Skin, Nail, Muscles & Hair -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">⑯ Skin, Nail &amp; Hair</span><div class="cond-cat-line"></div></div>
+    <div class="cond-grid">
+      <div class="cond-card" data-cat="skin" style="--accent:linear-gradient(180deg,#8A6208,#C8A030);"><div class="cond-card-name">Abscess</div></div>
+      <div class="cond-card cond-highlight" data-cat="skin" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Pimples</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="skin" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Corns</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="skin" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Eczema</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="skin" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Urticaria</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="skin" style="--accent:linear-gradient(180deg,#8A6208,#C8A030);"><div class="cond-card-name">Itching</div></div>
+      <div class="cond-card" data-cat="skin" style="--accent:linear-gradient(180deg,#8A6208,#C8A030);"><div class="cond-card-name">Skin Allergy</div></div>
+      <div class="cond-card" data-cat="skin" style="--accent:linear-gradient(180deg,#8A6208,#C8A030);"><div class="cond-card-name">Keloid</div></div>
+      <div class="cond-card" data-cat="skin" style="--accent:linear-gradient(180deg,#8A6208,#C8A030);"><div class="cond-card-name">Warts</div></div>
+      <div class="cond-card" data-cat="skin" style="--accent:linear-gradient(180deg,#8A6208,#C8A030);"><div class="cond-card-name">Psoriasis</div></div>
+      <div class="cond-card" data-cat="skin" style="--accent:linear-gradient(180deg,#8A6208,#C8A030);"><div class="cond-card-name">Dandruff / Dryness of Skin</div></div>
+      <div class="cond-card cond-highlight" data-cat="skin" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Scabies</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="skin" style="--accent:linear-gradient(180deg,#8A6208,#C8A030);"><div class="cond-card-name">Dandruff (Hair)</div></div>
+      <div class="cond-card" data-cat="skin" style="--accent:linear-gradient(180deg,#8A6208,#C8A030);"><div class="cond-card-name">Unwanted Hair Growth</div></div>
+      <div class="cond-card" data-cat="skin" style="--accent:linear-gradient(180deg,#8A6208,#C8A030);"><div class="cond-card-name">Premature Grey Hair</div></div>
+      <div class="cond-card" data-cat="skin" style="--accent:linear-gradient(180deg,#8A6208,#C8A030);"><div class="cond-card-name">Hair Fall due to Health Abnormalities</div></div>
+    </div>
+
+    <!-- Fevers -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Fevers</span><div class="cond-cat-line"></div></div>
+    <div class="cond-grid">
+      <div class="cond-card" data-cat="fevers" style="--accent:linear-gradient(180deg,#8A3A18,#C06030);"><div class="cond-card-name">Blisters due to Fevers</div></div>
+      <div class="cond-card" data-cat="fevers" style="--accent:linear-gradient(180deg,#8A3A18,#C06030);"><div class="cond-card-name">Fever due to Meningitis</div></div>
+      <div class="cond-card cond-highlight" data-cat="fevers" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Chicken Pox</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="fevers" style="--accent:linear-gradient(180deg,#8A3A18,#C06030);"><div class="cond-card-name">Influenza</div></div>
+      <div class="cond-card" data-cat="fevers" style="--accent:linear-gradient(180deg,#8A3A18,#C06030);"><div class="cond-card-name">Malaria</div></div>
+      <div class="cond-card" data-cat="fevers" style="--accent:linear-gradient(180deg,#8A3A18,#C06030);"><div class="cond-card-name">Measles</div></div>
+      <div class="cond-card" data-cat="fevers" style="--accent:linear-gradient(180deg,#8A3A18,#C06030);"><div class="cond-card-name">Mumps</div></div>
+      <div class="cond-card" data-cat="fevers" style="--accent:linear-gradient(180deg,#8A3A18,#C06030);"><div class="cond-card-name">Plague</div></div>
+      <div class="cond-card" data-cat="fevers" style="--accent:linear-gradient(180deg,#8A3A18,#C06030);"><div class="cond-card-name">Scarlet Fever</div></div>
+      <div class="cond-card" data-cat="fevers" style="--accent:linear-gradient(180deg,#8A3A18,#C06030);"><div class="cond-card-name">Septic Fever</div></div>
+      <div class="cond-card cond-highlight" data-cat="fevers" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Small Pox</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="fevers" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Sunstroke</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="fevers" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Typhoid</div><span class="cond-hl-badge">★</span></div>
+    </div>
+
+    <!-- Sexually Transmitted Diseases -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Sexually Transmitted Diseases</span><div class="cond-cat-line"></div></div>
+    <div class="cond-grid">
+      <div class="cond-card" data-cat="std" style="--accent:linear-gradient(180deg,#5040A0,#8060D0);"><div class="cond-card-name">HPV</div></div>
+      <div class="cond-card cond-highlight" data-cat="std" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">HIV (with counselling)</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="std" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Syphilis</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="std" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Gonorrhoea</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="std" style="--accent:linear-gradient(180deg,#5040A0,#8060D0);"><div class="cond-card-name">Fungal Infections (STD)</div></div>
+    </div>
+
+    <!-- Homeopathy Helps in Children -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Homeopathy Helps in Children</span><div class="cond-cat-line"></div></div>
+    <div class="cond-grid">
+      <div class="cond-card" data-cat="children" style="--accent:linear-gradient(180deg,#256035,#4AAA60);"><div class="cond-card-name">Dwarfism</div></div>
+      <div class="cond-card cond-highlight" data-cat="children" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Frequent Cold &amp; Cough</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="children" style="--accent:linear-gradient(180deg,#256035,#4AAA60);"><div class="cond-card-name">Loss of Appetite</div></div>
+      <div class="cond-card" data-cat="children" style="--accent:linear-gradient(180deg,#256035,#4AAA60);"><div class="cond-card-name">Motions / Diarrhoea</div></div>
+      <div class="cond-card cond-highlight" data-cat="children" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Dental Problems</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="children" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Skin Issues</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="children" style="--accent:linear-gradient(180deg,#256035,#4AAA60);"><div class="cond-card-name">Irritability / Creeping Tendency</div></div>
+      <div class="cond-card cond-highlight" data-cat="children" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Stomach Issues</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="children" style="--accent:linear-gradient(180deg,#256035,#4AAA60);"><div class="cond-card-name">Examination Funk / Fear</div></div>
+      <div class="cond-card" data-cat="children" style="--accent:linear-gradient(180deg,#256035,#4AAA60);"><div class="cond-card-name">Autism</div></div>
+      <div class="cond-card cond-highlight" data-cat="children" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Late Milestones (Late talking, walking)</div><span class="cond-hl-badge">★</span></div>
+    </div>
+
+    <!-- Some Other Problems -->
+    <div class="cond-cat-row"><div class="cond-cat-line"></div><span class="cond-cat-label">Some Other Problems</span><div class="cond-cat-line"></div></div>
+    <div class="cond-grid">
+      <div class="cond-card" data-cat="other" style="--accent:linear-gradient(180deg,#2A7A5A,#4AAA80);"><div class="cond-card-name">Air Sickness</div></div>
+      <div class="cond-card" data-cat="other" style="--accent:linear-gradient(180deg,#2A7A5A,#4AAA80);"><div class="cond-card-name">1st Degree Burns</div></div>
+      <div class="cond-card" data-cat="other" style="--accent:linear-gradient(180deg,#2A7A5A,#4AAA80);"><div class="cond-card-name">Slight Fractures</div></div>
+      <div class="cond-card cond-highlight" data-cat="other" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Glandular Swellings</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="other" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Obesity</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card cond-highlight" data-cat="other" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Post Operation Effects</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="other" style="--accent:linear-gradient(180deg,#2A7A5A,#4AAA80);"><div class="cond-card-name">Thyroid</div></div>
+      <div class="cond-card" data-cat="other" style="--accent:linear-gradient(180deg,#2A7A5A,#4AAA80);"><div class="cond-card-name">Alcoholism</div></div>
+      <div class="cond-card" data-cat="other" style="--accent:linear-gradient(180deg,#2A7A5A,#4AAA80);"><div class="cond-card-name">Sea Sickness</div></div>
+      <div class="cond-card" data-cat="other" style="--accent:linear-gradient(180deg,#2A7A5A,#4AAA80);"><div class="cond-card-name">Somnambulism</div></div>
+      <div class="cond-card" data-cat="other" style="--accent:linear-gradient(180deg,#2A7A5A,#4AAA80);"><div class="cond-card-name">Train Sickness</div></div>
+      <div class="cond-card cond-highlight" data-cat="other" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Side Effects of Vaccinations</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="other" style="--accent:linear-gradient(180deg,#2A7A5A,#4AAA80);"><div class="cond-card-name">Loss of Appetite</div></div>
+      <div class="cond-card" data-cat="other" style="--accent:linear-gradient(180deg,#2A7A5A,#4AAA80);"><div class="cond-card-name">Deficiencies</div></div>
+      <div class="cond-card" data-cat="other" style="--accent:linear-gradient(180deg,#2A7A5A,#4AAA80);"><div class="cond-card-name">Enuresis</div></div>
+      <div class="cond-card" data-cat="other" style="--accent:linear-gradient(180deg,#2A7A5A,#4AAA80);"><div class="cond-card-name">Numbness</div></div>
+      <div class="cond-card" data-cat="other" style="--accent:linear-gradient(180deg,#2A7A5A,#4AAA80);"><div class="cond-card-name">Diabetes</div></div>
+      <div class="cond-card cond-highlight" data-cat="other" style="--accent:linear-gradient(180deg,#C8960A,#F5D250);"><div class="cond-card-name">Hypertension</div><span class="cond-hl-badge">★</span></div>
+      <div class="cond-card" data-cat="other" style="--accent:linear-gradient(180deg,#2A7A5A,#4AAA80);"><div class="cond-card-name">Auto Immune Diseases</div></div>
+      <div class="cond-card" data-cat="other" style="--accent:linear-gradient(180deg,#2A7A5A,#4AAA80);"><div class="cond-card-name">Some Collapse Stages</div></div>
+      <div class="cond-card" data-cat="other" style="--accent:linear-gradient(180deg,#2A7A5A,#4AAA80);"><div class="cond-card-name">Coma</div></div>
     </div>
 
   </div>
 </section>
 
 <!-- APPROACH STATEMENT -->
-<section class="sec" style="background:#fff;">
+<section class="sec" style="background:linear-gradient(160deg,#FFFEF5 0%,#FFF9E0 50%,#FDF3C0 100%);">
   <div class="wrap" style="max-width:820px;">
     <div style="text-align:center;margin-bottom:40px;">
       <span class="eyebrow">The Approach</span>
       <h2>Treat the person. Not the diagnosis.</h2>
     </div>
     <div class="grid-3" style="gap:20px;">
-      <div style="text-align:center;padding:28px 20px;background:#FDFAF2;border:1px solid rgba(200,150,30,0.2);border-radius:16px;">
-        <div style="font-size:1.6rem;margin-bottom:12px;">🔍</div>
+      <div class="approach-card" style="background:#FDFAF2;border-color:rgba(200,150,30,0.2);">
         <h4 style="font-size:0.96rem;font-weight:500;color:#2E2A22;margin-bottom:8px;">Deep Case Taking</h4>
         <p style="font-size:0.81rem;color:var(--muted);line-height:1.65;">60–90 minutes to understand your complete history — physical, mental, and emotional.</p>
       </div>
-      <div style="text-align:center;padding:28px 20px;background:#F5FBF7;border:1px solid rgba(46,122,64,0.2);border-radius:16px;">
-        <div style="font-size:1.6rem;margin-bottom:12px;">💊</div>
+      <div class="approach-card" style="background:#F5FBF7;border-color:rgba(46,122,64,0.2);">
         <h4 style="font-size:0.96rem;font-weight:500;color:#2E2A22;margin-bottom:8px;">Constitutional Remedy</h4>
         <p style="font-size:0.81rem;color:var(--muted);line-height:1.65;">A single, precise remedy chosen for you — not a standard protocol.</p>
       </div>
-      <div style="text-align:center;padding:28px 20px;background:#F0F7FF;border:1px solid rgba(80,100,200,0.15);border-radius:16px;">
-        <div style="font-size:1.6rem;margin-bottom:12px;">📈</div>
+      <div class="approach-card" style="background:#F0F7FF;border-color:rgba(80,100,200,0.15);">
         <h4 style="font-size:0.96rem;font-weight:500;color:#2E2A22;margin-bottom:8px;">Lasting Results</h4>
         <p style="font-size:0.81rem;color:var(--muted);line-height:1.65;">Follow-ups and adjustments until full recovery — not just symptom management.</p>
       </div>
@@ -400,7 +671,6 @@ body { background:#FDFCF7; }
 <!-- FOOTER -->
 <footer class="footer">
   <div class="wrap footer-grid">
-    <!-- Brand column -->
     <div>
       <div class="footer-brand">
         <img src="images/logo.png" alt="Consciousness Cures"/>
@@ -411,18 +681,12 @@ body { background:#FDFCF7; }
       </div>
       <p class="footer-tagline">Homeopathy · Art of Living · Natural Wellness<br/>Healing from the root — mind, body and spirit.</p>
       <div class="footer-socials">
-        <!-- Facebook -->
         <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <!-- Instagram -->
         <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" style="fill:none;stroke:currentColor;stroke-width:2;"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" style="stroke:currentColor;stroke-width:2;stroke-linecap:round;"/></svg></a>
-        <!-- YouTube -->
         <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" style="fill:#1E1C16;"/></svg></a>
-        <!-- WhatsApp -->
         <a href="https://wa.me/919100414201" aria-label="WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
       </div>
     </div>
-
-    <!-- Explore -->
     <div class="footer-col">
       <h6>Explore</h6>
       <ul>
@@ -431,11 +695,9 @@ body { background:#FDFCF7; }
         <li><a href="art-of-living.html">Art of Living</a></li>
         <li><a href="programs.html">Programs</a></li>
         <li><a href="conditions.html">Conditions</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="products.html">Products</a></li><li><a href="gallery.html">Gallery</a></li>
       </ul>
     </div>
-
-    <!-- Programs -->
     <div class="footer-col">
       <h6>Programs</h6>
       <ul>
@@ -447,19 +709,16 @@ body { background:#FDFCF7; }
         <li><a href="program-intuition.html">Intuition Program</a></li>
       </ul>
     </div>
-
-    <!-- Connect -->
     <div class="footer-col">
       <h6>Connect</h6>
       <ul>
         <li><a href="https://wa.me/919100414201">📱 +91 9100414201</a></li>
-        <li><a href="mailto:consciousnesscure@gmail.com">📧 consciousnesscure@gmail.com</a></li>
+        <li><a href="mailto:consciousnesscure@gmail.com">✉ consciousnesscure@gmail.com</a></li>
         <li>📍 Ravindra Nagar Last Bus Stop,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Visakhapatnam, A.P.</li>
         <li>🕐 Mon–Sat · 10am–7pm</li>
       </ul>
     </div>
   </div>
-
   <div class="footer-bottom">
     <span>© 2026 Dr. Suchitra Mylapilli · Consciousness Cures. All rights reserved.</span>
     <span>Privacy Policy · Terms of Service</span>
@@ -475,7 +734,6 @@ body { background:#FDFCF7; }
       const cats = card.dataset.cat || '';
       card.classList.toggle('cond-hidden', cat !== 'all' && !cats.includes(cat));
     });
-    // hide/show category rows
     document.querySelectorAll('.cond-cat-row').forEach(row => {
       const grid = row.nextElementSibling;
       if (!grid) return;
@@ -489,32 +747,12 @@ body { background:#FDFCF7; }
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('cond-in'), i * 50);
+        setTimeout(() => e.target.classList.add('cond-in'), i * 30);
         obs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.06 });
+  }, { threshold: 0.04 });
   document.querySelectorAll('.cond-card').forEach(el => obs.observe(el));
-</script>
-
-<script>
-  document.querySelectorAll('.nav-coming-soon').forEach(el => {
-    el.addEventListener('click', e => e.preventDefault());
-  });
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-

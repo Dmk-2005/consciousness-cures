@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Products — Consciousness Cures | Dr. Suchitra Mylapilli</title>
+<link rel="stylesheet" href="style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+body { background:#FDFCF7; }
+
+.prod-hero {
+  background:
+    radial-gradient(ellipse at 80% 30%, rgba(245,210,80,0.1) 0%, transparent 55%),
+    linear-gradient(150deg, #0B3D35 0%, #082E28 100%);
+  padding: 72px 0 60px;
+  position: relative; overflow: hidden;
+}
+.prod-hero::before {
+  content:''; position:absolute; bottom:-80px; right:-80px;
+  width:400px; height:400px;
+  background:radial-gradient(circle, rgba(80,200,130,0.1) 0%, transparent 65%);
+  pointer-events:none;
+}
+
+.prod-image-section {
+  background: linear-gradient(160deg,#FFFEF5 0%,#FFF9E0 50%,#FDF3C0 100%);
+}
+
+/* Lightbox overlay */
+.prod-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.88);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  padding: 20px;
+}
+.prod-lightbox.open { display: flex; }
+.prod-lightbox img {
+  max-width: 92vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+  cursor: default;
+}
+.prod-lightbox-close {
+  position: fixed;
+  top: 20px; right: 24px;
+  width: 40px; height: 40px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: grid; place-items: center;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.2rem;
+  transition: background 0.2s;
+  line-height: 1;
+}
+.prod-lightbox-close:hover { background: rgba(255,255,255,0.22); }
+
+/* Image card */
+.prod-img-card {
+  background: #fff;
+  border: 1px solid #E8E2D0;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  cursor: zoom-in;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  display: inline-block;
+  max-width: 100%;
+}
+.prod-img-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(11,61,53,0.12);
+}
+.prod-img-card img {
+  width: 100%;
+  display: block;
+  border-radius: 18px;
+}
+.prod-img-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.prod-img-hint svg { opacity: 0.6; }
+
+@media (max-width: 640px) {
+  .prod-hero { padding: 52px 0 44px; }
+  .prod-img-card { border-radius: 12px; }
+  .prod-img-card img { border-radius: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-wrap">
+    <div class="nav-logo">
+      <img src="images/logo.png" alt="Consciousness Cures" style="height:68px;width:68px;object-fit:contain;border-radius:10px;flex-shrink:0;"/>
+      <div class="nav-logo-text"><span class="logo-main">Consciousness Cures</span><span class="logo-sub">Homeopathy · Art of Living</span></div>
+    </div>
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="homeopathy.html">Homeopathy</a>
+      <a href="art-of-living.html">Art of Living</a>
+      <a href="programs.html">Programs</a>
+      <a href="conditions.html">Conditions</a>
+      <a href="products.html" class="on">Products</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://wa.me/919100414201" target="_blank" class="btn nav-cta">Book an Appointment</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="prod-hero">
+  <div class="wrap" style="position:relative;z-index:1;">
+    <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.22em;color:#6DBF8A;display:block;margin-bottom:14px;">Natural Wellness</span>
+    <h1 style="font-family:'Playfair Display',serif;color:#F5F0E8;font-weight:400;font-size:clamp(2.2rem,3.2vw,3.4rem);line-height:1.1;">Our <em style="color:#F5D250;">Products</em></h1>
+    <p style="color:#8ABAAA;font-size:1rem;max-width:520px;line-height:1.8;margin-top:16px;">Carefully selected natural and homeopathic products to support your healing journey — recommended by Dr. Suchitra Mylapilli.</p>
+  </div>
+</section>
+
+<!-- PRODUCTS IMAGE -->
+<section class="sec prod-image-section">
+  <div class="wrap" style="text-align:center;">
+    <span class="eyebrow" style="margin-bottom:8px;display:block;">Product Range</span>
+    <h2 style="margin-bottom:32px;">What We Offer</h2>
+
+    <div class="prod-img-card" onclick="openLightbox()" title="Click to view full size">
+      <img src="images/products.png" alt="Consciousness Cures Products"/>
+    </div>
+
+    <p class="prod-img-hint">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+      Click image to view full size
+    </p>
+
+    <div style="margin-top:40px;">
+      <a href="https://wa.me/919100414201" target="_blank" class="btn-wa"><span class="wa-dot">WA</span> Enquire via WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="prod-lightbox" id="prodLightbox" onclick="closeLightbox()" aria-modal="true" role="dialog" aria-label="Product image full view">
+  <button class="prod-lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+  <img src="images/products.png" alt="Consciousness Cures Products — full view" onclick="event.stopPropagation()"/>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="Consciousness Cures"/>
+        <div>
+          <div class="footer-logo-name">Consciousness Cures</div>
+          <span class="footer-logo-sub">Dr. Suchitra Mylapilli</span>
+        </div>
+      </div>
+      <p class="footer-tagline">Homeopathy · Art of Living · Natural Wellness<br/>Healing from the root — mind, body and spirit.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" style="fill:none;stroke:currentColor;stroke-width:2;"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" style="stroke:currentColor;stroke-width:2;stroke-linecap:round;"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" style="fill:#1E1C16;"/></svg></a>
+        <a href="https://wa.me/919100414201" aria-label="WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h6>Explore</h6>
+      <ul>
+        <li><a href="about.html">About Doctor</a></li>
+        <li><a href="homeopathy.html">Homeopathy</a></li>
+        <li><a href="art-of-living.html">Art of Living</a></li>
+        <li><a href="programs.html">Programs</a></li>
+        <li><a href="conditions.html">Conditions</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h6>Programs</h6>
+      <ul>
+        <li><a href="program-consciousness-cures.html">Consciousness Cures</a></li>
+        <li><a href="program-sudarshan-kriya.html">Sudarshan Kriya</a></li>
+        <li><a href="program-rakheno.html">Rakheno</a></li>
+        <li><a href="program-sanskar-kendra.html">Sri Sri Sanskar Kendra</a></li>
+        <li><a href="program-utkarsh-medha.html">Utkarsh &amp; Medha Yoga</a></li>
+        <li><a href="program-intuition.html">Intuition Program</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h6>Connect</h6>
+      <ul>
+        <li><a href="https://wa.me/919100414201">📱 +91 9100414201</a></li>
+        <li><a href="mailto:consciousnesscure@gmail.com">✉ consciousnesscure@gmail.com</a></li>
+        <li>📍 Ravindra Nagar Last Bus Stop,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Visakhapatnam, A.P.</li>
+        <li>🕐 Mon–Sat · 10am–7pm</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Dr. Suchitra Mylapilli · Consciousness Cures. All rights reserved.</span>
+    <span>Privacy Policy · Terms of Service</span>
+  </div>
+</footer>
+
+<script>
+  function openLightbox()  { document.getElementById('prodLightbox').classList.add('open');    document.body.style.overflow='hidden'; }
+  function closeLightbox() { document.getElementById('prodLightbox').classList.remove('open'); document.body.style.overflow=''; }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+</body>
+</html>
