@@ -168,14 +168,12 @@ body { background:#FDFCF7; }
 </head>
 <body>
 
-</div>
-
 <!-- NAV -->
 <nav class="site-nav">
   <div class="nav-wrap">
     <div class="nav-logo">
       <img src="images/logo.png" alt="Consciousness Cures" style="height:68px;width:68px;object-fit:contain;border-radius:10px;flex-shrink:0;"/>
-      <div class="nav-logo-text"><span class="logo-main">Consciousness Cures</span><span class="logo-sub">Homeopathy &mdash; Art of Living</span></div>
+      <div class="nav-logo-text"><span class="logo-main">Consciousness Cures</span><span class="logo-sub">Homeopathy &middot; Art of Living</span></div>
     </div>
     <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-links">
@@ -195,6 +193,11 @@ body { background:#FDFCF7; }
     <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.22em;color:#6DBF8A;display:block;margin-bottom:14px;">We're Here for You</span>
     <h1 style="font-family:'Playfair Display',serif;color:#F5F0E8;font-weight:400;font-size:clamp(2rem,3vw,3.2rem);line-height:1.1;max-width:560px;">Book a Consultation.<br/><em style="color:#F5D250;">Begin Your Healing.</em></h1>
     <p style="color:#8ABAAA;font-size:0.96rem;max-width:500px;line-height:1.8;margin-top:16px;">Online and in-clinic consultations available. The fastest way to reach Dr. Suchitra is via WhatsApp &mdash; a slot is confirmed within hours.</p>
+    <!-- Slot note -->
+    <div style="display:inline-flex;align-items:center;gap:10px;margin-top:18px;background:rgba(245,210,80,0.1);border:1px solid rgba(245,210,80,0.3);border-radius:10px;padding:10px 16px;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F5D250" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span style="font-size:0.8rem;color:#F5EDD0;line-height:1.4;"><strong style="color:#F5D250;">Slot-based consultations only</strong> &mdash; appointments are confirmed in advance. Walk-ins not available.</span>
+    </div>
     <div style="display:flex;gap:24px;margin-top:28px;flex-wrap:wrap;">
       <div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:#9ABFAA;"><span style="color:#6DBF8A;">&rarr;</span>Response within hours</div>
       <div style="display:flex;align-items:center;gap:8px;font-size:0.85rem;color:#9ABFAA;"><span style="color:#6DBF8A;">&rarr;</span>Online &amp; in-clinic</div>
@@ -294,20 +297,24 @@ body { background:#FDFCF7; }
     <!-- RIGHT: Appointment Form -->
     <div class="ct-form-card">
       <span class="eyebrow">Send a Message</span>
-      <h3 style="font-family:'Playfair Display',serif;font-weight:400;font-size:1.65rem;margin:10px 0 28px;">Book an Appointment</h3>
+      <h3 style="font-family:'Playfair Display',serif;font-weight:400;font-size:1.65rem;margin:10px 0 16px;">Book an Appointment</h3>
+      <div style="display:flex;align-items:flex-start;gap:8px;background:linear-gradient(135deg,rgba(11,61,53,0.06),rgba(11,61,53,0.03));border:1px solid rgba(11,61,53,0.12);border-left:3px solid #0B3D35;border-radius:8px;padding:12px 14px;margin-bottom:24px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0B3D35" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;margin-top:2px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <p style="font-size:0.78rem;color:#4A4438;line-height:1.6;margin:0;"><strong>Slot-based consultations only.</strong> Please book your slot in advance &mdash; Dr. Suchitra will confirm availability and send you the appointment details via WhatsApp.</p>
+      </div>
 
-      <form onsubmit="return false;">
+      <form id="apptForm" onsubmit="sendToWhatsApp(event);">
         <div class="form-row">
-          <div class="form-field"><label>First Name</label><input type="text" placeholder="Priya"/></div>
-          <div class="form-field"><label>Last Name</label><input type="text" placeholder="Sharma"/></div>
+          <div class="form-field"><label for="fname">First Name</label><input id="fname" type="text" placeholder="Priya" required/></div>
+          <div class="form-field"><label for="lname">Last Name</label><input id="lname" type="text" placeholder="Sharma"/></div>
         </div>
         <div class="form-row">
-          <div class="form-field"><label>Phone / WhatsApp</label><input type="tel" placeholder="+91 98765 43210"/></div>
-          <div class="form-field"><label>Email Address</label><input type="email" placeholder="priya@email.com"/></div>
+          <div class="form-field"><label for="phone">Phone / WhatsApp</label><input id="phone" type="tel" placeholder="+91 98765 43210" required/></div>
+          <div class="form-field"><label for="email">Email Address</label><input id="email" type="email" placeholder="priya@email.com"/></div>
         </div>
         <div class="form-field">
-          <label>Consultation Type</label>
-          <select>
+          <label for="consult">Consultation Type</label>
+          <select id="consult">
             <option value="">Select consultation type</option>
             <option>Homeopathy &mdash; Online Consultation</option>
             <option>Homeopathy &mdash; In-Clinic Consultation</option>
@@ -319,14 +326,14 @@ body { background:#FDFCF7; }
           </select>
         </div>
         <div class="form-field">
-          <label>Health Concern / Message</label>
-          <textarea placeholder="Please describe your health concern, the duration, and any relevant details. The more you share, the better Dr. Suchitra can prepare for your consultation."></textarea>
+          <label for="concern">Health Concern / Message</label>
+          <textarea id="concern" placeholder="Please describe your health concern, the duration, and any relevant details. The more you share, the better Dr. Suchitra can prepare for your consultation." required></textarea>
         </div>
         <div class="form-row">
-          <div class="form-field"><label>Preferred Date</label><input type="date"/></div>
+          <div class="form-field"><label for="pdate">Preferred Date</label><input id="pdate" type="date"/></div>
           <div class="form-field">
-            <label>Preferred Time Slot</label>
-            <select>
+            <label for="ptime">Preferred Time Slot</label>
+            <select id="ptime">
               <option value="">Select time slot</option>
               <option>Morning &middot; 10am &ndash; 12pm</option>
               <option>Afternoon &middot; 12pm &ndash; 3pm</option>
@@ -335,12 +342,14 @@ body { background:#FDFCF7; }
           </div>
         </div>
         <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:24px;">
-          <input type="checkbox" id="consent" style="margin-top:3px;width:16px;height:16px;accent-color:#0B3D35;flex-shrink:0;"/>
+          <input type="checkbox" id="consent" style="margin-top:3px;width:16px;height:16px;accent-color:#0B3D35;flex-shrink:0;" required/>
           <label for="consent" style="font-size:0.8rem;color:var(--muted);cursor:pointer;line-height:1.6;">I consent to Dr. Suchitra contacting me via WhatsApp or phone regarding my enquiry. My information will not be shared with third parties.</label>
         </div>
-        <button type="submit" class="ct-submit">Send Appointment Request &rarr;</button>
+        <button type="submit" class="ct-submit">Send via WhatsApp &rarr;</button>
         <p style="font-size:0.76rem;color:var(--muted);text-align:center;margin-top:14px;">Or connect directly:
-          <a href="https://wa.me/919100414201" style="color:var(--sage-dk);border-bottom:1px solid var(--sage-dk);">WhatsApp</a>a href="tel:+919502688656" style="color:var(--sage-dk);border-bottom:1px solid var(--sage-dk);">Call</a>a href="mailto:consciousnesscure@gmail.com" style="color:var(--sage-dk);border-bottom:1px solid var(--sage-dk);">Email</a>
+          <a href="https://wa.me/919100414201" style="color:var(--sage-dk);border-bottom:1px solid var(--sage-dk);">WhatsApp</a> &middot;
+          <a href="tel:+919100414201" style="color:var(--sage-dk);border-bottom:1px solid var(--sage-dk);">Call</a> &middot;
+          <a href="mailto:consciousnesscure@gmail.com" style="color:var(--sage-dk);border-bottom:1px solid var(--sage-dk);">Email</a>
         </p>
       </form>
     </div>
@@ -388,14 +397,14 @@ body { background:#FDFCF7; }
           <span class="footer-logo-sub">Dr. Suchitra Mylapilli</span>
         </div>
       </div>
-      <p class="footer-tagline">Homeopathy &mdash; Art of Living &mdash; Natural Wellness<br/>Healing from the root &mdash; mind, body and spirit.</p>
+      <p class="footer-tagline">Homeopathy &middot; Art of Living &middot; Natural Wellness<br/>Healing from the root &mdash; mind, body and spirit.</p>
       <div class="footer-socials">
         <!-- Facebook -->
-        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.facebook.com/share/1DtfCBJjTB/" aria-label="Facebook"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
         <!-- Instagram -->
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" style="fill:none;stroke:currentColor;stroke-width:2;"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" style="stroke:currentColor;stroke-width:2;stroke-linecap:round;"/></svg></a>
+        <a href="https://www.instagram.com/consciousness.cures" aria-label="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" style="fill:none;stroke:currentColor;stroke-width:2;"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" style="stroke:currentColor;stroke-width:2;stroke-linecap:round;"/></svg></a>
         <!-- YouTube -->
-        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" style="fill:#1E1C16;"/></svg></a>
+        <a href="https://youtube.com/@consciousnesscures" aria-label="YouTube"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" style="fill:#1E1C16;"/></svg></a>
         <!-- WhatsApp -->
         <a href="https://wa.me/919100414201" aria-label="WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
       </div>
@@ -431,10 +440,10 @@ body { background:#FDFCF7; }
     <div class="footer-col">
       <h6>Connect</h6>
       <ul>
-        <li><a href="https://wa.me/919100414201">📱 +91 9100414201</a></li>
-        <li><a href="mailto:consciousnesscure@gmail.com">✉ consciousnesscure@gmail.com</a></li>
-        <li>📍 Ravindra Nagar Last Bus Stop,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Visakhapatnam, A.P.</li>
-        <li>🕐 Mon&ndash;Sat &mdash; 10am&ndash;7pm</li>
+        <li><a href="https://wa.me/919100414201">&#128241; +91 9100414201</a></li>
+        <li><a href="mailto:consciousnesscure@gmail.com">&#9993; consciousnesscure@gmail.com</a></li>
+        <li>&#128205; Ravindra Nagar Last Bus Stop,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Visakhapatnam, A.P.</li>
+        <li>&#128336; Mon&ndash;Sat &mdash; 10am&ndash;7pm</li>
       </ul>
     </div>
   </div>
@@ -449,6 +458,41 @@ body { background:#FDFCF7; }
   document.querySelectorAll('.nav-coming-soon').forEach(el => {
     el.addEventListener('click', e => e.preventDefault());
   });
+
+  function sendToWhatsApp(e) {
+    e.preventDefault();
+
+    var fname   = document.getElementById('fname').value.trim();
+    var lname   = document.getElementById('lname').value.trim();
+    var phone   = document.getElementById('phone').value.trim();
+    var email   = document.getElementById('email').value.trim();
+    var consult = document.getElementById('consult').value.trim();
+    var concern = document.getElementById('concern').value.trim();
+    var pdate   = document.getElementById('pdate').value.trim();
+    var ptime   = document.getElementById('ptime').value.trim();
+
+    // Basic validation
+    if (!fname) { alert('Please enter your first name.'); return; }
+    if (!phone) { alert('Please enter your phone / WhatsApp number.'); return; }
+    if (!concern) { alert('Please describe your health concern.'); return; }
+    if (!document.getElementById('consent').checked) {
+      alert('Please tick the consent checkbox to proceed.'); return;
+    }
+
+    // Build the WhatsApp message
+    var msg = '*New Appointment Request — Consciousness Cures*\n\n';
+    msg += '*Name:* ' + fname + (lname ? ' ' + lname : '') + '\n';
+    msg += '*Phone / WhatsApp:* ' + phone + '\n';
+    if (email) msg += '*Email:* ' + email + '\n';
+    if (consult) msg += '*Consultation Type:* ' + consult + '\n';
+    if (pdate)   msg += '*Preferred Date:* ' + pdate + '\n';
+    if (ptime)   msg += '*Preferred Time:* ' + ptime + '\n';
+    msg += '\n*Health Concern / Message:*\n' + concern;
+
+    // Encode and open WhatsApp
+    var encoded = encodeURIComponent(msg);
+    window.open('https://wa.me/919100414201?text=' + encoded, '_blank');
+  }
 </script>
 </body>
 </html>

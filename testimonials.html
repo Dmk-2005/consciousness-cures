@@ -1,97 +1,503 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Testimonials � Dr. </title>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Patient Stories &mdash; Consciousness Cures | Dr. Suchitra Mylapilli</title>
 <link rel="stylesheet" href="style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+body { background:#FDF8EF; }
+
+/* -- HERO -- */
+.ts-hero {
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(200,150,30,0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 80%, rgba(11,61,53,0.15) 0%, transparent 50%),
+    linear-gradient(150deg, #0B3D35 0%, #082E28 100%);
+  padding: 80px 0 68px;
+  position: relative; overflow: hidden;
+}
+.ts-hero::before {
+  content:''; position:absolute; bottom:-80px; right:-80px;
+  width:400px; height:400px;
+  background:radial-gradient(circle, rgba(245,210,80,0.08) 0%, transparent 65%);
+  pointer-events:none;
+}
+
+/* -- TRUST STATS BAR -- */
+.ts-stats {
+  background: #fff;
+  border-bottom: 1px solid #E8E2D0;
+  padding: 0;
+}
+.ts-stats-inner {
+  display: flex;
+  align-items: stretch;
+}
+.ts-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 16px;
+  border-right: 1px solid #E8E2D0;
+  text-align: center;
+}
+.ts-stat:last-child { border-right: none; }
+.ts-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: #0B3D35;
+  line-height: 1;
+  font-weight: 400;
+}
+.ts-stat-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.ts-stars-sm { color: #C8960A; font-size: 0.85rem; letter-spacing: 2px; }
+
+/* -- SECTION INTRO -- */
+.ts-section-intro {
+  text-align: center;
+  margin-bottom: 52px;
+}
+.ts-section-intro h2 { margin-top: 8px; }
+.ts-section-intro p {
+  font-size: 0.95rem;
+  color: var(--muted);
+  max-width: 520px;
+  margin: 12px auto 0;
+  line-height: 1.75;
+}
+
+/* -- FEATURED CARD (large) -- */
+.ts-featured {
+  background: #fff;
+  border: 1px solid #E8E2D0;
+  border-radius: 20px;
+  padding: 40px 44px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 32px rgba(11,61,53,0.06);
+}
+.ts-featured::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, #0B3D35, #C8960A);
+  border-radius: 20px 20px 0 0;
+}
+.ts-featured-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  color: rgba(11,61,53,0.12);
+  line-height: 0.6;
+  margin-bottom: 20px;
+  display: block;
+}
+.ts-featured-text {
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.85;
+  font-style: italic;
+  margin-bottom: 28px;
+}
+.ts-featured-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-top: 1px solid #F0EAD8;
+  padding-top: 20px;
+}
+.ts-featured-who { display: flex; align-items: center; gap: 14px; }
+.ts-avatar-lg {
+  width: 52px; height: 52px;
+  background: linear-gradient(135deg, #0B3D35, #2A8A65);
+  color: #F5EDD0;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.ts-featured-who strong { font-size: 1rem; color: #2E2A22; display: block; }
+.ts-featured-who span { font-size: 0.78rem; color: var(--muted); margin-top: 2px; display: block; }
+.ts-tag {
+  display: inline-block;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(11,61,53,0.07);
+  border: 1px solid rgba(11,61,53,0.15);
+  color: #0B3D35;
+  white-space: nowrap;
+}
+
+/* -- STANDARD CARD GRID -- */
+.ts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.ts-card {
+  background: #fff;
+  border: 1px solid #E8E2D0;
+  border-radius: 16px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  opacity: 0; transform: translateY(18px);
+}
+.ts-card.ts-in { animation: tsIn 0.45s cubic-bezier(0.22,1,0.36,1) forwards; }
+@keyframes tsIn { to { opacity:1; transform:translateY(0); } }
+.ts-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(11,61,53,0.08); }
+.ts-card::after {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, #0B3D35, #2A8A65);
+  border-radius: 16px 16px 0 0;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.ts-card:hover::after { transform: scaleX(1); }
+.ts-card-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  color: rgba(200,150,30,0.25);
+  line-height: 0.6;
+}
+.ts-card-text {
+  font-size: 0.88rem;
+  color: var(--ink);
+  line-height: 1.78;
+  font-style: italic;
+  flex: 1;
+}
+.ts-card-who {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid #F0EAD8;
+  padding-top: 14px;
+}
+.ts-avatar {
+  width: 40px; height: 40px;
+  background: linear-gradient(135deg, #0B3D35, #2A8A65);
+  color: #F5EDD0;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+.ts-card-who strong { font-size: 0.88rem; color: #2E2A22; display: block; line-height: 1.3; }
+.ts-card-who span { font-size: 0.72rem; color: var(--muted); display: block; margin-top: 2px; }
+.ts-card-stars { color: #C8960A; font-size: 0.78rem; letter-spacing: 1px; }
+
+/* -- AOL SECTION -- */
+.ts-aol-card {
+  background: linear-gradient(160deg, #0A2818 0%, #071E14 100%);
+  border: 1px solid rgba(109,191,138,0.2);
+  border-radius: 16px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.25s ease;
+  opacity: 0; transform: translateY(18px);
+}
+.ts-aol-card.ts-in { animation: tsIn 0.45s cubic-bezier(0.22,1,0.36,1) forwards; }
+.ts-aol-card:hover { transform: translateY(-4px); }
+.ts-aol-quote { font-family: 'Playfair Display', serif; font-size: 2.4rem; color: rgba(109,191,138,0.25); line-height: 0.6; }
+.ts-aol-text { font-size: 0.88rem; color: #C8E4D0; line-height: 1.78; font-style: italic; flex: 1; }
+.ts-aol-who {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 12px;
+}
+.ts-aol-who strong { font-size: 0.88rem; color: #F5EDD0; display: block; }
+.ts-aol-who span { font-size: 0.72rem; color: #6DBF8A; display: block; margin-top: 2px; }
+.ts-aol-stars { color: #F5D250; font-size: 0.78rem; letter-spacing: 1px; }
+
+/* -- TRUST BADGE STRIP -- */
+.ts-trust {
+  background: linear-gradient(160deg, #FFFEF5 0%, #FFF9E0 50%, #FDF3C0 100%);
+  border-top: 1px solid rgba(200,150,30,0.15);
+  border-bottom: 1px solid rgba(200,150,30,0.15);
+  padding: 36px 0;
+}
+.ts-trust-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.ts-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--ink);
+  font-weight: 500;
+}
+.ts-trust-icon {
+  width: 38px; height: 38px;
+  background: rgba(11,61,53,0.08);
+  border-radius: 10px;
+  display: grid; place-items: center;
+  color: #0B3D35;
+  flex-shrink: 0;
+}
+
+/* -- RESPONSIVE -- */
+@media (max-width: 900px) {
+  .ts-stats-inner { flex-wrap: wrap; }
+  .ts-stat { flex: 0 0 50%; border-bottom: 1px solid #E8E2D0; }
+  .ts-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .ts-hero { padding: 56px 0 48px; }
+  .ts-featured { padding: 28px 22px; }
+  .ts-featured-text { font-size: 0.94rem; }
+  .ts-grid { grid-template-columns: 1fr; }
+  .ts-stats-inner { flex-wrap: nowrap; overflow-x: auto; }
+  .ts-stat { flex: 0 0 140px; }
+  .ts-trust-inner { gap: 24px; }
+}
+</style>
 </head>
 <body>
-</div>
-<nav class="site-nav"><div class="nav-wrap">
-  <div class="nav-logo"><img src="images/logo.png" alt="Consciousness Cures" style="height:68px;width:68px;object-fit:contain;border-radius:10px;flex-shrink:0;"/>
-      <div class="nav-logo-text"><span class="logo-main">Consciousness Cures</span><span class="logo-sub">Homeopathy � Art of Living</span></div>
-    <div class="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="homeopathy.html">Homeopathy</a><a href="art-of-living.html">Art of Living</a><a href="programs.html">Programs</a><a href="conditions.html">Conditions</a><a href="products.html">Products</a><a href="blog.html">Blog</a><a href="https://wa.me/919100414201" target="_blank">Contact</a><a href="https://wa.me/919100414201" target="_blank" class="btn nav-cta">Book an Appointment</a></div>
-</div></nav>
 
-<div class="page-top">
-  <div class="wrap">
-    <span class="crumb"><a href="index.html">Home</a> &mdash; Testimonials</span>
-    <span class="eyebrow">Real People � Real Healing</span>
-    <h1>Patient &amp; Workshop Stories</h1>
-    <!-- stats row -->
-    <div style="display:flex;gap:52px;margin-top:36px;">
-      <div><div style="font-family:'Playfair Display',serif;font-size:3rem;color:var(--charcoal);line-height:1;">2000+</div><div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);margin-top:4px;">Patients Healed</div></div>
-      <div><div style="font-family:'Playfair Display',serif;font-size:3rem;color:var(--charcoal);line-height:1;">500+</div><div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);margin-top:4px;">Workshop Graduates</div></div>
-      <div><div style="font-family:'Playfair Display',serif;font-size:3rem;color:var(--charcoal);line-height:1;">15+</div><div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);margin-top:4px;">Years Experience</div></div>
-      <div><div style="font-family:'Playfair Display',serif;font-size:3rem;color:var(--charcoal);line-height:1;">4.9&#9733;</div><div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--muted);margin-top:4px;">Average Rating</div></div>
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-wrap">
+    <div class="nav-logo">
+      <img src="images/logo.png" alt="Consciousness Cures" style="height:100px;width:100px;object-fit:contain;border-radius:10px;flex-shrink:0;"/>
+      <div class="nav-logo-text">
+        <span class="logo-main">Consciousness Cures</span>
+        <span class="logo-sub">Homeopathy &middot; Art of Living</span>
+      </div>
+    </div>
+    <button class="nav-hamburger" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="homeopathy.html">Homeopathy</a>
+      <a href="art-of-living.html">Art of Living</a>
+      <a href="programs.html">Programs</a>
+      <a href="conditions.html">Conditions</a>
+      <a href="products.html">Products</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://wa.me/919100414201" target="_blank" class="btn nav-cta">Book an Appointment</a>
     </div>
   </div>
-  <div class="wrap"></div>
-</div>
+</nav>
+
+<!-- HERO -->
+<section class="ts-hero">
+  <div class="wrap" style="position:relative;z-index:1;">
+    <span style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.22em;color:#6DBF8A;display:block;margin-bottom:14px;">Real People &middot; Real Healing</span>
+    <h1 style="font-family:'Playfair Display',serif;color:#F5F0E8;font-weight:400;font-size:clamp(2.2rem,3.2vw,3.4rem);line-height:1.1;max-width:600px;">
+      Patient &amp; Workshop <em style="color:#F5D250;">Stories</em>
+    </h1>
+    <p style="color:#8ABAAA;font-size:1rem;max-width:540px;line-height:1.8;margin-top:16px;">
+      Every story here is a real person who chose natural healing. These are their words, unedited, shared with gratitude.
+    </p>
+  </div>
+</section>
 
 <!-- PATIENT REVIEWS -->
-<section class="sec">
+<section class="sec" style="background:linear-gradient(160deg,#FDF8EF 0%,#FBF3E8 50%,#F5EDD8 100%);">
   <div class="wrap">
-    <span class="eyebrow">Homeopathy Stories</span>
-    <h2 style="margin-bottom:36px;">Patient Reviews</h2>
-    <div class="grid-3" style="gap:20px;">
-      <div class="testi"><span class="testi-mark">"</span><p>I suffered from sleeplessness and backache for 6 months. Allopathy didn&apos;t help. I consulted Dr. Suchitra through Instagram, and within a month of taking homeopathy medicine, my sleep improved a lot and my back pain reduced. She also introduced me to Sudarshan Kriya &mdash; it was a wonderful experience.</p><div class="testi-who"><div class="testi-avatar">SG</div><div><strong>Shiva Ganga</strong><span>Sleeplessness &amp; Backache &mdash; Hyderabad</span></div></div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-      <div class="testi"><span class="testi-mark">"</span><p>I was bedridden with chronic cold, cough and edema due to improper blood circulation. My family had lost all hope. Someone from my village referred me to Dr. Suchitra. She listened to my complete history for one hour with so much patience. I had a history of accident and TB medication which had left my body heavily drugged. Within 2 months I could stand alone. Thank you Dr. Suchitra.</p><div class="testi-who"><div class="testi-avatar">AL</div><div><strong>Adhi Lakshmi</strong><span>Chronic Cold, Cough &amp; Edema &mdash; Calingapatnam</span></div></div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-      <div class="testi"><span class="testi-mark">"</span><p>I had been suffering from period pain and back pain for many years. I took homeopathy treatment for just 15 days. Surprisingly, I didn&apos;t get any pain that month. I really felt wow! I realised this treatment will be very helpful for many young girls. I feel why I didn&apos;t start this medicine earlier. I am so thankful to Dr. Suchitra.</p><div class="testi-who"><div class="testi-avatar">H</div><div><strong>Harika</strong><span>Period &amp; Back Pain &mdash; Tuni</span></div></div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-      <div class="testi"><span class="testi-mark">"</span><p>My father&apos;s heart function had dropped from 40% to 30%. He had open-heart surgery 23 years back. Doctors said a second surgery was not possible unless his heart function improved to at least 40%. We started homeopathy along with Sudarshan Kriya practice and within one month his heart function improved to 40%. On May 13th he underwent his 2nd open heart surgery successfully.</p><div class="testi-who"><div class="testi-avatar">LR</div><div><strong>Lakshman Rao</strong><span>Heart Recovery &mdash; Bandaruvanipeta</span></div></div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-      <div class="testi"><span class="testi-mark">"</span><p>I suffered from sleeplessness and backache for 6 months. Allopathy didn&apos;t help. I consulted Dr. Suchitra through Instagram, and within a month of taking homeopathy medicine, my sleep improved a lot and my back pain reduced. She also introduced me to Sudarshan Kriya &mdash; it was a wonderful experience.</p><div class="testi-who"><div class="testi-avatar">SG</div><div><strong>Shiva Ganga</strong><span>Sleeplessness &amp; Backache &mdash; Hyderabad</span></div></div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-      <div class="testi"><span class="testi-mark">"</span><p>I was bedridden with chronic cold, cough and edema due to improper blood circulation. My family had lost all hope. Someone from my village referred me to Dr. Suchitra. She listened to my complete history for one hour with so much patience. I had a history of accident and TB medication which had left my body heavily drugged. Within 2 months I could stand alone. Thank you Dr. Suchitra.</p><div class="testi-who"><div class="testi-avatar">AL</div><div><strong>Adhi Lakshmi</strong><span>Chronic Cold, Cough &amp; Edema &mdash; Calingapatnam</span></div></div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-    </div>
-  </div>
-  <div class="wrap"></div>
-</section>
 
-<!-- WORKSHOP REVIEWS -->
-<section class="sec bg-yellow">
-  <div class="wrap">
-    <span class="eyebrow">Art of Living Experiences</span>
-    <h2 style="margin-bottom:36px;">Workshop Reviews</h2>
-    <div class="grid-3" style="gap:20px;">
-      <div class="testi"><span class="testi-mark">"</span><p>I suffered from sleeplessness and backache for 6 months. Within a month of homeopathy medicine, my sleep improved and back pain reduced. Sudarshan Kriya was a wonderful experience.</p><div style="font-size:0.78rem;color:var(--muted);margin-top:12px;"><strong>Shiva Ganga</strong> &mdash; Sudarshan Kriya &mdash; Hyderabad</div><div class="stars" style="font-size:0.85rem;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-      <div class="testi"><span class="testi-mark">"</span><p>My father&apos;s heart function improved from 30% to 40% within one month of homeopathy and Sudarshan Kriya practice. On May 13th he underwent his 2nd open heart surgery successfully.</p><div style="font-size:0.78rem;color:var(--muted);margin-top:12px;"><strong>Lakshman Rao</strong> &mdash; Heart Recovery &mdash; Bandaruvanipeta</div><div class="stars" style="font-size:0.85rem;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
-      <div class="testi"><span class="testi-mark">"</span><p>I took homeopathy treatment for just 15 days and didn&apos;t get period pain that month. I really felt wow! I am so thankful to Dr. Suchitra.</p><div style="font-size:0.78rem;color:var(--muted);margin-top:12px;"><strong>Harika</strong> &mdash; Wellness Program &mdash; Tuni</div><div class="stars" style="font-size:0.85rem;">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div>
+    <div class="ts-section-intro">
+      <span class="eyebrow">Homeopathy Stories</span>
+      <h2>What Patients Say</h2>
+      <p>Hear from people whose lives changed through individualised homeopathic care at Consciousness Cures.</p>
     </div>
-  </div>
-  <div class="wrap"></div>
-</section>
 
-<!-- VIDEO TESTIMONIALS -->
-<section class="sec">
-  <div class="wrap">
-    <span class="eyebrow">Watch Their Stories</span>
-    <h2 style="margin-bottom:36px;">Video Testimonials</h2>
-    <div class="grid-3" style="gap:20px;">
-      <div style="background:var(--yellow-lt);border:1.5px dashed var(--yellow-dk);border-radius:12px;height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;">
-        <div style="width:52px;height:52px;background:rgba(46,42,34,0.12);border-radius:50%;display:grid;place-items:center;font-size:1.1rem;">&rarr;</div>
-        <span style="font-size:0.78rem;color:var(--muted);"> � </span>
-      </div>
-      <div style="background:var(--yellow-lt);border:1.5px dashed var(--yellow-dk);border-radius:12px;height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;">
-        <div style="width:52px;height:52px;background:rgba(46,42,34,0.12);border-radius:50%;display:grid;place-items:center;font-size:1.1rem;">&rarr;</div>
-        <span style="font-size:0.78rem;color:var(--muted);"> � Sudarshan Kriya</span>
-      </div>
-      <div style="background:var(--yellow-lt);border:1.5px dashed var(--yellow-dk);border-radius:12px;height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;">
-        <div style="width:52px;height:52px;background:rgba(46,42,34,0.12);border-radius:50%;display:grid;place-items:center;font-size:1.1rem;">&rarr;</div>
-        <span style="font-size:0.78rem;color:var(--muted);"> � </span>
+    <!-- Featured review -->
+    <div class="ts-featured">
+      <span class="ts-featured-quote">&ldquo;</span>
+      <p class="ts-featured-text">
+        I was bedridden with chronic cold, cough and edema due to improper blood circulation. My family had lost all hope. Someone from my village referred me to Dr. Suchitra. She listened to my complete history for one hour with so much patience. I had a history of accident and TB medication which had left my body heavily drugged. Within 2 months I could stand alone. Thank you Dr. Suchitra.
+      </p>
+      <div class="ts-featured-footer">
+        <div class="ts-featured-who">
+          <div class="ts-avatar-lg">AL</div>
+          <div>
+            <strong>Adhi Lakshmi</strong>
+            <span>Chronic Cold, Cough &amp; Edema &mdash; Calingapatnam</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+          <span class="ts-tag">Homeopathy</span>
+          <span style="color:#C8960A;font-size:0.9rem;">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        </div>
       </div>
     </div>
+
+    <!-- 3-column review cards -->
+    <div class="ts-grid">
+
+      <div class="ts-card" style="animation-delay:0s">
+        <div class="ts-card-quote">&ldquo;</div>
+        <p class="ts-card-text">I suffered from sleeplessness and backache for 6 months. Allopathy didn&apos;t help. I consulted Dr. Suchitra through Instagram, and within a month of taking homeopathy medicine, my sleep improved a lot and my back pain reduced. She also introduced me to Sudarshan Kriya &mdash; it was a wonderful experience.</p>
+        <div class="ts-card-who">
+          <div class="ts-avatar">SG</div>
+          <div>
+            <strong>Shiva Ganga</strong>
+            <span>Sleeplessness &amp; Backache &mdash; Hyderabad</span>
+          </div>
+        </div>
+        <div class="ts-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+
+      <div class="ts-card" style="animation-delay:0.08s">
+        <div class="ts-card-quote">&ldquo;</div>
+        <p class="ts-card-text">I had been suffering from period pain and back pain for many years. I took homeopathy treatment for just 15 days. Surprisingly, I didn&apos;t get any pain that month. I really felt wow! I realised this treatment will be very helpful for many young girls who suffer every month. I feel why I didn&apos;t start this medicine earlier. I am so thankful to Dr. Suchitra.</p>
+        <div class="ts-card-who">
+          <div class="ts-avatar">H</div>
+          <div>
+            <strong>Harika</strong>
+            <span>Period &amp; Back Pain &mdash; Tuni</span>
+          </div>
+        </div>
+        <div class="ts-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+
+      <div class="ts-card" style="animation-delay:0.16s">
+        <div class="ts-card-quote">&ldquo;</div>
+        <p class="ts-card-text">My father&apos;s heart function had dropped from 40% to 30%. He had open-heart surgery 23 years back. Doctors said a second surgery was not possible unless his heart function improved to at least 40%. We started homeopathy along with Sudarshan Kriya practice and within one month his heart function improved to 40%. On May 13th he underwent his 2nd open heart surgery successfully.</p>
+        <div class="ts-card-who">
+          <div class="ts-avatar">LR</div>
+          <div>
+            <strong>Lakshman Rao</strong>
+            <span>Heart Recovery &mdash; Bandaruvanipeta</span>
+          </div>
+        </div>
+        <div class="ts-card-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+
+    </div>
   </div>
-  <div class="wrap"></div>
 </section>
 
+<!-- TRUST BADGE STRIP -->
+<div class="ts-trust">
+  <div class="wrap ts-trust-inner">
+    <div class="ts-trust-item">
+      <div class="ts-trust-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      100% Natural Treatment
+    </div>
+    <div class="ts-trust-item">
+      <div class="ts-trust-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      Zero Side Effects
+    </div>
+    <div class="ts-trust-item">
+      <div class="ts-trust-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      60&ndash;90 Min Deep Consultation
+    </div>
+    <div class="ts-trust-item">
+      <div class="ts-trust-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      Safe for All Ages
+    </div>
+    <div class="ts-trust-item">
+      <div class="ts-trust-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
+      </div>
+      Online &amp; In-Clinic
+    </div>
+  </div>
+</div>
+
+<!-- ART OF LIVING REVIEWS -->
+<section class="sec" style="background:linear-gradient(160deg,#0A2818 0%,#071E14 100%);position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(80,200,130,0.08) 0%,transparent 65%);pointer-events:none;"></div>
+  <div class="wrap" style="position:relative;z-index:1;">
+
+    <div class="ts-section-intro" style="margin-bottom:48px;">
+      <span class="eyebrow" style="color:#6DBF8A;">Art of Living Experiences</span>
+      <h2 style="color:#F5F0E8;">Workshop Stories</h2>
+      <p style="color:#8ABAAA;">Lives transformed through Sudarshan Kriya and Art of Living programs.</p>
+    </div>
+
+    <div class="ts-grid">
+
+      <div class="ts-aol-card" style="animation-delay:0s">
+        <div class="ts-aol-quote">&ldquo;</div>
+        <p class="ts-aol-text">I suffered from sleeplessness and backache for 6 months. Within a month of homeopathy medicine, my sleep improved and back pain reduced. Sudarshan Kriya was a wonderful experience.</p>
+        <div class="ts-aol-who">
+          <strong>Shiva Ganga</strong>
+          <span>Sudarshan Kriya &mdash; Hyderabad</span>
+        </div>
+        <div class="ts-aol-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+
+      <div class="ts-aol-card" style="animation-delay:0.08s">
+        <div class="ts-aol-quote">&ldquo;</div>
+        <p class="ts-aol-text">My father&apos;s heart function improved from 30% to 40% within one month of homeopathy and Sudarshan Kriya practice. On May 13th he underwent his 2nd open heart surgery successfully.</p>
+        <div class="ts-aol-who">
+          <strong>Lakshman Rao</strong>
+          <span>Heart Recovery with Sudarshan Kriya &mdash; Bandaruvanipeta</span>
+        </div>
+        <div class="ts-aol-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+
+      <div class="ts-aol-card" style="animation-delay:0.16s">
+        <div class="ts-aol-quote">&ldquo;</div>
+        <p class="ts-aol-text">I took homeopathy treatment for just 15 days and didn&apos;t get period pain that month. I really felt wow! I am so thankful to Dr. Suchitra.</p>
+        <div class="ts-aol-who">
+          <strong>Harika</strong>
+          <span>Wellness Program &mdash; Tuni</span>
+        </div>
+        <div class="ts-aol-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
 <section style="background:var(--charcoal);padding:72px 0;">
-  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:48px;">
-    <div><span class="eyebrow" style="color:var(--sage);">Be the Next Story</span><h2 style="color:#F5F3EE;margin-top:8px;">Your healing<br/>starts today.</h2><p style="color:#8C8070;margin-top:10px;">Join thousands who have transformed their health naturally.</p></div>
+  <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap;">
+    <div>
+      <span class="eyebrow" style="color:var(--sage);">Be the Next Story</span>
+      <h2 style="color:#F5F3EE;margin-top:8px;max-width:440px;">Your healing<br/>starts today.</h2>
+      <p style="color:#8C8070;margin-top:10px;max-width:380px;">Join thousands who have transformed their health naturally. Share your concern &mdash; Dr. Suchitra will listen.</p>
+    </div>
     <a href="https://wa.me/919100414201" target="_blank" class="btn-wa"><span class="wa-dot">WA</span> Book via WhatsApp</a>
   </div>
 </section>
+
+<!-- FOOTER -->
 <footer class="footer">
   <div class="wrap footer-grid">
-    <!-- Brand column -->
     <div>
       <div class="footer-brand">
         <img src="images/logo.png" alt="Consciousness Cures"/>
@@ -100,20 +506,14 @@
           <span class="footer-logo-sub">Dr. Suchitra Mylapilli</span>
         </div>
       </div>
-      <p class="footer-tagline">Homeopathy � Art of Living � Natural Wellness<br/>Healing from the root � mind, body and spirit.</p>
+      <p class="footer-tagline">Homeopathy &middot; Art of Living &middot; Natural Wellness<br/>Healing from the root &mdash; mind, body and spirit.</p>
       <div class="footer-socials">
-        <!-- Facebook -->
-        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <!-- Instagram -->
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" style="fill:none;stroke:currentColor;stroke-width:2;"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" style="stroke:currentColor;stroke-width:2;stroke-linecap:round;"/></svg></a>
-        <!-- YouTube -->
-        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" style="fill:#1E1C16;"/></svg></a>
-        <!-- WhatsApp -->
+        <a href="https://www.facebook.com/share/1DtfCBJjTB/" aria-label="Facebook"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/consciousness.cures" aria-label="Instagram"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" style="fill:none;stroke:currentColor;stroke-width:2;"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" style="stroke:currentColor;stroke-width:2;stroke-linecap:round;"/></svg></a>
+        <a href="https://youtube.com/@consciousnesscures" aria-label="YouTube"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" style="fill:#1E1C16;"/></svg></a>
         <a href="https://wa.me/919100414201" aria-label="WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
       </div>
     </div>
-
-    <!-- Explore -->
     <div class="footer-col">
       <h6>Explore</h6>
       <ul>
@@ -122,11 +522,10 @@
         <li><a href="art-of-living.html">Art of Living</a></li>
         <li><a href="programs.html">Programs</a></li>
         <li><a href="conditions.html">Conditions</a></li>
-        <li><a href="products.html">Products</a></li><li><a href="gallery.html">Gallery</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
       </ul>
     </div>
-
-    <!-- Programs -->
     <div class="footer-col">
       <h6>Programs</h6>
       <ul>
@@ -138,34 +537,36 @@
         <li><a href="program-intuition.html">Intuition Program</a></li>
       </ul>
     </div>
-
-    <!-- Connect -->
     <div class="footer-col">
       <h6>Connect</h6>
       <ul>
-        <li><a href="https://wa.me/919100414201">📱 +91 9100414201</a></li>
-        <li><a href="mailto:consciousnesscure@gmail.com">✉ consciousnesscure@gmail.com</a></li>
-        <li>📍 Ravindra Nagar Last Bus Stop,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Visakhapatnam, A.P.</li>
-        <li>🕐 Mon�Sat � 10am�7pm</li>
+        <li><a href="https://wa.me/919100414201">&#128241; +91 9100414201</a></li>
+        <li><a href="mailto:consciousnesscure@gmail.com">&#9993; consciousnesscure@gmail.com</a></li>
+        <li>&#128205; Ravindra Nagar Last Bus Stop,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Visakhapatnam, A.P.</li>
+        <li>&#128336; Mon&ndash;Sat &middot; 10am&ndash;7pm</li>
       </ul>
     </div>
   </div>
-
   <div class="footer-bottom">
-    <span>� 2026 Dr. Suchitra Mylapilli � Consciousness Cures. All rights reserved.</span>
-    <span>Privacy Policy � Terms of Service</span>
+    <span>&copy; 2026 Dr. Suchitra Mylapilli &middot; Consciousness Cures. All rights reserved.</span>
+    <span>Privacy Policy &middot; Terms of Service</span>
   </div>
 </footer>
-</body></html>
 
+<script>
+  const tsObs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('ts-in'), i * 80);
+        tsObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.ts-card, .ts-aol-card').forEach(el => tsObs.observe(el));
 
-
-
-
-
-
-
-
-
-
-
+  document.querySelectorAll('.nav-coming-soon').forEach(el => {
+    el.addEventListener('click', e => e.preventDefault());
+  });
+</script>
+</body>
+</html>
